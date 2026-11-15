@@ -1,0 +1,302 @@
+{
+  "version": 5,
+  "id": "vegetarian",
+  "items": [
+    {
+      "id": "water",
+      "tr": "Su",
+      "en": "Water",
+      "unit": "ml",
+      "calories": 0,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "nutrients": {
+        "protein": 0,
+        "carbohydrate": 0,
+        "sugar": 0,
+        "fat": 0,
+        "salt": 0
+      },
+      "nutrientSource": "ai_estimate",
+      "foodGroup": "water"
+    },
+    {
+      "id": "egg",
+      "tr": "Haşlanmış yumurta",
+      "en": "Boiled egg",
+      "unit": "gr",
+      "calories": 155,
+      "calorieSource": {
+        "tr": "USDA SR28 01129: haşlanmış yumurta, kabuksuz, 155 kcal/100 g.",
+        "en": "USDA SR28 01129: hard-boiled egg, without shell, 155 kcal/100 g.",
+        "url": "https://www.ars.usda.gov/ARSUserFiles/80400525/Data/SR/SR28/reports/sr28fg01.pdf"
+      },
+      "calorieMethod": "reference_comparable",
+      "portions": [
+        {
+          "tr": "1 adet haşlanmış yumurta (kabuksuz)",
+          "en": "1 boiled egg (without shell)",
+          "amount": 50
+        }
+      ],
+      "nutrients": {
+        "protein": 13,
+        "carbohydrate": 1,
+        "sugar": 1,
+        "fat": 11.0,
+        "salt": 0.3
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "milk",
+      "tr": "Süt",
+      "en": "Milk",
+      "unit": "ml",
+      "calories": 61,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "nutrients": {
+        "protein": 3.2,
+        "carbohydrate": 4.7,
+        "sugar": 4.7,
+        "fat": 3.3,
+        "salt": 0.12
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "yogurt",
+      "tr": "Sade yoğurt",
+      "en": "Plain yogurt",
+      "unit": "gr",
+      "calories": 61,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "nutrients": {
+        "protein": 3.5,
+        "carbohydrate": 4.7,
+        "sugar": 4.7,
+        "fat": 3.1,
+        "salt": 0.1
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "white_beans_cooked",
+      "tr": "Haşlanmış beyaz fasulye",
+      "en": "Cooked white beans",
+      "unit": "gr",
+      "calories": 127,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "nutrients": {
+        "protein": 8,
+        "carbohydrate": 23,
+        "sugar": 1,
+        "fat": 0.3,
+        "salt": 0.03
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "chickpea",
+      "tr": "Haşlanmış nohut",
+      "en": "Cooked chickpeas",
+      "unit": "gr",
+      "calories": 164,
+      "calorieSource": {
+        "tr": "USDA, Nutritive Value of Foods (2002), kayıt 695; porsiyon değeri 100 grama çevrilmiş yaklaşık değerdir.",
+        "en": "USDA, Nutritive Value of Foods (2002), entry 695; approximate value converted from portion to 100 g.",
+        "url": "https://www.ars.usda.gov/ARSUserFiles/oc/np/NutritiveValueofFoods/NutritiveValueofFoods.pdf"
+      },
+      "calorieMethod": "reference_converted",
+      "nutrients": {
+        "protein": 9,
+        "carbohydrate": 27,
+        "sugar": 5,
+        "fat": 2.2,
+        "salt": 0.03
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "lentil",
+      "tr": "Haşlanmış mercimek",
+      "en": "Cooked lentils",
+      "unit": "gr",
+      "calories": 116,
+      "calorieSource": {
+        "tr": "USDA, Nutritive Value of Foods (2002), kayıt 703; porsiyon değeri 100 grama çevrilmiş yaklaşık değerdir.",
+        "en": "USDA, Nutritive Value of Foods (2002), entry 703; approximate value converted from portion to 100 g.",
+        "url": "https://www.ars.usda.gov/ARSUserFiles/oc/np/NutritiveValueofFoods/NutritiveValueofFoods.pdf"
+      },
+      "calorieMethod": "reference_converted",
+      "nutrients": {
+        "protein": 9,
+        "carbohydrate": 20,
+        "sugar": 2,
+        "fat": 0.0,
+        "salt": 0.03
+      },
+      "nutrientSource": "ai_estimate",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "tofu",
+      "tr": "Tofu",
+      "en": "Tofu",
+      "unit": "gr",
+      "calories": 76,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "nutrients": {
+        "protein": 8,
+        "carbohydrate": 2,
+        "sugar": 0.5,
+        "fat": 4.0,
+        "salt": 0.02
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "tomato",
+      "tr": "Domates",
+      "en": "Tomato",
+      "unit": "gr",
+      "calories": 21,
+      "calorieSource": {
+        "tr": "USDA, Nutritive Value of Foods (2002), kayıt 1206; porsiyon değeri 100 grama çevrilmiş yaklaşık değerdir.",
+        "en": "USDA, Nutritive Value of Foods (2002), entry 1206; approximate value converted from portion to 100 g.",
+        "url": "https://www.ars.usda.gov/ARSUserFiles/oc/np/NutritiveValueofFoods/NutritiveValueofFoods.pdf"
+      },
+      "calorieMethod": "reference_converted",
+      "nutrients": {
+        "protein": 1,
+        "carbohydrate": 3.5,
+        "sugar": 2.5,
+        "fat": 0.3,
+        "salt": 0.02
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "produce"
+    },
+    {
+      "id": "apple",
+      "tr": "Elma",
+      "en": "Apple",
+      "unit": "gr",
+      "calories": 59,
+      "calorieSource": {
+        "tr": "USDA, Nutritive Value of Foods (2002), kayıt 264; porsiyon değeri 100 grama çevrilmiş yaklaşık değerdir.",
+        "en": "USDA, Nutritive Value of Foods (2002), entry 264; approximate value converted from portion to 100 g.",
+        "url": "https://www.ars.usda.gov/ARSUserFiles/oc/np/NutritiveValueofFoods/NutritiveValueofFoods.pdf"
+      },
+      "calorieMethod": "reference_converted",
+      "portions": [
+        {
+          "tr": "1 orta boy elma (yenebilir kısım)",
+          "en": "1 medium apple (edible portion)",
+          "amount": 150
+        }
+      ],
+      "nutrients": {
+        "protein": 0.3,
+        "carbohydrate": 14,
+        "sugar": 10,
+        "fat": 0.2,
+        "salt": 0.01
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "produce"
+    },
+    {
+      "id": "nuts",
+      "tr": "Ceviz",
+      "en": "Walnuts",
+      "unit": "gr",
+      "calories": 654,
+      "calorieSource": {
+        "tr": "USDA, Nutritive Value of Foods (2002), kayıt 733; porsiyon değeri 100 grama çevrilmiş yaklaşık değerdir.",
+        "en": "USDA, Nutritive Value of Foods (2002), entry 733; approximate value converted from portion to 100 g.",
+        "url": "https://www.ars.usda.gov/ARSUserFiles/oc/np/NutritiveValueofFoods/NutritiveValueofFoods.pdf"
+      },
+      "calorieMethod": "reference_converted",
+      "portions": [
+        {
+          "tr": "1 avuç ceviz içi",
+          "en": "1 handful of shelled walnuts",
+          "amount": 30
+        }
+      ],
+      "nutrients": {
+        "protein": 15,
+        "carbohydrate": 14,
+        "sugar": 2,
+        "fat": 59.8,
+        "salt": 0.01
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "fat"
+    },
+    {
+      "id": "orange",
+      "tr": "Portakal",
+      "en": "Orange",
+      "unit": "gr",
+      "calories": 47,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching has not yet been verified.",
+        "url": null
+      },
+      "portions": [
+        {
+          "tr": "1 orta boy portakal (soyulmuş)",
+          "en": "1 medium orange (peeled)",
+          "amount": 130
+        }
+      ],
+      "nutrients": {
+        "protein": 0.9,
+        "carbohydrate": 12,
+        "sugar": 9,
+        "fat": 0.0,
+        "salt": 0.01
+      },
+      "nutrientSource": "ai_estimate",
+      "foodGroup": "produce"
+    }
+  ],
+  "nutritionEstimateNotice": {
+    "tr": "Besin değerleri kaynakla doğrulanmamış yapay zekâ tahminleridir. Yağ değeri mevcut kalori tahmininden hesaplanmıştır; tarif ve porsiyona göre değişir.",
+    "en": "Nutrients are unverified AI estimates. Fat is derived from the existing estimated calories; recipes and portions vary."
+  }
+}

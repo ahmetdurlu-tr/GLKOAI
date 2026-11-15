@@ -1,0 +1,2001 @@
+/* Travma Türü ve Travma Tarihi alanı yüksekliği */
+#traumaType,
+#traumaDate {
+    height: 55px !important;
+    min-height: 55px !important;
+    max-height: 55px !important;
+    font-size: 18px !important;
+    line-height: 1.2 !important;
+    vertical-align: middle !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+}
+/* Number input'larda yukarı/aşağı okları gizle (spinner kaldırma) */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+:root { --bg-color: #0f172a; --card-bg: #1e293b; --text-main: #f8fafc; }
+body { background-color: var(--bg-color); color: var(--text-main); font-family: 'Inter', system-ui, sans-serif; -webkit-tap-highlight-color: transparent; padding-bottom: calc(2px + env(safe-area-inset-bottom)); transition: background-color 0.5s ease; }
+.no-scrollbar::-webkit-scrollbar { display: none; } 
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.guide-header:empty { display: none; padding: 0; border: none; }
+.guide-header .guide-pinned { border-color: rgba(129, 140, 248, 0.35); background: rgba(30, 41, 59, 0.85); }
+
+/* GENEL INPUT AYARLARI */
+input, select, textarea { background-color: var(--card-bg) !important; border: 1px solid #334155 !important; outline: none; transition: all 0.3s ease; color: white; font-size: 14px !important; font-weight: 700 !important; padding-top: 8px !important; padding-bottom: 8px !important;}
+#profileOverlay input,
+#profileOverlay select,
+#profileOverlay textarea {
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    font-family: 'Inter', system-ui, sans-serif !important;
+    letter-spacing: 0.01em !important;
+    height: 55px !important;
+    min-height: 55px !important;
+    max-height: 55px !important;
+}
+input:focus, select:focus, textarea:focus { border-color: #3b82f6 !important; }
+
+/* TANSİYON RENKLENDİRME */
+.bp-input-normal { color: #10b981 !important; /* emerald-500 */ }
+.bp-input-high { color: #ef4444 !important; /* red-500 */ }
+.bp-input-low { color: #f97316 !important; /* orange-500 */ }
+.bp-input-tachycardia { color: #f59e0b !important; /* amber-500 */ }
+.bp-input-bradycardia { color: #3b82f6 !important; /* blue-500 */ }
+
+/* --- FONT BÜYÜKLÜĞÜ --- */
+#glucoseValue, #bpSys, #bpDia, #bpPulse {
+    font-size: 28px !important; font-weight: 900 !important; font-family: 'Inter', sans-serif;
+    height: 60px !important; padding: 0 !important; line-height: 60px !important;
+}
+.text-3xl, .text-2xl { font-size: 28px !important; font-weight: 900 !important; letter-spacing: -0.5px; line-height: 1.1 !important; }
+.text-xs.font-bold.tabular-nums { font-size: 14px !important; }
+
+body.edit-mode-active { background-color: #1c1917 !important; }
+.edit-mode-active #inputForm { border: 2px solid #f59e0b !important; box-shadow: 0 0 30px rgba(245, 158, 11, 0.15); background-color: #292524 !important; }
+@keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+.animate-slide-up { animation: slideUp 0.3s ease-out; }
+@keyframes fadeInCentered { from { opacity: 0; transform: translate(-50%, -40%); } to { opacity: 1; transform: translate(-50%, -50%); } }
+.animate-fade-in-centered { animation: fadeInCentered 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.app-toast { --toast-color:#34d399; box-sizing:border-box; width: min(26rem, calc(100vw - 2rem)); min-height: 3.5rem; padding: 0.75rem 1rem; display: flex; align-items: center; gap: 0.65rem; border:2px dashed var(--toast-color); border-radius:.65rem; background:#172538; color:#fff; }
+.app-toast[data-toast-type="error"]{--toast-color:#fb7185}.app-toast[data-toast-type="warn"]{--toast-color:#fbbf24}.app-toast[data-toast-type="info"]{--toast-color:#60a5fa}
+.app-toast-icon { flex: none; font-size: 1.4rem; color:var(--toast-color); }
+.app-toast-text { flex: 1; min-width: 0; white-space: nowrap; overflow-x: auto; overflow-y: hidden; text-align: center; scrollbar-width: thin; }
+@media (prefers-reduced-motion: reduce) { .app-toast { animation: none; transform: translate(-50%, -50%); } }
+
+.details-wrapper { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.3s ease-out; overflow: hidden; }
+.details-inner { min-height: 0; } 
+.details-open { grid-template-rows: 1fr !important; }
+.tabular-nums { font-feature-settings: "tnum"; font-variant-numeric: tabular-nums; letter-spacing: -0.5px; }
+
+details > summary { list-style: none; outline: none; } 
+details > summary::-webkit-details-marker { display: none; }
+details[open] summary .arrow-icon { transform: rotate(180deg); }
+
+/* FOOD GRID (SCROLL FIX) */
+.food-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 8px;
+    max-height: 210px; /* 3 satır yükseklik sınırı */
+    overflow-y: auto; /* Fazlası için scroll */
+    padding-right: 4px;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+.food-item-btn { position: relative; background-color: rgba(99, 72, 95, 0.08); border: 1px solid rgba(99, 72, 95, 0.42); color: #ffffff; padding: 12px 8px; border-radius: 12px; font-size: 11px; font-weight: 600; text-align: center; cursor: pointer; transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease, border-color 0.18s ease; user-select: none; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 55px; overflow: hidden; box-shadow: 0 6px 16px rgba(99, 72, 95, 0.24); }
+.food-item-btn:active { transform: scale(0.95); }
+.food-item-btn.deleting { animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both; background-color: rgba(99, 72, 95, 0.26); border-color: #63485f; color: #e9ddeb; }
+
+.food-badge { 
+    position: absolute; 
+    top: 4px; 
+    right: 4px; 
+    font-size: 10px !important; 
+    font-weight: 800 !important; 
+    color: white !important; 
+    background-color: #0b2753; 
+    padding: 2px 6px; 
+    border-radius: 6px; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    z-index: 20; 
+    pointer-events: none; 
+    line-height: 1;
+    transform: none !important; 
+}
+
+.selected-food-row { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+.selected-food-row:last-child { margin-bottom: 0; }
+.selected-food-remove { width: 22px; height: 22px; border-radius: 9999px; border: 1px solid rgba(248, 113, 113, 0.55); background: rgba(239, 68, 68, 0.28); color: #fecaca; display: inline-flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 900; line-height: 1; cursor: pointer; transition: all 0.2s ease; box-shadow: 0 0 0 1px rgba(76, 29, 29, 0.25); }
+.selected-food-remove:hover { background: rgba(239, 68, 68, 0.45); border-color: rgba(254, 202, 202, 0.85); color: #fee2e2; }
+.selected-food-remove i { pointer-events: none; }
+.selected-food-name { font-size: 10px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #e0f2fe; flex: 1; }
+
+/* Travma (kırık/organ yaralanması) listeleri tek satır + dar aralık */
+.fracture-list,
+.injury-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    column-gap: 8px !important;
+    row-gap: 0 !important;
+    margin: 0;
+    padding: 0;
+}
+
+.fracture-list label,
+.injury-list label {
+    display: flex;
+    align-items: center;
+    gap: 4px !important;
+    margin: 0;
+    padding: 0;
+    font-size: 11px !important;
+    line-height: 1 !important;
+    min-height: 18px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.fracture-list input[type="checkbox"],
+.injury-list input[type="checkbox"] {
+    margin: 0;
+}
+
+.food-item-btn span { position: relative; z-index: 10; text-shadow: 0 1px 3px rgba(0,0,0,0.9); font-size: 11px !important; font-weight: 700 !important; color: #fff !important; white-space: normal !important; line-height: 1.1 !important; text-align: center; }
+
+.food-item-btn:hover {
+    transform: translateY(-2px);
+    background-color: rgba(99, 72, 95, 0.18);
+    border-color: rgba(99, 72, 95, 0.56);
+    box-shadow: 0 8px 22px rgba(99, 72, 95, 0.42);
+}
+
+.food-item-btn[data-calorie-band="none"] { background: rgba(148, 163, 184, 0.1); border-color: rgba(148, 163, 184, 0.26); box-shadow: 0 6px 16px rgba(15, 23, 42, 0.25); }
+.food-item-btn[data-calorie-band="sub100"] { background: rgba(64, 96, 109, 0.14); border-color: rgba(64, 96, 109, 0.34); box-shadow: 0 6px 16px rgba(64, 96, 109, 0.26); }
+.food-item-btn[data-calorie-band="sub200"] { background: rgba(99, 95, 71, 0.14); border-color: rgba(99, 95, 71, 0.34); box-shadow: 0 6px 16px rgba(99, 95, 71, 0.26); }
+.food-item-btn[data-calorie-band="sub300"] { background: rgba(99, 72, 95, 0.16); border-color: rgba(99, 72, 95, 0.38); box-shadow: 0 6px 16px rgba(99, 72, 95, 0.3); }
+
+.food-item-btn[data-calorie-band="none"]:hover { background: rgba(148, 163, 184, 0.16); border-color: rgba(148, 163, 184, 0.34); }
+.food-item-btn[data-calorie-band="sub100"]:hover { background: rgba(64, 96, 109, 0.22); border-color: rgba(64, 96, 109, 0.5); }
+.food-item-btn[data-calorie-band="sub200"]:hover { background: rgba(99, 95, 71, 0.2); border-color: rgba(99, 95, 71, 0.46); }
+.food-item-btn[data-calorie-band="sub300"]:hover { background: rgba(99, 72, 95, 0.24); border-color: rgba(99, 72, 95, 0.52); }
+
+.food-item-btn.selected { transform: scale(1.02); background-color: rgba(28, 63, 69, 0.22); border-color: rgba(159, 255, 164, 0.36); box-shadow: 0 10px 26px rgba(77, 255, 92, 0.3); }
+.food-item-btn.selected[data-calorie-band="none"] { background: rgba(148, 163, 184, 0.22); border-color: rgba(148, 163, 184, 0.46); box-shadow: 0 10px 22px rgba(148, 163, 184, 0.28); }
+.food-item-btn.selected[data-calorie-band="sub100"] { background: rgba(64, 96, 109, 0.28); border-color: rgba(64, 96, 109, 0.56); box-shadow: 0 10px 22px rgba(64, 96, 109, 0.36); }
+.food-item-btn.selected[data-calorie-band="sub200"] { background: rgba(99, 95, 71, 0.26); border-color: rgba(99, 95, 71, 0.5); box-shadow: 0 10px 22px rgba(99, 95, 71, 0.34); }
+.food-item-btn.selected[data-calorie-band="sub300"] { background: rgba(99, 72, 95, 0.34); border-color: rgba(99, 72, 95, 0.6); box-shadow: 0 10px 22px rgba(99, 72, 95, 0.42); }
+
+.food-item-btn .ai-group-chip {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    padding: 2px 6px;
+    border-radius: 8px;
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ai-chip-color, #e2e8f0);
+    background: linear-gradient(140deg, rgba(15, 23, 42, 0.85), var(--ai-chip-bg, rgba(148, 163, 184, 0.22)));
+    border: 1px solid var(--ai-chip-color, rgba(148, 163, 184, 0.55));
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 2px 6px rgba(15, 23, 42, 0.45);
+    z-index: 25;
+    pointer-events: none;
+}
+.ai-group-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 6px 8px;
+    border-radius: 10px;
+    background: rgba(15, 23, 42, 0.4);
+    border: 1px solid rgba(99, 102, 241, 0.18);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+.ai-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 8px;
+    border-radius: 8px;
+    background: rgba(30, 41, 59, 0.7);
+    border-left: 3px solid var(--ai-legend-color, rgba(148, 163, 184, 0.55));
+    box-shadow: 0 4px 10px rgba(15, 23, 42, 0.35);
+}
+.ai-legend-code {
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    color: var(--ai-legend-color, #cbd5f5);
+}
+.ai-legend-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: #e2e8f0;
+    text-transform: capitalize;
+}
+.diet-option-active {
+    background-color: rgba(99, 102, 241, 0.28) !important;
+    color: #e0e7ff !important;
+    border-color: rgba(129, 140, 248, 0.55) !important;
+    box-shadow: inset 0 0 0 1px rgba(99, 102, 241, 0.35);
+}
+
+.food-item-btn span:first-child { color: #fff6f6 !important; text-shadow: 0 1px 2px rgba(99, 72, 95, 0.46); }
+.food-item-btn span:last-child { color: #eaa748 !important; text-shadow: 0 0 6px rgba(99, 72, 95, 0.46); }
+
+
+.calorie-row { position: relative; border-radius: 10px; border: 1px solid rgba(71, 85, 105, 0.22); padding: 6px 8px; background-color: rgba(15, 23, 42, 0.35) !important; backdrop-filter: blur(2px); }
+.calorie-row + .calorie-row { margin-top: 4px; }
+.calorie-row:last-of-type { border-bottom: none; margin-bottom: 0; }
+.calorie-row[data-calorie-band="sub100"] { background-color: rgba(64, 96, 109, 0.08) !important; border-color: rgba(64, 96, 109, 0.24) !important; }
+.calorie-row[data-calorie-band="sub200"] { background-color: rgba(99, 95, 71, 0.08) !important; border-color: rgba(99, 95, 71, 0.26) !important; }
+.calorie-row[data-calorie-band="sub300"] { background-color: rgba(99, 72, 95, 0.08) !important; border-color: rgba(99, 72, 95, 0.26) !important; }
+.calorie-row[data-calorie-band="none"] { background-color: rgba(71, 85, 105, 0.06) !important; border-color: rgba(71, 85, 105, 0.18) !important; }
+
+.calorie-pill { display: inline-flex; align-items: center; justify-content: center; padding: 2px 4px; border-radius: 999px; font-size: 8px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; white-space: nowrap; backdrop-filter: blur(1.5px); box-shadow: 0 1px 2px rgba(15, 23, 42, 0.2); background-color: rgba(15, 23, 42, 0.45); border: 1px solid currentColor; }
+.calorie-pill.calorie-band-low { color: #00aeff; }
+.calorie-pill.calorie-band-mid { color: #ffd900; }
+.calorie-pill.calorie-band-high { color: #ff0000; }
+.calorie-pill.calorie-band-low::before,
+.calorie-pill.calorie-band-mid::before,
+.calorie-pill.calorie-band-high::before { display: none; }
+
+.total-energy-row { background-color: rgba(30, 41, 59, 0.4) !important; border-radius: 12px; padding: 8px 10px; border-top-width: 1px; border-top-style: solid; border-image: none; margin-top: 6px; backdrop-filter: blur(2px); }
+.total-energy-row[data-calorie-band="sub100"] { border-top-color: rgba(64, 96, 109, 0.34) !important; }
+.total-energy-row[data-calorie-band="sub200"] { border-top-color: rgba(99, 95, 71, 0.34) !important; }
+.total-energy-row[data-calorie-band="sub300"] { border-top-color: rgba(99, 72, 95, 0.38) !important; }
+.total-energy-row[data-calorie-band="none"] { border-top-color: rgba(71, 85, 105, 0.2) !important; }
+
+.total-energy-pill { display: inline-flex; align-items: center; justify-content: center; padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 900; box-shadow: 0 1px 5px rgba(15, 23, 42, 0.22); border: 1px solid #005eff; background-color: rgba(0, 94, 255, 0.12); }
+
+.search-box-wrapper { position: relative; margin-bottom: 12px; }
+.search-box-wrapper i { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #64748b; font-size: 18px; }
+.smart-search-input { width: 100%; padding: 12px 12px 12px 40px; border-radius: 14px; background-color: #0f172a !important; border: 1px solid #334155 !important; font-size: 13px; color: white; font-weight: 500; }
+.smart-search-input:focus { border-color: #3b82f6 !important; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1); }
+
+.btn-active-med { background-color: #2563eb !important; color: white !important; border: 1px solid #60a5fa !important; box-shadow: 0 0 15px rgba(37, 99, 235, 0.5) !important; }
+.btn-active-cat { background-color: rgba(59, 130, 246, 0.2) !important; border-color: #3b82f6 !important; box-shadow: 0 0 15px rgba(59, 130, 246, 0.3); transform: scale(1.02); }
+.btn-active-act { background-color: rgba(250, 204, 21, 0.2) !important; border-color: #facc15 !important; box-shadow: 0 0 15px rgba(250, 204, 21, 0.3); transform: scale(1.02); }
+.btn-active-act i { color: #f3c23c !important; }
+.btn-active-act span { color: #f6d067 !important; }
+.avg-range-btn { transition: all 0.2s ease; }
+.avg-range-btn.avg-range-active { border-color: #edb015 !important; background-color: rgba(237, 176, 21, 0.12) !important; color: #edb015 !important; box-shadow: 0 0 12px rgba(237, 176, 21, 0.25); }
+.btn-active-sym { background-color: rgba(239, 68, 68, 0.2) !important; border-color: #ef4444 !important; color: #fca5a5 !important; }
+
+.filter-btn { opacity: 0.5; filter: grayscale(100%); transition: all 0.3s ease; }
+.filter-btn-active {
+    opacity: 1;
+    filter: grayscale(0%);
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    font-weight: bold;
+    border-width: 2px;
+}
+
+.filter-btn-active.filter-gluc {
+    background-color: rgba(20, 184, 166, 0.15);
+    border-color: #14b8a6;
+    color: #2dd4bf;
+}
+.filter-btn-active.filter-bp {
+    background-color: rgba(244, 63, 94, 0.15);
+    border-color: #f43f5e;
+    color: #fb7185;
+}
+.filter-btn-active.filter-nut {
+    background-color: rgba(249, 115, 22, 0.15);
+    border-color: #f97316;
+    color: #fb923c;
+}
+.filter-btn-active.filter-act {
+    background-color: rgba(250, 204, 21, 0.15);
+    border-color: #facc15;
+    color: #facc15;
+}
+
+.med-delete-btn { background-color: rgba(239, 68, 68, 0.2); border: 1px solid rgba(239, 68, 68, 0.5); color: #f87171; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; border-radius: 6px; transition: all 0.2s; }
+
+.clickable-info { cursor: help; border-bottom: 1px dashed rgba(255,255,255,0.2); transition: border-color 0.2s; }
+.clickable-info:hover { border-bottom-color: rgba(255,255,255,0.8); }
+
+.hero-header { background: rgba(0,0,0,0.3); border-bottom: 1px solid rgba(255,255,255,0.1); padding: 8px 15px; display: flex; justify-content: space-between; align-items: center; }
+.hero-title { font-size: 10px; font-weight: 900; letter-spacing: 1px; color: rgba(255,255,255,0.7); text-transform: uppercase; }
+.hero-date { font-size: 10px; font-weight: 600; color: rgba(255,255,255,0.5); font-variant-numeric: tabular-nums; }
+
+@keyframes scanLight { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+.scanning { background-image: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.5), transparent) !important; background-size: 200% 100% !important; animation: scanLight 0.8s linear forwards; border-color: #818cf8 !important; color: white !important; }
+
+@media print {
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    @page { size: A4; margin: 0; }
+    body { background-color: #0f172a !important; color: white !important; margin: 0 !important; padding: 0 !important; width: 100% !important; }
+    .no-print, header button, #inputForm, #saveButton, #resetBtnMain, #cancelEditBtn, .fixed.bottom-0, #aiSelector, #btnAiAnalyze, #btnAiAnalyzeMain, #filterSelect, #aiTeaserCard, #filterBar { display: none !important; }
+    .print-header { display: block !important; text-align: center; margin: 0 !important; padding: 15px 10px !important; background-color: #1e293b; border-bottom: 1px solid #475569; color: white; }
+    .print-header h1 { font-size: 20px !important; color: #60a5fa !important; margin: 0 0 5px 0 !important; }
+    .print-header p { font-size: 11px !important; color: #cbd5e1 !important; margin: 0 !important; display: inline-block; margin-right: 15px !important;}
+    #reportSection { display: none !important; }
+    main { max-width: 100% !important; padding: 0 !important; margin: 0 !important; }
+    #historySection { display: block !important; width: 100% !important; margin: 0 !important; padding: 0 !important; }
+    #historyList { display: block !important; margin: 0 !important; }
+    details { display: block !important; margin: 0 !important; padding: 0 !important; border: none !important; }
+    summary { display: flex !important; align-items: center; background-color: #334155 !important; color: #f1f5f9 !important; padding: 5px 10px !important; font-size: 11px !important; font-weight: bold !important; border-bottom: 1px solid #1e293b; margin: 0 !important; }
+    details[open] > summary ~ * { display: block !important; }
+    .space-y-2 > :not([hidden]) ~ :not([hidden]) { margin-top: 0 !important; }
+    .bg-slate-900, .bg-slate-800, .bg-\[\#3f1020\] { background-color: #0f172a !important; border-radius: 0 !important; border: none !important; border-bottom: 1px solid #1e293b !important; width: 100% !important; margin: 0 !important; box-shadow: none !important; padding: 0 !important; break-inside: auto !important; page-break-inside: auto !important; }
+    .p-3 { padding: 10px 15px !important; }
+    .bg-\[\#3f1020\] { background-color: #270811 !important; border-bottom: 1px solid #881337 !important; }
+    .details-wrapper { display: block !important; }
+    .details-inner .p-3 { padding: 5px 15px 10px 15px !important; background-color: transparent !important; }
+    .border-t { border-top: none !important; }
+    .text-slate-300, .text-slate-400, .text-slate-500 { color: #94a3b8 !important; }
+    .text-white { color: #ffffff !important; }
+    .ph-pencil-simple, .ph-trash, .arrow-icon { display: none !important; }
+    .text-5xl { font-size: 2rem !important; }
+    .text-3xl { font-size: 1.5rem !important; }
+    .anamnez-print-section {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        border: 1px solid #475569 !important;
+        margin-bottom: 15px;
+    }
+    .trauma-details {
+        background-color: #f8fafc !important;
+        color: #1e293b !important;
+        border-left: 4px solid #f59e0b !important;
+    }
+    .doctor-notes {
+        background-color: #f0f9ff !important;
+        border: 1px solid #3b82f6 !important;
+        color: #1e40af !important;
+    }
+}
+.print-header { display: none; }
+
+/* --- AKILLI YEMEK KONTROL PANELİ (V5 - Final Layout) --- */
+.editor-panel-inner {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    min-height: 112px;
+    background-color: #1e293b; /* Koyu zemin */
+    border: 2px solid #6366f1; /* İndigo çerçeve */
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px -5px rgba(99, 102, 241, 0.5);
+    position: relative;
+}
+
+/* BUTONLAR (SAĞ VE SOL) */
+.ep-btn {
+    flex: 0 0 clamp(48px, 17vw, 70px);
+    border: 0;
+    font-size: 40px; /* İkonlar büyüdü */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    z-index: 10;
+}
+.ep-btn:active { transform: scale(0.90); }
+
+/* YEŞİL TEMA (Düşük Kalori / Azaltma) */
+.ep-style-green {
+    background: linear-gradient(180deg, rgba(16, 185, 129, 0.15), rgba(16, 185, 129, 0.05));
+    color: #34d399;
+    border-right: 1px solid rgba(255,255,255,0.05);
+    border-left: 1px solid rgba(255,255,255,0.05);
+}
+.ep-style-green:active { background-color: rgba(16, 185, 129, 0.3); color: white; }
+
+/* KIRMIZI TEMA (Yüksek Kalori / Artırma) */
+.ep-style-red {
+    background: linear-gradient(180deg, rgba(239, 68, 68, 0.15), rgba(239, 68, 68, 0.05));
+    color: #f87171;
+    border-right: 1px solid rgba(255,255,255,0.05);
+    border-left: 1px solid rgba(255,255,255,0.05);
+}
+.ep-style-red:active { background-color: rgba(239, 68, 68, 0.3); color: white; }
+
+/* ORTA ALAN (BİLGİ) */
+.ep-center {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #1e293b;
+    min-width: 0;
+    gap: 8px;
+    padding: 10px 4px;
+    cursor: default;
+}
+
+/* Yemek İsmi (En Üst) */
+.ep-title {
+    font-size: clamp(14px, 4vw, 17px);
+    font-weight: 800;
+    color: #818cf8; /* İndigo */
+    text-transform: uppercase;
+    text-align: center;
+    overflow-wrap: anywhere;
+    max-width: 100%;
+    letter-spacing: 0.5px;
+}
+
+/* İKİLİ BİLGİ BLOĞU (ORTA) */
+.ep-dual-grid {
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr; /* Sol - Çizgi - Sağ */
+    align-items: center;
+    width: 100%;
+    gap: 0;
+}
+
+/* Dikey Ayırıcı Çizgi */
+.ep-divider {
+    width: 1px;
+    height: 25px;
+    background-color: #334155;
+}
+
+/* Veri Hücreleri */
+.ep-cell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.ep-val-big {
+    font-size: clamp(22px, 6vw, 32px);
+    font-weight: 900;
+    color: white;
+    letter-spacing: -0.5px;
+}
+.ep-val-label {
+    font-size: 9px;
+    font-weight: 700;
+    color: #94a3b8;
+    text-transform: uppercase;
+    margin-top: 2px;
+}
+
+.ep-val-cal {
+    font-size: clamp(22px, 6vw, 32px);
+    font-weight: 900;
+    color: #fbbf24; /* Sarı */
+    letter-spacing: -0.5px;
+}
+.ep-val-cal-label {
+    font-size: 9px;
+    font-weight: 700;
+    color: #d97706; /* Koyu Sarı */
+    text-transform: uppercase;
+    margin-top: 2px;
+}
+
+/* LAB GEÇMİŞİ KARTLARI */
+.lab-metric-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 8px;
+}
+.lab-metric {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 11px;
+    color: #cbd5f5;
+    background: rgba(15, 23, 42, 0.35);
+    border: 1px solid rgba(59, 130, 246, 0.15);
+    border-radius: 10px;
+    padding: 6px 10px;
+}
+.lab-metric strong { color: #60a5fa; font-weight: 800; }
+.lab-meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 11px;
+    color: #94a3b8;
+}
+.lab-meta-row span {
+    background: rgba(15, 23, 42, 0.35);
+    border: 1px dashed rgba(148, 163, 184, 0.25);
+    border-radius: 999px;
+    padding: 4px 9px;
+}
+.lab-vaccine-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+.lab-vaccine-row span {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #fbbf24;
+    background: rgba(59, 130, 246, 0.12);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    border-radius: 999px;
+    padding: 4px 10px;
+}
+.lab-card-btn {
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    background-color: rgba(15, 23, 42, 0.45);
+    transition: all 0.2s ease;
+}
+.lab-card-btn:hover {
+    background-color: rgba(30, 41, 59, 0.65);
+    border-color: rgba(148, 163, 184, 0.3);
+}
+
+/* Tamam Butonu (En Alt) */
+.ep-ok-btn {
+    width: 100%;
+    min-height: 46px;
+    margin-top: .65rem;
+    border: 1px solid rgba(16, 185, 129, 0.28);
+    font-size: 14px;
+    font-weight: 800;
+    color: #10b981;
+    background-color: rgba(16, 185, 129, 0.08);
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.ep-ok-btn:hover { background-color: rgba(16, 185, 129, 0.15); }
+
+
+/* YENİ BUTON STİLLERİ (Aktivite Tarzı) */
+.med-btn {
+    min-height: 70px; /* Yükseklik standardı */
+}
+.sym-btn {
+    min-height: auto;
+}
+
+/* Hissiyat Butonu Seçili Hali (Mor) */
+.btn-active-sym {
+    background-color: rgba(198, 163, 74, 0.2) !important;
+    border-color: #c6a34a !important;
+    box-shadow: 0 0 15px rgba(193, 169, 129, 0.3);
+    transform: scale(1.02);
+}
+.btn-active-sym i { color: #c6a34a !important; }
+.btn-active-sym span { color: #e8dec9 !important; }
+
+/* İlaç Butonu Seçili Hali (Mavi) */
+.btn-active-med { 
+    background-color: rgba(59, 130, 246, 0.2) !important; /* Blue */
+    border-color: #3b82f6 !important; 
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.3) !important; 
+    transform: scale(1.02);
+}
+.btn-active-med i { color: #60a5fa !important; }
+.btn-active-med span { color: #bfdbfe !important; }
+
+/* Aktivite vurguları */
+.text-activity-accent { color: #FBBF24 !important; }
+.bg-activity-accent-soft { background-color: rgba(251, 191, 36, 0.18) !important; }
+.border-activity-accent { border-color: #FBBF24 !important; }
+.border-l-activity-accent { border-left-color: #FBBF24 !important; }
+.activity-goal-pill {
+    background-color: rgba(251, 191, 36, 0.15) !important;
+    border: 1px solid rgba(251, 191, 36, 0.35) !important;
+    color: #FBBF24 !important;
+}
+/* EKLEME BUTONU STİLİ (Dashed) */
+.btn-dashed {
+    border: 2px dashed #475569 !important; /* Slate-600 */
+    background-color: rgba(30, 41, 59, 0.3) !important;
+    color: #94a3b8 !important; /* Slate-400 */
+    min-height: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    transition: all 0.2s ease;
+}
+.btn-dashed:hover {
+    border-color: #8b5cf6 !important; /* Violet */
+    background-color: rgba(139, 92, 246, 0.1) !important;
+    color: #a78bfa !important;
+    transform: scale(0.98);
+}
+.btn-dashed i { font-size: 24px; margin-bottom: 2px; }
+.btn-dashed span { font-size: 9px; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase; }
+/* --- PARLAYAN İLAÇ NOKTALARI --- */
+.med-glow-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+/* Masaüstünde üzerine gelince parlasın */
+
+/* Takip Asistanı için ek stiller */
+#reminderCardsArea .group:hover {
+    transform: translateY(-1px);
+    transition: all 0.2s ease;
+}
+
+/* Alarm sıralama animasyonu */
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#reminderCardsArea > div {
+    animation: slideIn 0.3s ease-out;
+}
+
+/* Yeni bölümler için stiller */
+
+.diabetes-grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+/* Responsive düzenlemeler */
+@media (max-width: 640px) {
+    .anamnez-section {
+        padding: 12px !important;
+    }
+    
+    .grid-cols-2 {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .family-history-flex {
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+    }
+    
+    .diabetes-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 0.5rem !important;
+    }
+    
+    .input-group input,
+    .input-group select,
+    .input-group textarea {
+        padding: 14px 12px 12px 12px !important;
+        font-size: 13px !important;
+    }
+    
+    .input-group label {
+        font-size: 7px !important;
+        left: 10px !important;
+        top: -3px !important;
+    }
+}
+
+/* Doktor notları stilleri */
+.doctor-notes {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9));
+    border-left: 4px solid #3b82f6;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+}
+
+.doctor-notes:focus-within {
+    border-color: #60a5fa;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Düzenli Rapor Modalı */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+.modal-overlay.hidden {
+    display: none;
+}
+
+.modal-container {
+    background: linear-gradient(145deg, #1e293b, #0f172a);
+    border-radius: 20px;
+    border: 1px solid #334155;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background: rgba(15, 23, 42, 0.8);
+    border-bottom: 1px solid #334155;
+}
+
+.modal-body {
+    max-height: calc(100vh - 200px);
+}
+
+.modal-footer {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    background: rgba(15, 23, 42, 0.8);
+    border-top: 1px solid #334155;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    flex: 1;
+    transition: all 0.3s;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: #334155;
+    color: #cbd5e1;
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    flex: 1;
+    transition: all 0.3s;
+}
+
+.btn-secondary:hover {
+    background: #475569;
+}
+
+/* ==================== */
+/* YENİ EKLE BUTON STİLLERİ */
+/* ==================== */
+
+/* ORTAK EKLE BUTON STİLİ */
+.food-add-btn,
+.symptom-add-btn,
+.med-add-btn,
+.alarm-add-btn {
+    /* Çerçeve */
+    border: 2px dashed #475569 !important; /* Slate-600 - KESİK ÇİZGİ */
+    border-radius: 12px !important;
+    
+    /* Arkaplan */
+    background: linear-gradient(
+        135deg,
+        rgba(30, 41, 59, 0.1),
+        rgba(15, 23, 42, 0.05)
+    ) !important;
+    
+    /* Metin ve İkon */
+    color: #94a3b8 !important;
+    
+    /* Geçiş Efekti */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    
+    /* Gölge ve Derinlik */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    
+    /* Tam Genişlik */
+    display: block !important;
+    width: 100% !important;
+    
+    /* İç Boşluk */
+    padding: 0 !important;
+    margin: 0 !important;
+    
+    /* Fare İşareti */
+    cursor: pointer !important;
+}
+
+.food-add-btn:hover,
+.symptom-add-btn:hover,
+.med-add-btn:hover,
+.alarm-add-btn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15) !important;
+    
+    /* Border rengini değiştir */
+    border-color: #3b82f6 !important; /* Blue-500 */
+    
+    /* Arkaplanı aydınlat */
+    background: linear-gradient(
+        135deg,
+        rgba(59, 130, 246, 0.1),
+        rgba(30, 41, 59, 0.15)
+    ) !important;
+}
+
+.food-add-btn:active,
+.symptom-add-btn:active,
+.med-add-btn:active,
+.alarm-add-btn:active {
+    transform: translateY(0) !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* YEMEK EKLE BUTONU - ÖZEL RENK */
+.food-add-btn {
+    border-color: #3b82f6 !important; /* Blue-500 */
+}
+    
+.food-add-btn:hover {
+    border-color: #60a5fa !important; /* Blue-400 */
+    background: linear-gradient(
+        135deg,
+        rgba(59, 130, 246, 0.15),
+        rgba(96, 165, 250, 0.1)
+    ) !important;
+}
+
+/* SEMPTOM/HİSSİYAT EKLE BUTONU - ÖZEL RENK */
+.symptom-add-btn {
+    border-color: #c1a981 !important; /* Custom Gold */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    padding: 8px 12px !important;
+    text-align: center !important;
+    transition: transform 0.2s ease, border-color 0.2s ease !important;
+}
+    
+.symptom-add-btn:hover {
+    border-color: #d4c09e !important; /* Lighter Gold */
+    background: linear-gradient(
+        135deg,
+        rgba(193, 169, 129, 0.15),
+        rgba(212, 192, 158, 0.1)
+    ) !important;
+}
+
+/* İLAÇ EKLE BUTONU - ÖZEL RENK */
+.med-add-btn {
+    border-color: #10b981 !important; /* Emerald-500 */
+}
+    
+.med-add-btn:hover {
+    border-color: #34d399 !important; /* Emerald-400 */
+    background: linear-gradient(
+        135deg,
+        rgba(16, 185, 129, 0.15),
+        rgba(52, 211, 153, 0.1)
+    ) !important;
+}
+
+/* ALARM EKLE BUTONU - ÖZEL RENK */
+.alarm-add-btn {
+    border-color: #8b5cf6 !important; /* Violet-500 */
+}
+    
+.alarm-add-btn:hover {
+    border-color: #a78bfa !important; /* Violet-400 */
+    background: linear-gradient(
+        135deg,
+        rgba(139, 92, 246, 0.15),
+        rgba(167, 139, 250, 0.1)
+    ) !important;
+}
+
+/* İÇERİK KONTEYNERİ (ikon + metin) */
+.food-add-btn div,
+.med-add-btn div,
+.alarm-add-btn div {
+    /* Flex düzen */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    
+    /* Animasyon */
+    transition: all 0.3s ease !important;
+}
+
+/* Buton hover durumunda içeriği değiştir */
+.food-add-btn:hover div {
+    transform: scale(1.02) !important;
+}
+
+.med-add-btn:hover div {
+    transform: scale(1.02) !important;
+}
+
+.alarm-add-btn:hover div {
+    transform: scale(1.02) !important;
+}
+
+/* MOBİL UYUMLULUK */
+@media (max-width: 640px) {
+    .med-add-btn {
+        padding: 12px 0 !important;
+        margin: 8px 0 !important;
+    }
+    .symptom-add-btn {
+        padding: 2px 0 !important;
+        margin: 8px 0 !important;
+    }
+    
+    .alarm-add-btn {
+        padding: 2px 0 !important;
+        margin: 0 !important;
+    }
+
+    .food-add-btn {
+        padding: 2px 0 !important;
+        margin: 8px 0 !important;
+    }
+    
+    .food-add-btn div,
+    .med-add-btn div,
+    .alarm-add-btn div {
+        gap: 8px !important;
+    }
+
+    .symptom-add-btn {
+        gap: 8px !important;
+    }
+}
+
+/* KESİK ÇİZGİ ÖZELLEŞTİRMESİ */
+.food-add-btn,
+.symptom-add-btn,
+.med-add-btn,
+.alarm-add-btn {
+    border-style: dashed !important;
+    border-width: 2px !important;
+    border-radius: 12px !important;
+}
+
+/* İKON BOYUTLARI */
+.food-add-btn i,
+.symptom-add-btn i,
+.med-add-btn i,
+.alarm-add-btn i {
+    font-size: 20px !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Buton hover durumunda ikonu büyüt */
+.food-add-btn:hover i {
+    transform: scale(1.1) !important;
+}
+
+.symptom-add-btn:hover i {
+    transform: scale(1.1) !important;
+}
+
+.symptom-add-btn i {
+    font-size: 16px !important;
+}
+
+.med-add-btn:hover i {
+    transform: scale(1.1) !important;
+}
+
+.alarm-add-btn:hover i {
+    transform: scale(1.1) !important;
+}
+
+/* METİN STİLLERİ */
+.food-add-btn span,
+.symptom-add-btn span,
+.med-add-btn span,
+.alarm-add-btn span {
+    font-weight: 800 !important;
+    letter-spacing: 0.5px !important;
+    transition: all 0.3s ease !important;
+}
+
+.symptom-add-btn span {
+    text-align: center !important;
+}
+
+/* Buton hover durumunda metin rengini değiştir */
+.food-add-btn:hover span {
+    color: #60a5fa !important; /* Blue-400 */
+}
+
+.symptom-add-btn:hover span {
+    color: #c1a981 !important; 
+}
+
+.med-add-btn:hover span {
+    color: #34d399 !important; /* Emerald-400 */
+}
+
+.alarm-add-btn:hover span {
+    color: #a78bfa !important; /* Violet-400 */
+}
+
+/* Renk paleti butonları için hover efekti */
+#colorPalette button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(255,255,255,0.3);
+}
+
+/* Seçili renk butonu için stil */
+#colorPalette button.border-white {
+    box-shadow: 0 0 15px rgba(255,255,255,0.5);
+}
+
+/* İlaç durum badge'leri */
+.med-status-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: #10b981;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 10px;
+    z-index: 10;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.med-status-badge.med-taken {
+    background-color: #10b981;
+}
+/* ==================== */
+/* PROFİL BÖLÜM STİLLERİ */
+/* ==================== */
+
+.section-border {
+    border: 1px solid #334155;
+    border-radius: 12px;
+    padding: 20px;
+    background: linear-gradient(145deg, rgba(30, 41, 59, 0.7), rgba(15, 23, 42, 0.9));
+    transition: all 0.3s ease;
+}
+
+.section-border:hover {
+    border-color: #475569;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Placeholder stilleri */
+::placeholder {
+    color: #94a3b8 !important;
+    opacity: 0.8 !important;
+    font-size: 12px !important;
+}
+
+:-ms-input-placeholder {
+    color: #94a3b8 !important;
+    opacity: 0.8 !important;
+    font-size: 12px !important;
+}
+
+::-ms-input-placeholder {
+    color: #94a3b8 !important;
+    opacity: 0.8 !important;
+    font-size: 12px !important;
+}
+
+/* Input grupları için modern görünüm */
+.input-group {
+    position: relative;
+    margin-bottom: 16px;
+}
+
+.target-mode-input {
+    margin-bottom: 16px;
+}
+
+.complications-input {
+    margin-top: 8px;
+    margin-bottom: -2px;
+}
+
+.diabetes-description {
+    margin-bottom: 8px;
+}
+
+.general-info-grid {
+    margin-top: 16px;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea {
+    width: 100% !important;
+    box-sizing: border-box;
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%) !important;
+    border: 2px solid #475569 !important;
+    border-radius: 12px !important;
+    outline: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: #f1f5f9 !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    padding: 18px 16px 16px 16px !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+    backdrop-filter: blur(10px);
+}
+
+.input-group select option {
+    font-size: 12px !important;
+}
+
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus {
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1), 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+    transform: translateY(-1px);
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%) !important;
+}
+
+.input-group input:hover,
+.input-group select:hover,
+.input-group textarea:hover {
+    border-color: #64748b !important;
+    box-shadow: 0 4px 8px -2px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06) !important;
+}
+
+.input-group label {
+    position: absolute;
+    top: -4px;
+    left: 12px;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    padding: 1px 4px;
+    font-size: 8px;
+    font-weight: 700;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 3px;
+    border: 1px solid #475569;
+    transition: all 0.3s ease;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.input-group input:focus + label,
+.input-group select:focus + label,
+.input-group textarea:focus + label,
+.input-group input:not(:placeholder-shown) + label,
+.input-group select:not([value=""]) + label,
+.input-group textarea:not(:placeholder-shown) + label {
+    color: #3b82f6;
+    border-color: #3b82f6;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    transform: scale(1.02);
+}
+
+.input-group textarea {
+    resize: vertical;
+    min-height: 80px;
+    line-height: 1.5;
+    padding: 18px 16px 16px 16px !important;
+}
+
+/* Select için özel stil */
+.input-group select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 12px center;
+    background-repeat: no-repeat;
+    background-size: 16px;
+    padding: 18px 40px 16px 16px !important;
+}
+
+.input-group select:focus {
+    background-color: #1e293b !important;
+    color: #f1f5f9 !important;
+}
+
+/* Range input için özel stil */
+.input-group input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 6px;
+    background: #475569;
+    border-radius: 3px;
+    outline: none;
+}
+
+.input-group input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #3b82f6;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.input-group input[type="range"]::-webkit-slider-thumb:hover {
+    background: #2563eb;
+    transform: scale(1.1);
+}
+
+.input-group input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #3b82f6;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.input-group input[type="range"]::-moz-range-thumb:hover {
+    background: #2563eb;
+    transform: scale(1.1);
+}
+
+/* Responsive tasarım */
+@media (max-width: 640px) {
+    .section-border {
+        padding: 16px;
+    }
+    
+    .grid-cols-3 {
+        grid-template-columns: 1fr !important;
+        gap: 12px;
+    }
+    
+    .grid-cols-2 {
+        grid-template-columns: 1fr !important;
+        gap: 12px;
+    }
+    
+    /* Mobil cihazlarda col-span sınıflarını sıfırla */
+    .col-span-2 {
+        grid-column: span 1 !important;
+    }
+    
+    .col-span-1 {
+        grid-column: span 1 !important;
+    }
+    
+    /* Genel Bilgiler bölümünde mobil cihazlarda da yan yana tut */
+    .general-info-grid .grid-cols-3 {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+    
+    .general-info-grid .grid-cols-4 {
+        grid-template-columns: repeat(4, 1fr) !important;
+    }
+    
+    .general-info-grid .grid-cols-2 {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    
+    .general-info-grid .col-span-2 {
+        grid-column: span 2 !important;
+    }
+    
+    .general-info-grid .col-span-1 {
+        grid-column: span 1 !important;
+    }
+}
+
+/* Sekme geçiş animasyonları */
+.tab-content {
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Kanser türü ekleme butonları */
+#motherCancerList, #fatherCancerList {
+    max-height: 200px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+#motherCancerList::-webkit-scrollbar,
+#fatherCancerList::-webkit-scrollbar {
+    width: 4px;
+}
+
+#motherCancerList::-webkit-scrollbar-track,
+#fatherCancerList::-webkit-scrollbar-track {
+    background: #1e293b;
+    border-radius: 2px;
+}
+
+#motherCancerList::-webkit-scrollbar-thumb,
+#fatherCancerList::-webkit-scrollbar-thumb {
+    background: #475569;
+    border-radius: 2px;
+}
+
+/* Profil modalı için düzenlemeler */
+#profileOverlay .space-y-6 > * {
+    margin-bottom: 24px;
+}
+
+#profileOverlay .space-y-6 > *:last-child {
+    margin-bottom: 0;
+}
+
+/* Hissiyat ve Aktivite Kartı Butonları İçin Özel Grid Yapısı (Mobilde 2'li, tek kalan yayılır) */
+.symptom-container-grid,
+.activity-container-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px;
+}
+.symptom-container-grid > :last-child:nth-child(odd),
+.activity-container-grid > :last-child:nth-child(odd) {
+    grid-column: span 2;
+}
+
+/* Yönlendirme Okları Animasyonu (Trafik Akışı) */
+@keyframes flowOpacity {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 1; color: #60a5fa; text-shadow: 0 0 8px rgba(96, 165, 250, 0.6); }
+}
+
+.flow-arrow-1 { animation: flowOpacity 1.2s infinite ease-in-out; animation-delay: 0s; }
+.flow-arrow-2 { animation: flowOpacity 1.2s infinite ease-in-out; animation-delay: 0.2s; }
+.flow-arrow-3 { animation: flowOpacity 1.2s infinite ease-in-out; animation-delay: 0.4s; }
+
+/* Modern Tooltip (Hover Açıklaması) */
+.modern-tooltip {
+    position: fixed;
+    z-index: 9999;
+    background: rgba(15, 23, 42, 0.95);
+    color: #e2e8f0;
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.4;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    pointer-events: none;
+    opacity: 0;
+    transform: translate(-50%, -10px) scale(0.95);
+    transition: opacity 0.2s ease, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    max-width: 280px;
+    text-align: center;
+    white-space: normal;
+}
+.modern-tooltip.show {
+    opacity: 1;
+    transform: translate(-50%, -25px) scale(1);
+}
+
+/* GLK-AI Logo Flash Efekti */
+@keyframes flashCycle {
+    0%, 92% { color: var(--base-color); text-shadow: none; } /* Bekleme süresi uzatıldı (%92'ye kadar) */
+    93% { color: #ffffff; text-shadow: 0 0 10px #ffffff; } /* Beyaz */
+    94% { color: #facc15; text-shadow: 0 0 10px #facc15; } /* Sarı */
+    95% { color: #ffffff; text-shadow: 0 0 10px #ffffff; } /* Beyaz */
+    96% { color: #facc15; text-shadow: 0 0 10px #facc15; } /* Sarı */
+    97% { color: #ffffff; text-shadow: 0 0 10px #ffffff; } /* Beyaz */
+    98% { color: #facc15; text-shadow: 0 0 10px #facc15; } /* Sarı */
+    99%, 100% { color: var(--base-color); text-shadow: none; } /* Normale dönüş */
+}
+
+.glk-flash-heading {
+    animation: headingFlicker 12s steps(1, end) infinite;
+}
+
+.glk-flash-text {
+    color: inherit;
+}
+
+.glk-flash-heart {
+    color: #dc2626;
+    font-size: 1.3rem;
+    margin: 0 0.1rem;
+    vertical-align: middle;
+    text-shadow: none;
+}
+
+.glk-flash-bar {
+    color: #dc2626;
+    font-weight: 800;
+    margin: 0 0.12rem;
+    vertical-align: middle;
+}
+
+@keyframes headingFlicker {
+    0% {
+        opacity: 1;
+        filter: brightness(1);
+    }
+    0.8% {
+        opacity: 0;
+        filter: brightness(2.4);
+    }
+    1.6% {
+        opacity: 1;
+        filter: brightness(1.1);
+    }
+    2.4% {
+        opacity: 0;
+        filter: brightness(2.6);
+    }
+    3.2% {
+        opacity: 1;
+        filter: brightness(1.1);
+    }
+    4% {
+        opacity: 0;
+        filter: brightness(2.8);
+    }
+    4.8% {
+        opacity: 1;
+        filter: brightness(1.05);
+    }
+    7% {
+        opacity: 0.4;
+        filter: brightness(1.4);
+    }
+    7.7% {
+        opacity: 1;
+        filter: brightness(1.05);
+    }
+    82% {
+        opacity: 0.7;
+        filter: brightness(0.9);
+    }
+    100% {
+        opacity: 1;
+        filter: brightness(1);
+    }
+}
+
+.today-summary-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 0.5rem;
+}
+.today-summary-track { grid-column: 1 / -1; height: 7px; overflow: hidden; border-radius: 999px; background: #334155; }
+.today-summary-fill { height: 100%; width: 0; border-radius: inherit; transition: width 0.3s ease; }
+.today-summary-fill-water { background: #22d3ee; }
+.today-summary-fill-calories { background: #fb923c; }
+.today-summary-fill-activity { background: #facc15; }
+.today-summary-row { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr) auto; cursor: pointer; }
+.today-summary-row > span { min-width: 0; }
+.today-summary-row > span:first-child > span { text-transform: uppercase; }
+.today-summary-row > span:nth-child(2) { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.today-summary-row::after { content: '›'; color: #94a3b8; font-size: 1.4rem; line-height: 1; grid-column: 3; grid-row: 1; }
+.today-summary-row .today-summary-track { grid-column: 1 / -1; }
+.today-detail-card { display: flex; align-items: center; gap: 0.75rem; padding: 0.85rem; border: 1px solid #475569; border-left: 4px solid var(--detail-color, #94a3b8); border-radius: 0.9rem; background: #1e293b; overflow-wrap: anywhere; }
+.today-detail-icon { flex: none; color: var(--detail-color, #94a3b8); font-size: 1.3rem; }
+.today-detail-kind-0 { --detail-color: #22d3ee; }
+.today-detail-kind-1 { --detail-color: #fb923c; }
+.today-detail-kind-2 { --detail-color: #facc15; }
+.today-detail-kind-3 { --detail-color: #2dd4bf; }
+.today-detail-kind-4 { --detail-color: #f43f5e; }
+.today-detail-kind-5 { --detail-color: #c6a34a; }
+.today-detail-kind-6 { --detail-color: #a78bfa; }
+.home-reminder-list { display: grid; gap: 0.6rem; margin: 0 0 1rem; }
+.home-reminder-list[hidden] { display: none; }
+.home-reminder-card { display: flex; align-items: center; gap: 0.75rem; padding: 0.9rem 1rem; border: 1px solid #475569; border-radius: 1rem; background: #1e293b; color: #e2e8f0; box-shadow: 0 8px 20px rgba(0,0,0,0.16); touch-action: pan-y; transition: transform 220ms ease; cursor: grab; }
+.home-reminder-card.is-dragging { transition: none; cursor: grabbing; }
+@media (prefers-reduced-motion: reduce) { .home-reminder-card { transition: none; } }
+.home-reminder-card.is-due { background: #303844; border-color: #64748b; color: #e2e8f0; box-shadow: inset 4px 0 0 #ef4444, 0 8px 20px rgba(0,0,0,0.16); }
+.home-reminder-icon { font-size: 1.3rem; color: #93c5fd; flex: none; }
+.home-reminder-card.is-due .home-reminder-icon { color: #cbd5e1; }
+.home-reminder-body { flex: 1; min-width: 0; }
+.home-reminder-title { font-size: 0.85rem; font-weight: 700; }
+.home-reminder-status { font-size: 0.75rem; margin-top: 0.2rem; opacity: 0.9; }
+.home-reminder-dismiss { flex: none; color: inherit; font-size: 0.75rem; font-weight: 700; text-decoration: underline; padding: 0.5rem; }
+#oneTimeRemindersArea:not(:empty) + #reminderCardsArea:not(:empty) { margin-top: 0.75rem; }
+.one-time-reminder { padding: 0.85rem; border: 1px solid #475569; border-radius: 0.85rem; background: #1e293b; color: #e2e8f0; }
+.one-time-reminder-heading { display: flex; align-items: center; gap: 0.5rem; }
+.one-time-reminder-label { flex: 1; min-width: 0; overflow-wrap: anywhere; font-size: 0.8rem; font-weight: 700; }
+.one-time-reminder-action { flex: none; padding: 0.5rem; color: #c4b5fd; }
+.one-time-reminder-date { margin-top: 0.4rem; font-size: 0.75rem; color: #cbd5e1; }
+.one-time-reminder-editor { margin-top: 0.75rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.one-time-reminder-editor[hidden] { display: none; }
+.one-time-reminder-editor input, .one-time-reminder-editor button { border: 1px solid #64748b; border-radius: 0.5rem; background: #0f172a; color: white; padding: 0.5rem; }
+.reminder-create-panel { border: 1px solid rgba(167, 139, 250, 0.5); border-radius: 0.9rem; background: rgba(109, 40, 217, 0.16); overflow: hidden; }
+.reminder-create-panel summary { display: flex; align-items: center; gap: 0.6rem; padding: 0.9rem; color: #ddd6fe; font-size: 0.85rem; font-weight: 700; cursor: pointer; }
+.reminder-create-panel form { display: grid; gap: 0.55rem; padding: 0.9rem; border-top: 1px solid #475569; }
+.reminder-create-panel form > label, .reminder-create-panel legend { color: #cbd5e1; font-size: 0.8rem; font-weight: 700; }
+.reminder-create-panel form > input, .reminder-create-panel form > select, .reminder-type-fields > input { width: 100%; color: white; background: #0f172a; border: 1px solid #64748b; border-radius: 0.6rem; padding: 0.7rem; }
+.reminder-type-fields { display: grid; gap: 0.55rem; }
+.reminder-type-fields[hidden] { display: none; }
+.reminder-type-fields > label { color: #cbd5e1; font-size: 0.8rem; font-weight: 700; }
+.reminder-calendar-button { width: 100%; display: flex; align-items: center; gap: 0.6rem; padding: 0.9rem; border: 1px solid rgba(94, 234, 212, 0.45); border-radius: 0.9rem; background: rgba(20, 184, 166, 0.13); color: #99f6e4; font-size: 0.85rem; font-weight: 700; }
+.reminder-day-options { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem; }
+.reminder-day-options label { display: flex; align-items: center; gap: 0.25rem; padding: 0.45rem; border: 1px solid #475569; border-radius: 0.5rem; color: #e2e8f0; font-size: 0.75rem; }
+.reminder-day-options input { accent-color: #8b5cf6; }
+.reminder-create-submit { padding: 0.7rem; border-radius: 0.65rem; color: white; background: #6d28d9; font-size: 0.85rem; font-weight: 700; }
+.main-bottom-nav { position: fixed; z-index: 70; bottom: 0; left: 0; width: 100%; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); background: #0f172a; border-top: 1px solid #334155; padding: 0.35rem 0 max(0.35rem, env(safe-area-inset-bottom)); }
+.main-bottom-nav button { min-width: 0; min-height: 4.25rem; display: flex; align-items: center; justify-content: center; color: #94a3b8; }
+.main-bottom-nav .nav-icon { width: min(4rem, calc(25vw - 0.75rem)); aspect-ratio: 1; display: flex; align-items: center; justify-content: center; border: 1px solid var(--nav-border); border-radius: 0.95rem; color: var(--nav-color); background: var(--nav-bg); }
+.main-bottom-nav .nav-icon svg { width: 78%; height: 78%; }
+.main-bottom-nav .nav-label { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+.main-bottom-nav button[data-main-view="home"] { --nav-color: #93c5fd; --nav-bg: rgba(59, 130, 246, 0.12); --nav-selected-bg: rgba(59, 130, 246, 0.28); --nav-glow: rgba(96, 165, 250, 0.35); --nav-border: rgba(147, 197, 253, 0.3); }
+.main-bottom-nav button[data-main-view="lifestyle"] { --nav-color: #fdba74; --nav-bg: rgba(249, 115, 22, 0.12); --nav-selected-bg: rgba(249, 115, 22, 0.28); --nav-glow: rgba(251, 146, 60, 0.35); --nav-border: rgba(253, 186, 116, 0.3); }
+.main-bottom-nav button[data-main-view="measurements"] { --nav-color: #5eead4; --nav-bg: rgba(20, 184, 166, 0.12); --nav-selected-bg: rgba(20, 184, 166, 0.28); --nav-glow: rgba(45, 212, 191, 0.35); --nav-border: rgba(94, 234, 212, 0.3); }
+.main-bottom-nav button[data-main-view="history"] { --nav-color: #c4b5fd; --nav-bg: rgba(139, 92, 246, 0.12); --nav-selected-bg: rgba(139, 92, 246, 0.28); --nav-glow: rgba(167, 139, 250, 0.35); --nav-border: rgba(196, 181, 253, 0.3); }
+.main-bottom-nav button[aria-current="page"] { color: var(--nav-color); }
+.main-bottom-nav button[aria-current="page"] .nav-icon { background: var(--nav-selected-bg); border-color: var(--nav-color); box-shadow: 0 0 1rem var(--nav-glow), inset 0 0 0.7rem var(--nav-glow); }
+.app-menu-button { width: 2.7rem; height: 2.7rem; display: flex; align-items: center; justify-content: center; border-radius: 0.8rem; border: 1px solid rgba(212, 187, 122, 0.4); color: #d4bb7a; background: rgba(212, 187, 122, 0.1); }
+.app-menu-button svg { width: 1.75rem; height: 1.75rem; }
+.app-notification-button { position: relative; width: 2.7rem; height: 2.7rem; display: flex; align-items: center; justify-content: center; border-radius: 0.8rem; border: 1px solid rgba(196, 181, 253, 0.4); color: #c4b5fd; background: rgba(139, 92, 246, 0.1); font-size: 1.3rem; }
+.reminder-bell-badge { position: absolute; top: -0.25rem; right: -0.25rem; min-width: 1.15rem; height: 1.15rem; padding: 0 0.2rem; border-radius: 999px; background: #7c3aed; color: white; font-size: 0.65rem; font-weight: 800; line-height: 1.15rem; text-align: center; }
+.reminder-bell-badge.is-due { background: #dc2626; }
+.reminder-bell-badge[hidden] { display: none; }
+.section-page-heading { display: flex; align-items: center; gap: 0.75rem; padding: 1rem; margin-bottom: 1rem; border: 1px solid #334155; border-radius: 1.5rem; background: #1e293b; }
+body { padding-bottom: 6rem; }
+#bottomActionPanel { bottom: calc(5.45rem + env(safe-area-inset-bottom, 0px)); }
+.independent-save-button { display: block; width: calc(100% - 2rem); margin: 0.75rem 1rem 1rem; padding: 0.8rem; border: 1px solid #60a5fa; border-radius: 0.85rem; background: #1d4ed8; color: white; font-size: 0.875rem; font-weight: 700; cursor: pointer; }
+.independent-save-button.independent-save-inline { width: 100%; margin: 0.75rem 0; }
+.independent-save-button[hidden] { display: none; }
+body.edit-mode-active .independent-save-button { display: none; }
+@keyframes today-detail-heartbeat { 0%, 55%, 100% { transform: scale(1); } 20% { transform: scale(1.12); } 35% { transform: scale(1.03); } }
+@media (prefers-reduced-motion: no-preference) { .today-detail-heart { animation: today-detail-heartbeat 1.4s ease-in-out 2; } }
+
+
+/* Bölüm hatırlatmaları */
+.has-section-reminder { position: relative; }
+.has-section-reminder > summary > div:first-child { min-width: 0; padding-right: 3rem; }
+.section-reminder-bell { position: absolute; top: 0.65rem; right: 2.9rem; z-index: 2; width: 2.5rem; height: 2.5rem; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--reminder-color); border-radius: 0.7rem; color: var(--reminder-color); background: #1e293b; font-size: 1.15rem; }
+.section-reminder-bell:focus-visible { outline: 2px solid white; outline-offset: 2px; }
+.section-medication-bell { position: static; float: right; margin-left: 0.5rem; }
+.one-time-reminder[style*="--reminder-color"] { border-left: 4px solid var(--reminder-color); }
+.one-time-reminder[style*="--reminder-color"] .one-time-reminder-action { color: var(--reminder-color); }
+.home-reminder-card[style*="--reminder-color"]:not(.is-due) { border-left: 4px solid var(--reminder-color); }
+.home-reminder-card[style*="--reminder-color"]:not(.is-due) .home-reminder-icon { color: var(--reminder-color); }
+.section-reminder-dialog { width: min(92vw, 27rem); max-height: 90vh; overflow-y: auto; border: 1px solid var(--reminder-color, #a78bfa); border-radius: 1rem; padding: 1rem; background: #172033; color: #e2e8f0; }
+.section-reminder-dialog::backdrop { background: rgba(0, 0, 0, .75); }
+.section-reminder-dialog form { display: grid; gap: .6rem; }
+.section-reminder-dialog-heading { display: flex; align-items: center; justify-content: space-between; gap: .5rem; color: var(--reminder-color); font-weight: 700; }
+.section-reminder-dialog-heading button { padding: .5rem; color: #cbd5e1; }
+.section-reminder-dialog label, .section-reminder-dialog legend { font-size: .8rem; font-weight: 700; }
+.section-reminder-dialog input:not([type=checkbox]), .section-reminder-dialog select { box-sizing: border-box; width: 100%; min-width: 0; color: white; background: #0f172a; border: 1px solid #64748b; border-radius: .6rem; padding: .7rem; }
+.section-reminder-dialog .reminder-create-submit { margin-top: .4rem; }
+
+.section-water-heading { display: flex; align-items: center; justify-content: space-between; gap: .5rem; margin-bottom: .75rem; }
+.section-water-heading h3 { margin: 0; }
+.section-water-bell { position: static; flex: none; }
+
+.reminder-schedule-choice { border: 0; padding: 0; margin: 0; min-width: 0; }
+.reminder-schedule-choice legend { margin-bottom: .5rem; color: #cbd5e1; font-size: .8rem; font-weight: 700; }
+.reminder-schedule-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem; }
+.reminder-schedule-options label { position: relative; min-width: 0; cursor: pointer; }
+.reminder-schedule-options input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.reminder-schedule-options span { display: flex; align-items: center; justify-content: center; min-height: 2.75rem; padding: .4rem; border: 1px solid #64748b; border-radius: .6rem; background: #0f172a; color: #cbd5e1; font-size: .8rem; text-align: center; }
+.reminder-schedule-options input:checked + span { color: white; border-color: var(--reminder-color, #a78bfa); background: #37306a; }
+.reminder-schedule-options input:focus-visible + span { outline: 2px solid white; outline-offset: 2px; }
+
+.home-reminder-card.is-due[style*="--reminder-color"] { border-left: 4px solid var(--reminder-color); }
+.home-reminder-overdue-label { display: inline-flex; align-items: center; gap: .3rem; margin-top: .3rem; padding: .15rem .4rem; border: 1px solid #94a3b8; border-radius: .4rem; background: #475569; color: #f8fafc; font-size: .68rem; font-weight: 800; }
+
+.one-time-reminder.is-due { background: #303844; border-color: #64748b; color: #e2e8f0; box-shadow: inset 4px 0 0 #ef4444; }
+.one-time-reminder.is-due[style*="--reminder-color"] { border-left: 4px solid var(--reminder-color); }
+.reminder-overdue-count[hidden] { display: none; }
+
+.one-time-reminder { touch-action: pan-y; transition: transform 220ms ease; }
+.one-time-reminder.is-dragging { transition: none; cursor: grabbing; }
+@media (prefers-reduced-motion: reduce) { .one-time-reminder { transition: none; } }
+.food-list-open { width: 100%; display: flex; gap: .6rem; align-items: center; justify-content: center; padding: .7rem; margin-bottom: .8rem; border: 1px solid #fb923c; border-radius: .7rem; background: rgba(251,146,60,.1); color: #fed7aa; font-size: .85rem; font-weight: 700; }
+.food-section-heading { color: #fdba74; font-weight: 800; font-size: 1.05rem; text-align: center; }
+.food-editor-dialog { box-sizing: border-box; width: min(92vw, 27rem); max-height: 88vh; overflow-y: auto; border: 1px solid #7669e8; border-radius: 1.2rem; padding: 1rem; background: #172033; color: #e2e8f0; box-shadow: 0 20px 60px rgba(0,0,0,.5); }
+.food-editor-dialog::backdrop { background: rgba(0,0,0,.78); }
+.food-management { border: 1px solid #475569; border-radius: .9rem; background: #192437; }
+.food-management-summary { display: flex; align-items: center; gap: .8rem; padding: .9rem; cursor: pointer; color: #fdba74; }
+.food-management-summary > i:first-child { display: grid; place-items: center; width: 2.4rem; height: 2.4rem; border: 1px solid rgba(251,146,60,.35); border-radius: .65rem; background: rgba(251,146,60,.1); font-size: 1.1rem; flex-shrink: 0; }
+.food-management-summary span { flex: 1; min-width: 0; text-align: center; }
+.food-management-summary strong, .food-management-summary small { display: block; }
+.food-management-summary strong { font-size: 1.02rem; }
+.food-management-summary small { color: #94a3b8; font-size: .72rem; margin-top: .2rem; }
+.food-management-caret { color: #94a3b8; transition: transform .2s; }
+.food-management[open] > summary .food-management-caret { transform: rotate(180deg); }
+.food-management-body { padding: .2rem .75rem .8rem; }
+.food-wizard .food-management-summary { color: #c4b5fd; }
+.food-wizard .food-management-summary > i:first-child { border-color: rgba(167,139,250,.4); background: rgba(139,92,246,.12); }
+.food-wizard .food-management-summary strong { color: #c4b5fd; }
+.section-water-heading h3 { flex: 1; }
+#foodSearchInput { box-sizing: border-box; min-height: 3.5rem; }
+.food-clear-all { display: flex; align-items: center; justify-content: center; gap: .5rem; width: 100%; min-height: 2.8rem; margin-top: .8rem; border: 1px solid rgba(248,113,113,.45); border-radius: .7rem; background: rgba(127,29,29,.13); color: #fca5a5; font-size: .8rem; font-weight: 700; }
+.food-lists-dialog { width: min(92vw, 31rem); max-height: 88vh; overflow-y: auto; padding: 1rem; border: 1px solid #fb923c; border-radius: 1rem; background: #172033; color: #e2e8f0; }
+.food-import-paste { width: 100%; min-height: 2.8rem; display: flex; align-items: center; justify-content: center; gap: .5rem; border: 1px solid #7567ce; border-radius: .7rem; background: rgba(109,86,195,.16); color: #ddd6fe; font-weight: 700; font-size: .82rem; }
+.food-import-paste[hidden] { display: none; }
+.food-import-status:not([hidden]) { margin-top: .55rem; padding: .65rem .75rem; border: 1px solid #475569; border-radius: .65rem; color: #cbd5e1; background: #1e293b; font-size: .77rem; line-height: 1.4; }
+.food-import-status[data-kind="ready"] { border-color: #0f766e; color: #99f6e4; background: rgba(15,118,110,.16); }
+.food-import-status[data-kind="warn"] { border-color: #a16207; color: #fde68a; background: rgba(161,98,7,.16); }
+.ai-paste-dialog { box-sizing: border-box; width: min(92vw, 26rem); max-height: 90vh; overflow-y: auto; padding: 1.4rem; border: 1px solid #7066db; border-radius: 1.35rem; background: #172033; color: #e2e8f0; box-shadow: 0 20px 60px rgba(0,0,0,.45); }
+.ai-paste-dialog::backdrop { background: rgba(0,0,0,.78); }
+.ai-paste-icon { display: grid; place-items: center; width: 3rem; height: 3rem; margin: 0 auto .8rem; border-radius: .9rem; color: #c4b5fd; background: rgba(139,92,246,.2); font-size: 1.45rem; }
+.ai-paste-dialog h2 { margin: 0 0 .7rem; color: #fff; font-size: 1.15rem; font-weight: 800; text-align: center; }
+.ai-paste-dialog p { margin: 0; color: #d5deec; font-size: .92rem; line-height: 1.5; text-align: center; }
+.ai-paste-tips { display: grid; gap: .3rem; margin: 1rem 0; padding: .85rem; border-radius: .8rem; background: #222f44; color: #cbd5e1; font-size: .82rem; line-height: 1.45; }
+.ai-paste-dialog button { width: 100%; min-height: 3rem; border: 0; border-radius: .8rem; color: white; background: #6357d9; font-weight: 800; cursor: pointer; }
+.ai-paste-dialog button:focus-visible { outline: 2px solid #ddd6fe; outline-offset: 3px; }
+.food-lists-dialog::backdrop { background: rgba(0,0,0,.75); }
+.food-lists-header { display: flex; align-items: flex-start; justify-content: space-between; gap: .5rem; }
+.food-lists-header h2 { font-size: 1rem; font-weight: 800; }
+.food-lists-header button { flex: none; padding: .4rem; }
+.food-lists-dialog p { margin: .6rem 0; font-size: .8rem; color: #cbd5e1; }
+.food-lists-dialog h3 { color: #fdba74; font-size: .8rem; font-weight: 800; margin: .9rem 0 .45rem; }
+.food-list-options { display: grid; grid-template-columns: repeat(auto-fit,minmax(125px,1fr)); gap: .4rem; }
+.food-list-options label { display: flex; align-items: center; gap: .5rem; padding: .6rem; border: 1px solid #475569; border-radius: .6rem; background: #1e293b; font-size: .8rem; }
+.food-list-options input { accent-color: #f97316; }
+.food-lists-dialog .food-list-note { color: #94a3b8; font-size: .73rem; }
+.food-lists-actions { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
+.food-lists-actions button, .food-wizard-link { padding: .65rem .8rem; border: 1px solid #64748b; border-radius: .6rem; font-size: .8rem; font-weight: 700; }
+.food-lists-apply { background: #c2410c; color: white; }
+.food-lists-later, .food-wizard-link { background: #1e293b; color: #e2e8f0; }
+.food-lists-dialog .food-lists-error { color: #fecaca; }
+.food-calorie-unknown { display: block; margin-top: .35rem; font-size: .6rem; line-height: 1.2; color: #ffedd5; }
+#nutDetails > summary { position: relative; padding-right: 6.8rem; }
+#nutDetails > summary > div:first-child { padding-right: 0; flex-wrap: wrap; min-width: 0; }
+#nutDetails > summary > i:last-child { position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); }
+#nutDetails[open] > summary > i:last-child { transform: translateY(-50%) rotate(180deg); }
+
+.food-item-btn .food-diet-marker { position: absolute; bottom: 2px; left: 3px; z-index: 11; font-size: 8px !important; color: #fed7aa !important; padding: 1px 3px; border-radius: 4px; background: #7c2d12; }
+
+.food-energy-entry { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin-top: .5rem; color: #fde68a; font-size: .75rem; font-weight: 700; }
+.food-energy-entry input { width: 6rem; padding: .45rem; border: 1px solid #64748b; border-radius: .5rem; background: #0f172a; color: white; }
+.food-energy-note { color: #94a3b8; font-size: .7rem; margin-top: .3rem; }
+
+.food-portion-options { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .5rem; }
+.food-portion-options button { padding: .45rem .6rem; border: 1px solid #94a3b8; border-radius: .5rem; color: #e2e8f0; background: #1e293b; font-size: .75rem; }
+.food-energy-details { margin-top: .6rem; padding: .65rem; border: 1px solid #475569; border-radius: .65rem; background: #0f172a; }
+.food-energy-details summary { display: flex; align-items: center; justify-content: center; gap: .55rem; min-height: 2.85rem; padding: .55rem; border: 2px dashed #a78bfa; border-radius: .65rem; color: #ddd6fe; background: rgba(139,92,246,.08); font-size: .85rem; font-weight: 800; text-align: center; cursor: pointer; }
+.food-energy-details summary span { min-width: 0; }
+.food-energy-details summary:focus-visible { outline: 2px solid #ddd6fe; outline-offset: 3px; }
+.food-energy-caret { transition: transform .2s; }
+.food-energy-details[open] .food-energy-caret { transform: rotate(180deg); }
+
+.food-loaded-panel { margin: 0 0 .8rem; border-radius: .7rem; background: #172033; overflow: hidden; }
+.food-loaded-panel > summary { display: flex; gap: .6rem; align-items: center; justify-content: center; padding: .7rem; border: 1px solid #fb923c; border-radius: .7rem; background: rgba(251,146,60,.1); color: #fed7aa; font-weight: 700; font-size: .85rem; cursor: pointer; }
+.food-loaded-panel > p { margin: 0; padding: 0 .8rem .5rem; color: #94a3b8; font-size: .72rem; }
+/* Diyet ve mutfak yönetiminde iki anlaşılır başlangıç noktası. */
+.food-menu-action,.food-menu-lists>summary{box-sizing:border-box;width:100%;display:flex;align-items:center;gap:.7rem;text-align:left;padding:.8rem;border:1px solid #72523d;border-radius:.75rem;background:#fb923c10;color:#fed7aa;cursor:pointer}
+.food-menu-action>i:first-child,.food-menu-lists>summary>i:first-child{display:grid;place-items:center;flex:none;width:2.3rem;height:2.3rem;border:1px solid #fb923c55;border-radius:.6rem;background:#fb923c18;font-size:1.1rem}
+.food-menu-action>span,.food-menu-lists>summary>span{flex:1;min-width:0;display:block;text-align:left}
+.food-menu-action strong,.food-menu-lists>summary strong{display:block;font-size:.8rem;line-height:1.3}.food-menu-action small,.food-menu-lists>summary small{display:block;margin-top:.2rem;color:#adbed2;font-size:.7rem;line-height:1.35;font-weight:500;text-transform:none}
+.food-menu-action>i:last-child,.food-menu-lists>summary>i:last-child{color:#94a3b8;flex:none}.food-menu-lists{margin:.65rem 0 0}.food-menu-lists>summary{justify-content:flex-start}.food-menu-lists[open]>summary>i:last-child{transform:rotate(180deg)}
+.food-menu-list-body{padding:.6rem .15rem .1rem}.food-menu-list-body>p{padding:0 .3rem;color:#aebed2;font-size:.72rem;line-height:1.4}.food-menu-add{margin:.65rem 0 0;border-style:dashed}.food-menu-list-body .food-clear-all{margin-top:.6rem}
+.food-list-help{margin:.55rem 0 .8rem;color:#b4c6da;font-size:.75rem}.food-list-help summary{cursor:pointer;color:#aebed2;text-decoration:underline}.food-list-category{margin:.6rem 0;border:1px solid #69513f;border-radius:.75rem;overflow:hidden;background:#fb923c0b}.food-list-category>summary{display:flex;align-items:center;gap:.6rem;padding:.8rem;color:#fed7aa;cursor:pointer;font-size:.83rem;font-weight:800}.food-list-category>summary span{flex:1}.food-list-category[open]>summary>i:last-child{transform:rotate(180deg)}.food-list-category-body{padding:0 .65rem .7rem}.food-list-category-body .custom-cuisine-add{margin:.7rem 0 0}
+/* Gıda listesi penceresindeki işlemler bölüm rengine uygun ve ortalıdır. */
+#foodListsDialog .food-list-category{border-style:dashed}
+#foodListsDialog .food-list-category>summary span{text-align:center}
+#foodListsDialog .food-wizard-link{display:flex;align-items:center;justify-content:center;width:100%;box-sizing:border-box;text-align:center;border-style:dashed;min-height:2.8rem}
+#foodListsDialog .food-lists-actions{justify-content:center;align-items:stretch}
+#foodListsDialog .food-lists-actions button{display:flex;align-items:center;justify-content:center;flex:1 1 10rem;text-align:center;border-style:dashed;min-height:2.8rem}
+#foodListsDialog .food-lists-apply{border-color:#fb923c;background:rgba(251,146,60,.1);color:#fff}
+#foodListsDialog .food-wizard-link:focus-visible,#foodListsDialog .food-lists-actions button:focus-visible,#foodListsDialog .food-list-category>summary:focus-visible{outline:2px solid #fed7aa;outline-offset:2px}
+#foodLoadedLists { padding: 0 .6rem .6rem; display: grid; gap: .35rem; }
+.food-loaded-row { display: flex; align-items: center; justify-content: space-between; gap: .35rem; border: 1px solid #334155; border-radius: .55rem; background: #1e293b; }
+.food-loaded-select { display: flex; align-items: center; gap: .5rem; flex: 1; min-height: 2.65rem; padding: .5rem .65rem; color: #e2e8f0; font-size: .8rem; }
+.food-loaded-select input { accent-color: #f97316; width: 1rem; height: 1rem; flex: none; }
+.food-loaded-remove { flex: none; min-width: 2.7rem; min-height: 2.65rem; color: #fca5a5; font-size: 1rem; }
+
+/* Kayıt ve ekleme düğmeleri: bölüm renkleriyle ortak görünüm. */
+.independent-save-button,
+#saveButton, #labSaveBtn, #btnSaveProfile,
+button[onclick="saveMed()"], button[onclick="saveCustomSymptom()"],
+button[onclick="saveNewActivity()"], button[onclick="saveCurrentAnalysis()"],
+.reminder-create-submit {
+    --save-color: #c4b5fd;
+    border: 2px dashed var(--save-color) !important;
+    border-radius: .75rem !important;
+    background: rgba(30, 41, 59, .35) !important;
+    color: var(--save-color) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .1) !important;
+    font-weight: 800;
+    min-height: 2.9rem;
+    transition: background-color .2s, box-shadow .2s, transform .2s;
+}
+.independent-save-button[data-independent-save="glucose"] { --save-color: #2dd4bf; }
+.independent-save-button[data-independent-save="pressure"] { --save-color: #fb7185; }
+.independent-save-button[data-independent-save="nutrition"] { --save-color: #fb923c; }
+.independent-save-button[data-independent-save="medication"], button[onclick="saveMed()"] { --save-color: #a78bfa; }
+.independent-save-button[data-independent-save="activity"], button[onclick="saveNewActivity()"] { --save-color: #facc15; }
+.independent-save-button[data-independent-save="symptom"], button[onclick="saveCustomSymptom()"] { --save-color: #d2b66a; }
+#labSaveBtn { --save-color: #2dd4bf; }
+#saveButton { --save-color: #d4bb7a; }
+#btnSaveProfile, button[onclick="saveCurrentAnalysis()"] { --save-color: #c4b5fd; }
+.reminder-create-submit { --save-color: var(--reminder-color, #c4b5fd); }
+.independent-save-button:hover, #saveButton:hover, #labSaveBtn:hover, #btnSaveProfile:hover,
+button[onclick="saveMed()"]:hover, button[onclick="saveCustomSymptom()"]:hover,
+button[onclick="saveNewActivity()"]:hover, button[onclick="saveCurrentAnalysis()"]:hover,
+.reminder-create-submit:hover { background: rgba(71, 85, 105, .32) !important; }
+.independent-save-button:focus-visible, #saveButton:focus-visible, #labSaveBtn:focus-visible,
+#btnSaveProfile:focus-visible, .reminder-create-submit:focus-visible { outline: 2px solid white; outline-offset: 3px; }
+#addFoodButton { border-color: #fb923c !important; color: #fdba74 !important; }
+#addFoodButton i, #addFoodButton span { color: #fdba74 !important; }
+#addFoodButton:hover { border-color: #fdba74 !important; background: rgba(251,146,60,.1) !important; }
+
+/* Düğme metinleri seçili dile göre büyük harfle gösterilir. */
+button, button span, .food-loaded-panel > summary { text-transform: uppercase !important; }
+.nutrition-med-heading { text-align: center; }
+.nutrition-meds-details>summary{display:flex;align-items:center;gap:.5rem;cursor:pointer;list-style:none;min-height:2.5rem}.nutrition-meds-details>summary::-webkit-details-marker{display:none}.nutrition-meds-details>summary span{flex:1;text-align:center}.nutrition-meds-details>summary i{flex:none;color:#c4b5fd;transition:transform .2s}.nutrition-meds-details[open]>summary i{transform:rotate(180deg)}.nutrition-meds-details>summary:focus-visible{outline:2px solid #c4b5fd;outline-offset:3px;border-radius:.35rem}
+.diet-plan-group>summary{display:flex;align-items:center;gap:.6rem;list-style:none}.diet-plan-group>summary::-webkit-details-marker{display:none}.diet-plan-group>summary::after{content:'▾';margin-left:auto;color:#c4b5fd;font-size:1.1rem;line-height:1;transition:transform .2s}.diet-plan-group[open]>summary::after{transform:rotate(180deg)}
+.nutrition-med-reminder[hidden] { display: none !important; }
+.note-editor-dialog { --reminder-color: #a78bfa; }
+.note-editor-dialog textarea { box-sizing: border-box; width: 100%; resize: vertical; min-height: 6rem; padding: .7rem; color: #fff; background: #0f172a; border: 1px solid #64748b; border-radius: .6rem; }
+.note-notification-option { display: flex; gap: .6rem; align-items: center; padding: .55rem 0; }
+.note-notification-fields { display: grid; gap: .5rem; }
+.note-notification-fields[hidden], #noteDurationFields[hidden] { display: none !important; }
+.note-editor-help { color: #aab9ce; font-size: .75rem; line-height: 1.4; }
+.note-editor-error { color: #fca5a5; font-size: .8rem; }
+.note-saved-card { border: 1px solid #4c5685; border-radius: .8rem; background: #1e293b; }
+.note-saved-card summary { padding: .8rem; cursor: pointer; display: flex; align-items: center; gap: .6rem; }
+.note-saved-summary { flex: 1; min-width: 0; }
+.note-saved-preview { display: block; color: #e2e8f0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: .82rem; font-weight: 700; }
+.note-saved-date { display: block; margin-top: .3rem; color: #94a3b8; font-size: .7rem; }
+.note-saved-body { padding: .8rem; border-top: 1px solid #475569; }
+.note-saved-text { white-space: pre-wrap; overflow-wrap: anywhere; color: #e2e8f0; font-size: .85rem; }
+.note-saved-actions { display: flex; gap: .6rem; justify-content: flex-end; margin-top: .8rem; }
+.note-saved-actions button { padding: .5rem; border: 1px solid #64748b; border-radius: .6rem; color: #c4b5fd; }
+.home-reminder-title.note-reminder-title { white-space: pre-wrap; overflow-wrap: anywhere; }
+
+/* Not varsa kartlarla ekleme düğmesi arasında boşluk bırak. */
+#notesCardsArea:not(:empty) { padding-bottom: .75rem; }
+#addFoodContainer[hidden] { display: none !important; }
+.food-amount-warning { margin: .7rem 0 0; padding: .65rem; border: 1px solid #a16207; border-radius: .65rem; background: rgba(161,98,7,.14); color: #fde68a; font-size: .78rem; line-height: 1.4; }
+
+/* Food definition actions retain the familiar quantity selector. */
+.food-editor-heading { display:flex; align-items:center; gap:8px; padding:14px 14px 8px; }
+.food-editor-heading .ep-title { flex:1; min-width:0; max-width:none; text-align:left; overflow-wrap:anywhere; margin:0; }
+.food-edit-action { flex:0 0 42px; height:42px; border:1px solid #8b80fa; border-radius:12px; color:#beb6ff; background:rgba(139,128,250,.12); font-size:19px; }
+.food-delete-action { color:#fb8a8a; border-color:#a64e59; background:rgba(160,56,68,.12); }
+.food-definition-dialog { --reminder-color:#fb923c; }
+.food-delete-confirm { padding:22px; color:#e2e8f0; }
+.food-delete-confirm h2 { font-size:18px; font-weight:800; }
+.food-delete-confirm p { margin:14px 0; color:#a8b8cf; font-size:14px; }
+.food-delete-confirm > div { display:flex; gap:10px; }
+.food-delete-confirm button { flex:1; padding:12px; border:1px solid #64748b; border-radius:10px; }
+.food-delete-confirm button:last-child { color:#fca5a5; border-color:#ef6a73; }
+
+.today-summary-row:has(.today-water-add) { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr) auto auto; }
+.today-summary-row:has(.today-water-add)::after { grid-column: 4; }
+.today-water-add { grid-column: 3; grid-row: 1; width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid #22d3ee; border-radius: 10px; color: #22d3ee; background: rgba(34,211,238,.10); font-size: 20px; }
+.today-water-add:focus-visible { outline: 2px solid white; outline-offset: 2px; }
+
+/* History filters use the same colors as their record sections. */
+#filterBar { gap: .35rem; }
+#filterBar .filter-btn { min-width: 0; }
+.filter-btn-active.filter-sym { background-color: rgba(198,163,74,.15); border-color:#c6a34a; color:#c6a34a; }
+.filter-btn-active.filter-med { background-color: rgba(167,139,250,.15); border-color:#a78bfa; color:#a78bfa; }
+.history-full-day-label { margin-top: .65rem; color:#94a3b8; font-size: 10px; font-weight: 700; letter-spacing: .04em; }
+
+/* Keep record filters reachable while browsing the day cards. */
+#historyControls { position: sticky; top: 0; z-index: 60; background: #1e293b; box-shadow: 0 8px 18px rgba(0,0,0,.25); }
+#filterBar { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .4rem; }
+#filterBar .filter-btn { width: 100%; height: 3rem; min-width: 0; }
+#filterBar .filter-btn i { font-size: 1.65rem; line-height: 1; }
+#historyControlsHeading { text-align: left; }
+@media print { #historyControls { position: static; } }
+
+.profile-wizard-launch { width:100%; display:flex; align-items:center; gap:12px; text-align:left; padding:14px; border:1px solid #8b80df; border-radius:16px; background:linear-gradient(110deg,rgba(110,78,190,.23),rgba(30,41,59,.8)); color:#d4c9ff; }
+.profile-wizard-launch > span:nth-child(2){ flex:1; min-width:0; } .profile-wizard-launch strong,.profile-wizard-launch small{display:block;} .profile-wizard-launch small{color:#a8b7cc; margin-top:3px; font-size:12px;} .profile-wizard-launch-icon{width:42px;height:42px;display:grid;place-items:center;border-radius:12px;background:#403570;font-size:22px;}
+.profile-wizard-dialog { width:min(92vw,29rem); max-height:min(90vh,760px); border:1px solid #786bc7; border-radius:20px; padding:0; background:#152036; color:#f1f5f9; box-shadow:0 24px 80px rgba(0,0,0,.6); overflow:hidden; }
+.profile-wizard-dialog[open]{display:flex;flex-direction:column}.profile-wizard-dialog::backdrop{background:rgba(0,0,0,.78)}
+.pw-top{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:16px 18px;border-bottom:1px solid #334155;color:#c4b5fd;font-weight:800;font-size:12px}.pw-top button{padding:6px;font-size:20px;color:#cbd5e1}.pw-view{padding:20px 18px;overflow-y:auto;min-height:180px}.pw-eyebrow{color:#b9aaff;font-size:11px;font-weight:800;letter-spacing:.04em}.pw-progress{height:5px;border-radius:6px;background:#334155;margin:10px 0 20px;overflow:hidden}.pw-progress>div{height:100%;background:#a78bfa}.pw-question{font-size:20px;line-height:1.35;font-weight:800;margin:0 0 9px}.pw-hint{font-size:13px;color:#a9b9d0;margin:0 0 16px}.pw-options{display:grid;gap:8px}.pw-option{width:100%;padding:13px 14px;text-align:left;border:1px solid #41536d;border-radius:12px;background:#202d41;color:#dce8f9;font-weight:700}.pw-option.selected{border-color:#a78bfa;background:#3d3370;color:#fff;box-shadow:0 0 0 1px #a78bfa}.pw-input{width:100%;border:1px solid #526480;border-radius:12px;background:#0f192b;color:white;padding:13px;margin:8px 0 12px}.pw-status{min-height:19px;padding:0 18px;color:#90d9c4;font-size:11px}.pw-actions{display:flex;gap:10px;padding:14px 18px;border-top:1px solid #334155}.pw-actions button{flex:1;padding:12px;border:1px dashed #a78bfa;border-radius:11px;color:#c4b5fd;font-weight:800}.pw-actions button:last-child{background:#4c3e92;color:white}.pw-actions button:disabled{opacity:.35}.pw-summary{display:grid;gap:4px;padding:10px 12px;border:1px solid #40516a;background:#202d41;border-radius:10px;margin-top:8px;font-size:13px}.pw-summary strong{color:#bcb1ff}.pw-summary span{overflow-wrap:anywhere}
+
+.pw-condition-row{display:flex;gap:8px;align-items:stretch}.pw-condition-row .pw-option{flex:1}.pw-condition-remove{padding:0 12px;border:1px solid #a56b78;border-radius:12px;color:#fca5a5;font-size:12px}
+
+.pw-topic-status{display:block;color:#b5c4d8;font-size:11px;margin-top:3px}.pw-summary-text{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit;font-size:13px;color:#dce8f9}.pw-view .pw-option{margin-bottom:8px}.pw-view{overscroll-behavior:contain}
+
+.pw-entry-row{display:flex;gap:8px;align-items:stretch}.pw-entry-row .pw-option{flex:1;min-width:0}.pw-entry-remove{padding:0 12px;margin-bottom:8px;border:1px solid #9c5966;border-radius:11px;color:#fda4af;font-size:12px}
+
+.pw-option.pw-recorded{background:rgba(34,100,76,.28);border-color:#67c69c;color:#d3f8e6}.pw-option.pw-recorded .pw-topic-status{color:#a5e8c9}
+
+.pw-option-help{display:block;color:#b7c5d9;font-size:12px;font-weight:400;line-height:1.35;margin-top:4px;text-transform:none}
+
+/* Evde tansiyon takibi için kullanıcının doğruladığı hedef. */
+.bp-home-target:not([hidden]) { width:100%; display:flex; flex-direction:column; gap:5px; padding:12px 14px; border:1px solid rgba(251,113,133,.45); border-radius:14px; background:rgba(159,18,57,.12); color:#fecdd3; overflow-wrap:anywhere; }
+.bp-home-target span:first-child { font-size:11px; font-weight:800; letter-spacing:.02em; }
+.bp-home-target strong { font-size:17px; color:#fff1f2; white-space:pre-wrap; }
+.bp-home-target span:last-child { font-size:12px; color:#cbd5e1; }
+
+/* Tansiyon hedefi ve veri girişleri. */
+.bp-home-target:not([hidden]) { align-items:center; text-align:center; }
+.bp-field-label { display:block; margin-bottom:7px; color:#fda4af; font-size:14px; font-weight:800; letter-spacing:.04em; text-align:center; }
+#bpSys, #bpDia, #bpPulse { border:2px solid #e8758d !important; background-color:#202b40; border-radius:12px; font-size:32px !important; height:68px !important; line-height:68px !important; }
+#bpSys::placeholder, #bpDia::placeholder, #bpPulse::placeholder { color:#94a3b8 !important; opacity:1 !important; font-size:26px !important; }
+#bpSys:focus, #bpDia:focus, #bpPulse:focus { border-color:#fb7185 !important; outline:2px solid rgba(251,113,133,.35); outline-offset:2px; }
+
+/* Kutular aynı boyutta; hedef kartının bordo tonuyla uyumlu. */
+.bp-field-label { color:#94a3b8; }
+#bpSys, #bpDia, #bpPulse { width:min(8rem, calc((100vw - 5rem) / 2)); border-color:#261e34 !important; }
+
+/* Profil sihirbazı: bölüm, soru ve cevaplar için okunabilir yazı hiyerarşisi. */
+.profile-wizard-dialog .pw-top { font-size:15px; line-height:1.3; }
+.profile-wizard-dialog .pw-eyebrow { font-size:16px; line-height:1.4; letter-spacing:.02em; margin-bottom:10px; overflow-wrap:anywhere; }
+.profile-wizard-dialog .pw-question { font-size:21px; line-height:1.35; overflow-wrap:anywhere; }
+.profile-wizard-dialog .pw-option { font-size:16px; line-height:1.4; white-space:normal; overflow-wrap:anywhere; }
+.profile-wizard-dialog .pw-hint, .profile-wizard-dialog .pw-option-help { font-size:14px; line-height:1.45; overflow-wrap:anywhere; }
+.profile-wizard-dialog .pw-topic-status, .profile-wizard-dialog .pw-status { font-size:13px; line-height:1.4; }
+.profile-wizard-dialog .pw-input { font-size:17px !important; line-height:1.4; }
+.profile-wizard-dialog .pw-entry-remove, .profile-wizard-dialog .pw-condition-remove { font-size:14px; line-height:1.3; }
+.profile-wizard-dialog .pw-actions button { font-size:15px; line-height:1.3; }
+.profile-wizard-dialog .pw-summary-text { font-size:15px; line-height:1.5; }
+@media (max-width:360px) {
+ .profile-wizard-dialog .pw-view { padding-left:14px; padding-right:14px; }
+ .profile-wizard-dialog .pw-question { font-size:20px; }
+ .profile-wizard-dialog .pw-eyebrow { font-size:15px; }
+}
+
+/* Soruya ait seçili kullanım hedefi. */
+.profile-wizard-dialog .pw-goal-context { color:#e2d8ff; font-size:15px; font-weight:800; line-height:1.4; letter-spacing:.035em; text-transform:uppercase; overflow-wrap:anywhere; margin-bottom:8px; }
+
+.profile-wizard-dialog .pw-edit-sections { width:100%; margin:2px 0 14px; padding:10px 12px; border:1px solid #8f82d8; border-radius:10px; color:#ddd6fe; background:rgba(109,90,176,.15); font-size:14px; line-height:1.35; font-weight:750; white-space:normal; overflow-wrap:anywhere; }
+.profile-wizard-dialog .pw-edit-sections:focus-visible { outline:2px solid #c4b5fd; outline-offset:2px; }
+
+.profile-wizard-edit-launch { width:100%; display:flex; align-items:center; justify-content:center; gap:9px; padding:12px 14px; border:1px solid #8f82d8; border-radius:12px; color:#ddd6fe; background:rgba(109,90,176,.15); font-size:14px; font-weight:800; line-height:1.4; }
+.profile-wizard-edit-launch:focus-visible { outline:2px solid #c4b5fd; outline-offset:2px; }
+
+/* Ölçüm ekranında isteğe bağlı ilaç alımı ayrı kaydedilir. */
+.measurement-medication-action[hidden] { display:none; }
+.measurement-medication-note { color:#c4b5fd; font-size:13px; line-height:1.4; text-align:center; margin:0 0 6px; }
+.independent-save-button[data-independent-save="medication-glucose"], .independent-save-button[data-independent-save="medication-pressure"] { --save-color:#a78bfa; }
+/* Yeni yiyecek: miktar penceresinin içindeki besin bilgileri */
+.food-new-details{padding:12px 16px;max-height:54vh;overflow-y:auto;text-align:left}
+.food-new-details label{display:flex;flex-direction:column;gap:4px;font-size:12px;color:#b4c3d7;font-weight:700}
+.food-new-details input,.food-new-details select,.food-new-details textarea{width:100%;padding:9px 10px;color:#eef2ff;background:#111c2e;border:1px solid #43536c;border-radius:9px;font:inherit}
+.food-new-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:10px 0}
+.food-new-note{color:#9dafc7;font-size:11px;margin:9px 0}
+.food-ai-inline{border:1px solid #7564b4;border-radius:12px;padding:10px;margin-top:12px}
+.food-ai-inline summary{cursor:pointer;color:#c4b5fd;font-size:12px;font-weight:800;list-style:none}
+.food-ai-inline[open] summary{margin-bottom:10px}.food-ai-inline textarea{margin:7px 0;resize:vertical}.food-ai-action{width:100%;border:1px dashed #a78bfa;color:#c4b5fd;background:transparent;border-radius:9px;padding:9px;font-size:11px;font-weight:800}
+/* Yapay zekâ aşamasında yalnızca ilgili kontroller görünür. */
+#foodEditorPanel #newFoodFields[hidden],
+#foodEditorPanel #newFoodRequest[hidden],
+#foodEditorPanel #newFoodResponse[hidden],
+#foodEditorPanel #newFoodOpen[hidden],
+#foodEditorPanel .food-ai-inline[hidden],
+#foodEditorPanel .ep-ok-btn[hidden] { display:none !important; }
+/* Özel mutfak oluşturma ve yapay zekâ aşamaları */
+#aiCardSelect[hidden],#aiCardImport[hidden],#dietWizardFallback[hidden],
+#customCuisineRequest[hidden],#customCuisineResponse[hidden],#customCuisinePrompt[hidden],#customCuisineManualOpen[hidden],#customCuisineError[hidden]{display:none!important}
+.custom-cuisine-add{margin:.75rem 0;width:100%;border-style:dashed;color:#fdba74;border-color:#fb923c}
+.custom-cuisine-dialog label{display:flex;flex-direction:column;gap:.3rem;margin:.8rem 0;color:#dce5f3;font-size:.8rem;font-weight:700}
+.custom-cuisine-dialog input,.custom-cuisine-dialog select,.custom-cuisine-dialog textarea,#dietWizardPrompt{width:100%;padding:.7rem;color:#f1f5f9;background:#111c2e;border:1px solid #475569;border-radius:.6rem;font:inherit}
+.custom-cuisine-dialog textarea{margin:.6rem 0;resize:vertical}
+.custom-cuisine-dialog .food-ai-action{margin-top:.6rem}
+/* Seçimden çıkarma ve yiyeceği listeden kaldırma farklı işlemlerdir. */
+.food-editor-actions{display:flex;align-items:stretch;gap:.5rem;margin-top:.65rem}
+.food-editor-actions .ep-ok-btn{flex:1;width:auto;margin-top:0}
+.food-editor-tools{display:flex;flex:1;min-width:0;gap:.5rem;align-items:stretch}.food-editor-tools button{flex:1;min-width:0;min-height:46px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;cursor:pointer}.food-editor-delete{--action-color:#fb7185}.food-editor-delete i{color:#fb7185!important}.food-editor-edit{--action-color:#a78bfa}.food-editor-close{flex:0 0 42px;width:42px;height:42px;display:grid;place-items:center;border:1px solid rgba(226,232,255,.6);border-radius:12px;background:rgba(224,231,255,.16);color:#f1f5ff;font-size:1.1rem;cursor:pointer}.food-editor-close:focus-visible,.food-diet-marker:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.food-item-btn:has(.food-diet-marker){padding-bottom:25px}.food-item-btn .food-diet-marker{position:absolute;left:50%;bottom:3px;transform:translateX(-50%);max-width:calc(100% - 8px);width:max-content;z-index:12;padding:2px 5px;border:0;border-radius:5px;background:#7c2d12;color:#fed7aa;font-size:8px;font-weight:800;line-height:1.2;text-align:center;white-space:normal;cursor:pointer}
+.food-list-info-items{display:grid;gap:.5rem;list-style:none;margin:.8rem 0;padding:0}.food-list-info-items li{display:flex;align-items:center;gap:.65rem;padding:.65rem;border:1px solid #755441;border-radius:.65rem;background:#fb923c0d;color:#e2e8f0}.food-list-info-items strong{flex:none;min-width:3rem;text-align:center;padding:.25rem .4rem;border-radius:.4rem;background:#7c2d12;color:#fed7aa;font-size:.72rem}.food-list-info-items span{font-size:.86rem}.food-list-info-close{width:100%;min-height:2.8rem;border:2px dashed #fb923c;border-radius:.7rem;background:#fb923c1a;color:#fff;font-weight:800;cursor:pointer}
+.food-remove-selection{flex:1;min-width:0;min-height:46px;padding:8px;border:1px solid #64748b;border-radius:10px;background:rgba(71,85,105,.18);color:#cbd5e1;font-size:12px;font-weight:800;cursor:pointer}
+.food-remove-selection:hover{border-color:#a5b4fc;background:rgba(99,102,241,.13)}
+.food-remove-selection[hidden]{display:none!important}
+.diet-plan-launch{margin-top:.1rem;margin-bottom:.3rem}.food-management-body .diet-plan-summary{margin:0 0 .8rem;color:#aebbd0;font-size:12px;line-height:1.45;text-align:center}
+.diet-plan-list-info:empty{display:none}.diet-plan-list-info{margin:.6rem 0;padding:.25rem .65rem;border:1px solid #655991;border-radius:.7rem;background:#29234455}.diet-plan-list-info>div{display:flex;align-items:center;justify-content:space-between;gap:.5rem;padding:.45rem 0;color:#ddd6fe;font-size:.75rem}.diet-plan-list-info button{padding:.35rem .5rem;border:1px dashed #a78bfa;border-radius:.45rem;color:#c4b5fd;font-size:.68rem;font-weight:800;white-space:nowrap}
+.diet-plan-group{margin:.65rem 0;border:1px solid #465873;border-radius:.8rem;background:#101c2e;overflow:hidden}.diet-plan-group summary{cursor:pointer;padding:.8rem;color:#fed7aa;font-weight:800;font-size:.85rem}.diet-plan-choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.45rem;padding:0 .75rem .75rem}.diet-plan-choices label,.diet-plan-days label{display:flex;align-items:center;gap:.45rem;padding:.6rem;border:1px solid #41526b;border-radius:.6rem;color:#e2e8f0;font-size:.78rem}.diet-plan-choices input,.diet-plan-days input{accent-color:#fb923c;flex-shrink:0}.diet-plan-field{display:flex;flex-direction:column;gap:.35rem;margin:.7rem .75rem;color:#cbd5e1;font-size:.8rem;font-weight:700}.diet-plan-field input,.diet-plan-field select,.diet-plan-field textarea{width:100%;box-sizing:border-box;border:1px solid #52647c;border-radius:.6rem;background:#18263b;color:#f1f5f9;padding:.65rem;font:inherit}.diet-plan-two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.diet-plan-days{display:flex;flex-wrap:wrap;gap:.3rem;margin:.5rem .75rem}.diet-plan-dialog .diet-plan-hint{margin:.6rem .75rem;color:#b5c5db;font-size:.75rem;line-height:1.4}.diet-plan-dialog .diet-plan-attention{margin:.6rem .75rem;padding:.7rem;border:1px solid #a16207;border-radius:.6rem;color:#fde68a;background:#a1620724;line-height:1.4}.diet-plan-dialog .diet-plan-error{color:#fca5a5}.diet-plan-dialog [hidden]{display:none!important}@media(max-width:360px){.diet-plan-choices{grid-template-columns:1fr}}
+.food-definition-remove{display:flex;align-items:center;justify-content:center;gap:.4rem;width:100%;margin-top:.65rem;padding:.8rem;border:1px dashed #b85d68;border-radius:.75rem;background:rgba(127,29,29,.1);color:#fda4af;font-size:12px;font-weight:800}
+.selected-food-remove{border-color:rgba(226,232,255,.6);background:rgba(224,231,255,.16);color:#f1f5ff;box-shadow:none}
+.selected-food-remove:hover{background:rgba(224,231,255,.3);border-color:#fff;color:#fff}
+
+.health-report-dialog{width:min(92vw,540px);max-height:90vh;overflow:auto;border:1px solid #7461bc;border-radius:20px;background:#162238;color:#edf2fb;padding:22px;box-shadow:0 18px 70px #0009}.health-report-dialog::backdrop{background:#000b}.health-report-dialog h2{font-weight:800;font-size:19px;margin:0 0 12px;color:#c4b5fd}.health-report-dialog p{color:#b8c5d8;font-size:14px;margin:12px 0}.health-report-dialog label{display:block;font-weight:700;font-size:14px;margin:12px 0}.health-report-dialog label span{font-weight:400;color:#94a3b8}.health-report-dialog input,.health-report-dialog textarea{display:block;width:100%;margin-top:7px;padding:12px;color:white;background:#1e2c42;border:1px solid #4a5d77;border-radius:10px}.health-report-dates{display:grid;grid-template-columns:1fr 1fr;gap:12px}.health-report-hint{font-size:12px!important}.health-report-actions{display:flex;gap:10px;margin-top:16px}.health-report-actions button{flex:1;padding:13px 6px;color:#d9d0ff;font-weight:800;border:1px dashed #a78bfa;border-radius:10px}.health-report-actions button[type=submit]{background:#473889;color:white}.health-report-dialog #healthReportError{color:#fda4af}@media(max-width:360px){.health-report-dates{grid-template-columns:1fr}}
+
+/* Belirti şiddeti: her seçim için ayrı, kısa pencere. */
+.symptom-severity-dialog .symptom-dialog-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.symptom-severity-dialog .symptom-dialog-caption{font-size:.75rem;font-weight:800;color:#c6a34a;margin:0 0 .25rem}
+.symptom-severity-dialog h2{font-size:1.35rem;font-weight:800;margin:0;color:#f1f5f9}
+.symptom-dialog-close{font-size:1.8rem;line-height:1;color:#cbd5e1;background:transparent;border:0;padding:0 .25rem;cursor:pointer}
+.symptom-dialog-help{color:#a9bbcf;font-size:.85rem;margin:.9rem 0}
+.symptom-dialog-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.55rem}
+.symptom-dialog-option{min-width:0;min-height:5.3rem;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:.35rem;border:1px solid;border-radius:.8rem;font-size:.8rem;font-weight:800;cursor:pointer}
+.symptom-dialog-option i{font-size:1.65rem}.symptom-dialog-actions{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:1rem}.symptom-dialog-actions .ep-ok-btn{width:100%;margin:0}.symptom-dialog-remove{border:1px dashed #c6a34a;color:#e8cf87;background:transparent;border-radius:.8rem;font-size:.72rem;font-weight:800;padding:.7rem;cursor:pointer}.symptom-level-badge{margin-left:auto;font-size:.58rem;font-weight:800;color:#e8cf87;white-space:nowrap}
+
+/* İşlem düğmeleri: bölüm renginde kesikli çerçeve, saydam fon ve beyaz yazı. */
+#glucoseDetails{--action-color:#2dd4bf}
+#bpDetails{--action-color:#fb7185}
+#nutDetails,#foodListsDialog,#dietPlanDialog,#customCuisineDialog,#foodDefinitionDialog,#foodEditorDialog{--action-color:#fb923c}
+#activityDetails,#activityModal{--action-color:#facc15}
+#statusDetails,#symptomModal,#symptomSeverityDialog{--action-color:#c6a34a}
+#assistantDetails,#sectionReminderDialog,#noteEditorDialog,#profileWizardDialog,#profileOverlay,#healthReportDialog,#historySection,#aiResultModal,#aiPasteInstructions{--action-color:#a78bfa}
+#settingsOverlay,#mainMenuOverlay{--action-color:#94a3b8}
+.independent-save-button,.reminder-create-submit{--action-color:var(--save-color,#a78bfa)}
+#foodDefinitionDialog .reminder-create-submit{--action-color:#fb923c}
+#nutritionMedsSection .independent-save-button{--action-color:#a78bfa}
+#foodWizardDetails{--action-color:#a78bfa}
+#foodDeleteDialog,.food-clear-all,#clearClinicalProfile,#settingsOverlay button[onclick^="if(confirm"],#btnModalConfirm,#medicationModal button[onclick="deleteMed()"]{--action-color:#fb7185}
+
+:is(.independent-save-button,#saveButton,#labSaveBtn,#btnSaveProfile,
+ .food-add-btn,.symptom-add-btn,.med-add-btn,.alarm-add-btn,
+ .reminder-create-submit,.reminder-calendar-button,.food-menu-action,.food-menu-add,.food-clear-all,#activityDetails button[onclick="openActivityModal()"],
+ .profile-wizard-launch,.profile-wizard-edit-launch,
+ #menuBtnReport,#menuBtnCompareGraph,#menuBtnHtmlReport,#menuBtnPrint,
+ #languagePickerOpen,#menuBtnSettings,#btnOpenProfile,#clearClinicalProfile,
+ #settingsOverlay button[onclick],
+ #foodWizardDetails .food-ai-action,#foodWizardDetails .food-import-paste,#btnCopyDiet,
+ #foodWizardDetails button[onclick="FoodLibraryManager.importJSON()"],
+ #foodListsDialog .food-wizard-link,#foodListsDialog .food-lists-actions button,
+ #dietPlanDialog .food-lists-actions button,#customCuisineDialog .food-ai-action,
+ #foodEditorPanel .food-editor-actions button,#symptomSeverityDialog .symptom-dialog-actions button,
+ #foodDeleteDialog .food-delete-confirm button,#foodDefinitionDialog .food-definition-remove,
+ #profileWizardDialog .pw-actions button,#healthReportDialog .health-report-actions button,
+ #noteEditorDialog .reminder-create-submit,#sectionReminderDialog .reminder-create-submit,
+ #aiPasteInstructions>button,#aiResultModal button[onclick="openAiHistory()"],
+ #aiResultModal button[onclick="saveCurrentAnalysis()"],
+ #medicationModal button[onclick="saveMed()"],#medicationModal button[onclick="deleteMed()"],#medicationModal button[onclick="closeModal('medicationModal')"],
+ #symptomModal button[onclick="saveCustomSymptom()"],#symptomModal button[onclick="closeModal('symptomModal')"],
+ #activityModal button[onclick="saveNewActivity()"],#activityModal button[onclick="closeModal('activityModal')"],
+ #btnModalCancel,#btnModalConfirm,.home-reminder-dismiss,.one-time-reminder-editor button,
+ #medColorEditor button[onclick="resetAllMedColors()"],#medColorEditor button.flex-1[onclick="closeModal('medColorEditor')"]){
+ border:2px dashed var(--action-color,#a78bfa)!important;
+ border-radius:.75rem!important;
+ background-color:rgba(148,163,184,.08)!important;
+ background-color:color-mix(in srgb,var(--action-color,#a78bfa) 10%,transparent)!important;
+ background-image:none!important;
+ color:#fff!important;
+ box-shadow:none!important;
+}
+:is(.independent-save-button,#saveButton,#labSaveBtn,#btnSaveProfile,.food-add-btn,.symptom-add-btn,.med-add-btn,.alarm-add-btn,.reminder-create-submit,.reminder-calendar-button,.food-menu-add,#btnCopyDiet,#foodListsDialog .food-wizard-link,#foodListsDialog .food-lists-actions button,#dietPlanDialog .food-lists-actions button,#customCuisineDialog .food-ai-action,#foodEditorPanel .food-editor-actions button,#symptomSeverityDialog .symptom-dialog-actions button,#foodDeleteDialog .food-delete-confirm button,#profileWizardDialog .pw-actions button,#healthReportDialog .health-report-actions button){text-align:center}
+#activityDetails button[onclick="openActivityModal()"] :is(span,i){color:#fff!important}
+:is(#addFoodButton,.symptom-add-btn,.med-add-btn,.alarm-add-btn) span{color:#fff!important}
+:is(.independent-save-button,#saveButton,#labSaveBtn,#btnSaveProfile,.reminder-create-submit,.food-wizard-link,.food-ai-action,.profile-wizard-launch,.profile-wizard-edit-launch,#healthReportDialog button):focus-visible{outline:2px solid #fff;outline-offset:3px}
+:is(.independent-save-button,#saveButton,#labSaveBtn,#btnSaveProfile,.reminder-create-submit,.food-wizard-link,.food-ai-action,#healthReportDialog button):disabled{opacity:.45;cursor:not-allowed}
+
+/* Miktar penceresindeki seçili porsiyonun besin kartı. */
+.food-nutrient-card{margin:12px 0 4px;padding:12px;border:1px solid #53627d;border-radius:14px;background:#111c2e;text-align:left}
+.food-nutrient-head{display:flex;align-items:center;justify-content:space-between;gap:8px;color:#e5eafa;font-size:12px;font-weight:800;letter-spacing:.025em}
+.food-nutrient-head i{color:#a78bfa;font-size:16px;vertical-align:middle}.food-nutrient-head small{border:1px solid #6d5baf;border-radius:20px;padding:3px 8px;color:#d4c7ff;background:#7560b322;font-size:10px;white-space:nowrap}
+.food-nutrient-caption,.food-nutrient-missing{color:#a6b5cb;font-size:11px;line-height:1.4;margin-top:6px}
+.food-nutrient-grid{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}.food-nutrient-item{flex:1 1 29%;min-width:75px;padding:8px;border:1px solid currentColor;border-radius:9px;background:#ffffff08;display:flex;flex-direction:column;gap:3px;font-size:10px;font-weight:700}.food-nutrient-item strong{font-size:17px;line-height:1.1}.food-nutrient-protein{color:#c4b5fd}.food-nutrient-carbohydrate{color:#fb923c}.food-nutrient-fat{color:#facc15}.food-nutrient-sugar{color:#f4a4e2}.food-nutrient-salt{color:#d2c3a7}
+
+.food-editor-diet-marker{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:.4rem;width:calc(100% - 28px);margin:0 14px 10px;padding:.45rem .65rem;border:1px dashed #fb923c;border-radius:.55rem;background:rgba(251,146,60,.1);color:#fed7aa;cursor:pointer;font-size:.72rem}.food-editor-diet-marker span{font-weight:700}.food-editor-diet-marker strong{font-size:.78rem;color:#fff}.food-editor-diet-marker:focus-visible{outline:2px solid #fed7aa;outline-offset:2px}
+
+.food-nutrient-head .food-nutrient-info{border:1px dashed #a78bfa;border-radius:7px;padding:4px 8px;color:#d4c7ff;background:#7560b322;font-size:10px;font-weight:800;white-space:nowrap;cursor:pointer}.food-nutrient-info:focus-visible{outline:2px solid #d4c7ff;outline-offset:2px}

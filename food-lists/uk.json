@@ -1,0 +1,1391 @@
+{
+  "version": 7,
+  "id": "uk",
+  "items": [
+    {
+      "id": "uk__water",
+      "tr": "Su",
+      "en": "Water",
+      "unit": "ml",
+      "calories": 0,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "localName": "Water",
+      "nutrients": {
+        "protein": 0,
+        "carbohydrate": 0,
+        "sugar": 0,
+        "fat": 0,
+        "salt": 0
+      },
+      "nutrientSource": "ai_estimate",
+      "foodGroup": "water"
+    },
+    {
+      "id": "uk__daily_cucumber_raw",
+      "tr": "Salatalık",
+      "en": "Raw cucumber",
+      "localName": "Cucumber (raw)",
+      "unit": "gr",
+      "calories": 15,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Bu gıda için kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching for this item has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "nutrients": {
+        "protein": 0.7,
+        "carbohydrate": 3,
+        "sugar": 1.5,
+        "fat": 0.0,
+        "salt": 0.01
+      },
+      "nutrientSource": "ai_estimate",
+      "foodGroup": "produce"
+    },
+    {
+      "id": "uk__daily_tomato_raw",
+      "tr": "Domates",
+      "en": "Raw tomato",
+      "localName": "Tomato (raw)",
+      "unit": "gr",
+      "calories": 18,
+      "calorieSource": {
+        "tr": "USDA SR28 11529: çiğ olgun domates, 18 kcal/100 g.",
+        "en": "USDA SR28 11529: raw ripe tomato, 18 kcal/100 g.",
+        "url": "https://www.ars.usda.gov/ARSUserFiles/80400535/Data/SR/SR28/reports/sr28fg11.pdf"
+      },
+      "calorieMethod": "reference_comparable",
+      "nutrients": {
+        "protein": 1,
+        "carbohydrate": 3.5,
+        "sugar": 2.5,
+        "fat": 0.0,
+        "salt": 0.02
+      },
+      "nutrientSource": "ai_estimate",
+      "foodGroup": "produce"
+    },
+    {
+      "id": "uk__daily_pasta_cooked",
+      "tr": "Pişmiş makarna",
+      "en": "Cooked pasta",
+      "localName": "Cooked pasta",
+      "unit": "gr",
+      "calories": 158,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Bu gıda için kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching for this item has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "nutrients": {
+        "protein": 5.5,
+        "carbohydrate": 30,
+        "sugar": 0.6,
+        "fat": 1.8,
+        "salt": 0.02
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "uk__daily_rice_cooked",
+      "tr": "Pişmiş pirinç",
+      "en": "Cooked rice",
+      "localName": "Cooked rice",
+      "unit": "gr",
+      "calories": 130,
+      "calorieSource": {
+        "tr": "USDA SR28 20345: sade pişmiş uzun taneli beyaz pirinç, 130 kcal/100 g; pirinç ve hazırlanışa göre değişir.",
+        "en": "USDA SR28 20345: plain cooked long-grain white rice, 130 kcal/100 g; varies by rice and preparation.",
+        "url": "https://www.ars.usda.gov/ARSUserFiles/80400535/Data/SR/SR28/reports/sr28fg20.pdf"
+      },
+      "calorieMethod": "reference_comparable",
+      "nutrients": {
+        "protein": 2.7,
+        "carbohydrate": 28,
+        "sugar": 0.1,
+        "fat": 0.8,
+        "salt": 0.01
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "uk__daily_coffee_black",
+      "tr": "Sade kahve",
+      "en": "Black coffee",
+      "localName": "Black coffee",
+      "unit": "ml",
+      "calories": 2,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Bu gıda için kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching for this item has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "nutrients": {
+        "protein": 0.1,
+        "carbohydrate": 0.2,
+        "sugar": 0,
+        "fat": 0.1,
+        "salt": 0.01
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "other"
+    },
+    {
+      "id": "uk__daily_blacktea",
+      "tr": "Şekersiz siyah çay",
+      "en": "Unsweetened black tea",
+      "localName": "Black tea (no sugar)",
+      "unit": "ml",
+      "calories": 1,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Bu gıda için kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching for this item has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "nutrients": {
+        "protein": 0.1,
+        "carbohydrate": 0.2,
+        "sugar": 0,
+        "fat": 0.0,
+        "salt": 0.01
+      },
+      "nutrientSource": "ai_estimate",
+      "foodGroup": "other"
+    },
+    {
+      "id": "uk__daily_cornflakes",
+      "tr": "Mısır gevreği",
+      "en": "Cornflakes",
+      "localName": "Cornflakes",
+      "unit": "gr",
+      "calories": 370,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Bu gıda için kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching for this item has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "nutrients": {
+        "protein": 7,
+        "carbohydrate": 83,
+        "sugar": 8,
+        "fat": 1.1,
+        "salt": 1.3
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "uk__daily_butter",
+      "tr": "Tereyağı",
+      "en": "Butter",
+      "localName": "Butter",
+      "unit": "gr",
+      "calories": 717,
+      "calorieSource": {
+        "tr": "USDA SR28 01001: tuzlu tereyağı, 717 kcal/100 g; ürünün yağ oranına göre değişir.",
+        "en": "USDA SR28 01001: salted butter, 717 kcal/100 g; varies with fat content.",
+        "url": "https://www.ars.usda.gov/ARSUserFiles/80400535/Data/SR/SR28/reports/sr28fg01.pdf"
+      },
+      "calorieMethod": "reference_comparable",
+      "nutrients": {
+        "protein": 0.9,
+        "carbohydrate": 0.1,
+        "sugar": 0.1,
+        "fat": 79.2,
+        "salt": 0.04
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "fat"
+    },
+    {
+      "id": "uk__daily_toast",
+      "tr": "Sade tost ekmeği",
+      "en": "Plain toast",
+      "localName": "Toast (plain)",
+      "unit": "gr",
+      "calories": 290,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Bu gıda için kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching for this item has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "nutrients": {
+        "protein": 9,
+        "carbohydrate": 54,
+        "sugar": 5,
+        "fat": 4.2,
+        "salt": 1
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "uk__daily_whitebread",
+      "tr": "Beyaz ekmek",
+      "en": "White bread",
+      "localName": "White bread",
+      "unit": "gr",
+      "calories": 265,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Bu gıda için kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching for this item has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "nutrients": {
+        "protein": 8,
+        "carbohydrate": 49,
+        "sugar": 5,
+        "fat": 4.1,
+        "salt": 0.95
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "uk__egg",
+      "tr": "Haşlanmış yumurta",
+      "en": "Boiled egg",
+      "unit": "gr",
+      "calories": 155,
+      "calorieSource": {
+        "tr": "USDA SR28 01129: haşlanmış yumurta, kabuksuz, 155 kcal/100 g.",
+        "en": "USDA SR28 01129: hard-boiled egg, without shell, 155 kcal/100 g.",
+        "url": "https://www.ars.usda.gov/ARSUserFiles/80400525/Data/SR/SR28/reports/sr28fg01.pdf"
+      },
+      "calorieMethod": "reference_comparable",
+      "portions": [
+        {
+          "tr": "1 adet haşlanmış yumurta (kabuksuz)",
+          "en": "1 boiled egg (without shell)",
+          "amount": 50
+        }
+      ],
+      "localName": "Boiled egg",
+      "nutrients": {
+        "protein": 13,
+        "carbohydrate": 1,
+        "sugar": 1,
+        "fat": 11.0,
+        "salt": 0.3
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "uk__bread",
+      "tr": "Tam buğday ekmeği",
+      "en": "Wholemeal bread",
+      "unit": "gr",
+      "calories": 246,
+      "calorieSource": {
+        "tr": "USDA, Nutritive Value of Foods (2002), kayıt 419; porsiyon değeri 100 grama çevrilmiş yaklaşık değerdir.",
+        "en": "USDA, Nutritive Value of Foods (2002), entry 419; approximate value converted from portion to 100 g.",
+        "url": "https://www.ars.usda.gov/ARSUserFiles/oc/np/NutritiveValueofFoods/NutritiveValueofFoods.pdf"
+      },
+      "calorieMethod": "reference_converted",
+      "portions": [
+        {
+          "tr": "1 dilim tam buğday ekmeği",
+          "en": "1 slice wholemeal bread",
+          "amount": 35
+        }
+      ],
+      "localName": "Wholemeal bread",
+      "nutrients": {
+        "protein": 9,
+        "carbohydrate": 43,
+        "sugar": 4,
+        "fat": 4.2,
+        "salt": 0.95
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "uk__oats",
+      "tr": "Yulaf",
+      "en": "Oats",
+      "unit": "gr",
+      "calories": 389,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "localName": "Oats",
+      "nutrients": {
+        "protein": 17,
+        "carbohydrate": 66,
+        "sugar": 1,
+        "fat": 6.3,
+        "salt": 0.02
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "uk__porridge",
+      "tr": "Yulaf lapası",
+      "en": "Porridge",
+      "unit": "gr",
+      "calories": 71,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "localName": "Porridge",
+      "nutrients": {
+        "protein": 2.5,
+        "carbohydrate": 12,
+        "sugar": 1,
+        "fat": 1.4,
+        "salt": 0.05
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "uk__milk",
+      "tr": "Süt",
+      "en": "Milk",
+      "unit": "ml",
+      "calories": 61,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "localName": "Milk",
+      "nutrients": {
+        "protein": 3.2,
+        "carbohydrate": 4.7,
+        "sugar": 4.7,
+        "fat": 3.3,
+        "salt": 0.12
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "uk__bakedbeans",
+      "tr": "Domates soslu kuru fasulye",
+      "en": "Baked beans",
+      "unit": "gr",
+      "calories": 95,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "localName": "Baked beans",
+      "nutrients": {
+        "protein": 5,
+        "carbohydrate": 16,
+        "sugar": 5,
+        "fat": 1.2,
+        "salt": 0.6
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "uk__potato",
+      "tr": "Haşlanmış patates",
+      "en": "Boiled potato",
+      "unit": "gr",
+      "calories": 87,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "localName": "Boiled potato",
+      "nutrients": {
+        "protein": 2,
+        "carbohydrate": 20,
+        "sugar": 1,
+        "fat": 0.0,
+        "salt": 0.02
+      },
+      "nutrientSource": "ai_estimate",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "uk__chicken",
+      "tr": "Pişmiş tavuk göğsü",
+      "en": "Cooked chicken breast",
+      "unit": "gr",
+      "calories": 165,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "localName": "Cooked chicken breast",
+      "nutrients": {
+        "protein": 30,
+        "carbohydrate": 0,
+        "sugar": 0,
+        "fat": 5.0,
+        "salt": 0.18
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "uk__fish",
+      "tr": "Pişmiş balık",
+      "en": "Cooked fish",
+      "unit": "gr",
+      "calories": 150,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "localName": "Cooked fish",
+      "nutrients": {
+        "protein": 25,
+        "carbohydrate": 0,
+        "sugar": 0,
+        "fat": 5.6,
+        "salt": 0.2
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "uk__broccoli",
+      "tr": "Pişmiş brokoli",
+      "en": "Cooked broccoli",
+      "unit": "gr",
+      "calories": 35,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "localName": "Cooked broccoli",
+      "nutrients": {
+        "protein": 2.4,
+        "carbohydrate": 5,
+        "sugar": 1,
+        "fat": 0.6,
+        "salt": 0.05
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "produce"
+    },
+    {
+      "id": "uk__carrot",
+      "tr": "Havuç",
+      "en": "Carrot",
+      "unit": "gr",
+      "calories": 41,
+      "calorieSource": {
+        "tr": "USDA SR28 11124: çiğ havuç, 41 kcal/100 g.",
+        "en": "USDA SR28 11124: raw carrot, 41 kcal/100 g.",
+        "url": "https://www.ars.usda.gov/ARSUserFiles/80400535/Data/SR/SR28/reports/sr28fg11.pdf"
+      },
+      "calorieMethod": "reference_comparable",
+      "localName": "Carrot",
+      "nutrients": {
+        "protein": 1,
+        "carbohydrate": 10,
+        "sugar": 5,
+        "fat": 0.0,
+        "salt": 0.1
+      },
+      "nutrientSource": "ai_estimate",
+      "foodGroup": "produce"
+    },
+    {
+      "id": "uk__apple",
+      "tr": "Elma",
+      "en": "Apple",
+      "unit": "gr",
+      "calories": 59,
+      "calorieSource": {
+        "tr": "USDA, Nutritive Value of Foods (2002), kayıt 264; porsiyon değeri 100 grama çevrilmiş yaklaşık değerdir.",
+        "en": "USDA, Nutritive Value of Foods (2002), entry 264; approximate value converted from portion to 100 g.",
+        "url": "https://www.ars.usda.gov/ARSUserFiles/oc/np/NutritiveValueofFoods/NutritiveValueofFoods.pdf"
+      },
+      "calorieMethod": "reference_converted",
+      "portions": [
+        {
+          "tr": "1 orta boy elma (yenebilir kısım)",
+          "en": "1 medium apple (edible portion)",
+          "amount": 150
+        }
+      ],
+      "localName": "Apple",
+      "nutrients": {
+        "protein": 0.3,
+        "carbohydrate": 14,
+        "sugar": 10,
+        "fat": 0.2,
+        "salt": 0.01
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "produce"
+    },
+    {
+      "id": "uk__banana",
+      "tr": "Muz",
+      "en": "Banana",
+      "unit": "gr",
+      "calories": 89,
+      "calorieSource": {
+        "tr": "USDA SR27 09040: çiğ muz, yenebilir kısım, 89 kcal/100 g.",
+        "en": "USDA SR27 09040: raw banana, edible portion, 89 kcal/100 g.",
+        "url": "https://www.ars.usda.gov/ARSUserFiles/80400525/Data/SR27/reports/sr27fg09.pdf"
+      },
+      "calorieMethod": "reference_comparable",
+      "localName": "Banana",
+      "nutrients": {
+        "protein": 1.1,
+        "carbohydrate": 23,
+        "sugar": 12,
+        "fat": 0.0,
+        "salt": 0.01
+      },
+      "nutrientSource": "ai_estimate",
+      "foodGroup": "produce"
+    },
+    {
+      "id": "uk__yogurt",
+      "tr": "Sade yoğurt",
+      "en": "Plain yogurt",
+      "unit": "gr",
+      "calories": 61,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "localName": "Plain yogurt",
+      "nutrients": {
+        "protein": 3.5,
+        "carbohydrate": 4.7,
+        "sugar": 4.7,
+        "fat": 3.1,
+        "salt": 0.1
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "uk__orange",
+      "tr": "Portakal",
+      "en": "Orange",
+      "unit": "gr",
+      "calories": 47,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching has not yet been verified.",
+        "url": null
+      },
+      "portions": [
+        {
+          "tr": "1 orta boy portakal (soyulmuş)",
+          "en": "1 medium orange (peeled)",
+          "amount": 130
+        }
+      ],
+      "localName": "Orange",
+      "nutrients": {
+        "protein": 0.9,
+        "carbohydrate": 12,
+        "sugar": 9,
+        "fat": 0.0,
+        "salt": 0.01
+      },
+      "nutrientSource": "ai_estimate",
+      "foodGroup": "produce"
+    },
+    {
+      "id": "uk_dfdab871136b",
+      "tr": "Porridge with milk",
+      "en": "Porridge made with milk",
+      "unit": "gr",
+      "calories": 90,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Kahvaltı",
+      "localName": "Porridge with milk",
+      "nutrients": {
+        "protein": 3.0,
+        "carbohydrate": 13.0,
+        "sugar": 4.0,
+        "fat": 2.9,
+        "salt": 0.1
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "uk_f2593dde843a",
+      "tr": "Beans on toast",
+      "en": "Baked beans on toast",
+      "unit": "gr",
+      "calories": 145,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Kahvaltı",
+      "localName": "Beans on toast",
+      "nutrients": {
+        "protein": 7.0,
+        "carbohydrate": 24.0,
+        "sugar": 4.0,
+        "fat": 2.3,
+        "salt": 0.9
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "uk_a28c7416a612",
+      "tr": "Çırpılmış yumurta",
+      "en": "Scrambled eggs",
+      "unit": "gr",
+      "calories": 150,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Kahvaltı",
+      "localName": "Scrambled eggs",
+      "nutrients": {
+        "protein": 10.0,
+        "carbohydrate": 3.0,
+        "sugar": 2.0,
+        "fat": 10.9,
+        "salt": 0.4
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "uk_ba49499aff47",
+      "tr": "İngiliz kahvaltısı",
+      "en": "Full English breakfast",
+      "unit": "gr",
+      "calories": 230,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Kahvaltı",
+      "localName": "Full English breakfast",
+      "nutrients": {
+        "protein": 13.0,
+        "carbohydrate": 10.0,
+        "sugar": 2.0,
+        "fat": 15.3,
+        "salt": 1.2
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "uk_32fe27a587cb",
+      "tr": "Toast with butter",
+      "en": "Buttered toast",
+      "unit": "gr",
+      "calories": 330,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Kahvaltı",
+      "localName": "Buttered toast",
+      "nutrients": {
+        "protein": 7.0,
+        "carbohydrate": 47.0,
+        "sugar": 4.0,
+        "fat": 12.7,
+        "salt": 1.0
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "uk_789676e7ce1a",
+      "tr": "Fish and chips (balık ve patates kızartması)",
+      "en": "Fish and chips",
+      "unit": "gr",
+      "calories": 230,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Ana yemekler",
+      "localName": "Fish and chips",
+      "nutrients": {
+        "protein": 10.0,
+        "carbohydrate": 24.0,
+        "sugar": 1.0,
+        "fat": 10.4,
+        "salt": 0.8
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "uk_0d15f03d0bbe",
+      "tr": "Shepherd’s pie (kuzulu patatesli fırın yemeği)",
+      "en": "Shepherd’s pie",
+      "unit": "gr",
+      "calories": 155,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Ana yemekler",
+      "localName": "Shepherd’s pie",
+      "nutrients": {
+        "protein": 8.0,
+        "carbohydrate": 14.0,
+        "sugar": 2.0,
+        "fat": 7.4,
+        "salt": 0.8
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "uk_c1fcafbd2539",
+      "tr": "Cottage pie (kıymalı patatesli fırın yemeği)",
+      "en": "Cottage pie",
+      "unit": "gr",
+      "calories": 155,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Ana yemekler",
+      "localName": "Cottage pie",
+      "nutrients": {
+        "protein": 8.0,
+        "carbohydrate": 14.0,
+        "sugar": 2.0,
+        "fat": 7.4,
+        "salt": 0.8
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "uk_143cb3e90301",
+      "tr": "Sunday roast",
+      "en": "Roast dinner with vegetables",
+      "unit": "gr",
+      "calories": 160,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Ana yemekler",
+      "localName": "Sunday roast",
+      "nutrients": {
+        "protein": 13.0,
+        "carbohydrate": 11.0,
+        "sugar": 2.0,
+        "fat": 7.1,
+        "salt": 0.8
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "uk_6530f4fb60c2",
+      "tr": "Roast chicken",
+      "en": "Roast chicken, meat only",
+      "unit": "gr",
+      "calories": 180,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Et yemekleri",
+      "localName": "Roast chicken",
+      "nutrients": {
+        "protein": 27.0,
+        "carbohydrate": 0.0,
+        "sugar": 0.0,
+        "fat": 8.0,
+        "salt": 0.7
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "uk_ae276eea6a72",
+      "tr": "Bangers and mash",
+      "en": "Sausages and mashed potatoes",
+      "unit": "gr",
+      "calories": 190,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Ana yemekler",
+      "localName": "Sausages and mashed potatoes",
+      "nutrients": {
+        "protein": 9.0,
+        "carbohydrate": 18.0,
+        "sugar": 1.0,
+        "fat": 9.1,
+        "salt": 1.0
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "uk_be08bb423c6a",
+      "tr": "Jacket potato",
+      "en": "Baked jacket potato",
+      "unit": "gr",
+      "calories": 95,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Ana yemekler",
+      "localName": "Baked jacket potato",
+      "nutrients": {
+        "protein": 2.5,
+        "carbohydrate": 21.0,
+        "sugar": 1.0,
+        "fat": 0.1,
+        "salt": 0.2
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "uk_25e9bdd03a42",
+      "tr": "Jacket potato with beans",
+      "en": "Jacket potato with baked beans",
+      "unit": "gr",
+      "calories": 105,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Ana yemekler",
+      "localName": "Jacket potato with baked beans",
+      "nutrients": {
+        "protein": 5.0,
+        "carbohydrate": 18.0,
+        "sugar": 3.0,
+        "fat": 1.4,
+        "salt": 0.5
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "uk_01026497fa0a",
+      "tr": "Peynirli karnabahar",
+      "en": "Cauliflower cheese",
+      "unit": "gr",
+      "calories": 130,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Yan yemekler",
+      "localName": "Cauliflower cheese",
+      "nutrients": {
+        "protein": 5.0,
+        "carbohydrate": 7.0,
+        "sugar": 3.0,
+        "fat": 9.1,
+        "salt": 0.7
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "uk_f660088cd33b",
+      "tr": "Bubble and squeak (sebzeli patates)",
+      "en": "Bubble and squeak",
+      "unit": "gr",
+      "calories": 135,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Yan yemekler",
+      "localName": "Bubble and squeak",
+      "nutrients": {
+        "protein": 3.0,
+        "carbohydrate": 17.0,
+        "sugar": 2.0,
+        "fat": 6.1,
+        "salt": 0.7
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "uk_398bad28c815",
+      "tr": "Ploughman’s lunch (peynirli soğuk tabak)",
+      "en": "Ploughman’s lunch",
+      "unit": "gr",
+      "calories": 230,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Ana yemekler",
+      "localName": "Ploughman’s lunch",
+      "nutrients": {
+        "protein": 12.0,
+        "carbohydrate": 15.0,
+        "sugar": 3.0,
+        "fat": 13.6,
+        "salt": 1.3
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "uk_ac2d5a8c52e6",
+      "tr": "Scotch egg (kaplamalı yumurta)",
+      "en": "Scotch egg",
+      "unit": "gr",
+      "calories": 250,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Atıştırmalık",
+      "localName": "Scotch egg",
+      "nutrients": {
+        "protein": 12.0,
+        "carbohydrate": 19.0,
+        "sugar": 1.0,
+        "fat": 14.0,
+        "salt": 1.1
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "uk_1bcee876e219",
+      "tr": "Tavuklu mantarlı pay",
+      "en": "Chicken and mushroom pie",
+      "unit": "gr",
+      "calories": 230,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Ana yemekler",
+      "localName": "Chicken and mushroom pie",
+      "nutrients": {
+        "protein": 9.0,
+        "carbohydrate": 20.0,
+        "sugar": 2.0,
+        "fat": 12.7,
+        "salt": 1.0
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "uk_becaeb31c5e4",
+      "tr": "Etli ve böbrekli pay",
+      "en": "Steak and kidney pie",
+      "unit": "gr",
+      "calories": 240,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Ana yemekler",
+      "localName": "Steak and kidney pie",
+      "nutrients": {
+        "protein": 10.0,
+        "carbohydrate": 19.0,
+        "sugar": 1.0,
+        "fat": 13.8,
+        "salt": 1.0
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "uk_68bd7040bd11",
+      "tr": "Vegetable soup",
+      "en": "British vegetable soup",
+      "unit": "gr",
+      "calories": 55,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Çorbalar",
+      "localName": "Vegetable soup",
+      "nutrients": {
+        "protein": 2.0,
+        "carbohydrate": 7.0,
+        "sugar": 2.0,
+        "fat": 2.1,
+        "salt": 0.6
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "produce"
+    },
+    {
+      "id": "uk_def837e6e1d8",
+      "tr": "Domates çorbası (İngiliz usulü)",
+      "en": "Tomato soup",
+      "unit": "gr",
+      "calories": 60,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Çorbalar",
+      "localName": "Tomato soup",
+      "nutrients": {
+        "protein": 1.5,
+        "carbohydrate": 9.0,
+        "sugar": 5.0,
+        "fat": 2.0,
+        "salt": 0.6
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "produce"
+    },
+    {
+      "id": "uk_c3e9391c7326",
+      "tr": "Minestrone çorbası",
+      "en": "Minestrone soup",
+      "unit": "gr",
+      "calories": 65,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Çorbalar",
+      "localName": "Minestrone soup",
+      "nutrients": {
+        "protein": 2.5,
+        "carbohydrate": 9.0,
+        "sugar": 2.0,
+        "fat": 2.1,
+        "salt": 0.6
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "uk_db78ee9fec0b",
+      "tr": "Chicken tikka masala",
+      "en": "British chicken tikka masala",
+      "unit": "gr",
+      "calories": 175,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Ana yemekler",
+      "localName": "Chicken tikka masala",
+      "nutrients": {
+        "protein": 10.0,
+        "carbohydrate": 10.0,
+        "sugar": 3.0,
+        "fat": 10.6,
+        "salt": 0.9
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "uk_162aee2f56be",
+      "tr": "Çedar peyniri",
+      "en": "Cheddar cheese",
+      "unit": "gr",
+      "calories": 400,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Peynir",
+      "localName": "Cheddar cheese",
+      "nutrients": {
+        "protein": 25.0,
+        "carbohydrate": 1.0,
+        "sugar": 1.0,
+        "fat": 32.9,
+        "salt": 1.8
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "uk_248e68e04a15",
+      "tr": "Scone",
+      "en": "Plain scone",
+      "unit": "gr",
+      "calories": 350,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Fırın ürünleri",
+      "localName": "Plain scone",
+      "nutrients": {
+        "protein": 7.0,
+        "carbohydrate": 50.0,
+        "sugar": 13.0,
+        "fat": 13.6,
+        "salt": 0.9
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "uk_8c556aa4df1e",
+      "tr": "Crumpet",
+      "en": "Crumpet",
+      "unit": "gr",
+      "calories": 220,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Fırın ürünleri",
+      "localName": "Crumpet",
+      "nutrients": {
+        "protein": 7.0,
+        "carbohydrate": 44.0,
+        "sugar": 3.0,
+        "fat": 1.8,
+        "salt": 1.0
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "uk_03431af11562",
+      "tr": "Yorkshire pudding",
+      "en": "Yorkshire pudding",
+      "unit": "gr",
+      "calories": 240,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Yan yemekler",
+      "localName": "Yorkshire pudding",
+      "nutrients": {
+        "protein": 7.0,
+        "carbohydrate": 26.0,
+        "sugar": 2.0,
+        "fat": 12.0,
+        "salt": 0.6
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "uk_7cb558e70e2b",
+      "tr": "Elmalı crumble",
+      "en": "Apple crumble",
+      "unit": "gr",
+      "calories": 190,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Tatlılar",
+      "localName": "Apple crumble",
+      "nutrients": {
+        "protein": 2.0,
+        "carbohydrate": 32.0,
+        "sugar": 20.0,
+        "fat": 6.0,
+        "salt": 0.1
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "uk_0bf2a4e10ead",
+      "tr": "Rice pudding",
+      "en": "British rice pudding",
+      "unit": "gr",
+      "calories": 140,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Tatlılar",
+      "localName": "Rice pudding",
+      "nutrients": {
+        "protein": 3.0,
+        "carbohydrate": 23.0,
+        "sugar": 14.0,
+        "fat": 4.0,
+        "salt": 0.2
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "uk_7de026d2b58d",
+      "tr": "Victoria sponge",
+      "en": "Victoria sponge cake",
+      "unit": "gr",
+      "calories": 360,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Tatlılar",
+      "localName": "Victoria sponge cake",
+      "nutrients": {
+        "protein": 5.0,
+        "carbohydrate": 48.0,
+        "sugar": 28.0,
+        "fat": 16.4,
+        "salt": 0.4
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "uk_860c3106463f",
+      "tr": "Tea with milk",
+      "en": "Tea with milk, unsweetened",
+      "unit": "gr",
+      "calories": 15,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "İçecekler",
+      "localName": "Tea with milk",
+      "nutrients": {
+        "protein": 1.0,
+        "carbohydrate": 2.0,
+        "sugar": 2.0,
+        "fat": 0.3,
+        "salt": 0.04
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "other"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://www.visitbritain.com/en/things-to-do/eat-local-foodie-map-britain",
+      "purpose": "Country cuisine examples; not proof of population frequency or calorie value."
+    }
+  ],
+  "researchNote": {
+    "tr": "Başlangıç listesidir; yemeklerin tek tek tüketim sıklığı henüz doğrulanmamıştır. Kalori bilgileri yaklaşık değerlerdir.",
+    "en": "Starter list; consumption frequency of individual foods has not yet been verified. Calories are estimates."
+  },
+  "coverageSource": "https://www.gov.uk/government/statistics/national-diet-and-nutrition-survey-2019-to-2023/national-diet-and-nutrition-survey-2019-to-2023-report",
+  "nutritionEstimateNotice": {
+    "tr": "Besin değerleri kaynakla doğrulanmamış yapay zekâ tahminleridir. Yağ değeri mevcut kalori tahmininden hesaplanmıştır; tarif ve porsiyona göre değişir.",
+    "en": "Nutrients are unverified AI estimates. Fat is derived from the existing estimated calories; recipes and portions vary."
+  }
+}

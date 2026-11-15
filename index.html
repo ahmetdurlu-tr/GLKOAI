@@ -1,0 +1,1515 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>| GLK●AI | Akıllı Sağlık Asistanı  </title>
+    <link rel="icon" type="image/png" href="./icon-192.png">
+    
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0f172a">
+    <link rel="apple-touch-icon" href="icon-192.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Preload removed: caused unsupported `as` warning in some browsers -->
+
+    <link rel="stylesheet" href="./assets/libs/inter.css">
+    <link rel="stylesheet" href="./assets/libs/phosphor/ph-regular.css">
+    <link rel="stylesheet" href="./assets/libs/phosphor/ph-thin.css">
+    <link rel="stylesheet" href="./assets/libs/phosphor/ph-light.css">
+    <link rel="stylesheet" href="./assets/libs/phosphor/ph-bold.css">
+    <link rel="stylesheet" href="./assets/libs/phosphor/ph-fill.css">
+    <link rel="stylesheet" href="./assets/libs/phosphor/ph-duotone.css">
+    <script src="./assets/libs/tailwindcss.js"></script>
+    <script src="./assets/libs/chart.js"></script>
+    <script src="./assets/libs/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <script src="./assets/libs/hammer.min.js"></script>
+    <script>
+    // Make wheel/touch listeners passive by default to avoid Chrome performance warnings
+    (function(){
+        try {
+            const orig = EventTarget.prototype.addEventListener;
+            EventTarget.prototype.addEventListener = function(type, listener, options) {
+                if (!type) return orig.call(this, type, listener, options);
+                const t = String(type).toLowerCase();
+                if (t === 'wheel' || t === 'touchstart' || t === 'touchmove') {
+                    if (options === undefined) {
+                        options = { passive: true };
+                    } else if (typeof options === 'boolean') {
+                        options = { capture: options, passive: true };
+                    } else if (typeof options === 'object' && options !== null && !('passive' in options)) {
+                        options = Object.assign({}, options, { passive: true });
+                    }
+                }
+                return orig.call(this, type, listener, options);
+            };
+        } catch (e) { /* Passive listener shim error - no logging */ }
+    })();
+    </script>
+    <script src="./assets/libs/chartjs-plugin-zoom.min.js"></script>
+    <script src="./assets/libs/pdfmake.min.js"></script>
+    <script src="./assets/libs/vfs_fonts.js"></script>
+    <script src="./assets/libs/marked.min.js"></script>
+    <script src="./assets/libs/sortable.min.js"></script>
+    <script src="yemekler.js"></script> 
+    <script src="guide_content.js"></script>
+    <script src="guide-en.js"></script>
+    <script src="app-utils.js?v=66.216"></script>
+    <script src="app.js?v=66.220"></script>
+    <script src="food-nutrients.js?v=66.219"></script>
+    <script src="language-test.js"></script>
+    <script src="food-lists.js"></script>
+    <script src="diet-plan.js"></script>
+    <script src="custom-cuisine.js"></script>
+    <script src="health-report.js"></script>
+    <script src="alternative-report.js"></script>
+    <script defer src="profile-wizard.js"></script>
+
+    <link rel="stylesheet" href="style.css?v=66.219">
+    
+    <style>
+        /* Klinik Profil bölümündeki tüm label'lar için standart font ve hizalama */
+        #profileOverlay .input-group label,
+        #profileOverlay label {
+            font-size: 10px !important;
+            line-height: 1.2 !important;
+            margin-bottom: 2px !important;
+            padding-bottom: 0 !important;
+            padding-top: 0 !important;
+            font-weight: 600;
+            color: #cbd5e1;
+            position: relative;
+            top: 0;
+        }
+    </style>
+    
+    <style>
+        /* Diğer İlaçlar kartındaki input ve textarea'ların yüksekliğini azaltan stil zaten mevcut. */
+        /* Şimdi label'ların kutu içinde daha yukarıda görünmesi için margin ve padding ayarı ekleniyor */
+        .group\/clinic .input-group label {
+            margin-bottom: 0px !important;
+            padding-bottom: 0px !important;
+            padding-top: 0px !important;
+            font-size: 11px !important;
+            line-height: 1.1 !important;
+            position: relative;
+            top: -2px;
+        }
+    </style>
+
+</head>
+
+<body>
+                    <!-- Splash Screen Başlangıç -->
+                    <div id="splashScreen" style="position:fixed;z-index:9999;inset:0;display:block;background:#0f172a;transition:opacity 0.6s;">
+                        <div id="splashLogoWrap" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100vw;height:100vh;display:flex;align-items:center;justify-content:center;">
+                            <h1 class="glk-flash-heading" style="animation:headingFlicker 12s steps(1, end) infinite; font-family: 'Inter', system-ui, sans-serif !important; font-size: 10vw; font-weight: 900; color: white; display: flex; align-items: center; justify-content: center; gap: 2vw; min-width: 700px; max-width: 100vw;">
+                                <span class="glk-flash-bar" style="font-size: 9vw; color: #dc2626; min-width: 1em; text-align:center;">|</span>
+                                <span class="glk-flash-text" style="font-size: 10vw; color: #ffffff; min-width: 2.5em; display:inline-block; text-align:center;">GLK</span>
+                                <i class="ph-fill ph-heartbeat animate-pulse glk-flash-heart" aria-hidden="true" style="font-size: 10vw; color: #dc2626; margin: 0 0.05vw; min-width: 0,5 em; text-align:center;"></i>
+                                <span class="glk-flash-text" style="font-size: 10vw; color: #ffffff; min-width: 1.8em; display:inline-block; text-align:center;">AI</span>
+                                <span class="glk-flash-bar" style="font-size: 9vw; color: #dc2626; min-width: 1em; text-align:center;">|</span>
+                            </h1>
+                        </div>
+                    </div>
+                    <!-- Splash Screen Son -->
+                    <script>
+                    // Splash ekranı otomatik gizle
+                    function runSplashSequence() {
+                        var splash = document.getElementById('splashScreen');
+                        var logo = splash && splash.querySelector('.glk-flash-heading');
+                        // 1. aşama: Animasyonsuz tam ekran logo (2sn)
+                        if(logo) {
+                            logo.style.animation = 'none';
+                            logo.style.opacity = '1';
+                            logo.style.transition = 'none'; // oluşma efekti olmasın
+                        }
+                        setTimeout(function() {
+                            // 2. aşama: 3 hızlı kontrollü kaybolup-görünme
+                            function controlledBlink(times, duration, callback) {
+                                let count = 0;
+                                function blink() {
+                                    if (!logo) return;
+                                    logo.style.opacity = '0';
+                                    setTimeout(function() {
+                                        logo.style.opacity = '1';
+                                        count++;
+                                        if (count < times) {
+                                            setTimeout(blink, duration);
+                                        } else {
+                                            if (typeof callback === 'function') callback();
+                                        }
+                                    }, duration);
+                                }
+                                blink();
+                            }
+
+                            controlledBlink(3, 70, function() {
+                                // 1 yavaş kaybolup-görünme
+                                setTimeout(function() {
+                                    logo.style.opacity = '0';
+                                    setTimeout(function() {
+                                        logo.style.opacity = '1';
+                                        // 3. aşama: kaybolma animasyonu
+                                        setTimeout(function() {
+                                            if(splash) {
+                                                splash.style.opacity = '0';
+                                                setTimeout(function(){ splash.style.display = 'none'; }, 600);
+                                            }
+                                        }, 400);
+                                    }, 350);
+                                }, 350);
+                            });
+                        }, 1000); // 2 saniye tam görünür
+                    }
+                    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+                        setTimeout(runSplashSequence, 0);
+                    } else {
+                        window.addEventListener('DOMContentLoaded', runSplashSequence);
+                        window.addEventListener('load', runSplashSequence);
+                    }
+                    </script>
+    <div class="print-header">
+        <h1 class="inline-block mr-4">| GLK●AI | Akıllı Sağlık Asistanı <br> - KAN ŞEKERİ & TANSİYON RAPORU -</h1>
+        <div><span id="printProfile"></span> | <span id="printDate"></span></div>
+    </div>
+
+    <header class="p-3 pb-2 flex justify-between items-center no-print">
+        <div class="overflow-hidden mr-2 cursor-pointer active:scale-95 transition-transform" onclick="openGuideModal()" title="Kullanım Rehberi">
+            <h1 class="text-lg md:text-xl font-black text-white flex items-center gap-1 md:gap-1.5 whitespace-nowrap glk-flash-heading">
+                <span class="glk-flash-bar">|</span><span class="glk-flash-text">GLK</span><i class="ph-fill ph-heartbeat animate-pulse glk-flash-heart" aria-hidden="true"></i><span class="glk-flash-text">AI</span><span class="glk-flash-bar">|</span><span class="text-xs text-indigo-300 ml-1" data-test-tr="ⓘ Kılavuz" data-test-en="ⓘ Guide">ⓘ Kılavuz</span>
+            </h1>
+            <p id="welcomeUser" class="text-xs text-slate-400 font-medium mt-1 ml-0.5 truncate"></p>
+        </div>
+        <div class="flex gap-2 items-center shrink-0">
+            <button id="btnReminderBell" type="button" class="app-notification-button" aria-label="Hatırlatıcılar / Reminders" data-test-title-tr="Hatırlatıcılar" data-test-title-en="Reminders" title="Hatırlatıcılar"><i class="ph-bold ph-bell-ringing" aria-hidden="true"></i><span id="reminderBellBadge" class="reminder-bell-badge" hidden></span></button>
+            <button id="btnOpenMenu" class="app-menu-button" title="Menü / Menu" aria-label="Menü / Menu"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9V7a3 3 0 0 1 3-3h7l3 3h10a3 3 0 0 1 3 3v2"/><rect x="3" y="9" width="26" height="19" rx="3"/><path d="M11 14h13M11 19h13M11 24h13"/><circle cx="7.5" cy="14" r=".6" fill="currentColor"/><circle cx="7.5" cy="19" r=".6" fill="currentColor"/><circle cx="7.5" cy="24" r=".6" fill="currentColor"/></svg></button>
+        </div>
+    </header>
+
+    
+
+    <main class="container mx-auto pb-6 px-2">
+
+        <section id="reportSection" class="hidden mb-4 bg-slate-800 rounded-2xl p-4 border border-slate-700 shadow-xl animate-slide-up">
+            <div class="flex justify-between items-center mb-4 no-print">
+                <div class="flex items-center gap-2">
+                    <h2 class="text-sm font-bold text-slate-300 uppercase" data-test-tr="Hızlı Analiz" data-test-en="Quick analysis">Hızlı Analiz</h2>
+                    <div class="flex items-center text-slate-600 select-none">
+                        <i class="ph-bold ph-caret-right flow-arrow-1 text-sm"></i>
+                        <i class="ph-bold ph-caret-right flow-arrow-2 text-sm -ml-1.5"></i>
+                        <i class="ph-bold ph-caret-right flow-arrow-3 text-sm -ml-1.5"></i>
+                    </div>
+                </div>
+                <button id="btnCloseReport" class="bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500/30 p-2 rounded-lg transition"><i class="ph-bold ph-x text-xl"></i></button>
+            </div>
+            
+            <div class="relative group mb-4">
+                <div class="flex gap-2 overflow-x-auto no-scrollbar pb-2 snap-x snap-mandatory pr-8 overscroll-x-contain scroll-smooth">
+                <div onclick="showInfoModal('a1c')" data-tooltip="Seçili dönemde girilen ölçümlerin ortalaması ve sayısı; laboratuvar HbA1c değildir" class="min-w-[105px] flex-1 bg-slate-900/50 p-3 rounded-xl text-center border border-slate-700/50 flex flex-col justify-center cursor-pointer hover:bg-slate-800 transition snap-center">
+                    <div class="text-[10px] text-blue-300/70 uppercase font-bold clickable-info" data-test-tr="Ölçüm ortalaması" data-test-en="Measurement average">Ölçüm ortalaması</div>
+                    <div id="gmiValue" class="text-lg font-black text-blue-400 tabular-nums" data-test-tr="Veri yok" data-test-en="No data">Veri yok</div>
+                    <div class="text-[9px] text-slate-500 mt-1 font-medium" data-test-tr="Laboratuvar HbA1c değildir" data-test-en="Not a laboratory HbA1c result">Laboratuvar HbA1c değildir</div>
+                </div>
+                <div onclick="showInfoModal('cv')" data-tooltip="Kan şekeri dalgalanma katsayısı (%36 altı hedeflenir)" class="min-w-[105px] flex-1 bg-slate-900/50 p-3 rounded-xl text-center border border-slate-700/50 flex flex-col justify-center cursor-pointer hover:bg-slate-800 transition snap-center">
+                    <div class="text-[10px] text-blue-300/70 uppercase font-bold clickable-info" data-test-tr="Varyasyon" data-test-en="Variation">Varyasyon</div>
+                    <div id="cvValue" class="text-lg font-black text-orange-400 tabular-nums">-%</div>
+                    <div class="text-[9px] text-slate-500 mt-1 font-medium">(Hedef: <%36)</div>
+                </div>
+                <div onclick="showInfoModal('count')" data-tooltip="Analize dahil edilen toplam ölçüm sayısı" class="min-w-[105px] flex-1 bg-slate-900/50 p-3 rounded-xl text-center border border-slate-700/50 flex flex-col justify-center cursor-pointer hover:bg-slate-800 transition snap-center">
+                    <div class="text-[10px] text-blue-300/70 uppercase font-bold clickable-info" data-test-tr="Kayıt" data-test-en="Records">Kayıt</div>
+                    <div id="recordStatus" class="text-lg font-black text-emerald-400 tabular-nums">-</div>
+                    <div class="text-[9px] text-slate-500 mt-1 font-medium" data-test-tr="(Son 30)" data-test-en="(Last 30)">(Son 30)</div>
+                </div>
+                <div onclick="showInfoModal('avg')" data-tooltip="Sistolik (Büyük) ve Diastolik (Küçük) tansiyon ortalaması" class="min-w-[105px] flex-1 bg-[#2d0b16]/50 p-3 rounded-xl text-center border border-red-900/50 flex flex-col justify-center cursor-pointer hover:bg-[#3f1020] transition snap-center">
+                    <div class="text-[9px] text-red-300/70 uppercase font-bold truncate clickable-info" data-test-tr="ORTALAMA" data-test-en="AVERAGE">ORTALAMA</div>
+                    <div id="bpAvgDisplay" class="text-sm font-black text-red-400 tabular-nums my-1">--/--</div>
+                    <div id="bpPulseDisplay" class="text-[9px] text-red-300/60 font-medium" data-test-tr="Nabız: --" data-test-en="Pulse: --">Nabız: --</div>
+                </div>
+                <div onclick="showInfoModal('limit')" data-tooltip="140/90 mmHg üzerindeki ölçümlerin oranı" class="min-w-[105px] flex-1 bg-[#2d0b16]/50 p-3 rounded-xl text-center border border-red-900/50 flex flex-col justify-center cursor-pointer hover:bg-[#3f1020] transition snap-center">
+                    <div class="text-[9px] text-red-400/90 uppercase font-bold truncate clickable-info" data-test-tr="YÜKSEK" data-test-en="HIGH">YÜKSEK</div>
+                    <div id="bpLoadDisplay" class="text-lg font-black text-red-500 tabular-nums">-%</div>
+                    <div class="text-[8px] text-red-300/60">>140/90</div>
+                </div>
+                <div onclick="showInfoModal('abnormal')" data-tooltip="Hipotansiyon veya anormal nabız değerleri oranı" class="min-w-[105px] flex-1 bg-indigo-900/30 p-3 rounded-xl text-center border border-indigo-700/50 flex flex-col justify-center cursor-pointer hover:bg-indigo-900/50 transition snap-center">
+                    <div class="text-[9px] text-indigo-300/90 uppercase font-bold truncate clickable-info" data-test-tr="ANORMAL" data-test-en="ABNORMAL">ANORMAL</div>
+                    <div id="bpAbnormalDisplay" class="text-lg font-black text-indigo-400 tabular-nums">-%</div>
+                    <div class="text-[8px] text-indigo-300/60" data-test-tr="Düşük/Nabız" data-test-en="Low/Pulse">Düşük/Nabız</div>
+                </div>
+                <div onclick="showInfoModal('pp')" data-tooltip="Büyük ve küçük tansiyon arasındaki fark (Damar esnekliği)" class="min-w-[105px] flex-1 bg-[#2d0b16]/50 p-3 rounded-xl text-center border border-red-900/50 flex flex-col justify-center cursor-pointer hover:bg-[#3f1020] transition snap-center">
+                    <div class="text-[9px] text-red-300/70 uppercase font-bold truncate clickable-info" data-test-tr="NABIZ BASINCI" data-test-en="PULSE PRESSURE">NABIZ BASINCI</div>
+                    <div id="bpPpDisplay" class="text-lg font-black text-red-400 tabular-nums">--</div>
+                    <div class="text-[8px] text-red-300/60" data-test-tr="Fark" data-test-en="Difference">Fark</div>
+                </div>
+                </div>
+                <div class="absolute right-0 top-0 bottom-2 w-8 bg-gradient-to-l from-slate-800 to-transparent pointer-events-none"></div>
+            </div>
+            
+            <div class="h-48 relative w-full cursor-pointer" id="chartContainer"><canvas id="trendChart"></canvas></div>
+            
+            <div class="mt-4 no-print">
+                <div class="flex flex-wrap items-center justify-between gap-3 mb-3">
+                    <div class="flex flex-col">
+                        <span class="text-[10px] font-black uppercase tracking-widest text-slate-400" data-test-tr="Günlük Ortalama Kartları" data-test-en="Daily average cards">Günlük Ortalama Kartları</span>
+                        <span id="avgRangeCaption" class="text-[10px] text-slate-500 font-medium" data-test-tr="Son 7 gün" data-test-en="Last 7 days">Son 7 gün</span>
+                    </div>
+                    <div class="flex items-center gap-1.5 bg-slate-900/60 border border-slate-700/50 rounded-full p-1.5">
+                        <button type="button" class="avg-range-btn px-3 py-1.5 text-[10px] font-black uppercase tracking-widest rounded-full border border-slate-700/40 text-slate-400 hover:text-white hover:border-slate-500 transition" data-average-range="7">7 Gün</button>
+                        <button type="button" class="avg-range-btn px-3 py-1.5 text-[10px] font-black uppercase tracking-widest rounded-full border border-slate-700/40 text-slate-400 hover:text-white hover:border-slate-500 transition" data-average-range="15">15 Gün</button>
+                        <button type="button" class="avg-range-btn px-3 py-1.5 text-[10px] font-black uppercase tracking-widest rounded-full border border-slate-700/40 text-slate-400 hover:text-white hover:border-slate-500 transition" data-average-range="30">30 Gün</button>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <div class="bg-slate-900/50 border border-slate-700/60 rounded-2xl p-3 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-cyan-500/15 text-cyan-400 flex items-center justify-center shadow-inner">
+                            <i class="ph-fill ph-drop text-xl"></i>
+                        </div>
+                        <div>
+                            <div class="text-[10px] uppercase font-bold text-slate-400 tracking-wide" data-test-tr="Su Tüketimi" data-test-en="Water intake">Su Tüketimi</div>
+                            <div id="avgWaterValue" class="text-lg font-black text-white tabular-nums">--</div>
+                            <div class="text-[9px] text-slate-500" data-test-tr="Günlük ortalama" data-test-en="Daily average">Günlük ortalama</div>
+                        </div>
+                    </div>
+                    <div class="bg-slate-900/50 border border-slate-700/60 rounded-2xl p-3 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-orange-500/15 text-orange-400 flex items-center justify-center shadow-inner">
+                            <i class="ph-fill ph-fire text-xl"></i>
+                        </div>
+                        <div>
+                            <div class="text-[10px] uppercase font-bold text-slate-400 tracking-wide" data-test-tr="Kalori" data-test-en="Calories">Kalori</div>
+                            <div id="avgCalorieValue" class="text-lg font-black text-white tabular-nums">--</div>
+                            <div class="text-[9px] text-slate-500" data-test-tr="Günlük ortalama" data-test-en="Daily average">Günlük ortalama</div>
+                        </div>
+                    </div>
+                    <div class="bg-slate-900/50 border border-slate-700/60 rounded-2xl p-3 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-[#edb015]/15 text-[#edb015] flex items-center justify-center shadow-inner">
+                            <i class="ph-fill ph-person-simple-run text-xl"></i>
+                        </div>
+                        <div>
+                            <div class="text-[10px] uppercase font-bold text-slate-400 tracking-wide" data-test-tr="Egzersiz" data-test-en="Exercise">Egzersiz</div>
+                            <div id="avgActivityValue" class="text-lg font-black text-white tabular-nums">--</div>
+                            <div class="text-[9px] text-slate-500" data-test-tr="Günlük ortalama" data-test-en="Daily average">Günlük ortalama</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="analysisInsightCards" class="space-y-3 mt-4 no-print"></div>
+            <div class="mt-4 pt-4 border-t border-slate-700 no-print">
+                <div class="bg-slate-900/50 rounded-2xl p-4 border border-indigo-500/30 shadow-lg relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-3 opacity-5 pointer-events-none">
+                        <i class="ph-fill ph-sparkle text-6xl text-indigo-400"></i>
+                    </div>
+                    <div class="flex items-center gap-3 mb-4 relative z-10">
+                        <div class="w-10 h-10 rounded-xl bg-indigo-500/20 flex items-center justify-center text-indigo-400 shadow-inner">
+                            <i class="ph-fill ph-sparkle text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-sm font-black text-indigo-200 uppercase tracking-wide" data-test-tr="Yapay Zeka Analizi" data-test-en="AI analysis">Yapay Zeka Analizi</h3>
+                            <p class="text-[10px] text-indigo-300/70 font-medium" data-test-tr="Verilerinizin analizi için model seçin:" data-test-en="Choose a model to analyze your data:">Verilerinizin analizi için model seçin:</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-6 gap-2 relative z-10">
+                        <button onclick="startAiAnalysis('gemini')" class="flex flex-col items-center gap-1 group">
+                            <div class="w-10 h-10 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center group-hover:border-indigo-500 group-hover:bg-indigo-500/20 transition shadow-sm">
+                                <i class="ph-fill ph-sparkle text-indigo-400 text-lg"></i>
+                            </div>
+                            <span class="text-[9px] font-bold text-slate-400 group-hover:text-indigo-300 transition">Gemini</span>
+                        </button>
+                        <button onclick="startAiAnalysis('chatgpt')" class="flex flex-col items-center gap-1 group">
+                            <div class="w-10 h-10 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center group-hover:border-emerald-500 group-hover:bg-emerald-500/20 transition shadow-sm">
+                                <i class="ph-fill ph-robot text-emerald-400 text-lg"></i>
+                            </div>
+                            <span class="text-[9px] font-bold text-slate-400 group-hover:text-emerald-300 transition">GPT</span>
+                        </button>
+                        <button onclick="startAiAnalysis('claude')" class="flex flex-col items-center gap-1 group">
+                            <div class="w-10 h-10 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center group-hover:border-orange-500 group-hover:bg-orange-500/20 transition shadow-sm">
+                                <i class="ph-fill ph-brain text-orange-400 text-lg"></i>
+                            </div>
+                            <span class="text-[9px] font-bold text-slate-400 group-hover:text-orange-300 transition">Claude</span>
+                        </button>
+                        <button onclick="startAiAnalysis('deepseek')" class="flex flex-col items-center gap-1 group">
+                            <div class="w-10 h-10 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center group-hover:border-purple-500 group-hover:bg-purple-500/20 transition shadow-sm">
+                                <i class="ph-bold ph-lightning text-purple-400 text-lg"></i>
+                            </div>
+                            <span class="text-[9px] font-bold text-slate-400 group-hover:text-purple-300 transition">DeepSeek</span>
+                        </button>
+                        <button onclick="startAiAnalysis('grok')" class="flex flex-col items-center gap-1 group">
+                            <div class="w-10 h-10 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center group-hover:border-white group-hover:bg-white/10 transition shadow-sm">
+                                <i class="ph-bold ph-x-logo text-white text-lg"></i>
+                            </div>
+                            <span class="text-[9px] font-bold text-slate-400 group-hover:text-slate-200 transition">Grok</span>
+                        </button>
+                        <button onclick="startAiAnalysis('qwen')" class="flex flex-col items-center gap-1 group">
+                            <div class="w-10 h-10 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center group-hover:border-blue-500 group-hover:bg-blue-500/20 transition shadow-sm">
+                                <i class="ph-fill ph-planet text-blue-400 text-lg"></i>
+                            </div>
+                            <span class="text-[9px] font-bold text-slate-400 group-hover:text-blue-300 transition">Qwen</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="todaySummary" class="bg-slate-800 rounded-3xl p-4 mb-4 border border-slate-700/50 no-print" aria-labelledby="todaySummaryTitle">
+            <div class="flex items-center gap-3 mb-3"><h2 id="todaySummaryTitle" class="text-base font-black text-white" data-test-tr="BUGÜNÜN ÖZETİ" data-test-en="TODAY'S SUMMARY">BUGÜNÜN ÖZETİ</h2><span class="flex items-center gap-1 text-base font-black text-white"><i class="ph-bold ph-clock" aria-hidden="true"></i><time id="todaySummaryClock" class="tabular-nums">--:--</time></span></div>
+            <div class="space-y-2">
+                <div class="today-summary-row rounded-xl border border-slate-600 bg-slate-900/60 p-3"><span class="flex items-center gap-2 text-sm font-bold text-slate-200"><i class="ph-fill ph-drop text-cyan-400 text-xl" aria-hidden="true"></i><span data-test-tr="Su" data-test-en="Water">Su</span></span><span id="todaySummaryWater" class="text-sm font-bold text-white">—</span><button id="todayWaterAdd" type="button" class="today-water-add" aria-label="Su ekle" data-test-aria-label-tr="Su ekle" data-test-aria-label-en="Add water" title="Su ekle" data-test-title-tr="Su ekle" data-test-title-en="Add water"><i class="ph-bold ph-plus" aria-hidden="true"></i></button><div class="today-summary-track" aria-hidden="true"><div id="todaySummaryWaterBar" class="today-summary-fill today-summary-fill-water"></div></div></div>
+                <div class="today-summary-row rounded-xl border border-slate-600 bg-slate-900/60 p-3"><span class="flex items-center gap-2 text-sm font-bold text-slate-200"><i class="ph-fill ph-fire text-orange-400 text-xl" aria-hidden="true"></i><span data-test-tr="Kalori" data-test-en="Calories">Kalori</span></span><span id="todaySummaryCalories" class="text-sm font-bold text-white">—</span><div class="today-summary-track" aria-hidden="true"><div id="todaySummaryCaloriesBar" class="today-summary-fill today-summary-fill-calories"></div></div></div>
+                <div class="today-summary-row rounded-xl border border-slate-600 bg-slate-900/60 p-3"><span class="flex items-center gap-2 text-sm font-bold text-slate-200"><i class="ph-fill ph-person-simple-run text-[#facc15] text-xl" aria-hidden="true"></i><span data-test-tr="Aktivite" data-test-en="Activity">Aktivite</span></span><span id="todaySummaryActivity" class="text-sm font-bold text-white">—</span><div class="today-summary-track" aria-hidden="true"><div id="todaySummaryActivityBar" class="today-summary-fill today-summary-fill-activity"></div></div></div>
+                <div class="today-summary-row rounded-xl border border-slate-600 bg-slate-900/60 p-3"><span class="flex items-center gap-2 text-sm font-bold text-slate-200"><i class="ph-fill ph-drop text-teal-400 text-xl" aria-hidden="true"></i><span data-test-tr="Kan şekeri" data-test-en="Blood glucose">Kan şekeri</span></span><span id="todaySummaryGlucose" class="text-sm font-bold text-white">—</span></div>
+                <div class="today-summary-row rounded-xl border border-slate-600 bg-slate-900/60 p-3"><span class="flex items-center gap-2 text-sm font-bold text-slate-200"><i class="ph-fill ph-heartbeat text-rose-500 text-xl" aria-hidden="true"></i><span data-test-tr="Tansiyon" data-test-en="Blood pressure">Tansiyon</span></span><span id="todaySummaryPressure" class="text-sm font-bold text-white">—</span></div>
+                <div class="today-summary-row rounded-xl border border-slate-600 bg-slate-900/60 p-3"><span class="flex items-center gap-2 text-sm font-bold text-slate-200"><i class="ph-fill ph-smiley-nervous text-[#c6a34a] text-xl" aria-hidden="true"></i><span data-test-tr="Belirti" data-test-en="Symptoms">Belirti</span></span><span id="todaySummarySymptoms" class="text-sm font-bold text-white">—</span></div>
+                <div class="today-summary-row rounded-xl border border-slate-600 bg-slate-900/60 p-3"><span class="flex items-center gap-2 text-sm font-bold text-slate-200"><i class="ph-fill ph-pill text-violet-400 text-xl" aria-hidden="true"></i><span data-test-tr="İlaç" data-test-en="Medication">İlaç</span></span><span id="todaySummaryMedication" class="text-sm font-bold text-white">—</span></div>
+            </div>
+            <p id="todaySummaryDate" class="text-xs font-black text-white text-center mt-3"></p>
+            <div id="todayAlerts" class="hidden mt-4 rounded-xl border border-amber-400/40 bg-amber-500/10 p-3 text-amber-100" role="status"><div class="flex items-center gap-2 text-sm font-bold"><i class="ph-bold ph-bell-ringing text-amber-400 text-lg" aria-hidden="true"></i><span data-test-tr="Uyarılar" data-test-en="Alerts">Uyarılar</span></div><p id="todayCalorieAlert" class="text-xs leading-relaxed mt-2"></p></div>
+        </section>
+        <section id="homeReminderList" class="home-reminder-list no-print" aria-label="Hatırlatmalar / Reminders" aria-live="polite" hidden></section>
+        <div id="mainSectionHeading" class="section-page-heading no-print" style="display:none"><h2 id="mainSectionTitle" class="text-base font-black text-white"></h2><span class="flex items-center gap-1 text-base font-black text-white"><i class="ph-bold ph-clock" aria-hidden="true"></i><time id="mainSectionClock" class="tabular-nums">--:--</time></span></div>
+        <div id="todayDetailOverlay" class="fixed inset-0 bg-black/90 hidden items-center justify-center z-[110] px-4 py-6 no-print" role="dialog" aria-modal="true" aria-labelledby="todayDetailTitle">
+            <div class="bg-slate-900 border border-slate-700 w-full max-w-md max-h-[80vh] rounded-3xl shadow-2xl flex flex-col overflow-hidden">
+                <div class="flex justify-between items-center p-4 border-b border-slate-700"><h3 id="todayDetailTitle" class="text-lg font-bold text-white"></h3><button type="button" id="todayDetailClose" aria-label="Close / Kapat" class="p-2 text-slate-300"><i class="ph-bold ph-x text-xl" aria-hidden="true"></i></button></div>
+                <div id="todayDetailContent" class="p-4 overflow-y-auto text-sm text-slate-200 space-y-2"></div>
+            </div>
+        </div>
+        <section id="inputForm" class="bg-slate-800 rounded-3xl p-5 shadow-lg border border-slate-700/50 relative no-print transition-all duration-300">
+            <input type="hidden" id="editingId" value="">
+            <div id="editModeAlert" class="hidden absolute top-0 left-0 w-full bg-amber-600/20 text-amber-500 text-[10px] font-black uppercase tracking-widest text-center py-1" data-test-tr="DÜZENLEME MODU AKTİF" data-test-en="EDIT MODE ACTIVE">DÜZENLEME MODU AKTİF</div>
+            
+            <div id="stickyHeader" class="sticky top-0 z-[60] bg-slate-800 -mx-5 -mt-5 px-5 pt-5 pb-3 mb-4 shadow-xl border-b border-slate-700/50 rounded-t-3xl transition-all duration-300">
+
+                <div id="dailyStatsBar" class="grid grid-cols-[minmax(0,1fr)_minmax(0,1fr)_max-content] items-end gap-2 pb-3 mb-3 border-b border-slate-700/30 overflow-x-auto no-scrollbar">
+
+                    <div class="flex-1 flex flex-col gap-1.5">
+                        <div class="flex items-end px-0.5">
+                            <span class="text-[9px] text-slate-400 font-bold tracking-wider flex items-center gap-1"><i class="ph-fill ph-drop text-cyan-500"></i> SU</span>
+                        </div>
+                        <div class="relative h-[14px] bg-slate-900/80 rounded-full overflow-hidden border border-slate-700 shadow-inner">
+                            <div id="liveWaterBar" class="h-full bg-cyan-500 w-0 transition-all duration-700 ease-out"></div>
+                            <span id="liveWaterVal" class="absolute inset-0 flex items-center justify-center text-[9px] font-black text-white drop-shadow-sm pointer-events-none">0 / 2500 ml</span>
+                        </div>
+                    </div>
+
+                    <div class="flex-1 flex flex-col gap-1.5">
+                        <div class="flex items-end px-0.5">
+                            <span class="text-[9px] text-slate-400 font-bold tracking-wider flex items-center gap-1"><i class="ph-fill ph-fire text-orange-500"></i> KALORİ</span>
+                        </div>
+                        <div class="relative h-[14px] bg-slate-900/80 rounded-full overflow-hidden border border-slate-700 shadow-inner">
+                            <div id="liveCalBar" class="h-full bg-orange-500 w-0 transition-all duration-700 ease-out"></div>
+                            <span id="liveCalVal" class="absolute inset-0 flex items-center justify-center text-[9px] font-black text-white drop-shadow-sm pointer-events-none">0 / 2000 kcal</span>
+                        </div>
+                    </div>
+
+                    <div class="grid gap-1 justify-items-start w-fit min-w-0">
+                        <div class="flex items-center gap-1.5 text-[9px] text-slate-400 font-bold tracking-wider">
+                            <i class="ph-fill ph-pill text-[#c1a981]"></i>
+                            <span data-test-tr="İLAÇ" data-test-en="MEDICATION">İLAÇ</span>
+                            <span id="headerMedCount" class="text-[#c1a981] font-black tabular-nums opacity-40">0</span>
+                        </div>
+                        <div id="headerMedWrapper" class="h-[12px] bg-slate-900/80 rounded-full border border-[#c1a981]/50 shadow-inner px-[2px] py-[1px] inline-flex items-center hidden">
+                            <div id="headerMedDots" class="inline-flex items-center"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap gap-3 items-stretch">
+                    <div class="relative flex-1 min-w-[150px]">
+                        <i class="ph-fill ph-calendar-blank absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                        <input type="date" id="manualDate" onchange="updateHeaderStats(); renderList();" class="w-full pl-9 p-3 rounded-xl text-sm font-bold bg-slate-900 border-slate-700 focus:border-blue-500 tabular-nums text-white outline-none h-full">
+                    </div>
+                    <div class="relative flex-1 min-w-[120px]">
+                        <i class="ph-fill ph-clock absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                        <input type="time" id="manualTime" class="w-full pl-9 p-3 rounded-xl text-sm font-bold bg-slate-900 border-slate-700 focus:border-blue-500 tabular-nums text-white outline-none h-full">
+                    </div>
+                </div>
+
+            </div>    
+
+            <div id="sortableCards" class="space-y-4">
+            <div id="glucoseContainer">
+                <details class="group bg-slate-800/40 border border-slate-700/50 border-l-4 border-l-teal-500 rounded-r-2xl overflow-hidden" id="glucoseDetails">
+                      <summary onclick="toggleSmartSection('glucoseDetails', event)" class="flex justify-between items-center p-4 cursor-pointer select-none bg-slate-800/20 hover:bg-slate-800/50 transition">
+                        <div class="flex items-center gap-3 text-white">
+                            <i class="ph-bold ph-dots-six-vertical text-slate-600 text-xl -ml-1 mr-1 cursor-grab drag-handle hover:text-slate-400 transition"></i>
+                            <i class="ph-fill ph-drop text-2xl text-teal-400"></i>
+                            <span class="text-base font-black uppercase tracking-wider text-slate-200" data-test-tr="GLİKOZ ÖLÇÜMÜ" data-test-en="BLOOD GLUCOSE">GLİKOZ ÖLÇÜMÜ</span>
+                        </div>
+                        <i class="ph-bold ph-caret-down text-slate-500 group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <div class="p-4 bg-slate-900/50">
+                        <div class="flex flex-col items-center mb-6">
+                            <label class="text-[10px] font-bold text-teal-400 uppercase mb-2" data-test-tr="KAN ŞEKERİ (mg/dL)" data-test-en="BLOOD GLUCOSE (mg/dL)">KAN ŞEKERİ (mg/dL)</label>
+                            <input type="number" inputmode="numeric" pattern="\d*" id="glucoseValue" placeholder="---" class="w-32 h-16 text-3xl font-black text-center bg-slate-800 border-slate-600 rounded-xl focus:border-teal-500 text-white tabular-nums transition-colors" oninput="handleInputTheme(this.value)">
+                            <div id="targetDisplay" class="mt-3 text-sm font-black tracking-tight bg-slate-900 px-4 py-2 rounded-xl border border-slate-700/50 shadow-inner inline-block transition-colors duration-300 text-center" data-test-tr="Veri Bekleniyor..." data-test-en="Waiting for data...">Veri Bekleniyor...</div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3 mb-2" id="glucoseCats">
+                            <button id="btn-cat-fasting" onclick="setCategory(this, 'fasting')" class="cat-btn w-full bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white p-2 rounded-xl flex items-center justify-start gap-3 group transition text-left">
+                                <div class="w-8 h-8 rounded-lg bg-orange-500/20 flex items-center justify-center text-orange-400 group-hover:scale-110 transition shrink-0">
+                                    <i class="ph-fill ph-sun-horizon text-lg"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs font-bold" data-test-tr="Sabah Açlık" data-test-en="Morning fasting">Sabah Açlık</div>
+                                    <div class="text-[9px] text-slate-500" data-test-tr="Uyanınca" data-test-en="On waking">Uyanınca</div>
+                                </div>
+                            </button>
+                            <button id="btn-cat-pre_meal" onclick="setCategory(this, 'pre_meal')" class="cat-btn w-full bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white p-2 rounded-xl flex items-center justify-start gap-3 group transition text-left relative">
+                                <div class="w-8 h-8 rounded-lg bg-yellow-500/20 flex items-center justify-center text-yellow-400 group-hover:scale-110 transition shrink-0">
+                                    <i class="ph-fill ph-hamburger text-lg"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs font-bold" data-test-tr="Yemek Öncesi" data-test-en="Before meal">Yemek Öncesi</div>
+                                    <div class="text-[9px] text-slate-500" data-test-tr="Açlık" data-test-en="Fasting">Açlık</div>
+                                </div>
+                                <i class="ph-fill ph-clock absolute top-2 right-2 text-yellow-600/50 text-xs"></i>
+                            </button>
+                            <button id="btn-cat-post_meal" onclick="setCategory(this, 'post_meal')" class="cat-btn w-full bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white p-2 rounded-xl flex items-center justify-start gap-3 group transition text-left">
+                                <div class="w-8 h-8 rounded-lg bg-emerald-500/20 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition shrink-0">
+                                    <i class="ph-fill ph-bowl-food text-lg"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs font-bold" data-test-tr="Yemek Sonrası" data-test-en="After meal">Yemek Sonrası</div>
+                                    <div class="text-[9px] text-slate-500" data-test-tr="Tokluk (2.saat)" data-test-en="After meal (2 hours)">Tokluk (2.saat)</div>
+                                </div>
+                            </button>
+                            <button id="btn-cat-control" onclick="setCategory(this, 'control')" class="cat-btn w-full bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white p-2 rounded-xl flex items-center justify-start gap-3 group transition text-left">
+                                <div class="w-8 h-8 rounded-lg bg-purple-500/20 flex items-center justify-center text-purple-400 group-hover:scale-110 transition shrink-0">
+                                    <i class="ph-fill ph-target text-lg"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs font-bold" data-test-tr="Kontrol" data-test-en="Check">Kontrol</div>
+                                    <div class="text-[9px] text-slate-500" data-test-tr="Rastgele" data-test-en="Random">Rastgele</div>
+                                </div>
+                            </button>
+                        </div>
+                        <!-- DİYABET İLAÇLARI (OTOMATİK DOLACAK) -->
+                        <div id="glucoseMedsContainer" class="grid grid-cols-2 gap-3 mt-3 pt-3 border-t border-slate-700/50 hidden"></div>
+                    </div>
+                </details>
+            </div>
+
+                <div id="bpContainer">
+                    <details class="group bg-slate-800/40 border border-slate-700/50 border-l-4 border-l-rose-500 rounded-r-2xl overflow-hidden" id="bpDetails">
+                        <summary onclick="toggleSmartSection('bpDetails', event)" class="flex justify-between items-center p-4 cursor-pointer select-none bg-slate-800/20 hover:bg-slate-800/50 transition">
+                            <div class="flex items-center gap-3 text-white">
+                                <i class="ph-bold ph-dots-six-vertical text-slate-600 text-xl -ml-1 mr-1 cursor-grab drag-handle hover:text-slate-400 transition"></i>
+                                <i class="ph-fill ph-heartbeat text-2xl text-rose-500"></i>
+                                <span class="text-base font-black uppercase tracking-wider text-slate-200" data-test-tr="TANSİYON" data-test-en="BLOOD PRESSURE">TANSİYON</span>
+                            </div>
+                            <i class="ph-bold ph-caret-down text-slate-500 group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <div class="p-4 bg-slate-900/50 flex flex-col items-center gap-4">
+                            <div id="bpHomeTargetCard" class="bp-home-target" hidden aria-live="polite"><span id="bpHomeTargetLabel"></span><strong id="bpHomeTargetValue"></strong><span id="bpHomeTargetNote"></span></div>
+                            <div class="flex items-center gap-3">
+                                <div class="flex flex-col items-center">
+                                    <label for="bpSys" class="bp-field-label" data-test-tr="BÜYÜK" data-test-en="SYSTOLIC">BÜYÜK</label>
+                                    <input type="number" inputmode="numeric" pattern="\d*" id="bpSys" placeholder="120" class="w-24 h-16 text-3xl font-black text-center bg-slate-800 border-slate-600 rounded-xl focus:border-rose-500 text-white tabular-nums transition-colors" oninput="handleBpTheme()">
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <label for="bpDia" class="bp-field-label" data-test-tr="KÜÇÜK" data-test-en="DIASTOLIC">KÜÇÜK</label>
+                                    <input type="number" inputmode="numeric" pattern="\d*" id="bpDia" placeholder="80" class="w-24 h-16 text-3xl font-black text-center bg-slate-800 border-slate-600 rounded-xl focus:border-rose-500 text-white tabular-nums transition-colors" oninput="handleBpTheme()">
+                                </div>
+                            </div>
+                            <div class="flex flex-col items-center w-32">
+                                <label for="bpPulse" class="bp-field-label" data-test-tr="NABIZ" data-test-en="PULSE">NABIZ</label>
+                                <input type="number" inputmode="numeric" pattern="\d*" id="bpPulse" placeholder="75" class="w-full text-center bg-slate-800 rounded-xl text-white tabular-nums transition-colors" oninput="handleBpTheme()">
+                            </div>
+                            <!-- TANSİYON İLAÇLARI (OTOMATİK DOLACAK) -->
+                            <div id="bpMedsContainer" class="grid grid-cols-2 gap-3 w-full pt-3 border-t border-slate-700/50 hidden"></div>
+                        </div>
+                    </details>
+                </div>
+
+                <div id="nutritionContainer">
+                    <details class="group bg-slate-800/40 border border-slate-700/50 border-l-4 border-l-orange-500 rounded-r-2xl overflow-hidden" id="nutDetails">
+                        <summary onclick="toggleSmartSection('nutDetails', event)" class="flex justify-between items-center p-4 cursor-pointer select-none bg-slate-800/20 hover:bg-slate-800/50 transition">
+                            <div class="flex items-center gap-3 text-white">
+                                <i class="ph-bold ph-dots-six-vertical text-slate-600 text-xl -ml-1 mr-1 cursor-grab drag-handle hover:text-slate-400 transition"></i>
+                                <i class="ph-fill ph-carrot text-2xl text-orange-400"></i>
+                                <span class="text-base font-black uppercase tracking-wider text-slate-200" data-test-tr="BESLENME SEÇİMİ" data-test-en="FOOD SELECTION">BESLENME SEÇİMİ</span>
+                            </div>
+                            <i class="ph-bold ph-caret-down text-slate-500 group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        
+                        <div class="p-3 bg-slate-900/50">
+                            <h3 id="foodSelectHeading" class="food-section-heading mb-3" data-test-tr="YEDİKLERİNİ SEÇ / ARA" data-test-en="CHOOSE / SEARCH FOOD">YEDİKLERİNİ SEÇ / ARA</h3>
+                            <div id="aiGroupLegend" class="ai-group-legend hidden mb-3"></div>
+
+                            <div class="search-box-wrapper mb-3">
+                                <i class="ph-bold ph-magnifying-glass"></i>
+                                <input type="text" id="foodSearchInput" autocomplete="off" oninput="FoodLibraryManager.handleSearch(this.value)" class="smart-search-input" placeholder="Yemek ara veya ekle..." data-test-placeholder-tr="Yemek ara veya ekle..." data-test-placeholder-en="Search or add food...">
+                            </div>
+
+                            <div id="foodGridContainer" class="food-grid no-scrollbar mb-4"></div>
+
+                            <div id="emptyStateMsg" class="hidden text-center text-slate-500 text-xs py-4" data-test-tr="Liste boş. Yukarıya yazıp ekleyebilirsiniz." data-test-en="The list is empty. Enter an item above to add it.">Liste boş. Yukarıya yazıp ekleyebilirsiniz.</div>
+
+                            <div id="liveTotalWrapper" class="hidden mb-3 bg-indigo-600 text-white p-3 rounded-2xl shadow-lg mx-1 animate-slide-up flex justify-between items-center relative overflow-hidden">
+                                <div class="flex items-start gap-3 overflow-hidden">
+                                     <div class="bg-white/20 w-8 h-8 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
+                                         <i class="ph-fill ph-receipt text-white text-lg"></i>
+                                     </div>
+                                     <div class="min-w-0"><h4 class="text-xs font-bold mb-1" data-test-tr="Yediklerim, İçtiklerim" data-test-en="What I ate and drank">Yediklerim, İçtiklerim</h4><div id="totalLabel" class="text-[10px] font-bold uppercase tracking-wide opacity-90 flex flex-col leading-relaxed"></div></div>
+                                 </div>
+                                 <div class="bg-indigo-800/50 px-3 py-2 rounded-xl border border-indigo-400/30 text-center shrink-0 ml-2">
+                                     <span id="liveTotalValue" class="text-base font-black tabular-nums block leading-none">0</span>
+                                 </div>
+                            </div>
+
+                            <dialog id="foodEditorDialog" class="food-editor-dialog" aria-label="Yemek miktarı" data-test-aria-label-tr="Yemek miktarı" data-test-aria-label-en="Food amount"><div id="foodEditorPanel" class="hidden select-none"></div></dialog>
+
+
+                            <!-- YENİ EKLE BUTONU -->
+                            <div id="addFoodContainer" class="mt-4 pt-2 border-t border-slate-700/30" hidden>
+                                <button type="button" onclick="FoodLibraryManager.addFromSearch()" id="addFoodButton" class="w-full food-add-btn">
+                                    <div class="flex items-center justify-center gap-2 py-1">
+                                        <i class="ph-bold ph-plus text-lg text-blue-400"></i>
+                                        <span class="text-[13px] font-bold text-blue-400 uppercase tracking-wide" data-test-tr="Yemek Ekle" data-test-en="Add food">Yemek Ekle</span>
+                                    </div>
+                                </button>
+                            </div>
+
+                            <div id="nutritionMedsSection" class="hidden mt-4 p-3 rounded-xl bg-slate-800/60 border border-violet-500/25">
+                                <details id="nutritionMedsDetails" class="nutrition-meds-details"><summary class="nutrition-med-heading text-sm font-bold text-violet-300"><span data-test-tr="BU ÖĞÜNDE ALDIĞIN İLAÇ VE TAKVİYELERİ SEÇ" data-test-en="SELECT MEDICINES AND SUPPLEMENTS TAKEN WITH THIS MEAL">BU ÖĞÜNDE ALDIĞIN İLAÇ VE TAKVİYELERİ SEÇ</span><i class="ph-bold ph-caret-down" aria-hidden="true"></i></summary><div id="nutritionMedsContainer" class="hidden"></div></details>
+                            </div>
+
+                            <details id="foodManagementDetails" class="food-management mt-4">
+                                <summary class="food-management-summary"><i class="ph-bold ph-gear-six" aria-hidden="true"></i><span><strong data-test-tr="DİYET VE MUTFAK AYARLARI" data-test-en="DIET AND CUISINE SETTINGS">DİYET VE MUTFAK AYARLARI</strong><small data-test-tr="Liste seç, düzenle veya oluştur" data-test-en="Choose, manage or create lists">Liste seç, düzenle veya oluştur</small></span><i class="ph-bold ph-caret-down food-management-caret" aria-hidden="true"></i></summary>
+                                <div class="food-management-body">
+                            <button type="button" class="food-menu-action" onclick="DietPlan.open()"><i class="ph-bold ph-sliders-horizontal" aria-hidden="true"></i><span><strong data-test-tr="DİYET VE ÖĞÜN DÜZENİM" data-test-en="MY DIET AND MEAL SCHEDULE">DİYET VE ÖĞÜN DÜZENİM</strong><small data-test-tr="Diyet seç · öğün ve hedeflerini düzenle" data-test-en="Choose diets · manage meals and goals">Diyet seç · öğün ve hedeflerini düzenle</small></span><i class="ph-bold ph-caret-right" aria-hidden="true"></i></button>
+                            <p id="dietPlanSummary" class="diet-plan-summary"></p>
+                            <details class="food-loaded-panel food-menu-lists"><summary><i class="ph-bold ph-list-checks" aria-hidden="true"></i><span><strong data-test-tr="YÜKLÜ LİSTELERİM" data-test-en="MY LOADED LISTS">YÜKLÜ LİSTELERİM</strong><small data-test-tr="Gösterilecek listeleri seç veya liste ekle" data-test-en="Choose visible lists or add a list">Gösterilecek listeleri seç veya liste ekle</small></span><i class="ph-bold ph-caret-down" aria-hidden="true"></i></summary><div class="food-menu-list-body"><p data-test-tr="İşaretli listeler yemek seçiminde görünür. Çöp kutusu listeyi kaldırır." data-test-en="Checked lists appear in food selection. The trash icon removes a list.">İşaretli listeler yemek seçiminde görünür. Çöp kutusu listeyi kaldırır.</p><div id="foodLoadedLists"></div><button type="button" class="food-list-open food-menu-add" onclick="FoodLists.open()"><i class="ph-bold ph-plus" aria-hidden="true"></i><span data-test-tr="YENİ LİSTE EKLE" data-test-en="ADD A LIST">YENİ LİSTE EKLE</span></button><button type="button" class="food-clear-all" onclick="confirmResetFoodLibrary(event)"><i class="ph-bold ph-trash" aria-hidden="true"></i><span data-test-tr="Tüm yemek listesini temizle" data-test-en="Clear all food lists">Tüm yemek listesini temizle</span></button></div></details>
+                                </div>
+                            </details>
+                            <div class="mt-4">
+                                <details id="foodWizardDetails" class="food-management food-wizard group/ai relative z-20">
+                                    <summary class="food-management-summary"><i class="ph-fill ph-magic-wand" aria-hidden="true"></i><span><strong data-test-tr="YEMEK SİHİRBAZI" data-test-en="FOOD WIZARD">YEMEK SİHİRBAZI</strong><small data-test-tr="Yapay Zeka ile Liste Oluştur" data-test-en="Create a list with AI">Yapay Zeka ile Liste Oluştur</small></span><i class="ph-bold ph-caret-down food-management-caret" aria-hidden="true"></i></summary>
+                                    <div class="p-4 bg-slate-900/30 border-t border-indigo-500/10 animate-slide-down space-y-4">
+                                        <div id="aiCardSelect" class="group border border-indigo-500/20 bg-slate-900/60 rounded-2xl overflow-visible shadow-lg shadow-indigo-900/10 transition-all">
+                                            <div class="border-t border-indigo-500/10 px-4 py-4 space-y-5">
+                                                <div class="relative">
+                                                    <input type="hidden" id="dietTypeSelector" value="">
+                                                    <button onclick="document.getElementById('customDietList').classList.toggle('hidden')" class="w-full bg-slate-900 border border-slate-700 text-blue-400 text-xs rounded-lg p-3 outline-none flex justify-between items-center font-black uppercase tracking-wider shadow-sm hover:border-slate-500 transition">
+                                                        <span id="dietSelectedLabel">DİYET LİSTESİ SEÇİNİZ  ➔</span>
+                                                        <i class="ph-bold ph-caret-down"></i>
+                                                    </button>
+                                                    <div id="customDietList" class="hidden absolute top-full left-0 w-full mt-1 bg-slate-800 border border-slate-600 rounded-xl shadow-2xl max-h-60 overflow-y-auto no-scrollbar z-50"></div>
+                                                </div>
+
+                                                <div class="space-y-2">
+                                                    <label for="dietCuisine" class="flex items-center gap-2 text-xs font-black text-amber-400 uppercase tracking-wide"><i class="ph-bold ph-cooking-pot text-base" aria-hidden="true"></i><span data-test-tr="Mutfak tercihi" data-test-en="Cuisine preference">Mutfak tercihi</span></label>
+                                                    <select id="dietCuisine" class="w-full bg-slate-900 border border-slate-700 text-white text-sm rounded-lg p-3">
+                                                        <option value="any" data-test-tr="Belirli bir mutfak yok" data-test-en="No specific cuisine">Belirli bir mutfak yok</option>
+                                                        <option value="turkish" data-test-tr="Türk mutfağı" data-test-en="Turkish cuisine">Türk mutfağı</option>
+                                                        <option value="mediterranean" data-test-tr="Akdeniz mutfağı" data-test-en="Mediterranean cuisine">Akdeniz mutfağı</option>
+                                                        <option value="italian" data-test-tr="İtalyan mutfağı" data-test-en="Italian cuisine">İtalyan mutfağı</option>
+                                                        <option value="indian" data-test-tr="Hint mutfağı" data-test-en="Indian cuisine">Hint mutfağı</option>
+                                                    </select>
+                                                </div>
+                                                <div class="space-y-2">
+                                                    <label for="dietItemCount" class="flex items-center gap-2 text-xs font-black text-amber-400 uppercase tracking-wide"><i class="ph-bold ph-list-numbers text-base" aria-hidden="true"></i><span data-test-tr="YEMEK SAYISI" data-test-en="NUMBER OF FOODS">YEMEK SAYISI</span></label>
+                                                    <div class="flex items-center gap-3">
+                                                        <input type="number" id="dietItemCount" value="10" min="3" max="30" class="flex-1 bg-slate-900 border border-slate-700 text-white text-sm rounded-lg p-3 outline-none focus:border-amber-500 transition"/>
+                                                        <span class="text-xs text-slate-400 whitespace-nowrap" data-test-tr="adet (3-30)" data-test-en="items (3–30)">adet (3-30)</span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="text-center space-y-2">
+                                                    <p class="text-[10px] text-slate-500 font-semibold" data-test-tr="Seçtiğiniz &quot;YapayZeka&quot; listeyi oluşturacaktır." data-test-en="The selected AI will create the list.">Seçtiğiniz "YapayZeka" listeyi oluşturacaktır.</p>  
+                                                    <label class="block text-xs font-black text-purple-400 uppercase tracking-wide">                                                                                                              
+                                                        <span class="block" data-test-tr="YAPAY ZEKA MODELİNİ SEÇİNİZ" data-test-en="CHOOSE AN AI MODEL">YAPAY ZEKA MODELİNİ SEÇİNİZ</span>
+                                                    </label>
+                                                    
+                                                </div>
+
+                                                <div class="grid grid-cols-5 gap-2" id="aiIconContainer">
+                                                    <button onclick="selectAI('gemini')" id="btn-gemini" class="ai-btn active group bg-slate-800 border border-indigo-500 p-2 rounded-lg flex flex-col items-center justify-center gap-1 transition shadow-lg shadow-indigo-900/10">
+                                                        <i class="ph-fill ph-sparkle text-indigo-400 text-xl group-hover:scale-110 transition"></i>
+                                                        <span class="text-[9px] font-bold text-indigo-200">Gemini</span>
+                                                    </button>
+                                                    <button onclick="selectAI('chatgpt')" id="btn-chatgpt" class="ai-btn bg-slate-900 border border-slate-700 p-2 rounded-lg flex flex-col items-center justify-center gap-1 transition hover:bg-slate-800">
+                                                        <i class="ph-fill ph-robot text-emerald-400 text-xl group-hover:scale-110 transition"></i>
+                                                        <span class="text-[9px] font-bold text-slate-400">GPT</span>
+                                                    </button>
+                                                    <button onclick="selectAI('claude')" id="btn-claude" class="ai-btn bg-slate-900 border border-slate-700 p-2 rounded-lg flex flex-col items-center justify-center gap-1 transition hover:bg-slate-800">
+                                                        <i class="ph-fill ph-brain text-orange-400 text-xl group-hover:scale-110 transition"></i>
+                                                        <span class="text-[9px] font-bold text-slate-400">Claude</span>
+                                                    </button>
+                                                    <button onclick="selectAI('deepseek')" id="btn-deepseek" class="ai-btn bg-slate-900 border border-slate-700 p-2 rounded-lg flex flex-col items-center justify-center gap-1 transition hover:bg-slate-800">
+                                                        <i class="ph-bold ph-lightning text-purple-400 text-xl group-hover:scale-110 transition"></i>
+                                                        <span class="text-[9px] font-bold text-slate-400">DeepSeek</span>
+                                                    </button>
+                                                    <button onclick="selectAI('grok')" id="btn-grok" class="ai-btn bg-slate-900 border border-slate-700 p-2 rounded-lg flex flex-col items-center justify-center gap-1 transition hover:bg-slate-800">
+                                                        <i class="ph-bold ph-x-logo text-white text-xl group-hover:scale-110 transition"></i>
+                                                        <span class="text-[9px] font-bold text-slate-400">Grok</span>
+                                                    </button>
+                                                </div>
+
+                                                <p class="text-sm text-amber-200 font-bold text-center leading-relaxed p-3 rounded-xl border border-amber-400/40 bg-amber-500/10" data-test-tr="Açılan yapay zekâ sayfasında metni kendiniz yapıştırıp gönderin." data-test-en="On the AI page, paste the prompt yourself and send it.">Açılan yapay zekâ sayfasında metni kendiniz yapıştırıp gönderin.</p>
+                                                <div id="dietWizardFallback" hidden><textarea id="dietWizardPrompt" rows="4" readonly></textarea><button type="button" class="food-ai-action" onclick="AiWizard.setStage(2);window.open(AppConfig.AI_LINKS[selectedAiService]||AppConfig.AI_LINKS.gemini,'_blank','noopener')" data-test-tr="YAPAY ZEKÂYI AÇ" data-test-en="OPEN AI">YAPAY ZEKÂYI AÇ</button></div><button onclick="generateAndCopyDiet()" id="btnCopyDiet" class="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white text-xs font-black py-3 rounded-xl flex items-center justify-center gap-2 transition shadow-xl shadow-purple-900/30 active:scale-95 border border-white/10">
+                                                    <span class="tracking-wide" data-test-tr="İSTEMİ KOPYALA VE YAPAY ZEKÂYI AÇ" data-test-en="COPY PROMPT AND OPEN AI">İSTEMİ KOPYALA VE YAPAY ZEKÂYI AÇ</span>
+                                                    <i class="ph-bold ph-arrow-right"></i>
+                                                </button>
+                                                <button type="button" class="food-ai-action" onclick="AiWizard.setStage(2)" data-test-tr="ELİMDE YANIT VAR" data-test-en="I HAVE A RESPONSE">ELİMDE YANIT VAR</button>
+                                                <p class="text-[13px] text-slate-500 text-center leading-relaxed px-2" data-test-tr="Cevabı, &quot;Liste Yapıştır&quot; sekmesindeki kutuya yapıştırınız. “Listeye Ekle”ye basınız." data-test-en="Paste the response into the box under “Paste list”, then select “Add to list”.">Cevabı, &quot;Liste Yapıştır&quot; sekmesindeki kutuya yapıştırınız. “Listeye Ekle”ye basınız.</p>
+                                            </div>
+                                        </div>
+
+                                        <details id="aiCardImport" class="group border border-indigo-500/20 bg-slate-900/60 rounded-2xl overflow-hidden shadow-lg shadow-indigo-900/10 transition-all">
+                                            <summary class="flex items-center justify-between gap-3 px-4 py-3 cursor-pointer select-none">
+                                                <div class="flex items-center gap-3">
+                                                    <div class="w-9 h-9 rounded-xl bg-indigo-500/20 text-indigo-300 flex items-center justify-center shrink-0">
+                                                        <i class="ph-bold ph-arrow-square-in text-lg"></i>
+                                                    </div>
+                                                    <div class="leading-snug">
+                                                        <p class="text-[13px] font-black text-indigo-200 uppercase tracking-widest" data-test-tr="Liste Yapıştır➔" data-test-en="Paste list ➔">Liste Yapıştır➔</p>                                                        
+                                                    </div>
+                                                </div>
+                                                <i class="ph-bold ph-caret-down text-slate-400 transition-transform group-open:rotate-180"></i>
+                                            </summary>
+                                            <div class="border-t border-indigo-500/10 px-4 py-4 space-y-4">
+                                                <button type="button" class="food-ai-action" onclick="AiWizard.setStage(1)" data-test-tr="GERİ" data-test-en="BACK">GERİ</button>
+                                                <p class="text-[13px] text-slate-300 leading-relaxed" data-test-tr="Yapay zekânın verdiği yanıtın tamamını kopyalayıp buraya yapıştırın." data-test-en="Copy the entire response from the AI and paste it here.">Yapay zekânın verdiği yanıtın tamamını kopyalayıp buraya yapıştırın.</p>
+                                                <button type="button" id="foodImportPasteButton" class="food-import-paste" onclick="FoodLibraryManager.pasteImport()"><i class="ph-bold ph-clipboard-text" aria-hidden="true"></i><span data-test-tr="Panodan yapıştır" data-test-en="Paste from clipboard">Panodan yapıştır</span></button>
+                                                <p id="foodImportManualHint" class="text-[13px] text-amber-200 leading-relaxed" hidden data-test-tr="Kutuyu seçip Ctrl+V ile yapıştırın. Telefonda kutuya basılı tutup Yapıştır'ı seçin." data-test-en="Select the box and paste with Ctrl+V. On a phone, touch and hold the box and choose Paste.">Kutuyu seçip Ctrl+V ile yapıştırın. Telefonda kutuya basılı tutup Yapıştır'ı seçin.</p>
+                                                <div class="space-y-2">
+                                                    <label for="jsonImportArea" class="block text-[10px] font-black text-indigo-200 uppercase tracking-widest" data-test-tr="Yapay zekâ yanıtı" data-test-en="AI response">Yapay zekâ yanıtı</label>
+                                                    <textarea id="jsonImportArea" rows="5" oninput="FoodLibraryManager.previewImport()" aria-describedby="foodImportStatus" class="w-full p-3 rounded-xl bg-slate-950/70 border border-slate-700 text-xs text-slate-200 font-mono focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition resize-y placeholder:text-slate-600 placeholder:italic" placeholder="Yanıtı buraya yapıştırın" data-test-placeholder-tr="Yanıtı buraya yapıştırın" data-test-placeholder-en="Paste the response here"></textarea>
+                                                    <p id="foodImportStatus" class="food-import-status" role="status" aria-live="polite" hidden></p>
+                                                </div>
+                                                <button type="button" onclick="FoodLibraryManager.importJSON()" class="inline-flex w-full items-center justify-center gap-2 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white text-xs font-black px-4 py-3 rounded-lg transition shadow-lg shadow-indigo-900/30 uppercase tracking-widest">
+                                                    <i class="ph-bold ph-plus-circle"></i>
+                                                    <span data-test-tr="LİSTEYE EKLE" data-test-en="ADD TO LIST">LİSTEYE EKLE</span>
+                                                </button>
+                                            </div>
+                                        </details>
+                                    </div>
+                                </details>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+              
+                <div id="activityContainer">
+                    <details class="group bg-slate-800/40 border border-slate-700/50 border-l-4 border-l-[#facc15] rounded-r-2xl overflow-hidden" id="activityDetails">
+                        <summary onclick="toggleSmartSection('activityDetails', event)" class="flex justify-between items-center p-4 cursor-pointer select-none bg-slate-800/20 hover:bg-slate-800/50 transition">
+                            <div class="flex items-center gap-3 text-white">
+                                <i class="ph-bold ph-dots-six-vertical text-slate-600 text-xl -ml-1 mr-1 cursor-grab drag-handle hover:text-slate-400 transition"></i>
+                                <i class="ph-fill ph-person-simple-run text-2xl text-[#facc15]"></i>
+                                <span class="text-base font-black uppercase tracking-wider text-slate-200" data-test-tr="AKTİVİTE" data-test-en="ACTIVITY">AKTİVİTE</span>
+                            </div>
+                            <i class="ph-bold ph-caret-down text-slate-500 group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <div class="p-4 bg-slate-900/50">
+                        <!-- Dinamik Aktivite Butonları -->
+                        <div class="grid grid-cols-2 gap-3 mb-4 [&>*:nth-child(odd):last-child]:col-span-2 activity-container-grid" id="activityButtons"></div>
+
+                        <div class="flex gap-3 mb-3 items-stretch">
+                            <div class="flex-1 min-w-0 bg-slate-800 border border-slate-700 rounded-2xl p-3 shadow-inner">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-9 h-9 rounded-lg bg-[#facc15]/15 text-[#facc15] flex items-center justify-center shrink-0">
+                                        <i class="ph-fill ph-timer text-lg"></i>
+                                    </div>
+                                    <input type="number" inputmode="numeric" pattern="\d*" id="actDuration" placeholder="30" class="w-10 h-9 bg-slate-900 border border-slate-600 rounded-lg text-center text-white font-bold tabular-nums focus:border-[#facc15]">
+                                </div>
+                                <div class="mt-2">
+                                    <span class="block text-[11px] font-black text-[#facc15]/80 uppercase tracking-wide" data-test-tr="Süre (dk)" data-test-en="Duration (min)">Süre (dk)</span>
+                                </div>
+                            </div>
+                            <div class="flex-1 min-w-0 bg-slate-800 border border-slate-700 rounded-2xl p-3 shadow-inner">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-9 h-9 rounded-lg bg-[#facc15]/15 text-[#facc15] flex items-center justify-center shrink-0">
+                                        <i class="ph-fill ph-flag-checkered text-lg"></i>
+                                    </div>
+                                    <input type="number" inputmode="numeric" pattern="\d*" id="actGoal" placeholder="60" class="w-10 h-9 bg-slate-900 border border-slate-600 rounded-lg text-center text-white font-bold tabular-nums focus:border-[#facc15]">
+                                </div>
+                                <div class="mt-2">
+                                    <span class="block text-[11px] font-black text-[#facc15]/80 uppercase tracking-wide" data-test-tr="G.Hedef (dk)" data-test-en="Daily goal (min)">G.Hedef (dk)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-800 border border-slate-700 rounded-2xl p-3 shadow-inner mb-3 flex flex-col gap-2">
+                            <span class="text-[11px] font-black text-[#facc15]/80 uppercase tracking-wide flex items-center gap-2"><i class="ph-fill ph-activity text-[#facc15]"></i> <span data-test-tr="Zorluk Hissiyatı" data-test-en="Perceived effort">Zorluk Hissiyatı</span></span>
+                            <div class="flex gap-2 items-stretch">
+                                <div class="flex-1 min-w-0 flex flex-col items-center gap-1">
+                                    <button onclick="setActivityMood(this, 'happy')" data-mood="happy" data-highlight-border="border-emerald-500" data-highlight-bg="bg-emerald-900/25" data-highlight-text="text-emerald-200" class="act-mood-btn w-full bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white px-3 py-2 rounded-xl flex items-center justify-center group transition select-none touch-none">
+                                        <div class="w-9 h-9 rounded-lg bg-emerald-500/15 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition"><i class="ph-fill ph-smiley text-lg"></i></div>
+                                    </button>
+                                    <span class="text-[11px] font-bold uppercase tracking-wide text-slate-300 text-center" data-test-tr="Rahat" data-test-en="Easy">Rahat</span>
+                                </div>
+                                <div class="flex-1 min-w-0 flex flex-col items-center gap-1">
+                                    <button onclick="setActivityMood(this, 'neutral')" data-mood="neutral" data-highlight-border="border-[#facc15]" data-highlight-bg="bg-[#facc15]/15" data-highlight-text="text-[#facc15]" class="act-mood-btn w-full bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white px-3 py-2 rounded-xl flex items-center justify-center group transition select-none touch-none">
+                                        <div class="w-9 h-9 rounded-lg bg-[#facc15]/15 flex items-center justify-center text-[#facc15] group-hover:scale-110 transition"><i class="ph-fill ph-smiley-meh text-lg"></i></div>
+                                    </button>
+                                    <span class="text-[11px] font-bold uppercase tracking-wide text-slate-300 text-center" data-test-tr="İdeal" data-test-en="Moderate">İdeal</span>
+                                </div>
+                                <div class="flex-1 min-w-0 flex flex-col items-center gap-1">
+                                    <button onclick="setActivityMood(this, 'tired')" data-mood="tired" data-highlight-border="border-rose-500" data-highlight-bg="bg-rose-900/25" data-highlight-text="text-rose-200" class="act-mood-btn w-full bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white px-3 py-2 rounded-xl flex items-center justify-center group transition select-none touch-none">
+                                        <div class="w-9 h-9 rounded-lg bg-rose-500/15 flex items-center justify-center text-rose-400 group-hover:scale-110 transition"><i class="ph-fill ph-smiley-nervous text-lg"></i></div>
+                                    </button>
+                                    <span class="text-[11px] font-bold uppercase tracking-wide text-slate-300 text-center" data-test-tr="Yorucu" data-test-en="Hard">Yorucu</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button onclick="openActivityModal()" class="w-full py-2 rounded-xl border-2 border-dashed border-slate-600 text-slate-400 font-bold hover:border-[#facc15] hover:text-[#facc15] hover:bg-[#facc15]/10 transition flex items-center justify-center gap-2 uppercase text-xs tracking-wide"><i class="ph-bold ph-plus"></i> <span data-test-tr="Aktivite Ekle" data-test-en="Add activity">Aktivite Ekle</span></button>
+                    </div>
+                    </details>
+                </div>
+
+                <div id="statusContainer">
+                    <details class="group bg-slate-800/40 border border-slate-700/50 border-l-4 border-l-[#c6a34a] rounded-r-2xl overflow-hidden" id="statusDetails">
+                        <summary onclick="toggleSmartSection('statusDetails', event)" class="flex justify-between items-center p-4 cursor-pointer select-none bg-slate-800/20 hover:bg-slate-800/50 transition">
+                            <div class="flex items-center gap-3 text-white">
+                                <i class="ph-bold ph-dots-six-vertical text-slate-600 text-xl -ml-1 mr-1 cursor-grab drag-handle hover:text-slate-400 transition"></i>
+                                <i class="ph-fill ph-smiley-nervous text-2xl text-[#c6a34a]"></i>
+                                <span class="text-base font-black uppercase tracking-wider text-slate-200" data-test-tr="HİSSİYAT / BELİRTİ" data-test-en="FEELING / SYMPTOMS">HİSSİYAT / BELİRTİ</span>                                                          
+                            </div>
+                            <i class="ph-bold ph-caret-down text-slate-500 group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        
+                        <div class="p-4 bg-slate-900/50">
+                            <div class="mb-4">
+                                <div class="flex items-center gap-2 mb-2">
+                                    <i class="ph-fill ph-smiley-nervous text-[#c6a34a]"></i>
+                                    <span class="text-[10px] font-bold text-slate-400 uppercase" data-test-tr="Hissiyat / Belirti" data-test-en="Feeling / Symptom">Hissiyat / Belirti</span>
+                                </div>
+                                <div class="grid grid-cols-2 gap-3 [&>*:nth-child(odd):last-child]:col-span-2 symptom-container-grid" id="symptomsGrid">
+                                    <button onclick="toggleTag(this, 'sym')" class="sym-btn w-full group p-2 rounded-xl border border-slate-700 bg-slate-800 transition flex flex-row items-center justify-start gap-3 hover:bg-slate-700"><i class="ph-fill ph-brain text-2xl text-[#c6a34a] group-hover:scale-110 transition shrink-0"></i><span class="text-xs font-bold text-slate-300" data-test-tr="Baş Ağrısı" data-test-en="Headache" data-symptom-original="Baş Ağrısı">Baş Ağrısı</span></button>
+                                    <button onclick="toggleTag(this, 'sym')" class="sym-btn w-full group p-2 rounded-xl border border-slate-700 bg-slate-800 transition flex flex-row items-center justify-start gap-3 hover:bg-slate-700"><i class="ph-fill ph-drop text-2xl text-[#c6a34a] group-hover:scale-110 transition shrink-0"></i><span class="text-xs font-bold text-slate-300" data-test-tr="Terleme" data-test-en="Sweating" data-symptom-original="Terleme">Terleme</span></button>
+                                    <button onclick="toggleTag(this, 'sym')" class="sym-btn w-full group p-2 rounded-xl border border-slate-700 bg-slate-800 transition flex flex-row items-center justify-start gap-3 hover:bg-slate-700"><i class="ph-fill ph-waves text-2xl text-[#c6a34a] group-hover:scale-110 transition shrink-0"></i><span class="text-xs font-bold text-slate-300" data-test-tr="Titreme" data-test-en="Shaking" data-symptom-original="Titreme">Titreme</span></button>
+                                    <button onclick="toggleTag(this, 'sym')" class="sym-btn w-full group p-2 rounded-xl border border-slate-700 bg-slate-800 transition flex flex-row items-center justify-start gap-3 hover:bg-slate-700"><i class="ph-fill ph-battery-low text-2xl text-[#c6a34a] group-hover:scale-110 transition shrink-0"></i><span class="text-xs font-bold text-slate-300" data-test-tr="Halsizlik" data-test-en="Weakness" data-symptom-original="Halsizlik">Halsizlik</span></button>
+                                    <button onclick="toggleTag(this, 'sym')" class="sym-btn w-full group p-2 rounded-xl border border-slate-700 bg-slate-800 transition flex flex-row items-center justify-start gap-3 hover:bg-slate-700"><i class="ph-fill ph-fork-knife text-2xl text-[#c6a34a] group-hover:scale-110 transition shrink-0"></i><span class="text-xs font-bold text-slate-300" data-test-tr="Açlık Hissi" data-test-en="Hunger" data-symptom-original="Açlık Hissi">Açlık Hissi</span></button>
+                                    
+                                    <div id="customSymptomsArea" class="contents"></div>
+                               </div>
+
+                               <div id="medsSection" style="display: none !important;"><div id="medsGridWrapper"><div id="medsList"></div></div></div>
+
+                               <!-- YENİ HİSSİYAT EKLE BUTONU -->
+                               <div class="mt-4 pt-2 border-t border-slate-700/30">
+                                   <button onclick="openSymptomModal()" class="w-full symptom-add-btn">
+                                       <i class="ph-fill ph-star text-base text-[#c6a34a]"></i>
+                                       <span class="text-xs font-bold text-[#c6a34a] uppercase tracking-wide" data-test-tr="Yeni Belirti Ekle" data-test-en="Add symptom">Yeni Belirti Ekle</span>
+                                   </button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </details>
+                </div>
+            
+            <div id="assistantContainer">
+                <details id="assistantDetails" class="group bg-slate-800/40 border border-slate-700/50 border-l-4 border-l-violet-500 rounded-r-2xl overflow-hidden">
+                    <summary class="flex justify-between items-center p-4 cursor-pointer select-none bg-slate-800/20 hover:bg-slate-800/50 transition" onclick="toggleSmartSection('assistantDetails', event)">
+                        <div class="flex items-center gap-3 text-white">
+                            <i class="ph-bold ph-dots-six-vertical text-slate-600 text-xl -ml-1 mr-1 cursor-grab drag-handle hover:text-slate-400 transition"></i>
+                            <i class="ph-fill ph-bell-ringing text-2xl text-violet-400"></i>
+                            <span class="text-base font-black uppercase tracking-wider text-slate-200" data-test-tr="AKILLI HATIRLATICI" data-test-en="SMART REMINDER">AKILLI HATIRLATICI</span>
+                        </div>
+                        <i class="ph-bold ph-caret-down text-slate-500 group-open:rotate-180 transition-transform"></i>
+                    </summary>
+
+                    <div class="p-4 bg-slate-900/50 border-t border-slate-700/30">
+                        <p class="text-xs text-slate-400 mb-3" data-test-tr="Planlanan hatırlatmalar ana sayfada görünür. Uygulama kapalıyken telefon bildirimi gönderilmez." data-test-en="Scheduled reminders appear on the home page. No device notification is sent while the app is closed.">Planlanan hatırlatmalar ana sayfada görünür. Uygulama kapalıyken telefon bildirimi gönderilmez.</p>
+                        <details class="reminder-create-panel mb-4" id="recurringReminderCreate">
+                            <summary><i class="ph-bold ph-plus-circle" aria-hidden="true"></i><span data-test-tr="Yeni hatırlatma oluştur" data-test-en="Create reminder">Yeni hatırlatma oluştur</span></summary>
+                            <form id="recurringReminderForm" onsubmit="event.preventDefault(); AssistantManager.createReminderFromForm(this)">
+                                <label for="recurringReminderName" data-test-tr="Ne hatırlatılsın?" data-test-en="What should we remind you about?">Ne hatırlatılsın?</label>
+                                <input id="recurringReminderName" type="text" maxlength="100" required placeholder="Örnek: Tansiyon ölçümü" data-test-placeholder-tr="Örnek: Tansiyon ölçümü" data-test-placeholder-en="Example: Blood pressure measurement">
+                                <fieldset class="reminder-schedule-choice"><legend data-test-tr="Ne zaman?" data-test-en="When?">Ne zaman?</legend>
+                                    <input type="hidden" id="reminderScheduleType" value="once">
+                                    <div class="reminder-schedule-options">
+                                        <label><input type="radio" name="reminderScheduleChoice" value="once" checked onchange="setReminderScheduleChoice('reminderScheduleType', this.value)"><span data-test-tr="Bir kez" data-test-en="Once">Bir kez</span></label>
+                                        <label><input type="radio" name="reminderScheduleChoice" value="repeat" onchange="setReminderScheduleChoice('reminderScheduleType', this.value)"><span data-test-tr="Tekrarlayan" data-test-en="Repeating">Tekrarlayan</span></label>
+                                    </div>
+                                </fieldset>
+                                <div id="singleReminderFields" class="reminder-type-fields">
+                                    <label for="singleReminderDate" data-test-tr="Tarih ve saat" data-test-en="Date and time">Tarih ve saat</label>
+                                    <input id="singleReminderDate" type="datetime-local">
+                                </div>
+                                <div id="recurringReminderFields" class="reminder-type-fields" hidden>
+                                <label for="recurringReminderTime" data-test-tr="Saat" data-test-en="Time">Saat</label>
+                                <input id="recurringReminderTime" type="time">
+                                <fieldset><legend data-test-tr="Tekrar günleri" data-test-en="Repeat on">Tekrar günleri</legend>
+                                    <div class="reminder-day-options">
+                                        <label><input type="checkbox" name="reminderDay" value="1" checked><span data-test-tr="Pzt" data-test-en="Mon">Pzt</span></label>
+                                        <label><input type="checkbox" name="reminderDay" value="2" checked><span data-test-tr="Sal" data-test-en="Tue">Sal</span></label>
+                                        <label><input type="checkbox" name="reminderDay" value="3" checked><span data-test-tr="Çar" data-test-en="Wed">Çar</span></label>
+                                        <label><input type="checkbox" name="reminderDay" value="4" checked><span data-test-tr="Per" data-test-en="Thu">Per</span></label>
+                                        <label><input type="checkbox" name="reminderDay" value="5" checked><span data-test-tr="Cum" data-test-en="Fri">Cum</span></label>
+                                        <label><input type="checkbox" name="reminderDay" value="6" checked><span data-test-tr="Cmt" data-test-en="Sat">Cmt</span></label>
+                                        <label><input type="checkbox" name="reminderDay" value="0" checked><span data-test-tr="Paz" data-test-en="Sun">Paz</span></label>
+                                    </div>
+                                </fieldset>
+                                </div>
+                                <button type="submit" class="reminder-create-submit" data-test-tr="Hatırlatmayı kaydet" data-test-en="Save reminder">Hatırlatmayı kaydet</button>
+                            </form>
+                        </details>
+                        <button type="button" onclick="AssistantManager.exportToCalendar()" class="reminder-calendar-button mb-4"><i class="ph-bold ph-calendar-plus" aria-hidden="true"></i><span data-test-tr="Takvime Aktar" data-test-en="Export to calendar">Takvime Aktar</span></button>
+                        <p class="text-xs text-slate-400 mb-3" data-test-tr="Mevcut hatırlatmayı düzenlemek için kaleme, silmek için çöp kutusuna dokunun." data-test-en="Select the pencil to edit a reminder or the trash icon to delete it.">Mevcut hatırlatmayı düzenlemek için kaleme, silmek için çöp kutusuna dokunun.</p>
+                        <p id="reminderListEmpty" class="text-xs text-slate-400" data-test-tr="Henüz hatırlatma yok." data-test-en="No reminders yet.">Henüz hatırlatma yok.</p>
+                        <div id="oneTimeRemindersArea" class="space-y-3"></div>
+                        <div id="reminderCardsArea" class="space-y-3"></div>
+                        
+                        <p class="text-xs text-slate-400 mt-3" data-test-tr="Hatırlatmalar uygulama açıkken veya tekrar açıldığında gösterilir." data-test-en="Reminders appear while the app is open or when reopened.">Hatırlatmalar uygulama açıkken veya tekrar açıldığında gösterilir.</p>
+                    </div>
+                </details>
+            </div>
+            </div>
+        </section>
+
+        <section id="historySection">
+            <details class="bg-slate-800 border border-slate-700 rounded-2xl mb-4 no-print overflow-hidden">
+                <summary class="p-4 flex items-center justify-between cursor-pointer text-white font-bold"><span class="flex items-center gap-3"><i class="ph-bold ph-chart-line-up text-blue-400 text-xl" aria-hidden="true"></i><span data-test-tr="Analiz ve Raporlar" data-test-en="Analysis and reports">Analiz ve Raporlar</span></span><i class="ph-bold ph-caret-down text-slate-400" aria-hidden="true"></i></summary>
+                <div class="p-3 border-t border-slate-700 space-y-2">
+                    <button type="button" id="menuBtnReport" class="w-full text-left p-3 rounded-xl bg-slate-900 text-white flex items-center gap-3"><i class="ph-bold ph-chart-line-up text-blue-400 text-xl" aria-hidden="true"></i><span data-test-tr="Hızlı Analiz" data-test-en="Quick analysis">Hızlı Analiz</span></button>
+                    <button type="button" id="menuBtnCompareGraph" onclick="HealthReport.open('graph')" class="w-full text-left p-3 rounded-xl bg-slate-900 text-white flex items-center gap-3"><i class="ph-bold ph-chart-line-up text-teal-400 text-xl" aria-hidden="true"></i><span data-test-tr="Karşılaştırma grafiği" data-test-en="Comparison chart">Karşılaştırma grafiği</span></button>
+                    <button type="button" id="menuBtnHtmlReport" onclick="HealthReport.open('alternative')" class="w-full text-left p-3 rounded-xl bg-slate-900 text-white flex items-center gap-3"><i class="ph-bold ph-file-html text-sky-400 text-xl" aria-hidden="true"></i><span data-test-tr="HTML rapor oluştur" data-test-en="Create HTML report">HTML rapor oluştur</span></button>
+                    <button type="button" id="menuBtnPrint" class="w-full text-left p-3 rounded-xl bg-slate-900 text-white flex items-center gap-3"><i class="ph-bold ph-file-pdf text-emerald-400 text-xl" aria-hidden="true"></i><span data-test-tr="PDF oluştur" data-test-en="Create PDF">PDF oluştur</span></button>
+                </div>
+            </details>
+            <details class="bg-slate-800 border border-slate-700 rounded-2xl mb-4 no-print overflow-hidden"><summary class="p-4 flex items-center justify-between cursor-pointer text-white font-bold"><span class="flex items-center gap-3"><i class="ph-bold ph-notebook text-indigo-400 text-xl" aria-hidden="true"></i><span data-test-tr="Notlarım" data-test-en="My notes">Notlarım</span></span><i class="ph-bold ph-caret-down text-slate-400" aria-hidden="true"></i></summary><div class="p-3 border-t border-slate-700 space-y-3"><div id="notesCardsArea" class="space-y-3"></div><button type="button" onclick="AssistantManager.addNoteCard()" class="alarm-add-btn w-full"><span data-test-tr="Not Ekle" data-test-en="Add note">Not Ekle</span></button></div></details>
+            <div id="historyControls" class="bg-slate-800/40 border border-slate-700/50 rounded-2xl p-4 mb-4 no-print backdrop-blur-sm shadow-sm">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="shrink-0">
+                        <h3 class="text-slate-200 font-black uppercase text-base tracking-wider"><button type="button" id="historyControlsHeading" data-test-tr="KAYITLAR" data-test-en="RECORDS">KAYITLAR</button></h3>
+                        <p class="text-[10px] text-slate-500 font-medium" data-test-tr="Geçmiş Veriler" data-test-en="History">Geçmiş Veriler</p>
+                    </div>
+                    
+                    <button onclick="cycleHistoryView()" id="viewToggleBtn" title="Görünüm: Özet (Günlük)" class="flex-1 h-10 px-4 rounded-xl border-2 border-dashed border-blue-500 text-blue-400 font-bold hover:bg-blue-500/10 transition flex items-center justify-center gap-2 uppercase text-[10px] tracking-wide group">
+                        <i id="eyeIcon" class="ph-fill ph-squares-four text-xl transition-transform duration-300 group-hover:scale-110 text-blue-400"></i>
+                        <div id="viewModeIndicator" class="flex gap-1">
+                            <span class="w-2 h-2 rounded-full shadow-sm transition-all" style="background-color: #94a3b8;"></span>
+                            <span class="w-2 h-2 rounded-full transition-all" style="background-color: rgba(51, 65, 85, 0.5);"></span>
+                            <span class="w-2 h-2 rounded-full transition-all" style="background-color: rgba(51, 65, 85, 0.5);"></span>
+                        </div>
+                    </button>
+                    
+                    <div class="relative shrink-0">
+                        <select id="filterSelect" onchange="renderList()" class="appearance-none bg-slate-800 text-xs font-bold text-slate-300 border border-slate-700/50 rounded-xl pl-3 pr-8 h-10 outline-none focus:border-indigo-500 transition shadow-sm cursor-pointer hover:bg-slate-700">
+                            <option value="7" data-test-tr="7 Gün" data-test-en="7 days">7 Gün</option>
+                            <option value="15" data-test-tr="15 Gün" data-test-en="15 days">15 Gün</option>
+                            <option value="30" selected data-test-tr="30 Gün" data-test-en="30 days">30 Gün</option>
+                            <option value="all" data-test-tr="Tümü" data-test-en="All">Tümü</option>
+                        </select>
+                        <i class="ph-bold ph-caret-down absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-500 text-xs pointer-events-none"></i>
+                    </div>
+                </div>
+
+                <div class="flex gap-2 transition-opacity duration-300" id="filterBar">
+                    <button onclick="toggleFilter('glucose')" id="btnFilterGluc" aria-label="Kan şekeri" aria-pressed="true" data-test-title-tr="Kan şekeri" data-test-title-en="Blood glucose" data-test-aria-label-tr="Kan şekeri" data-test-aria-label-en="Blood glucose" class="filter-btn flex-1 h-10 bg-slate-800 border border-slate-700/50 rounded-xl text-slate-400 hover:border-teal-500 hover:text-teal-400 transition flex justify-center items-center filter-btn-active filter-gluc shadow-sm" title="Glikoz">
+                        <i class="ph-fill ph-drop text-lg"></i>
+                    </button>
+                    <button onclick="toggleFilter('pressure')" id="btnFilterBp" aria-label="Tansiyon" aria-pressed="true" data-test-title-tr="Tansiyon" data-test-title-en="Blood pressure" data-test-aria-label-tr="Tansiyon" data-test-aria-label-en="Blood pressure" class="filter-btn flex-1 h-10 bg-slate-800 border border-slate-700/50 rounded-xl text-slate-400 hover:border-rose-500 hover:text-rose-400 transition flex justify-center items-center filter-btn-active filter-bp shadow-sm" title="Tansiyon">
+                        <i class="ph-fill ph-heartbeat text-lg"></i>
+                    </button>
+                    <button onclick="toggleFilter('nutrition')" id="btnFilterNut" aria-label="Beslenme" aria-pressed="true" data-test-title-tr="Beslenme" data-test-title-en="Food" data-test-aria-label-tr="Beslenme" data-test-aria-label-en="Food" class="filter-btn flex-1 h-10 bg-slate-800 border border-slate-700/50 rounded-xl text-slate-400 hover:border-blue-500 hover:text-blue-400 transition flex justify-center items-center filter-btn-active filter-nut shadow-sm" title="Beslenme">
+                        <i class="ph-fill ph-carrot text-lg"></i>
+                    </button>
+                    <button onclick="toggleFilter('activity')" id="btnFilterAct" aria-label="Aktivite" aria-pressed="true" data-test-title-tr="Aktivite" data-test-title-en="Activity" data-test-aria-label-tr="Aktivite" data-test-aria-label-en="Activity" class="filter-btn flex-1 h-10 bg-slate-800 border border-slate-700/50 rounded-xl text-slate-400 hover:border-[#edb015] hover:text-[#edb015] transition flex justify-center items-center filter-btn-active filter-act shadow-sm" title="Aktivite">
+                        <i class="ph-fill ph-person-simple-run text-lg text-[#edb015]"></i>
+                    </button>
+                    <button onclick="toggleFilter('symptom')" id="btnFilterSym" class="filter-btn flex-1 h-10 bg-slate-800 border border-slate-700/50 rounded-xl text-slate-400 transition flex justify-center items-center filter-btn-active filter-sym shadow-sm" title="Belirti" aria-label="Belirti" aria-pressed="true" data-test-title-tr="Belirti" data-test-title-en="Symptoms" data-test-aria-label-tr="Belirti" data-test-aria-label-en="Symptoms"><i class="ph-fill ph-smiley-nervous text-lg" aria-hidden="true"></i></button>
+                    <button onclick="toggleFilter('medication')" id="btnFilterMed" class="filter-btn flex-1 h-10 bg-slate-800 border border-slate-700/50 rounded-xl text-slate-400 transition flex justify-center items-center filter-btn-active filter-med shadow-sm" title="İlaç" aria-label="İlaç" aria-pressed="true" data-test-title-tr="İlaç" data-test-title-en="Medication" data-test-aria-label-tr="İlaç" data-test-aria-label-en="Medication"><i class="ph-fill ph-pill text-lg" aria-hidden="true"></i></button>
+                </div>
+            </div>
+
+            <div id="historyList" class="space-y-2 pb-10 hidden"></div>
+        </section>
+        
+        <div class="text-center mt-6 mb-2 no-print group select-none">
+            <div onclick="this.classList.add('scanning'); setTimeout(()=>this.classList.remove('scanning'), 800)" 
+                 class="inline-flex flex-col items-center gap-0.5 px-3 py-1.5 rounded-full bg-slate-800/50 border border-slate-700/50 text-[10px] text-slate-500 hover:text-indigo-400 hover:border-indigo-500/30 transition-all duration-300 cursor-pointer relative overflow-hidden">
+                <div class="flex items-center gap-1.5">
+                    <i class="ph-bold ph-code"></i>
+                    <span id="footerSignature" class="flex flex-col items-center leading-tight font-medium tracking-wide text-center">
+                        <span class="text-[10px] text-slate-500" data-test-tr="~GEMINI &amp; GPT5 ile KODLANMIŞTIR~" data-test-en="~CODED WITH GEMINI &amp; GPT5~">~GEMINI &amp; GPT5 ile KODLANMIŞTIR~</span>
+                    </span>
+                    <i class="ph-fill ph-sparkle text-indigo-500 group-hover:animate-pulse"></i>
+                </div>
+                <span id="footerVersion" class="font-medium tracking-wide text-[10px] text-[#8ff0a2]">Versiyon yükleniyor...</span>
+                <span class="lowercase text-white bg-black text-[10px] leading-tight px-2 py-0.5 rounded">-ard-</span>
+            </div>
+        </div>
+
+    </main>
+
+    <nav id="mainBottomNav" class="main-bottom-nav no-print" aria-label="Ana gezinme / Main navigation">
+        <button type="button" data-main-view="home"><span class="nav-icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 14 16 4l13 10M6 12v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V12"/><path d="M16 23s-5-3-5-6a2.7 2.7 0 0 1 5-1.2 2.7 2.7 0 0 1 5 1.2c0 3-5 6-5 6Z"/><path d="M16 16v4m-2-2h4"/></svg></span><span class="nav-label" data-test-tr="Ana Sayfa" data-test-en="Home">Ana Sayfa</span></button>
+        <button type="button" data-main-view="lifestyle"><span class="nav-icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 4.5v6a3.2 3.2 0 0 0 6.4 0v-6M6.7 4.5V27"/><circle cx="24" cy="6.2" r="2.8" fill="currentColor" stroke="none"/><path d="m14 15 3.5-4.2 4.5-.6 2.9 4 3.2-2.6M21.5 10.5l-3 7 4.7 3.1-1.5 6M18.5 17.5l-3 3.5-4.5 1.7"/></svg></span><span class="nav-label" data-test-tr="Yemek & Spor" data-test-en="Food & Exercise">Yemek &amp; Spor</span></button>
+        <button type="button" data-main-view="measurements"><span class="nav-icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19a12 12 0 1 1 24 0M16 7v2M7.5 11.5l1.5 1.5M24.5 11.5 23 13M16 19l5-5"/><circle cx="16" cy="19" r="1.5"/><path d="M4 25h7l2-4 3 7 3-5 2 2h7"/></svg></span><span class="nav-label" data-test-tr="Ölçümler" data-test-en="Measurements">Ölçümler</span></button>
+        <button type="button" data-main-view="history"><span class="nav-icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="6" width="20" height="23" rx="2.5"/><path d="M12 6V4h8v2M10 17l4-3 4 2 4-5M11 25v-3M16 25v-5M21 25v-7"/></svg></span><span class="nav-label" data-test-tr="Kayıtlar" data-test-en="Records">Kayıtlar</span></button>
+    </nav>
+
+    <div id="bottomActionPanel" class="fixed bottom-0 left-0 w-full z-40 no-print hidden">
+        <div class="bg-slate-900/95 backdrop-blur-md border-t border-slate-800 pb-6 pt-4 px-8">
+            <div class="max-w-xs mx-auto flex items-center justify-center gap-4">
+                 <button id="cancelEditBtn" class="hidden w-16 bg-slate-800 text-red-400 rounded-2xl hover:bg-slate-700 transition font-bold text-[10px] uppercase border border-slate-700 h-12">İPTAL</button>
+                 <button id="resetBtnMain" class="bg-slate-800 text-slate-400 w-12 h-12 rounded-full flex items-center justify-center hover:text-white transition border border-slate-700 shrink-0"><i class="ph-bold ph-arrow-counter-clockwise text-lg"></i></button>
+                 <button id="saveButton" class="flex-1 bg-blue-600 hover:bg-blue-500 text-white font-black text-sm h-12 rounded-2xl shadow-lg shadow-blue-900/20 flex items-center justify-center gap-2 transition active:scale-95"><i class="ph-bold ph-floppy-disk text-lg"></i><span id="saveBtnText">KAYDET</span></button>
+            </div>
+        </div>
+    </div>
+
+    <div id="profileOverlay" class="fixed inset-0 bg-black/90 hidden items-center justify-center z-[90] px-4 py-6 no-print">
+        <div class="bg-slate-900 border border-slate-700 w-full max-w-md h-[90vh] rounded-3xl shadow-2xl flex flex-col overflow-hidden">
+            <div class="flex justify-between items-center border-b border-slate-800 p-4 shrink-0 bg-slate-900">
+                <h3 class="text-xl font-bold text-white" data-test-tr="Klinik Profil" data-test-en="Clinical Profile">Klinik Profil</h3>
+                <button id="btnCloseProfile" onclick="document.getElementById('profileOverlay').style.display='none'" class="bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500/30 p-2 rounded-lg transition"><i class="ph-bold ph-x text-xl"></i></button>
+            </div>
+            
+            <div class="flex-1 overflow-y-auto p-6 pb-6 space-y-4 no-scrollbar">
+                
+                <button type="button" id="profileWizardOpen" class="profile-wizard-launch"><span class="profile-wizard-launch-icon"><i class="ph-bold ph-sparkle" aria-hidden="true"></i></span><span><strong data-test-tr="PROFİL SİHİRBAZI" data-test-en="PROFILE WIZARD">PROFİL SİHİRBAZI</strong><small data-test-tr="İlgilendiğin konuyu seç" data-test-en="Choose a topic">İlgilendiğin konuyu seç</small></span><i class="ph-bold ph-caret-right" aria-hidden="true"></i></button>
+                <button type="button" id="profileWizardEditOpen" class="profile-wizard-edit-launch"><i class="ph-bold ph-pencil-simple" aria-hidden="true"></i><span data-test-tr="PROFİL BİLGİLERİNİ DÜZENLE" data-test-en="EDIT PROFILE INFORMATION">PROFİL BİLGİLERİNİ DÜZENLE</span></button>
+                <button type="button" id="clearClinicalProfile" onclick="clearClinicalProfile()" class="w-full rounded-xl border border-rose-500/40 bg-rose-950/20 px-4 py-3 text-rose-200 font-bold text-sm" data-test-tr="KLİNİK PROFİLİ TEMİZLE" data-test-en="CLEAR CLINICAL PROFILE">KLİNİK PROFİLİ TEMİZLE</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="settingsOverlay" class="fixed inset-0 bg-black/90 hidden items-center justify-center z-[90] px-4 py-6 no-print">
+        <div class="bg-slate-900 border border-slate-700 w-full max-w-md rounded-3xl shadow-2xl flex flex-col overflow-hidden max-h-[90vh]">
+            <div class="flex justify-between items-center border-b border-slate-800 p-4 shrink-0 bg-slate-900">
+                <h3 id="languageTestSettingsTitle" class="text-xl font-bold text-white" data-test-tr="Ayarlar &amp; Veri" data-test-en="Settings &amp; Data">Ayarlar &amp; Veri</h3>
+                <button onclick="document.getElementById('settingsOverlay').style.display='none'" class="bg-slate-800 text-slate-400 hover:text-white p-2 rounded-lg transition"><i class="ph-bold ph-x text-xl"></i></button>
+            </div>
+            
+            <div class="p-6 space-y-4 overflow-y-auto no-scrollbar flex-1">
+                <div class="section-border">
+                    <h4 class="text-purple-400 font-black text-xs uppercase mb-4 flex items-center gap-2">
+                        <i class="ph-fill ph-info"></i> <span data-test-tr="Uygulama Hakkında" data-test-en="About the app">Uygulama Hakkında</span>
+                    </h4>
+                    <button onclick="OnboardingManager.restart()" class="w-full bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white p-4 rounded-xl flex items-center justify-between group transition">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center text-purple-400 group-hover:scale-110 transition">
+                                <i class="ph-fill ph-presentation-chart text-xl"></i>
+                            </div>
+                            <div class="text-left">
+                                <div class="text-sm font-bold" data-test-tr="Tanıtımı İzle" data-test-en="Watch Introduction">Tanıtımı İzle</div>
+                                <div class="text-[10px] text-slate-500" data-test-tr="İlk karşılama ekranlarını gösterir" data-test-en="Show introduction screens">İlk karşılama ekranlarını gösterir</div>
+                            </div>
+                        </div>
+                        <i class="ph-bold ph-caret-right text-slate-600"></i>
+                    </button>
+                </div>
+
+                <div class="section-border">
+                    <h4 class="text-blue-400 font-black text-xs uppercase mb-4 flex items-center gap-2">
+                        <i class="ph-fill ph-database"></i> <span data-test-tr="Yedekleme" data-test-en="Backup">Yedekleme</span>
+                    </h4>
+                    <div class="space-y-3">
+                        <button onclick="DataManager.exportJSON()" class="w-full bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white p-4 rounded-xl flex items-center justify-between group transition">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center text-blue-400 group-hover:scale-110 transition">
+                                    <i class="ph-fill ph-download-simple text-xl"></i>
+                                </div>
+                                <div class="text-left">
+                                    <div class="text-sm font-bold" data-test-tr="Yedek Kaydet" data-test-en="Save Backup">Yedek Kaydet</div>
+                                    <div class="text-[10px] text-slate-500" data-test-tr="Verilerinizi cihazınıza kaydedin" data-test-en="Save data to your device">Verilerinizi cihazınıza kaydedin</div>
+                                </div>
+                            </div>
+                            <i class="ph-bold ph-caret-right text-slate-600"></i>
+                        </button>
+
+                        <input type="file" id="importFile" class="hidden" accept=".json" onchange="DataManager.importJSON(event)">
+                        <button onclick="document.getElementById('importFile').click()" class="w-full bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white p-4 rounded-xl flex items-center justify-between group transition">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition">
+                                    <i class="ph-fill ph-upload-simple text-xl"></i>
+                                </div>
+                                <div class="text-left">
+                                    <div class="text-sm font-bold" data-test-tr="Yedeği Yükle" data-test-en="Import Backup">Yedeği Yükle</div>
+                                    <div class="text-[10px] text-slate-500" data-test-tr="Yedek dosyasından geri yükleyin" data-test-en="Restore from a backup file">Yedek dosyasından geri yükleyin</div>
+                                </div>
+                            </div>
+                            <i class="ph-bold ph-caret-right text-slate-600"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="section-border">
+                    <h4 class="text-red-400 font-black text-xs uppercase mb-4 flex items-center gap-2">
+                        <i class="ph-fill ph-warning-octagon"></i> <span data-test-tr="Tehlikeli Bölge" data-test-en="Danger zone">Tehlikeli Bölge</span>
+                    </h4>
+                    <div class="space-y-3">
+                        <button onclick="confirmResetFoodLibrary(event)" class="w-full bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white p-4 rounded-xl flex items-center justify-between group transition">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-lg bg-orange-500/20 flex items-center justify-center text-orange-400 group-hover:scale-110 transition">
+                                    <i class="ph-fill ph-arrow-counter-clockwise text-xl"></i>
+                                </div>
+                                <div class="text-left">
+                                    <div class="text-sm font-bold" data-test-tr="Yemekleri Sıfırla" data-test-en="Reset Foods">Yemekleri Sıfırla</div>
+                                    <div class="text-[10px] text-slate-500" data-test-tr="Tüm gıda listeleri görünümden kaldırılır" data-test-en="All food lists are removed from view">Tüm gıda listeleri görünümden kaldırılır</div>
+                                </div>
+                            </div>
+                        </button>
+
+                        <button onclick="if(confirm(window.GLKOAITestLanguage ? window.GLKOAITestLanguage.translate('TÜM VERİLER SİLİNECEK! Bu işlem geri alınamaz. Emin misiniz?') : 'TÜM VERİLER SİLİNECEK! Bu işlem geri alınamaz. Emin misiniz?')) DataManager.clearAll()" class="w-full bg-red-900/20 hover:bg-red-900/40 border border-red-500/30 text-red-200 p-4 rounded-xl flex items-center justify-between group transition">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-lg bg-red-500/20 flex items-center justify-center text-red-400 group-hover:scale-110 transition">
+                                    <i class="ph-fill ph-trash text-xl"></i>
+                                </div>
+                                <div class="text-left">
+                                    <div class="text-sm font-bold" data-test-tr="Her Şeyi Sil" data-test-en="Delete Everything">Her Şeyi Sil</div>
+                                    <div class="text-[10px] text-red-400/60" data-test-tr="Uygulamayı sıfırlar" data-test-en="Resets the application">Uygulamayı sıfırlar</div>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="medicationModal" class="fixed inset-0 bg-black/90 hidden items-center justify-center z-[120] px-4 no-print">
+        <div class="bg-slate-800 border border-blue-500/50 p-6 rounded-3xl max-w-sm w-full shadow-2xl">
+        <h3 id="medModalTitle" class="text-lg font-black text-white mb-4 uppercase" data-test-tr="İlaç Ekle" data-test-en="Add medication">İlaç Ekle</h3>
+        <div class="space-y-4">
+            <div>
+                <label class="text-[10px] font-bold text-slate-400 uppercase" data-test-tr="İlaç Adı" data-test-en="Medication name">İlaç Adı</label>
+                <input type="text" id="medInputName" class="w-full p-3 rounded-xl bg-slate-900 border-slate-700 focus:border-blue-500 text-white mt-1">
+            </div>
+            <div>
+                <label class="text-[10px] font-bold text-slate-400 uppercase" data-test-tr="Ürün gücü" data-test-en="Product strength">Ürün gücü</label>
+                <input type="text" id="medInputDose" class="w-full p-3 rounded-xl bg-slate-900 border-slate-700 focus:border-blue-500 text-white mt-1" placeholder="Örn: 1000 mg" data-test-placeholder-tr="Örn: 1000 mg" data-test-placeholder-en="e.g. 1000 mg">
+            </div>
+            
+            <!-- RENK SEÇİCİ - DÜZELTİLMİŞ -->
+            <div>
+                <label class="text-[10px] font-bold text-slate-400 uppercase mb-2 block" data-test-tr="Renk Seç" data-test-en="Choose color">Renk Seç</label>
+                <div class="grid grid-cols-6 gap-2" id="colorPalette">
+                    <button type="button" class="color-btn w-8 h-8 rounded-full border-2 border-transparent hover:scale-110 transition" style="background-color: #10b981;" onclick="selectMedColor('#10b981', this)"></button>
+                    <button type="button" class="color-btn w-8 h-8 rounded-full border-2 border-transparent hover:scale-110 transition" style="background-color: #ef4444;" onclick="selectMedColor('#ef4444', this)"></button>
+                    <button type="button" class="color-btn w-8 h-8 rounded-full border-2 border-transparent hover:scale-110 transition" style="background-color: #eab308;" onclick="selectMedColor('#eab308', this)"></button>
+                    <button type="button" class="color-btn w-8 h-8 rounded-full border-2 border-transparent hover:scale-110 transition" style="background-color: #3b82f6;" onclick="selectMedColor('#3b82f6', this)"></button>
+                    <button type="button" class="color-btn w-8 h-8 rounded-full border-2 border-transparent hover:scale-110 transition" style="background-color: #8b5cf6;" onclick="selectMedColor('#8b5cf6', this)"></button>
+                    <button type="button" class="color-btn w-8 h-8 rounded-full border-2 border-transparent hover:scale-110 transition" style="background-color: #d946ef;" onclick="selectMedColor('#d946ef', this)"></button>
+                    <button type="button" class="color-btn w-8 h-8 rounded-full border-2 border-transparent hover:scale-110 transition" style="background-color: #f97316;" onclick="selectMedColor('#f97316', this)"></button>
+                    <button type="button" class="color-btn w-8 h-8 rounded-full border-2 border-transparent hover:scale-110 transition" style="background-color: #06b6d4;" onclick="selectMedColor('#06b6d4', this)"></button>
+                    <button type="button" class="color-btn w-8 h-8 rounded-full border-2 border-transparent hover:scale-110 transition" style="background-color: #84cc16;" onclick="selectMedColor('#84cc16', this)"></button>
+                    <button type="button" class="color-btn w-8 h-8 rounded-full border-2 border-transparent hover:scale-110 transition" style="background-color: #f59e0b;" onclick="selectMedColor('#f59e0b', this)"></button>
+                    <button type="button" class="color-btn w-8 h-8 rounded-full border-2 border-transparent hover:scale-110 transition" style="background-color: #6366f1;" onclick="selectMedColor('#6366f1', this)"></button>
+                    <button type="button" class="color-btn w-8 h-8 rounded-full border-2 border-transparent hover:scale-110 transition" style="background-color: #ec4899;" onclick="selectMedColor('#ec4899', this)"></button>
+                </div>
+                <div class="mt-2 flex items-center gap-2">
+                    <div id="selectedColorPreview" class="w-6 h-6 rounded-full border border-white/20"></div>
+                    <span id="selectedColorHex" class="text-xs text-slate-400"></span>
+                    <input type="hidden" id="medInputColor" value="">
+                    <input type="hidden" id="medOriginalName" value="">
+                    <input type="hidden" id="medIsDiabetes" value="false">
+                    <input type="hidden" id="medIsBp" value="false">
+                    <input type="hidden" id="medIsAnticoagulant" value="false">
+                    <input type="hidden" id="medIsOther" value="false">
+                </div>
+            </div>
+        </div>
+        
+        <!-- GÜNCELLENMİŞ BUTONLAR -->
+        <div id="medButtonsNormal" class="grid grid-cols-2 gap-3 mt-6">
+            <button onclick="closeModal('medicationModal')" class="py-3 rounded-xl border border-slate-600 text-slate-300 font-bold hover:bg-slate-700">İptal</button>
+            <button onclick="saveMed()" class="py-3 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-500">Kaydet</button>
+        </div>
+        
+        <!-- DÜZENLEME MODU BUTONLARI -->
+        <div id="medButtonsEdit" class="hidden grid grid-cols-3 gap-3 mt-6">
+            <button onclick="deleteMed()" class="py-3 rounded-xl bg-red-600 text-white font-bold hover:bg-red-500 flex items-center justify-center gap-2">
+            <i class="ph-fill ph-trash"></i>
+            </button>
+            <button onclick="closeModal('medicationModal')" class="py-3 rounded-xl border border-slate-600 text-slate-300 font-bold hover:bg-slate-700">İptal</button>
+            <button onclick="saveMed()" class="py-3 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-500">Güncelle</button>
+        </div>
+    </div>
+</div>
+
+<dialog id="symptomSeverityDialog" class="food-editor-dialog symptom-severity-dialog" aria-labelledby="symptomSeverityTitle">
+    <div class="symptom-dialog-top"><div><p class="symptom-dialog-caption" data-test-tr="BELİRTİ ŞİDDETİ" data-test-en="SYMPTOM SEVERITY">BELİRTİ ŞİDDETİ</p><h2 id="symptomSeverityTitle"></h2></div><button type="button" class="symptom-dialog-close" onclick="closeSymptomSeverity()" aria-label="Kapat">×</button></div>
+    <p class="symptom-dialog-help" data-test-tr="Bu belirtiyi nasıl hissediyorsun?" data-test-en="How severe is this symptom?">Bu belirtiyi nasıl hissediyorsun?</p>
+    <div id="symptomSeverityOptions" class="symptom-dialog-options"></div>
+    <p class="symptom-dialog-help" data-test-tr="Şiddet seçimi isteğe bağlıdır." data-test-en="Severity selection is optional.">Şiddet seçimi isteğe bağlıdır.</p>
+    <div class="symptom-dialog-actions"><button type="button" class="symptom-dialog-remove" onclick="removeSymptomSelection()" data-test-tr="SEÇİMDEN ÇIKAR" data-test-en="REMOVE">SEÇİMDEN ÇIKAR</button><button type="button" class="ep-ok-btn" onclick="closeSymptomSeverity()"><i class="ph-bold ph-check" aria-hidden="true"></i> <span data-test-tr="TAMAM" data-test-en="DONE">TAMAM</span></button></div>
+</dialog>
+
+<div id="symptomModal" class="fixed inset-0 bg-black/90 hidden items-center justify-center z-[120] px-4 no-print">
+    <div class="bg-slate-800 border border-[#c1a981]/50 p-6 rounded-3xl max-w-sm w-full shadow-2xl">
+        <h3 class="text-lg font-black text-white mb-4 uppercase" data-test-tr="Yeni Belirti Ekle" data-test-en="Add symptom">Yeni Belirti Ekle</h3>
+        <div>
+            <label class="text-[10px] font-bold text-slate-400 uppercase" data-test-tr="Hissiyat Adı" data-test-en="Symptom name">Hissiyat Adı</label>
+            <input type="text" id="newSymptomInput" class="w-full p-3 rounded-xl bg-slate-900 border-slate-700 focus:border-[#c1a981] text-white mt-1" placeholder="Örn: Mide Bulantısı" data-test-placeholder-tr="Örn: Mide Bulantısı" data-test-placeholder-en="e.g. Nausea">
+        </div>
+        <div class="grid grid-cols-2 gap-3 mt-6">
+            <button onclick="closeModal('symptomModal')" class="py-3 rounded-xl border border-slate-600 text-slate-300 font-bold hover:bg-slate-700">İptal</button>
+            <button onclick="saveCustomSymptom()" class="py-3 rounded-xl bg-[#c1a981] text-white font-bold hover:bg-[#b09870]">Kaydet</button>
+        </div>
+    </div>
+</div>
+
+<div id="activityModal" class="fixed inset-0 bg-black/90 hidden items-center justify-center z-[120] px-4 no-print">
+    <div class="bg-slate-800 border border-[#edb015]/50 p-6 rounded-3xl max-w-sm w-full shadow-2xl">
+        <h3 class="text-lg font-black text-white mb-4 uppercase" data-test-tr="Yeni Aktivite Ekle" data-test-en="Add activity">Yeni Aktivite Ekle</h3>
+        <div>
+            <label class="text-[10px] font-bold text-slate-400 uppercase" data-test-tr="Aktivite Adı" data-test-en="Activity name">Aktivite Adı</label>
+            <input type="text" id="newActivityInput" class="w-full p-3 rounded-xl bg-slate-900 border-slate-700 focus:border-[#edb015] text-white mt-1" placeholder="Örn: Koşu, Yüzme" data-test-placeholder-tr="Örn: Koşu, Yüzme" data-test-placeholder-en="e.g. Running, swimming">
+        </div>
+        <div class="grid grid-cols-2 gap-3 mt-6">
+            <button onclick="closeModal('activityModal')" class="py-3 rounded-xl border border-slate-600 text-slate-300 font-bold hover:bg-slate-700">İptal</button>
+            <button onclick="saveNewActivity()" class="py-3 rounded-xl bg-[#edb015] text-slate-900 font-bold hover:bg-[#f3c23c]">Kaydet</button>
+        </div>
+    </div>
+</div>
+
+    <div id="validationModal" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-[100] px-4 no-print"><div class="bg-slate-800 border border-red-500/50 p-6 rounded-3xl max-w-sm w-full text-center shadow-2xl"><div class="w-16 h-16 bg-red-500/10 rounded-full flex items-center justify-center mx-auto mb-4"><i class="ph-fill ph-warning text-3xl text-red-500"></i></div><h3 class="text-xl font-black text-white mb-2" data-test-tr="DİKKAT!" data-test-en="WARNING!">DİKKAT!</h3><p class="text-slate-300 text-sm mb-6">Girdiğiniz değer (<span id="modalValDisplay" class="font-bold text-white tabular-nums">---</span>) normal sınırların çok dışında. Emin misiniz?</p><div class="grid grid-cols-2 gap-3"><button id="btnModalCancel" class="py-3 rounded-xl border border-slate-600 text-slate-300 font-bold hover:bg-slate-700">Düzelt</button><button id="btnModalConfirm" class="py-3 rounded-xl bg-red-600 text-white font-bold hover:bg-red-500">Evet, Kaydet</button></div></div></div>
+    <dialog id="aiPasteInstructions" class="ai-paste-dialog no-print" aria-labelledby="aiPasteTitle" aria-describedby="aiPasteDescription">
+        <div class="ai-paste-icon" aria-hidden="true"><i class="ph-bold ph-copy"></i></div>
+        <h2 id="aiPasteTitle"></h2>
+        <p id="aiPasteDescription"></p>
+        <div class="ai-paste-tips"><div id="aiPasteComputer"></div><div id="aiPastePhone"></div></div>
+        <button type="button" id="aiPasteOpen" onclick="openAiFromInstructions()"></button>
+    </dialog>
+    <div id="aiPromptModal" class="fixed inset-0 bg-black/95 hidden items-center justify-center z-[110] px-4 animate-fade-in no-print flex">
+        <div class="bg-slate-900 border border-indigo-500/50 p-6 rounded-3xl max-w-lg w-full shadow-2xl relative overflow-hidden">
+            <div class="absolute inset-x-0 -top-28 h-44 bg-gradient-to-b from-indigo-600/20 via-indigo-500/10 to-transparent pointer-events-none"></div>
+
+            <button onclick="closeModal('aiPromptModal')" class="absolute top-4 right-4 text-slate-500 hover:text-white bg-slate-800/80 rounded-full p-2 transition">
+                <i class="ph-bold ph-x text-xl"></i>
+            </button>
+
+            <div class="relative space-y-6">
+                <div class="text-center space-y-3">
+                    <div class="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-indigo-500/20 text-indigo-300 border border-indigo-500/40 shadow-inner">
+                        <i class="ph-fill ph-magic-wand text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-white uppercase tracking-wide" data-test-tr="Yapay Zeka Asistanı" data-test-en="AI assistant">Yapay Zeka Asistanı</h3>
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-2 justify-center text-[10px] font-black uppercase tracking-widest">
+                            <span id="stepBadge1" class="px-3 py-1 rounded-full bg-indigo-600/20 border border-indigo-500/40 text-indigo-200 flex items-center gap-1">
+                                <i class="ph-bold ph-copy"></i>
+                                1 · Kopyala
+                            </span>
+                            <span id="stepRail" class="w-12 h-0.5 rounded-full bg-indigo-500/40 transition-all duration-500"></span>
+                            <span id="stepBadge2" class="px-3 py-1 rounded-full bg-slate-800 border border-slate-700/60 text-slate-500 flex items-center gap-1">
+                                <i class="ph-bold ph-arrow-square-out"></i>
+                                2 · Yapıştır & Gönder
+                            </span>
+                        </div>
+                        <p id="step-indicator" class="text-[13px] font-semibold text-indigo-200" data-test-tr="ADIM 1 / 2 · Promptu panonuza alın" data-test-en="STEP 1 / 2 · Copy the prompt">ADIM 1 / 2 · Promptu panonuza alın</p>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="relative group hidden">
+                        <label class="block text-[11px] font-bold text-indigo-300 uppercase tracking-widest mb-2 text-left" data-test-tr="Kopyalanacak Prompt" data-test-en="Prompt to copy">Kopyalanacak Prompt</label>
+                        <textarea id="aiPromptOutput" readonly class="w-full h-28 bg-slate-900/80 border border-indigo-500/30 rounded-2xl p-4 text-xs text-indigo-100/80 font-mono resize-none focus:outline-none shadow-inner ring-1 ring-transparent focus:ring-indigo-500/50 transition" onclick="stepOneCopy()"></textarea>
+                        <div class="absolute inset-x-4 -top-3 h-3 bg-gradient-to-b from-indigo-500/30 to-transparent rounded-t-2xl pointer-events-none"></div>
+                    </div>
+
+                    <div id="step-hint" class="bg-slate-800/70 border border-slate-700/70 rounded-2xl p-4 text-xs text-slate-300 leading-relaxed space-y-3">
+                        <div class="text-[10px] font-black uppercase tracking-widest text-slate-400" data-test-tr="Adım Adım Akış" data-test-en="Step-by-step instructions">Adım Adım Akış</div>
+                        <div class="space-y-2">
+                            <div class="flex items-start gap-3">
+                                <span class="w-6 h-6 rounded-full bg-slate-700 text-white flex items-center justify-center text-[10px] font-black">1</span>
+                                <p class="flex-1" data-test-tr="Üstteki promptu inceleyin ve hoşunuza giderse &quot;Metni Kopyala&quot; butonuna tıklayın." data-test-en="Review the prompt above and select “Copy text” if you wish to proceed.">Üstteki promptu inceleyin ve hoşunuza giderse "Metni Kopyala" butonuna tıklayın.</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="w-6 h-6 rounded-full bg-slate-700 text-white flex items-center justify-center text-[10px] font-black">2</span>
+                                <p class="flex-1" data-test-tr="Seçtiğiniz yapay zeka aracı yeni sekmede açılacak. Sohbet kutusuna promptu yapıştırın." data-test-en="The selected AI tool will open in a new tab. Paste the prompt into its chat box.">Seçtiğiniz yapay zeka aracı yeni sekmede açılacak. Sohbet kutusuna promptu yapıştırın.</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="w-6 h-6 rounded-full bg-slate-700 text-white flex items-center justify-center text-[10px] font-black">3</span>
+                                <p class="flex-1" data-test-tr="Yanıt çıktıktan sonra aşağıdaki alana yapıştırarak listeyi içeri aktarın." data-test-en="When the response is ready, paste it below to import the list.">Yanıt çıktıktan sonra aşağıdaki alana yapıştırarak listeyi içeri aktarın.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid gap-3">
+                    <button id="btn-step-1" onclick="stepOneCopy()" class="w-full flex flex-col sm:flex-row items-start sm:items-center sm:justify-between gap-3 sm:gap-4 rounded-2xl bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white font-black py-4 sm:py-4 px-5 transition shadow-xl shadow-indigo-900/30 relative overflow-hidden group">
+                        <div class="flex items-center gap-3 sm:flex-1 min-w-[0]">
+                            <span class="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center text-sm font-black">1</span>
+                            <div class="text-left space-y-1">
+                                <p class="text-sm tracking-wide font-black uppercase leading-tight">Metni Kopyala</p>
+                                <p class="text-[10px] text-white/70 font-semibold leading-snug">Prompt panonuza eklenir.</p>
+                            </div>
+                        </div>
+                        <i class="ph-bold ph-copy text-lg sm:ml-auto sm:self-center self-start"></i>
+                    </button>
+
+                    <button id="btn-step-2" onclick="stepTwoOpen()" disabled class="w-full flex flex-col sm:flex-row items-start sm:items-center sm:justify-between gap-3 sm:gap-4 rounded-2xl bg-slate-800/80 text-slate-500 font-bold py-4 sm:py-4 px-5 border border-slate-700/60 cursor-not-allowed opacity-60">
+                        <div class="flex items-center gap-3 sm:flex-1 min-w-[0]">
+                            <span class="w-9 h-9 rounded-full bg-slate-700/80 flex items-center justify-center text-sm font-black">2</span>
+                            <div class="text-left space-y-1">
+                                <p class="text-sm tracking-wide font-black uppercase leading-tight">Y.Z. Sekmesini Aç</p>
+                                <p class="text-[10px] text-slate-500/80 font-semibold leading-snug">Promptu yapıştırmaya hazırlanın.</p>
+                            </div>
+                        </div>
+                        <i class="ph-bold ph-arrow-square-out text-lg sm:ml-auto sm:self-center self-start"></i>
+                    </button>
+                </div>
+
+                <div class="bg-indigo-500/10 border border-indigo-500/20 rounded-2xl p-4 text-[11px] text-indigo-100/80 leading-relaxed">
+                    <div class="flex items-start gap-3">
+                        <div class="w-8 h-8 rounded-xl bg-indigo-500/20 flex items-center justify-center text-indigo-300">
+                            <i class="ph-fill ph-info"></i>
+                        </div>
+                        <div class="space-y-1">
+                            <p class="font-bold uppercase tracking-wide text-[10px] text-indigo-200" data-test-tr="İpucu" data-test-en="Tip">İpucu</p>
+                            <p data-test-tr="Metni göremiyorsanız yukarıdaki liste seçiminden farklı bir profil seçip tekrar deneyebilirsiniz." data-test-en="If the text is not visible, select another profile above and try again.">Metni göremiyorsanız yukarıdaki liste seçiminden farklı bir profil seçip tekrar deneyebilirsiniz.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="infoModal" class="fixed inset-0 bg-black/95 hidden items-center justify-center z-[130] px-6 animate-fade-in no-print" onclick="this.style.display='none'"><div class="bg-slate-800 border border-slate-600 p-6 rounded-2xl max-w-sm w-full shadow-2xl relative" onclick="event.stopPropagation()"><button onclick="document.getElementById('infoModal').style.display='none'" class="absolute top-3 right-3 text-slate-400 hover:text-white"><i class="ph-bold ph-x text-lg"></i></button><h3 id="infoModalTitle" class="text-emerald-400 font-bold text-lg mb-2 uppercase" data-test-tr="Bilgi" data-test-en="Information">Bilgi</h3><p id="infoModalText" class="text-slate-300 text-sm leading-relaxed">...</p></div></div>
+    
+    <!-- YENİ: YAPAY ZEKA SONUÇ MODALI -->
+    <div id="aiResultModal" class="fixed inset-0 bg-black/90 hidden items-center justify-center z-[150] px-4 no-print">
+            <div class="bg-slate-900 border border-indigo-500/50 w-full max-w-lg h-[80vh] rounded-3xl shadow-2xl flex flex-col overflow-hidden">
+                <div class="flex justify-between items-center border-b border-slate-800 p-4 shrink-0 bg-slate-900">
+                    <div class="flex items-center gap-3">
+                        <i class="ph-fill ph-sparkle text-2xl text-indigo-400"></i>
+                        <h3 class="text-lg font-bold text-white" data-test-tr="Yapay Zeka Analizi" data-test-en="AI analysis">Yapay Zeka Analizi</h3>
+                    </div>
+                    <button onclick="closeModal('aiResultModal')" class="bg-slate-800/50 text-slate-400 hover:bg-slate-700 p-2 rounded-lg transition"><i class="ph-bold ph-x text-xl"></i></button>
+                </div>
+                <div id="aiResultContent" class="flex-1 overflow-y-auto p-6 text-slate-300 leading-relaxed prose prose-invert prose-sm max-w-none">
+                    <!-- Burası YZ sonucu ile dolacak -->
+                    <div class="text-center py-10">
+                        <i class="ph-fill ph-robot text-4xl text-slate-600 animate-pulse"></i>
+                        <p class="mt-2 text-sm text-slate-500" data-test-tr="Analiz bekleniyor..." data-test-en="Waiting for analysis...">Analiz bekleniyor...</p>
+                    </div>
+                </div>
+                <div class="p-4 border-t border-slate-800 bg-slate-900 flex gap-3 shrink-0">
+                    <button onclick="openAiHistory()" class="flex-1 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold py-3 rounded-xl transition border border-slate-700 flex items-center justify-center gap-2">
+                        <i class="ph-bold ph-clock-counter-clockwise"></i> Geçmiş
+                    </button>
+                    <button onclick="saveCurrentAnalysis()" class="flex-1 bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 rounded-xl transition shadow-lg shadow-indigo-900/20 flex items-center justify-center gap-2">
+                        <i class="ph-bold ph-floppy-disk"></i> Kaydet
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    <!-- YENİ: GEÇMİŞ ANALİZLER MODALI -->
+    <div id="aiHistoryModal" class="fixed inset-0 bg-black/90 hidden items-center justify-center z-[160] px-4 no-print">
+        <div class="bg-slate-900 border border-indigo-500/50 w-full max-w-md h-[80vh] rounded-3xl shadow-2xl flex flex-col overflow-hidden">
+            <div class="flex justify-between items-center border-b border-slate-800 p-4 shrink-0 bg-slate-900">
+                <h3 class="text-lg font-bold text-white flex items-center gap-2"><i class="ph-fill ph-clock-counter-clockwise text-indigo-400"></i> Geçmiş Analizler</h3>
+                <button onclick="closeModal('aiHistoryModal')" class="bg-slate-800/50 text-slate-400 hover:bg-slate-700 p-2 rounded-lg transition"><i class="ph-bold ph-x text-xl"></i></button>
+            </div>
+            <div id="aiHistoryList" class="flex-1 overflow-y-auto p-4 space-y-3 no-scrollbar">
+                <!-- JS ile dolacak -->
+            </div>
+        </div>
+    </div>
+
+    <!-- YENİ: ONBOARDING (KARŞILAMA) MODALI -->
+    <div id="onboardingModal" class="fixed inset-0 bg-black/95 hidden items-center justify-center z-[200] no-print animate-fade-in">
+        <div class="bg-slate-900 border border-indigo-500/30 w-full max-w-sm rounded-3xl shadow-2xl overflow-hidden relative">
+            <!-- Slide İçeriği -->
+            <div id="onboardingContent" class="p-8 text-center flex flex-col items-center min-h-[320px] justify-center transition-all duration-300">
+                <!-- JS ile doldurulacak -->
+            </div>
+            
+            <!-- Alt Navigasyon -->
+            <div class="p-4 bg-slate-800/50 border-t border-slate-700/50 flex justify-between items-center">
+                <button onclick="closeOnboarding()" data-test-tr="ATLA" data-test-en="SKIP" class="text-slate-500 text-xs font-bold hover:text-white px-3 py-2 transition-colors">ATLA</button>
+                <div class="flex gap-1.5" id="onboardingDots">
+                    <!-- JS ile doldurulacak -->
+                </div>
+                <button id="btnOnboardingNext" class="bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold px-5 py-2.5 rounded-xl transition shadow-lg shadow-indigo-900/20 flex items-center gap-2 active:scale-95">
+                    <span>İLERİ</span> <i class="ph-bold ph-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- YENİ: KULLANIM REHBERİ MODALI -->
+    <div id="guideOverlay" class="fixed inset-0 bg-black/90 hidden items-center justify-center z-[140] px-4 py-6 no-print">
+        <div class="bg-slate-900 border border-slate-700 w-full max-w-md h-[85vh] rounded-3xl shadow-2xl flex flex-col overflow-hidden">
+            <div class="flex justify-between items-center border-b border-slate-800 p-4 shrink-0 bg-slate-900">
+                <h3 class="text-xl font-bold text-white flex items-center gap-2"><i class="ph-fill ph-book-bookmark text-indigo-400"></i> <span data-test-tr="Kullanım Rehberi" data-test-en="User guide">Kullanım Rehberi</span></h3>
+                <button onclick="document.getElementById('guideOverlay').style.display='none'" class="bg-slate-800 text-slate-400 hover:text-white p-2 rounded-lg transition"><i class="ph-bold ph-x text-xl"></i></button>
+            </div>
+            <div class="flex flex-col flex-1 overflow-hidden">
+                <div class="guide-header p-4 space-y-4 border-b border-slate-800/80 shrink-0 overflow-hidden"></div>
+                <div id="guideContent" class="flex-1 overflow-y-auto p-4 space-y-4 no-scrollbar">
+                    <!-- JS ile doldurulacak -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="languagePickerOverlay" class="fixed inset-0 bg-black/90 hidden items-center justify-center z-[110] px-4 py-6 no-print" role="dialog" aria-modal="true" aria-labelledby="languageTestLabel">
+        <div class="bg-slate-900 border border-slate-700 w-full max-w-sm max-h-[85vh] rounded-3xl shadow-2xl flex flex-col overflow-hidden">
+            <div class="flex items-center justify-between border-b border-slate-700 p-4 shrink-0">
+                <h3 id="languageTestLabel" class="text-lg font-bold text-white">Language / Dil</h3>
+                <button type="button" id="languagePickerClose" aria-label="Close / Kapat" class="bg-slate-800 text-slate-300 hover:text-white p-2 rounded-lg"><i class="ph-bold ph-x text-xl" aria-hidden="true"></i></button>
+            </div>
+            <div class="p-4 overflow-y-auto">
+                <p id="languageTestHelp" class="text-xs text-slate-400 mb-3"></p>
+                <fieldset class="space-y-2" aria-labelledby="languageTestLabel">
+                    <label class="flex items-center gap-3 p-4 rounded-xl bg-slate-800 border border-slate-600 text-white cursor-pointer">
+                        <input type="radio" name="languageTest" value="en" class="accent-blue-500 w-5 h-5"> <span>English</span>
+                    </label>
+                    <label class="flex items-center gap-3 p-4 rounded-xl bg-slate-800 border border-slate-600 text-white cursor-pointer">
+                        <input type="radio" name="languageTest" value="tr" class="accent-blue-500 w-5 h-5"> <span>Türkçe</span>
+                    </label>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+
+    <!-- YENİ: ANA MENÜ MODALI -->
+    <div id="mainMenuOverlay" class="fixed inset-0 bg-black/90 hidden items-start justify-center z-[100] px-4 py-20 no-print animate-fade-in" onclick="if(event.target === this) this.style.display='none'">
+        <div class="bg-slate-900 border border-slate-700 w-full max-w-sm max-h-[calc(100vh-10rem)] rounded-3xl shadow-2xl flex flex-col overflow-hidden animate-slide-up">
+            <div class="flex justify-between items-center border-b border-slate-800 p-4 shrink-0 bg-slate-900">
+                <h3 class="text-xl font-bold text-white" data-test-tr="Menü" data-test-en="Menu">Menü</h3>
+                <button onclick="document.getElementById('mainMenuOverlay').style.display='none'" class="bg-slate-800 text-slate-400 hover:text-white p-2 rounded-lg transition"><i class="ph-bold ph-x text-xl"></i></button>
+            </div>
+            
+            <div class="p-4 space-y-3 overflow-y-auto no-scrollbar">
+                <button type="button" id="languagePickerOpen" aria-haspopup="dialog" aria-controls="languagePickerOverlay" aria-expanded="false" class="w-full bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white p-4 rounded-xl flex items-center justify-between group transition">
+                    <span class="flex items-center gap-3 text-left">
+                        <span class="w-10 h-10 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center"><i class="ph-bold ph-globe text-xl" aria-hidden="true"></i></span>
+                        <span><span class="block text-sm font-bold">Language / Dil</span><span id="languageCurrentName" class="block text-xs text-slate-400">English</span></span>
+                    </span>
+                    <i class="ph-bold ph-caret-right text-slate-600" aria-hidden="true"></i>
+                </button>
+                <button id="btnOpenProfile" type="button" class="w-full bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white p-4 rounded-xl flex items-center justify-between group transition"><span class="flex items-center gap-3"><span class="w-10 h-10 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center"><i class="ph-fill ph-user-gear text-xl" aria-hidden="true"></i></span><span class="text-sm font-bold" data-test-tr="Klinik Profil" data-test-en="Clinical profile">Klinik Profil</span></span><i class="ph-bold ph-caret-right text-slate-600" aria-hidden="true"></i></button>
+                <button id="menuBtnSettings" class="w-full bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white p-4 rounded-xl flex items-center justify-between group transition">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-slate-500/20 flex items-center justify-center text-slate-400 group-hover:scale-110 transition">
+                            <i class="ph-fill ph-gear text-xl"></i>
+                        </div>
+                        <div class="text-left">
+                            <div class="text-sm font-bold" data-test-tr="Ayarlar" data-test-en="Settings">Ayarlar</div>
+                            <div class="text-[10px] text-slate-500" data-test-tr="Yedekleme ve veri" data-test-en="Backup and data">Yedekleme ve veri</div>
+                        </div>
+                    </div>
+                    <i class="ph-bold ph-caret-right text-slate-600"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function lockFooterSignature() {
+            const signature = document.getElementById('footerSignature');
+            if (!signature) return;
+            const SIGNATURE_HTML = '<span class="text-[10px] text-slate-500">~GEMINI &amp; GPT5 ile KODLANMIŞTIR~</span>';
+            let restoring = false;
+            const restore = () => {
+                restoring = true;
+                signature.innerHTML = SIGNATURE_HTML;
+                restoring = false;
+            };
+            restore();
+            const observer = new MutationObserver(() => {
+                // MutationObserver callbacks are asynchronous; restoring our own
+                // unchanged markup would otherwise queue callbacks indefinitely.
+                if (restoring || signature.innerHTML === SIGNATURE_HTML) return;
+                restore();
+            });
+            observer.observe(signature, { childList: true, subtree: true, characterData: true });
+        })();
+    </script>
+<dialog id="profileWizardDialog" class="profile-wizard-dialog" aria-labelledby="profileWizardHeading"><div class="pw-top"><span id="profileWizardHeading" data-test-tr="PROFİL SİHİRBAZI" data-test-en="PROFILE WIZARD">PROFİL SİHİRBAZI</span><button type="button" id="profileWizardClose" aria-label="Kapat / Close"><i class="ph-bold ph-x" aria-hidden="true"></i></button></div><div id="profileWizardView" class="pw-view"></div><div id="profileWizardStatus" class="pw-status" role="status"></div><div class="pw-actions"><button type="button" id="profileWizardBack">GERİ</button><button type="button" id="profileWizardNext">DEVAM</button></div></dialog>
+<dialog id="foodNutrientInfoDialog" class="section-reminder-dialog food-list-info-dialog" aria-labelledby="foodNutrientInfoTitle"><div class="section-reminder-dialog-heading"><h2 id="foodNutrientInfoTitle"></h2><button type="button" onclick="document.getElementById('foodNutrientInfoDialog').close()" aria-label="Kapat / Close"><i class="ph-bold ph-x" aria-hidden="true"></i></button></div><p id="foodNutrientInfoText" class="food-list-info-caption"></p><button type="button" id="foodNutrientInfoDone" class="food-list-info-close" onclick="document.getElementById('foodNutrientInfoDialog').close()">TAMAM</button></dialog>
+<dialog id="foodListInfoDialog" class="section-reminder-dialog food-list-info-dialog" aria-labelledby="foodListInfoTitle"><div class="section-reminder-dialog-heading"><h2 id="foodListInfoTitle"></h2><button type="button" onclick="document.getElementById('foodListInfoDialog').close()" aria-label="Kapat / Close"><i class="ph-bold ph-x" aria-hidden="true"></i></button></div><p class="food-list-info-caption" data-test-tr="Bu yiyeceğin bulunduğu listeler" data-test-en="Lists containing this food">Bu yiyeceğin bulunduğu listeler</p><ul id="foodListInfoItems" class="food-list-info-items"></ul><button type="button" class="food-list-info-close" onclick="document.getElementById('foodListInfoDialog').close()" data-test-tr="TAMAM" data-test-en="DONE">TAMAM</button></dialog>
+<dialog id="foodDefinitionDialog" class="section-reminder-dialog food-definition-dialog" aria-labelledby="foodDefinitionTitle">
+  <form id="foodDefinitionForm">
+    <div class="section-reminder-dialog-heading"><h2 id="foodDefinitionTitle" data-test-tr="Yiyeceği düzenle" data-test-en="Edit food">Yiyeceği düzenle</h2><button type="button" onclick="document.getElementById('foodDefinitionDialog').close()" aria-label="Kapat / Close"><i class="ph-bold ph-x"></i></button></div>
+    <label for="foodDefinitionName" data-test-tr="Yiyecek adı" data-test-en="Food name">Yiyecek adı</label><input id="foodDefinitionName" type="text" maxlength="100" required>
+    <label for="foodDefinitionUnit" data-test-tr="Birim" data-test-en="Unit">Birim</label><select id="foodDefinitionUnit"><option value="gr" data-test-tr="Gram (g)" data-test-en="Grams (g)">Gram (g)</option><option value="ml" data-test-tr="Mililitre (ml)" data-test-en="Millilitres (ml)">Mililitre (ml)</option><option value="Adet" data-test-tr="Adet" data-test-en="Piece">Adet</option><option value="Porsiyon" data-test-tr="Porsiyon" data-test-en="Serving">Porsiyon</option><option value="Kase" data-test-tr="Kase" data-test-en="Bowl">Kase</option><option value="Bardak" data-test-tr="Bardak" data-test-en="Glass">Bardak</option><option value="Dilim" data-test-tr="Dilim" data-test-en="Slice">Dilim</option><option value="Fincan" data-test-tr="Fincan" data-test-en="Cup">Fincan</option></select>
+    <label for="foodDefinitionCalories" id="foodDefinitionCaloriesLabel"></label><input id="foodDefinitionCalories" type="number" min="0" step="any" inputmode="decimal" required>
+    <div class="food-new-grid"><label>Protein (g)<input id="foodDefinition_protein" type="number" min="0" step="any"></label><label><span data-test-tr="Karbonhidrat (g)" data-test-en="Carbohydrate (g)">Karbonhidrat (g)</span><input id="foodDefinition_carbohydrate" type="number" min="0" step="any"></label><label><span data-test-tr="Şeker (g)" data-test-en="Sugar (g)">Şeker (g)</span><input id="foodDefinition_sugar" type="number" min="0" step="any"></label><label><span data-test-tr="Yağ (g)" data-test-en="Fat (g)">Yağ (g)</span><input id="foodDefinition_fat" type="number" min="0" step="any"></label><label><span data-test-tr="Tuz (g)" data-test-en="Salt (g)">Tuz (g)</span><input id="foodDefinition_salt" type="number" min="0" step="any"></label></div>
+    <p class="note-editor-help" data-test-tr="Değerler yaklaşık olabilir. Önceki öğün kayıtları korunur." data-test-en="Values can be approximate. Previous meal records are preserved.">Değerler yaklaşık olabilir. Önceki öğün kayıtları korunur.</p>
+    <p id="foodDefinitionError" class="note-editor-error" role="alert" hidden></p>
+    <button type="submit" class="reminder-create-submit" data-test-tr="Değişiklikleri kaydet" data-test-en="Save changes">Değişiklikleri kaydet</button>
+    <button type="button" class="food-definition-remove" onclick="FoodLibraryManager.requestDeleteDefinition()"><i class="ph-bold ph-trash" aria-hidden="true"></i> <span data-test-tr="YİYECEĞİ LİSTEDEN KALDIR" data-test-en="REMOVE FOOD FROM LIST">YİYECEĞİ LİSTEDEN KALDIR</span></button>
+  </form>
+</dialog>
+<dialog id="foodDeleteDialog" class="section-reminder-dialog food-definition-dialog" aria-labelledby="foodDeleteTitle">
+  <div class="food-delete-confirm"><h2 id="foodDeleteTitle" data-test-tr="Yiyecek listeden kaldırılsın mı?" data-test-en="Remove this food from the list?">Yiyecek listeden kaldırılsın mı?</h2><p data-test-tr="Önceki öğün kayıtları korunur." data-test-en="Previous meal records are preserved.">Önceki öğün kayıtları korunur.</p><div><button type="button" onclick="document.getElementById('foodDeleteDialog').close()" data-test-tr="İptal" data-test-en="Cancel">İptal</button><button type="button" onclick="FoodLibraryManager.confirmDeleteDefinition()" data-test-tr="Kaldır" data-test-en="Remove">Kaldır</button></div></div>
+</dialog>
+<dialog id="noteEditorDialog" class="section-reminder-dialog note-editor-dialog" aria-labelledby="noteEditorTitle">
+  <form id="noteEditorForm">
+    <div class="section-reminder-dialog-heading"><h2 id="noteEditorTitle" data-test-tr="Not" data-test-en="Note">Not</h2><button type="button" onclick="document.getElementById('noteEditorDialog').close()" aria-label="Kapat / Close"><i class="ph-bold ph-x"></i></button></div>
+    <label for="noteText" data-test-tr="Notunuz" data-test-en="Your note">Notunuz</label>
+    <textarea id="noteText" rows="5" required></textarea>
+    <label class="note-notification-option"><input type="checkbox" id="noteNotify" onchange="updateNoteNotificationFields()"><span data-test-tr="Bildirim olarak göster" data-test-en="Show as a reminder">Bildirim olarak göster</span></label>
+    <div id="noteNotificationFields" class="note-notification-fields" hidden>
+      <label for="noteNotifyAt" data-test-tr="Gösterim tarihi ve saati" data-test-en="Show from date and time">Gösterim tarihi ve saati</label>
+      <input type="datetime-local" id="noteNotifyAt">
+      <label for="noteDurationType" data-test-tr="Gösterim süresi" data-test-en="Display duration">Gösterim süresi</label>
+      <select id="noteDurationType" onchange="updateNoteNotificationFields()"><option value="timed" data-test-tr="Süreli" data-test-en="Timed">Süreli</option><option value="continuous" data-test-tr="Sürekli" data-test-en="Continuous">Sürekli</option></select>
+      <div id="noteDurationFields"><label for="noteDurationMinutes" data-test-tr="Süre (dakika)" data-test-en="Duration (minutes)">Süre (dakika)</label><input type="number" id="noteDurationMinutes" min="1" max="43200" step="1" value="60"></div>
+      <p class="note-editor-help" data-test-tr="Süre dolduğunda okunmamış bildirim geçmiş uyarı olarak kalır. Sürekli bildirim siz kapatana kadar görünür." data-test-en="An unread timed reminder becomes overdue. A continuous reminder remains until dismissed.">Süre dolduğunda okunmamış bildirim geçmiş uyarı olarak kalır. Sürekli bildirim siz kapatana kadar görünür.</p>
+      <p class="note-editor-help" data-test-tr="Bildirimler uygulama açıkken veya tekrar açıldığında görünür." data-test-en="Reminders appear while the app is open or when reopened.">Bildirimler uygulama açıkken veya tekrar açıldığında görünür.</p>
+    </div>
+    <p id="noteEditorError" class="note-editor-error" role="alert" hidden></p>
+    <button type="submit" class="reminder-create-submit" data-test-tr="Notu kaydet" data-test-en="Save note">Notu kaydet</button>
+  </form>
+</dialog>
+<dialog id="sectionReminderDialog" class="section-reminder-dialog" aria-labelledby="sectionReminderTitle">
+  <form id="sectionReminderForm" onsubmit="event.preventDefault(); saveSectionReminder(this)">
+    <div class="section-reminder-dialog-heading"><h2 id="sectionReminderTitle"></h2><button type="button" onclick="document.getElementById('sectionReminderDialog').close()" aria-label="Kapat / Close"><i class="ph-bold ph-x"></i></button></div>
+    <label for="sectionReminderName" data-test-tr="Hatırlatma adı" data-test-en="Reminder name">Hatırlatma adı</label>
+    <input id="sectionReminderName" type="text" maxlength="100" required>
+    <fieldset class="reminder-schedule-choice"><legend data-test-tr="Ne zaman?" data-test-en="When?">Ne zaman?</legend>
+      <input type="hidden" id="sectionReminderType" value="once">
+      <div class="reminder-schedule-options">
+        <label><input type="radio" name="sectionReminderScheduleChoice" value="once" checked onchange="setReminderScheduleChoice('sectionReminderType', this.value)"><span data-test-tr="Bir kez" data-test-en="Once">Bir kez</span></label>
+        <label><input type="radio" name="sectionReminderScheduleChoice" value="repeat" onchange="setReminderScheduleChoice('sectionReminderType', this.value)"><span data-test-tr="Tekrarlayan" data-test-en="Repeating">Tekrarlayan</span></label>
+      </div>
+    </fieldset>
+    <div id="sectionReminderOnce" class="reminder-type-fields"><label for="sectionReminderDate" data-test-tr="Tarih ve saat" data-test-en="Date and time">Tarih ve saat</label><input id="sectionReminderDate" type="datetime-local"></div>
+    <div id="sectionReminderRepeat" class="reminder-type-fields" hidden><label for="sectionReminderTime" data-test-tr="Saat" data-test-en="Time">Saat</label><input id="sectionReminderTime" type="time"><fieldset><legend data-test-tr="Tekrar günleri" data-test-en="Repeat on">Tekrar günleri</legend><div class="reminder-day-options">
+      <label><input type="checkbox" name="sectionReminderDay" value="1" checked><span data-test-tr="Pzt" data-test-en="Mon">Pzt</span></label><label><input type="checkbox" name="sectionReminderDay" value="2" checked><span data-test-tr="Sal" data-test-en="Tue">Sal</span></label><label><input type="checkbox" name="sectionReminderDay" value="3" checked><span data-test-tr="Çar" data-test-en="Wed">Çar</span></label><label><input type="checkbox" name="sectionReminderDay" value="4" checked><span data-test-tr="Per" data-test-en="Thu">Per</span></label><label><input type="checkbox" name="sectionReminderDay" value="5" checked><span data-test-tr="Cum" data-test-en="Fri">Cum</span></label><label><input type="checkbox" name="sectionReminderDay" value="6" checked><span data-test-tr="Cmt" data-test-en="Sat">Cmt</span></label><label><input type="checkbox" name="sectionReminderDay" value="0" checked><span data-test-tr="Paz" data-test-en="Sun">Paz</span></label>
+    </div></fieldset></div>
+    <button type="submit" class="reminder-create-submit" data-test-tr="Hatırlatmayı kaydet" data-test-en="Save reminder">Hatırlatmayı kaydet</button>
+  </form>
+</dialog>
+<dialog id="dietPlanDialog" class="food-lists-dialog diet-plan-dialog" aria-labelledby="dietPlanTitle">
+ <div class="food-lists-header"><h2 id="dietPlanTitle" data-test-tr="DİYET VE ÖĞÜN DÜZENİM" data-test-en="MY DIET AND MEAL SCHEDULE">DİYET VE ÖĞÜN DÜZENİM</h2><button type="button" onclick="document.getElementById('dietPlanDialog').close()" aria-label="Kapat / Close"><i class="ph-bold ph-x"></i></button></div>
+ <div id="dietPlanBody"></div>
+ <div class="food-lists-actions"><button type="button" class="food-lists-later" onclick="document.getElementById('dietPlanDialog').close()" data-test-tr="İPTAL" data-test-en="CANCEL">İPTAL</button><button type="button" class="food-lists-apply" onclick="DietPlan.save()" data-test-tr="KAYDET" data-test-en="SAVE">KAYDET</button></div>
+</dialog>
+<dialog id="foodListsDialog" class="food-lists-dialog" aria-labelledby="foodListsTitle">
+  <div class="food-lists-header"><h2 id="foodListsTitle" data-test-tr="Günlük tükettiğiniz gıda listelerini seçiniz" data-test-en="Choose the food lists you use daily">Günlük tükettiğiniz gıda listelerini seçiniz</h2><button type="button" onclick="FoodLists.close()" aria-label="Kapat / Close"><i class="ph-bold ph-x"></i></button></div>
+  <p data-test-tr="Mutfak veya diyet listesini açıp eklemek istediklerini seç." data-test-en="Open cuisines or diet lists and choose the lists to add.">Mutfak veya diyet listesini açıp eklemek istediklerini seç.</p>
+  <details class="food-list-help"><summary data-test-tr="Listeler hakkında bilgi" data-test-en="About the lists">Listeler hakkında bilgi</summary>
+  <p class="food-list-note" data-test-tr="Ülke listeleri taslaktır; kesin tüketim sıralaması değildir. Kaloriler yaklaşık tahmindir ve her değer kaynakla doğrulanmamıştır." data-test-en="Country lists are drafts, not definitive consumption rankings. Calorie values are estimates and have not all been verified against sources.">Ülke listeleri taslaktır; kesin tüketim sıralaması değildir. Kaloriler yaklaşık tahmindir ve her değer kaynakla doğrulanmamıştır.</p>
+  <p class="food-list-note" data-test-tr="Önceki listeye kalori eklenirse, geçmişte bu yiyeceği içeren kayıtların hesapları da değişebilir. Kendi girdiğiniz değerler korunur." data-test-en="Adding calories to a previous list may change calculations for earlier records containing those foods. Values you entered are preserved.">Önceki listeye kalori eklenirse, geçmişte bu yiyeceği içeren kayıtların hesapları da değişebilir. Kendi girdiğiniz değerler korunur.</p>
+  <p class="food-list-note" data-test-tr="Bu listeler kişiye özel diyet veya tedavi önerisi değildir." data-test-en="These lists are not a personalized diet or treatment plan.">Bu listeler kişiye özel diyet veya tedavi önerisi değildir.</p></details>
+  <details class="food-list-category"><summary><i class="ph-bold ph-globe" aria-hidden="true"></i><span data-test-tr="MUTFAK LİSTELERİ" data-test-en="CUISINE LISTS">MUTFAK LİSTELERİ</span><i class="ph-bold ph-caret-down" aria-hidden="true"></i></summary><div class="food-list-category-body"><div id="foodCountryLists" class="food-list-options"></div>
+  <button type="button" class="food-wizard-link custom-cuisine-add" onclick="CustomCuisine.open()" data-test-tr="+ MUTFAK EKLE" data-test-en="+ ADD CUISINE">+ MUTFAK EKLE</button>
+  </div></details>
+  <details class="food-list-category"><summary><i class="ph-bold ph-leaf" aria-hidden="true"></i><span data-test-tr="DİYET LİSTELERİ" data-test-en="DIET LISTS">DİYET LİSTELERİ</span><i class="ph-bold ph-caret-down" aria-hidden="true"></i></summary><div class="food-list-category-body"><div id="foodDietLists" class="food-list-options"></div></div></details>
+  <button type="button" class="food-wizard-link" onclick="FoodLists.openWizard()" data-test-tr="Kendi listem / Yemek Sihirbazı" data-test-en="My list / Food Wizard">Kendi listem / Yemek Sihirbazı</button>
+  <p id="foodListsError" role="alert" class="food-lists-error" hidden></p>
+  <div class="food-lists-actions"><button type="button" class="food-lists-later" onclick="FoodLists.later()" data-test-tr="Daha sonra seç" data-test-en="Choose later">Daha sonra seç</button><button type="button" id="foodListsApply" class="food-lists-apply" onclick="FoodLists.apply()" data-test-tr="Seçilen listeleri ekle" data-test-en="Add selected lists">Seçilen listeleri ekle</button></div>
+</dialog>
+<dialog id="customCuisineDialog" class="food-lists-dialog custom-cuisine-dialog" aria-labelledby="customCuisineTitle">
+ <div class="food-lists-header"><h2 id="customCuisineTitle" data-test-tr="Mutfak ekle" data-test-en="Add cuisine">Mutfak ekle</h2><button type="button" onclick="CustomCuisine.close()" aria-label="Kapat / Close">✕</button></div>
+ <div id="customCuisineRequest">
+  <label><span data-test-tr="Mutfak adı" data-test-en="Cuisine name">Mutfak adı</span><input id="customCuisineName" type="text" maxlength="80" placeholder="Örn. Japon mutfağı" data-test-placeholder-tr="Örn. Japon mutfağı" data-test-placeholder-en="e.g. Japanese cuisine"></label>
+  <label><span data-test-tr="Yiyecek sayısı (3–30)" data-test-en="Number of foods (3–30)">Yiyecek sayısı (3–30)</span><input id="customCuisineCount" type="number" min="3" max="30" value="10"></label>
+  <label><span data-test-tr="Yapay zekâ" data-test-en="AI service">Yapay zekâ</span><select id="customCuisineAi"><option value="gemini">Gemini</option><option value="chatgpt">ChatGPT</option><option value="claude">Claude</option><option value="deepseek">DeepSeek</option><option value="grok">Grok</option></select></label>
+  <textarea id="customCuisinePrompt" rows="4" readonly hidden></textarea><button type="button" id="customCuisineCopy" class="food-ai-action" onclick="CustomCuisine.copyAndOpen()" data-test-tr="İSTEMİ KOPYALA VE AÇ" data-test-en="COPY PROMPT AND OPEN">İSTEMİ KOPYALA VE AÇ</button>
+  <button type="button" id="customCuisineManualOpen" class="food-ai-action" hidden onclick="CustomCuisine.manualOpen()" data-test-tr="YAPAY ZEKÂYI AÇ" data-test-en="OPEN AI">YAPAY ZEKÂYI AÇ</button>
+ </div>
+ <div id="customCuisineResponse" hidden><p data-test-tr="Yapay zekâ cevabını buraya yapıştırın." data-test-en="Paste the AI response here.">Yapay zekâ cevabını buraya yapıştırın.</p><textarea id="customCuisineReply" rows="7" placeholder="Yanıtı buraya yapıştırın" data-test-placeholder-tr="Yanıtı buraya yapıştırın" data-test-placeholder-en="Paste the response here"></textarea><button type="button" class="food-ai-action" onclick="CustomCuisine.save()" data-test-tr="MUTFAĞI EKLE" data-test-en="ADD CUISINE">MUTFAĞI EKLE</button><button type="button" class="food-ai-action" onclick="CustomCuisine.back()" data-test-tr="GERİ" data-test-en="BACK">GERİ</button></div>
+ <p id="customCuisineError" class="food-lists-error" role="alert" hidden></p>
+</dialog>
+<dialog id="healthReportDialog" class="health-report-dialog" aria-labelledby="healthReportTitle">
+ <form id="healthReportForm"><h2 id="healthReportTitle">HTML RAPOR OLUŞTUR</h2><p>Rapor dönemi ve varsa doktora iletmek istediğiniz yeni şikâyetleri seçin.</p>
+ <div class="health-report-dates"><label>Başlangıç<input type="date" id="healthReportStart" required></label><label>Bitiş<input type="date" id="healthReportEnd" required></label></div>
+ <label>Görüşme notu <span>(isteğe bağlı)</span><textarea id="healthReportNote" rows="3" placeholder="Yeni şikâyet veya doktora iletmek istediğiniz bilgi"></textarea></label>
+ <p class="health-report-hint">Rapor, seçilen dönemdeki kayıtları ve mevcut klinik profili içerir. PDF için açılan yazdırma ekranında “PDF olarak kaydet” seçin.</p>
+ <p id="healthReportError" role="alert" hidden></p><div class="health-report-actions"><button type="button" id="healthReportCancel">VAZGEÇ</button><button type="submit" id="healthReportSubmit">HTML RAPORU İNDİR</button></div></form>
+</dialog>
+</body>
+</html>

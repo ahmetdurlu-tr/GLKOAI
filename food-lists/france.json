@@ -1,0 +1,1270 @@
+{
+  "version": 7,
+  "id": "france",
+  "items": [
+    {
+      "id": "france__water",
+      "tr": "Su",
+      "en": "Water",
+      "unit": "ml",
+      "calories": 0,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "localName": "Eau",
+      "nutrients": {
+        "protein": 0,
+        "carbohydrate": 0,
+        "sugar": 0,
+        "fat": 0,
+        "salt": 0
+      },
+      "nutrientSource": "ai_estimate",
+      "foodGroup": "water"
+    },
+    {
+      "id": "france__daily_banana_raw",
+      "tr": "Muz",
+      "en": "Banana",
+      "localName": "Banane",
+      "unit": "gr",
+      "calories": 89,
+      "calorieSource": {
+        "tr": "USDA SR27 09040: çiğ muz, yenebilir kısım, 89 kcal/100 g.",
+        "en": "USDA SR27 09040: raw banana, edible portion, 89 kcal/100 g.",
+        "url": "https://www.ars.usda.gov/ARSUserFiles/80400525/Data/SR27/reports/sr27fg09.pdf"
+      },
+      "calorieMethod": "reference_comparable",
+      "nutrients": {
+        "protein": 1.1,
+        "carbohydrate": 23,
+        "sugar": 12,
+        "fat": 0.0,
+        "salt": 0.01
+      },
+      "nutrientSource": "ai_estimate",
+      "foodGroup": "produce"
+    },
+    {
+      "id": "france__daily_ham",
+      "tr": "Pişmiş jambon",
+      "en": "Cooked ham",
+      "localName": "Jambon blanc",
+      "unit": "gr",
+      "calories": 145,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Bu gıda için kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching for this item has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "nutrients": {
+        "protein": 21,
+        "carbohydrate": 1,
+        "sugar": 1,
+        "fat": 6.3,
+        "salt": 2
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "france__daily_rice_cooked",
+      "tr": "Pişmiş pirinç",
+      "en": "Cooked rice",
+      "localName": "Riz cuit",
+      "unit": "gr",
+      "calories": 130,
+      "calorieSource": {
+        "tr": "USDA SR28 20345: sade pişmiş uzun taneli beyaz pirinç, 130 kcal/100 g; pirinç ve hazırlanışa göre değişir.",
+        "en": "USDA SR28 20345: plain cooked long-grain white rice, 130 kcal/100 g; varies by rice and preparation.",
+        "url": "https://www.ars.usda.gov/ARSUserFiles/80400535/Data/SR/SR28/reports/sr28fg20.pdf"
+      },
+      "calorieMethod": "reference_comparable",
+      "nutrients": {
+        "protein": 2.7,
+        "carbohydrate": 28,
+        "sugar": 0.1,
+        "fat": 0.8,
+        "salt": 0.01
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "france__daily_pasta_cooked",
+      "tr": "Pişmiş makarna",
+      "en": "Cooked pasta",
+      "localName": "Pâtes cuites",
+      "unit": "gr",
+      "calories": 158,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Bu gıda için kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching for this item has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "nutrients": {
+        "protein": 5.5,
+        "carbohydrate": 30,
+        "sugar": 0.6,
+        "fat": 1.8,
+        "salt": 0.02
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "france__daily_cornflakes",
+      "tr": "Mısır gevreği",
+      "en": "Cornflakes",
+      "localName": "Pétales de maïs nature",
+      "unit": "gr",
+      "calories": 370,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Bu gıda için kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching for this item has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "nutrients": {
+        "protein": 7,
+        "carbohydrate": 83,
+        "sugar": 8,
+        "fat": 1.1,
+        "salt": 1.3
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "france__daily_jam",
+      "tr": "Reçel",
+      "en": "Fruit jam",
+      "localName": "Confiture de fruits",
+      "unit": "gr",
+      "calories": 250,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Bu gıda için kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching for this item has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "nutrients": {
+        "protein": 0.4,
+        "carbohydrate": 62,
+        "sugar": 59,
+        "fat": 0.0,
+        "salt": 0.03
+      },
+      "nutrientSource": "ai_estimate",
+      "foodGroup": "other"
+    },
+    {
+      "id": "france__daily_blacktea",
+      "tr": "Şekersiz siyah çay",
+      "en": "Unsweetened black tea",
+      "localName": "Thé noir sans sucre",
+      "unit": "ml",
+      "calories": 1,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Bu gıda için kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching for this item has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "nutrients": {
+        "protein": 0.1,
+        "carbohydrate": 0.2,
+        "sugar": 0,
+        "fat": 0.0,
+        "salt": 0.01
+      },
+      "nutrientSource": "ai_estimate",
+      "foodGroup": "other"
+    },
+    {
+      "id": "france__daily_coffee_black",
+      "tr": "Sade kahve",
+      "en": "Black coffee",
+      "localName": "Café noir",
+      "unit": "ml",
+      "calories": 2,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Bu gıda için kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching for this item has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "nutrients": {
+        "protein": 0.1,
+        "carbohydrate": 0.2,
+        "sugar": 0,
+        "fat": 0.1,
+        "salt": 0.01
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "other"
+    },
+    {
+      "id": "france__daily_butter",
+      "tr": "Tereyağı",
+      "en": "Butter",
+      "localName": "Beurre",
+      "unit": "gr",
+      "calories": 717,
+      "calorieSource": {
+        "tr": "USDA SR28 01001: tuzlu tereyağı, 717 kcal/100 g; ürünün yağ oranına göre değişir.",
+        "en": "USDA SR28 01001: salted butter, 717 kcal/100 g; varies with fat content.",
+        "url": "https://www.ars.usda.gov/ARSUserFiles/80400535/Data/SR/SR28/reports/sr28fg01.pdf"
+      },
+      "calorieMethod": "reference_comparable",
+      "nutrients": {
+        "protein": 0.9,
+        "carbohydrate": 0.1,
+        "sugar": 0.1,
+        "fat": 79.2,
+        "salt": 0.04
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "fat"
+    },
+    {
+      "id": "france__daily_milk_whole",
+      "tr": "Tam yağlı süt",
+      "en": "Whole milk",
+      "localName": "Lait entier",
+      "unit": "ml",
+      "calories": 61,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Bu gıda için kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching for this item has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "nutrients": {
+        "protein": 3.2,
+        "carbohydrate": 4.7,
+        "sugar": 4.7,
+        "fat": 3.3,
+        "salt": 0.12
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "france__baguette",
+      "tr": "Baget ekmek",
+      "en": "Baguette",
+      "unit": "gr",
+      "calories": 270,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "localName": "Baguette",
+      "nutrients": {
+        "protein": 9,
+        "carbohydrate": 55,
+        "sugar": 4,
+        "fat": 1.6,
+        "salt": 1.1
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "france__egg",
+      "tr": "Haşlanmış yumurta",
+      "en": "Boiled egg",
+      "unit": "gr",
+      "calories": 155,
+      "calorieSource": {
+        "tr": "USDA SR28 01129: haşlanmış yumurta, kabuksuz, 155 kcal/100 g.",
+        "en": "USDA SR28 01129: hard-boiled egg, without shell, 155 kcal/100 g.",
+        "url": "https://www.ars.usda.gov/ARSUserFiles/80400525/Data/SR/SR28/reports/sr28fg01.pdf"
+      },
+      "calorieMethod": "reference_comparable",
+      "portions": [
+        {
+          "tr": "1 adet haşlanmış yumurta (kabuksuz)",
+          "en": "1 boiled egg (without shell)",
+          "amount": 50
+        }
+      ],
+      "localName": "Œuf dur",
+      "nutrients": {
+        "protein": 13,
+        "carbohydrate": 1,
+        "sugar": 1,
+        "fat": 11.0,
+        "salt": 0.3
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "france__yogurt",
+      "tr": "Sade yoğurt",
+      "en": "Plain yogurt",
+      "unit": "gr",
+      "calories": 61,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "localName": "Yaourt nature",
+      "nutrients": {
+        "protein": 3.5,
+        "carbohydrate": 4.7,
+        "sugar": 4.7,
+        "fat": 3.1,
+        "salt": 0.1
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "france__tomato",
+      "tr": "Domates",
+      "en": "Tomato",
+      "unit": "gr",
+      "calories": 21,
+      "calorieSource": {
+        "tr": "USDA, Nutritive Value of Foods (2002), kayıt 1206; porsiyon değeri 100 grama çevrilmiş yaklaşık değerdir.",
+        "en": "USDA, Nutritive Value of Foods (2002), entry 1206; approximate value converted from portion to 100 g.",
+        "url": "https://www.ars.usda.gov/ARSUserFiles/oc/np/NutritiveValueofFoods/NutritiveValueofFoods.pdf"
+      },
+      "calorieMethod": "reference_converted",
+      "localName": "Tomate",
+      "nutrients": {
+        "protein": 1,
+        "carbohydrate": 3.5,
+        "sugar": 2.5,
+        "fat": 0.3,
+        "salt": 0.02
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "produce"
+    },
+    {
+      "id": "france__chicken",
+      "tr": "Pişmiş tavuk göğsü",
+      "en": "Cooked chicken breast",
+      "unit": "gr",
+      "calories": 165,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "localName": "Blanc de poulet cuit",
+      "nutrients": {
+        "protein": 30,
+        "carbohydrate": 0,
+        "sugar": 0,
+        "fat": 5.0,
+        "salt": 0.18
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "france__fish",
+      "tr": "Pişmiş balık",
+      "en": "Cooked fish",
+      "unit": "gr",
+      "calories": 150,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "localName": "Poisson cuit",
+      "nutrients": {
+        "protein": 25,
+        "carbohydrate": 0,
+        "sugar": 0,
+        "fat": 5.6,
+        "salt": 0.2
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "france__apple",
+      "tr": "Elma",
+      "en": "Apple",
+      "unit": "gr",
+      "calories": 59,
+      "calorieSource": {
+        "tr": "USDA, Nutritive Value of Foods (2002), kayıt 264; porsiyon değeri 100 grama çevrilmiş yaklaşık değerdir.",
+        "en": "USDA, Nutritive Value of Foods (2002), entry 264; approximate value converted from portion to 100 g.",
+        "url": "https://www.ars.usda.gov/ARSUserFiles/oc/np/NutritiveValueofFoods/NutritiveValueofFoods.pdf"
+      },
+      "calorieMethod": "reference_converted",
+      "portions": [
+        {
+          "tr": "1 orta boy elma (yenebilir kısım)",
+          "en": "1 medium apple (edible portion)",
+          "amount": 150
+        }
+      ],
+      "localName": "Pomme",
+      "nutrients": {
+        "protein": 0.3,
+        "carbohydrate": 14,
+        "sugar": 10,
+        "fat": 0.2,
+        "salt": 0.01
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "produce"
+    },
+    {
+      "id": "france__lentil",
+      "tr": "Haşlanmış mercimek",
+      "en": "Cooked lentils",
+      "unit": "gr",
+      "calories": 116,
+      "calorieSource": {
+        "tr": "USDA, Nutritive Value of Foods (2002), kayıt 703; porsiyon değeri 100 grama çevrilmiş yaklaşık değerdir.",
+        "en": "USDA, Nutritive Value of Foods (2002), entry 703; approximate value converted from portion to 100 g.",
+        "url": "https://www.ars.usda.gov/ARSUserFiles/oc/np/NutritiveValueofFoods/NutritiveValueofFoods.pdf"
+      },
+      "calorieMethod": "reference_converted",
+      "localName": "Lentilles cuites",
+      "nutrients": {
+        "protein": 9,
+        "carbohydrate": 20,
+        "sugar": 2,
+        "fat": 0.0,
+        "salt": 0.03
+      },
+      "nutrientSource": "ai_estimate",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "france__orange",
+      "tr": "Portakal",
+      "en": "Orange",
+      "unit": "gr",
+      "calories": 47,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching has not yet been verified.",
+        "url": null
+      },
+      "portions": [
+        {
+          "tr": "1 orta boy portakal (soyulmuş)",
+          "en": "1 medium orange (peeled)",
+          "amount": 130
+        }
+      ],
+      "localName": "Orange",
+      "nutrients": {
+        "protein": 0.9,
+        "carbohydrate": 12,
+        "sugar": 9,
+        "fat": 0.0,
+        "salt": 0.01
+      },
+      "nutrientSource": "ai_estimate",
+      "foodGroup": "produce"
+    },
+    {
+      "id": "fr_438497f5e1a6",
+      "tr": "Pot-au-feu",
+      "en": "Pot-au-feu (beef and vegetable stew)",
+      "unit": "gr",
+      "calories": 100,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Ev yemekleri",
+      "localName": "Pot-au-feu",
+      "nutrients": {
+        "protein": 10.0,
+        "carbohydrate": 7.0,
+        "sugar": 2.0,
+        "fat": 3.6,
+        "salt": 0.8
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "fr_13e8712b907d",
+      "tr": "Bœuf bourguignon",
+      "en": "Bœuf bourguignon",
+      "unit": "gr",
+      "calories": 150,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Et yemekleri",
+      "localName": "Bœuf bourguignon",
+      "nutrients": {
+        "protein": 15.0,
+        "carbohydrate": 8.0,
+        "sugar": 2.0,
+        "fat": 6.4,
+        "salt": 0.9
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "fr_03e1c2c45346",
+      "tr": "Coq au vin",
+      "en": "Coq au vin (chicken stew)",
+      "unit": "gr",
+      "calories": 145,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Et yemekleri",
+      "localName": "Coq au vin",
+      "nutrients": {
+        "protein": 17.0,
+        "carbohydrate": 4.0,
+        "sugar": 2.0,
+        "fat": 6.8,
+        "salt": 0.8
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "fr_a31d5058bcc4",
+      "tr": "Blanquette de veau",
+      "en": "Blanquette de veau (veal stew)",
+      "unit": "gr",
+      "calories": 150,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Et yemekleri",
+      "localName": "Blanquette de veau",
+      "nutrients": {
+        "protein": 14.0,
+        "carbohydrate": 8.0,
+        "sugar": 2.0,
+        "fat": 6.9,
+        "salt": 0.8
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "fr_5e875a3474a9",
+      "tr": "Ratatouille",
+      "en": "Ratatouille (vegetable stew)",
+      "unit": "gr",
+      "calories": 75,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Sebze yemekleri",
+      "localName": "Ratatouille",
+      "nutrients": {
+        "protein": 2.0,
+        "carbohydrate": 8.0,
+        "sugar": 4.0,
+        "fat": 3.9,
+        "salt": 0.5
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "produce"
+    },
+    {
+      "id": "fr_0788e346d706",
+      "tr": "Gratin dauphinois",
+      "en": "Gratin dauphinois",
+      "unit": "gr",
+      "calories": 150,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Yan yemekler",
+      "localName": "Gratin dauphinois",
+      "nutrients": {
+        "protein": 4.0,
+        "carbohydrate": 16.0,
+        "sugar": 3.0,
+        "fat": 7.8,
+        "salt": 0.7
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "fr_19411c767f25",
+      "tr": "Quiche lorraine",
+      "en": "Quiche lorraine",
+      "unit": "gr",
+      "calories": 270,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Hamur işleri",
+      "localName": "Quiche lorraine",
+      "nutrients": {
+        "protein": 10.0,
+        "carbohydrate": 20.0,
+        "sugar": 2.0,
+        "fat": 16.7,
+        "salt": 1.0
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "fr_66b613c67757",
+      "tr": "Quiche aux légumes",
+      "en": "Vegetable quiche",
+      "unit": "gr",
+      "calories": 230,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Hamur işleri",
+      "localName": "Quiche aux légumes",
+      "nutrients": {
+        "protein": 8.0,
+        "carbohydrate": 22.0,
+        "sugar": 3.0,
+        "fat": 12.2,
+        "salt": 0.9
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "fr_84fd180654be",
+      "tr": "Soupe à l’oignon",
+      "en": "French onion soup",
+      "unit": "gr",
+      "calories": 70,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Çorbalar",
+      "localName": "Soupe à l’oignon",
+      "nutrients": {
+        "protein": 2.0,
+        "carbohydrate": 9.0,
+        "sugar": 4.0,
+        "fat": 2.9,
+        "salt": 0.8
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "fr_a323ff41ff0b",
+      "tr": "Soupe de légumes",
+      "en": "French vegetable soup",
+      "unit": "gr",
+      "calories": 45,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Çorbalar",
+      "localName": "Soupe de légumes",
+      "nutrients": {
+        "protein": 2.0,
+        "carbohydrate": 7.0,
+        "sugar": 3.0,
+        "fat": 1.0,
+        "salt": 0.6
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "produce"
+    },
+    {
+      "id": "fr_d611cb42a06f",
+      "tr": "Velouté de potiron",
+      "en": "Pumpkin velouté",
+      "unit": "gr",
+      "calories": 70,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Çorbalar",
+      "localName": "Velouté de potiron",
+      "nutrients": {
+        "protein": 2.0,
+        "carbohydrate": 10.0,
+        "sugar": 4.0,
+        "fat": 2.4,
+        "salt": 0.6
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "produce"
+    },
+    {
+      "id": "fr_dc8b725a65a9",
+      "tr": "Salade niçoise",
+      "en": "Salade niçoise",
+      "unit": "gr",
+      "calories": 120,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Salatalar",
+      "localName": "Salade niçoise",
+      "nutrients": {
+        "protein": 7.0,
+        "carbohydrate": 6.0,
+        "sugar": 3.0,
+        "fat": 7.6,
+        "salt": 0.8
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "fr_4036f208f582",
+      "tr": "Salade verte",
+      "en": "Green salad, without dressing",
+      "unit": "gr",
+      "calories": 20,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Salatalar",
+      "localName": "Salade verte",
+      "nutrients": {
+        "protein": 1.0,
+        "carbohydrate": 3.0,
+        "sugar": 1.0,
+        "fat": 0.4,
+        "salt": 0.2
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "produce"
+    },
+    {
+      "id": "fr_44c1a13dac9e",
+      "tr": "Lentilles aux légumes",
+      "en": "French lentils with vegetables",
+      "unit": "gr",
+      "calories": 115,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Bakliyat yemekleri",
+      "localName": "Lentilles aux légumes",
+      "nutrients": {
+        "protein": 8.0,
+        "carbohydrate": 17.0,
+        "sugar": 2.0,
+        "fat": 1.7,
+        "salt": 0.5
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "fr_23bf7ae3ccee",
+      "tr": "Cassoulet",
+      "en": "Cassoulet (bean and meat stew)",
+      "unit": "gr",
+      "calories": 165,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Ev yemekleri",
+      "localName": "Cassoulet",
+      "nutrients": {
+        "protein": 10.0,
+        "carbohydrate": 18.0,
+        "sugar": 2.0,
+        "fat": 5.9,
+        "salt": 1.0
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "fr_daf6c9122f4b",
+      "tr": "Hachis parmentier",
+      "en": "Hachis parmentier",
+      "unit": "gr",
+      "calories": 150,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Ev yemekleri",
+      "localName": "Hachis parmentier",
+      "nutrients": {
+        "protein": 10.0,
+        "carbohydrate": 14.0,
+        "sugar": 2.0,
+        "fat": 6.0,
+        "salt": 0.8
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "fr_5e78c6b2373d",
+      "tr": "Poulet rôti",
+      "en": "French roast chicken",
+      "unit": "gr",
+      "calories": 180,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Et yemekleri",
+      "localName": "Poulet rôti",
+      "nutrients": {
+        "protein": 27.0,
+        "carbohydrate": 0.0,
+        "sugar": 0.0,
+        "fat": 8.0,
+        "salt": 0.8
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "fr_49a9fc7ef25a",
+      "tr": "Steak haché",
+      "en": "French minced beef patty",
+      "unit": "gr",
+      "calories": 220,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Et yemekleri",
+      "localName": "Steak haché",
+      "nutrients": {
+        "protein": 22.0,
+        "carbohydrate": 0.0,
+        "sugar": 0.0,
+        "fat": 14.7,
+        "salt": 0.8
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "fr_f8be38c691d4",
+      "tr": "Poisson au four",
+      "en": "Oven-baked fish",
+      "unit": "gr",
+      "calories": 140,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Balık",
+      "localName": "Poisson au four",
+      "nutrients": {
+        "protein": 22.0,
+        "carbohydrate": 1.0,
+        "sugar": 0.5,
+        "fat": 5.3,
+        "salt": 0.7
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "fr_0211676e0efd",
+      "tr": "Brandade de morue",
+      "en": "Brandade de morue",
+      "unit": "gr",
+      "calories": 150,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Balık",
+      "localName": "Brandade de morue",
+      "nutrients": {
+        "protein": 14.0,
+        "carbohydrate": 13.0,
+        "sugar": 1.0,
+        "fat": 4.7,
+        "salt": 0.9
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "other"
+    },
+    {
+      "id": "fr_f5ef95352194",
+      "tr": "Croque-monsieur",
+      "en": "Croque-monsieur",
+      "unit": "gr",
+      "calories": 260,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Sandviçler",
+      "localName": "Croque-monsieur",
+      "nutrients": {
+        "protein": 12.0,
+        "carbohydrate": 24.0,
+        "sugar": 3.0,
+        "fat": 12.9,
+        "salt": 1.3
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "fr_39312ff3f8fd",
+      "tr": "Jambon-beurre",
+      "en": "Ham and butter baguette sandwich",
+      "unit": "gr",
+      "calories": 270,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Sandviçler",
+      "localName": "Jambon-beurre",
+      "nutrients": {
+        "protein": 12.0,
+        "carbohydrate": 30.0,
+        "sugar": 2.0,
+        "fat": 11.3,
+        "salt": 1.5
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "fr_fb998ca3ae0b",
+      "tr": "Crêpe nature",
+      "en": "Plain French crêpe",
+      "unit": "gr",
+      "calories": 220,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Hamur işleri",
+      "localName": "Crêpe nature",
+      "nutrients": {
+        "protein": 6.0,
+        "carbohydrate": 36.0,
+        "sugar": 4.0,
+        "fat": 5.8,
+        "salt": 0.5
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "fr_34e379a3f432",
+      "tr": "Galette de sarrasin",
+      "en": "Buckwheat galette",
+      "unit": "gr",
+      "calories": 155,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Hamur işleri",
+      "localName": "Galette de sarrasin",
+      "nutrients": {
+        "protein": 6.0,
+        "carbohydrate": 25.0,
+        "sugar": 2.0,
+        "fat": 3.4,
+        "salt": 0.7
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "fr_f7bf740c0c96",
+      "tr": "Croissant",
+      "en": "Croissant",
+      "unit": "gr",
+      "calories": 405,
+      "calorieMethod": "reference_comparable",
+      "calorieSource": {
+        "tr": "ANSES etiketleme raporu: kruvasan örneği, 405 kcal/100 g; tarife göre değişir.",
+        "en": "ANSES nutrition labelling report: croissant example, 405 kcal/100 g; varies by recipe.",
+        "url": "https://www.anses.fr/system/files/NUT-Ra-EtiquetageEN.pdf?download=1"
+      },
+      "cuisineCategory": "Kahvaltı",
+      "localName": "Croissant",
+      "nutrients": {
+        "protein": 8.0,
+        "carbohydrate": 45.0,
+        "sugar": 11.0,
+        "fat": 21.4,
+        "salt": 0.9
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "fr_f03f76fd4302",
+      "tr": "Pain complet",
+      "en": "French wholemeal bread",
+      "unit": "gr",
+      "calories": 245,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Ekmek",
+      "localName": "Pain complet",
+      "nutrients": {
+        "protein": 9.0,
+        "carbohydrate": 43.0,
+        "sugar": 4.0,
+        "fat": 4.1,
+        "salt": 1.0
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "fr_34f089f1b172",
+      "tr": "Fromage blanc",
+      "en": "Fromage blanc (plain)",
+      "unit": "gr",
+      "calories": 85,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Süt ürünleri",
+      "localName": "Fromage blanc",
+      "nutrients": {
+        "protein": 8.0,
+        "carbohydrate": 4.0,
+        "sugar": 4.0,
+        "fat": 4.1,
+        "salt": 0.1
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "fr_7672bb2afee2",
+      "tr": "Camembert",
+      "en": "Camembert cheese",
+      "unit": "gr",
+      "calories": 300,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Peynir",
+      "localName": "Camembert",
+      "nutrients": {
+        "protein": 20.0,
+        "carbohydrate": 1.0,
+        "sugar": 0.5,
+        "fat": 24.0,
+        "salt": 1.5
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "fr_6ce6a41d2d2d",
+      "tr": "Compote de pommes",
+      "en": "Apple compote",
+      "unit": "gr",
+      "calories": 75,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Tatlılar",
+      "localName": "Compote de pommes",
+      "nutrients": {
+        "protein": 0.3,
+        "carbohydrate": 19.0,
+        "sugar": 16.0,
+        "fat": 0.0,
+        "salt": 0.02
+      },
+      "nutrientSource": "ai_estimate",
+      "foodGroup": "produce"
+    },
+    {
+      "id": "fr_c97912e82eba",
+      "tr": "Clafoutis",
+      "en": "Clafoutis",
+      "unit": "gr",
+      "calories": 170,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Tatlılar",
+      "localName": "Clafoutis",
+      "nutrients": {
+        "protein": 4.0,
+        "carbohydrate": 28.0,
+        "sugar": 18.0,
+        "fat": 4.7,
+        "salt": 0.1
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "fr_74a21e03b048",
+      "tr": "Tarte aux pommes",
+      "en": "French apple tart",
+      "unit": "gr",
+      "calories": 250,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Tatlılar",
+      "localName": "Tarte aux pommes",
+      "nutrients": {
+        "protein": 3.0,
+        "carbohydrate": 36.0,
+        "sugar": 18.0,
+        "fat": 10.4,
+        "salt": 0.3
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "fr_a5739a249ab9",
+      "tr": "Riz au lait",
+      "en": "French rice pudding",
+      "unit": "gr",
+      "calories": 140,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Tatlılar",
+      "localName": "Riz au lait",
+      "nutrients": {
+        "protein": 3.0,
+        "carbohydrate": 23.0,
+        "sugar": 14.0,
+        "fat": 4.0,
+        "salt": 0.15
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://www.france.fr/en/article/discovering-french-culture/",
+      "purpose": "Country cuisine examples; not proof of population frequency or calorie value."
+    }
+  ],
+  "researchNote": {
+    "tr": "Başlangıç listesidir; yemeklerin tek tek tüketim sıklığı henüz doğrulanmamıştır. Kalori bilgileri yaklaşık değerlerdir.",
+    "en": "Starter list; consumption frequency of individual foods has not yet been verified. Calories are estimates."
+  },
+  "coverageSource": "https://www.anses.fr/sites/default/files/NUT2014SA0234Ra.pdf?download=1",
+  "nutritionEstimateNotice": {
+    "tr": "Besin değerleri kaynakla doğrulanmamış yapay zekâ tahminleridir. Yağ değeri mevcut kalori tahmininden hesaplanmıştır; tarif ve porsiyona göre değişir.",
+    "en": "Nutrients are unverified AI estimates. Fat is derived from the existing estimated calories; recipes and portions vary."
+  }
+}

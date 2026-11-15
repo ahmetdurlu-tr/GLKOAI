@@ -1,0 +1,1317 @@
+{
+  "version": 7,
+  "id": "germany",
+  "items": [
+    {
+      "id": "germany__water",
+      "tr": "Su",
+      "en": "Water",
+      "unit": "ml",
+      "calories": 0,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "localName": "Wasser",
+      "nutrients": {
+        "protein": 0,
+        "carbohydrate": 0,
+        "sugar": 0,
+        "fat": 0,
+        "salt": 0
+      },
+      "nutrientSource": "ai_estimate",
+      "foodGroup": "water"
+    },
+    {
+      "id": "germany__daily_salami",
+      "tr": "Salam",
+      "en": "Salami",
+      "localName": "Salami",
+      "unit": "gr",
+      "calories": 400,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Bu gıda için kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching for this item has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "nutrients": {
+        "protein": 22,
+        "carbohydrate": 2,
+        "sugar": 1,
+        "fat": 33.8,
+        "salt": 4
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "germany__daily_butterbread",
+      "tr": "Tereyağlı ekmek",
+      "en": "Buttered bread",
+      "localName": "Butterbrot",
+      "unit": "gr",
+      "calories": 330,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Bu gıda için kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching for this item has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "nutrients": {
+        "protein": 7,
+        "carbohydrate": 44,
+        "sugar": 3,
+        "fat": 14.0,
+        "salt": 1
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "germany__daily_blacktea",
+      "tr": "Şekersiz siyah çay",
+      "en": "Unsweetened black tea",
+      "localName": "Schwarzer Tee (ungesüßt)",
+      "unit": "ml",
+      "calories": 1,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Bu gıda için kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching for this item has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "nutrients": {
+        "protein": 0.1,
+        "carbohydrate": 0.2,
+        "sugar": 0,
+        "fat": 0.0,
+        "salt": 0.01
+      },
+      "nutrientSource": "ai_estimate",
+      "foodGroup": "other"
+    },
+    {
+      "id": "germany__daily_coffee_black",
+      "tr": "Sade kahve",
+      "en": "Black coffee",
+      "localName": "Kaffee (schwarz)",
+      "unit": "ml",
+      "calories": 2,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Bu gıda için kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching for this item has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "nutrients": {
+        "protein": 0.1,
+        "carbohydrate": 0.2,
+        "sugar": 0,
+        "fat": 0.1,
+        "salt": 0.01
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "other"
+    },
+    {
+      "id": "germany__daily_gouda",
+      "tr": "Gouda peyniri",
+      "en": "Gouda cheese",
+      "localName": "Gouda",
+      "unit": "gr",
+      "calories": 356,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Bu gıda için kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching for this item has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "nutrients": {
+        "protein": 25,
+        "carbohydrate": 2,
+        "sugar": 1,
+        "fat": 27.6,
+        "salt": 1.8
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "germany__daily_butter",
+      "tr": "Tereyağı",
+      "en": "Butter",
+      "localName": "Butter",
+      "unit": "gr",
+      "calories": 717,
+      "calorieSource": {
+        "tr": "USDA SR28 01001: tuzlu tereyağı, 717 kcal/100 g; ürünün yağ oranına göre değişir.",
+        "en": "USDA SR28 01001: salted butter, 717 kcal/100 g; varies with fat content.",
+        "url": "https://www.ars.usda.gov/ARSUserFiles/80400535/Data/SR/SR28/reports/sr28fg01.pdf"
+      },
+      "calorieMethod": "reference_comparable",
+      "nutrients": {
+        "protein": 0.9,
+        "carbohydrate": 0.1,
+        "sugar": 0.1,
+        "fat": 79.2,
+        "salt": 0.04
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "fat"
+    },
+    {
+      "id": "germany__daily_milk_whole",
+      "tr": "Tam yağlı süt",
+      "en": "Whole milk",
+      "localName": "Vollmilch",
+      "unit": "ml",
+      "calories": 61,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Bu gıda için kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching for this item has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "nutrients": {
+        "protein": 3.2,
+        "carbohydrate": 4.7,
+        "sugar": 4.7,
+        "fat": 3.3,
+        "salt": 0.12
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "germany__daily_banana_raw",
+      "tr": "Muz",
+      "en": "Banana",
+      "localName": "Banane",
+      "unit": "gr",
+      "calories": 89,
+      "calorieSource": {
+        "tr": "USDA SR27 09040: çiğ muz, yenebilir kısım, 89 kcal/100 g.",
+        "en": "USDA SR27 09040: raw banana, edible portion, 89 kcal/100 g.",
+        "url": "https://www.ars.usda.gov/ARSUserFiles/80400525/Data/SR27/reports/sr27fg09.pdf"
+      },
+      "calorieMethod": "reference_comparable",
+      "nutrients": {
+        "protein": 1.1,
+        "carbohydrate": 23,
+        "sugar": 12,
+        "fat": 0.0,
+        "salt": 0.01
+      },
+      "nutrientSource": "ai_estimate",
+      "foodGroup": "produce"
+    },
+    {
+      "id": "germany__daily_cucumber_raw",
+      "tr": "Salatalık",
+      "en": "Raw cucumber",
+      "localName": "Gurke (roh)",
+      "unit": "gr",
+      "calories": 15,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Bu gıda için kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching for this item has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "nutrients": {
+        "protein": 0.7,
+        "carbohydrate": 3,
+        "sugar": 1.5,
+        "fat": 0.0,
+        "salt": 0.01
+      },
+      "nutrientSource": "ai_estimate",
+      "foodGroup": "produce"
+    },
+    {
+      "id": "germany__daily_tomato_raw",
+      "tr": "Domates",
+      "en": "Raw tomato",
+      "localName": "Tomate (roh)",
+      "unit": "gr",
+      "calories": 18,
+      "calorieSource": {
+        "tr": "USDA SR28 11529: çiğ olgun domates, 18 kcal/100 g.",
+        "en": "USDA SR28 11529: raw ripe tomato, 18 kcal/100 g.",
+        "url": "https://www.ars.usda.gov/ARSUserFiles/80400535/Data/SR/SR28/reports/sr28fg11.pdf"
+      },
+      "calorieMethod": "reference_comparable",
+      "nutrients": {
+        "protein": 1,
+        "carbohydrate": 3.5,
+        "sugar": 2.5,
+        "fat": 0.0,
+        "salt": 0.02
+      },
+      "nutrientSource": "ai_estimate",
+      "foodGroup": "produce"
+    },
+    {
+      "id": "germany__egg",
+      "tr": "Haşlanmış yumurta",
+      "en": "Boiled egg",
+      "unit": "gr",
+      "calories": 155,
+      "calorieSource": {
+        "tr": "USDA SR28 01129: haşlanmış yumurta, kabuksuz, 155 kcal/100 g.",
+        "en": "USDA SR28 01129: hard-boiled egg, without shell, 155 kcal/100 g.",
+        "url": "https://www.ars.usda.gov/ARSUserFiles/80400525/Data/SR/SR28/reports/sr28fg01.pdf"
+      },
+      "calorieMethod": "reference_comparable",
+      "portions": [
+        {
+          "tr": "1 adet haşlanmış yumurta (kabuksuz)",
+          "en": "1 boiled egg (without shell)",
+          "amount": 50
+        }
+      ],
+      "localName": "Gekochtes Ei",
+      "nutrients": {
+        "protein": 13,
+        "carbohydrate": 1,
+        "sugar": 1,
+        "fat": 11.0,
+        "salt": 0.3
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "germany__ryebread",
+      "tr": "Çavdar ekmeği",
+      "en": "Rye bread",
+      "unit": "gr",
+      "calories": 259,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "localName": "Roggenbrot",
+      "nutrients": {
+        "protein": 8,
+        "carbohydrate": 48,
+        "sugar": 4,
+        "fat": 3.9,
+        "salt": 1.1
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "germany__potato",
+      "tr": "Haşlanmış patates",
+      "en": "Boiled potato",
+      "unit": "gr",
+      "calories": 87,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "localName": "Salzkartoffeln",
+      "nutrients": {
+        "protein": 2,
+        "carbohydrate": 20,
+        "sugar": 1,
+        "fat": 0.0,
+        "salt": 0.02
+      },
+      "nutrientSource": "ai_estimate",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "germany__yogurt",
+      "tr": "Sade yoğurt",
+      "en": "Plain yogurt",
+      "unit": "gr",
+      "calories": 61,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "localName": "Naturjoghurt",
+      "nutrients": {
+        "protein": 3.5,
+        "carbohydrate": 4.7,
+        "sugar": 4.7,
+        "fat": 3.1,
+        "salt": 0.1
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "germany__apple",
+      "tr": "Elma",
+      "en": "Apple",
+      "unit": "gr",
+      "calories": 59,
+      "calorieSource": {
+        "tr": "USDA, Nutritive Value of Foods (2002), kayıt 264; porsiyon değeri 100 grama çevrilmiş yaklaşık değerdir.",
+        "en": "USDA, Nutritive Value of Foods (2002), entry 264; approximate value converted from portion to 100 g.",
+        "url": "https://www.ars.usda.gov/ARSUserFiles/oc/np/NutritiveValueofFoods/NutritiveValueofFoods.pdf"
+      },
+      "calorieMethod": "reference_converted",
+      "portions": [
+        {
+          "tr": "1 orta boy elma (yenebilir kısım)",
+          "en": "1 medium apple (edible portion)",
+          "amount": 150
+        }
+      ],
+      "localName": "Apfel",
+      "nutrients": {
+        "protein": 0.3,
+        "carbohydrate": 14,
+        "sugar": 10,
+        "fat": 0.2,
+        "salt": 0.01
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "produce"
+    },
+    {
+      "id": "germany__carrot",
+      "tr": "Havuç",
+      "en": "Carrot",
+      "unit": "gr",
+      "calories": 41,
+      "calorieSource": {
+        "tr": "USDA SR28 11124: çiğ havuç, 41 kcal/100 g.",
+        "en": "USDA SR28 11124: raw carrot, 41 kcal/100 g.",
+        "url": "https://www.ars.usda.gov/ARSUserFiles/80400535/Data/SR/SR28/reports/sr28fg11.pdf"
+      },
+      "calorieMethod": "reference_comparable",
+      "localName": "Karotte",
+      "nutrients": {
+        "protein": 1,
+        "carbohydrate": 10,
+        "sugar": 5,
+        "fat": 0.0,
+        "salt": 0.1
+      },
+      "nutrientSource": "ai_estimate",
+      "foodGroup": "produce"
+    },
+    {
+      "id": "germany__fish",
+      "tr": "Pişmiş balık",
+      "en": "Cooked fish",
+      "unit": "gr",
+      "calories": 150,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "localName": "Gegarter Fisch",
+      "nutrients": {
+        "protein": 25,
+        "carbohydrate": 0,
+        "sugar": 0,
+        "fat": 5.6,
+        "salt": 0.2
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "germany__chicken",
+      "tr": "Pişmiş tavuk göğsü",
+      "en": "Cooked chicken breast",
+      "unit": "gr",
+      "calories": 165,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "localName": "Gegarte Hähnchenbrust",
+      "nutrients": {
+        "protein": 30,
+        "carbohydrate": 0,
+        "sugar": 0,
+        "fat": 5.0,
+        "salt": 0.18
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "germany__oats",
+      "tr": "Yulaf",
+      "en": "Oats",
+      "unit": "gr",
+      "calories": 389,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "localName": "Haferflocken",
+      "nutrients": {
+        "protein": 17,
+        "carbohydrate": 66,
+        "sugar": 1,
+        "fat": 6.3,
+        "salt": 0.02
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "germany__orange",
+      "tr": "Portakal",
+      "en": "Orange",
+      "unit": "gr",
+      "calories": 47,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching has not yet been verified.",
+        "url": null
+      },
+      "portions": [
+        {
+          "tr": "1 orta boy portakal (soyulmuş)",
+          "en": "1 medium orange (peeled)",
+          "amount": 130
+        }
+      ],
+      "localName": "Orange",
+      "nutrients": {
+        "protein": 0.9,
+        "carbohydrate": 12,
+        "sugar": 9,
+        "fat": 0.0,
+        "salt": 0.01
+      },
+      "nutrientSource": "ai_estimate",
+      "foodGroup": "produce"
+    },
+    {
+      "id": "ge_d6e1571cfea9",
+      "tr": "Kartoffelsalat",
+      "en": "Kartoffelsalat (German potato salad)",
+      "unit": "gr",
+      "calories": 145,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Salatalar",
+      "localName": "Kartoffelsalat",
+      "nutrients": {
+        "protein": 3.0,
+        "carbohydrate": 17.0,
+        "sugar": 3.0,
+        "fat": 7.2,
+        "salt": 0.8
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "ge_6e31bf6afc56",
+      "tr": "Kartoffelsuppe",
+      "en": "Kartoffelsuppe (German potato soup)",
+      "unit": "gr",
+      "calories": 75,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Çorbalar",
+      "localName": "Kartoffelsuppe",
+      "nutrients": {
+        "protein": 2.0,
+        "carbohydrate": 10.0,
+        "sugar": 2.0,
+        "fat": 3.0,
+        "salt": 0.7
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "ge_ada9f37b0e67",
+      "tr": "Eintopf",
+      "en": "Eintopf (German vegetable and meat stew)",
+      "unit": "gr",
+      "calories": 90,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Ev yemekleri",
+      "localName": "Eintopf",
+      "nutrients": {
+        "protein": 5.0,
+        "carbohydrate": 10.0,
+        "sugar": 2.0,
+        "fat": 3.3,
+        "salt": 0.8
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "other"
+    },
+    {
+      "id": "ge_e3a7c614dc63",
+      "tr": "Linseneintopf",
+      "en": "Linseneintopf (German lentil stew)",
+      "unit": "gr",
+      "calories": 110,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Çorbalar",
+      "localName": "Linseneintopf",
+      "nutrients": {
+        "protein": 7.0,
+        "carbohydrate": 14.0,
+        "sugar": 2.0,
+        "fat": 2.9,
+        "salt": 0.8
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "ge_a5a2a6ee58ee",
+      "tr": "Erbsensuppe",
+      "en": "Erbsensuppe (German pea soup)",
+      "unit": "gr",
+      "calories": 90,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Çorbalar",
+      "localName": "Erbsensuppe",
+      "nutrients": {
+        "protein": 5.0,
+        "carbohydrate": 12.0,
+        "sugar": 2.0,
+        "fat": 2.4,
+        "salt": 0.8
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "ge_47cef4b5764f",
+      "tr": "Gulaschsuppe",
+      "en": "Gulaschsuppe (German goulash soup)",
+      "unit": "gr",
+      "calories": 100,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Çorbalar",
+      "localName": "Gulaschsuppe",
+      "nutrients": {
+        "protein": 8.0,
+        "carbohydrate": 8.0,
+        "sugar": 2.0,
+        "fat": 4.0,
+        "salt": 0.9
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "ge_788a08779ddc",
+      "tr": "Sauerkraut",
+      "en": "Sauerkraut (fermented cabbage)",
+      "unit": "gr",
+      "calories": 20,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Yan yemekler",
+      "localName": "Sauerkraut",
+      "nutrients": {
+        "protein": 1.0,
+        "carbohydrate": 3.0,
+        "sugar": 1.0,
+        "fat": 0.4,
+        "salt": 1.2
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "produce"
+    },
+    {
+      "id": "ge_2f1e61f5e164",
+      "tr": "Rotkohl",
+      "en": "German braised red cabbage",
+      "unit": "gr",
+      "calories": 80,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Yan yemekler",
+      "localName": "Rotkohl",
+      "nutrients": {
+        "protein": 1.0,
+        "carbohydrate": 13.0,
+        "sugar": 9.0,
+        "fat": 2.7,
+        "salt": 0.6
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "produce"
+    },
+    {
+      "id": "ge_249428cd9232",
+      "tr": "Kartoffelklöße",
+      "en": "Kartoffelklöße (potato dumplings)",
+      "unit": "gr",
+      "calories": 130,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Yan yemekler",
+      "localName": "Kartoffelklöße",
+      "nutrients": {
+        "protein": 2.0,
+        "carbohydrate": 27.0,
+        "sugar": 1.0,
+        "fat": 1.6,
+        "salt": 0.8
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "ge_3eaf168301b5",
+      "tr": "Semmelknödel",
+      "en": "Semmelknödel (bread dumplings)",
+      "unit": "gr",
+      "calories": 165,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Yan yemekler",
+      "localName": "Semmelknödel",
+      "nutrients": {
+        "protein": 4.0,
+        "carbohydrate": 31.0,
+        "sugar": 2.0,
+        "fat": 2.8,
+        "salt": 0.9
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "ge_d60023e9fd68",
+      "tr": "Spätzle",
+      "en": "Spätzle (German egg noodles)",
+      "unit": "gr",
+      "calories": 155,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Yan yemekler",
+      "localName": "Spätzle",
+      "nutrients": {
+        "protein": 5.0,
+        "carbohydrate": 30.0,
+        "sugar": 1.0,
+        "fat": 1.7,
+        "salt": 0.8
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "ge_12b926a20fd3",
+      "tr": "Käsespätzle",
+      "en": "Käsespätzle (cheese noodles)",
+      "unit": "gr",
+      "calories": 210,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Ana yemekler",
+      "localName": "Käsespätzle",
+      "nutrients": {
+        "protein": 9.0,
+        "carbohydrate": 24.0,
+        "sugar": 2.0,
+        "fat": 8.7,
+        "salt": 1.0
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "ge_b2f7e6cf7c6b",
+      "tr": "Maultaschen",
+      "en": "Maultaschen (filled pasta)",
+      "unit": "gr",
+      "calories": 190,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Ana yemekler",
+      "localName": "Maultaschen",
+      "nutrients": {
+        "protein": 8.0,
+        "carbohydrate": 23.0,
+        "sugar": 2.0,
+        "fat": 7.3,
+        "salt": 1.0
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "ge_e05cad4e456f",
+      "tr": "Bratkartoffeln",
+      "en": "Bratkartoffeln (pan-fried potatoes)",
+      "unit": "gr",
+      "calories": 150,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Yan yemekler",
+      "localName": "Bratkartoffeln",
+      "nutrients": {
+        "protein": 2.0,
+        "carbohydrate": 21.0,
+        "sugar": 1.0,
+        "fat": 6.4,
+        "salt": 0.7
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "ge_4a42692b16fd",
+      "tr": "Reibekuchen",
+      "en": "Reibekuchen (potato pancakes)",
+      "unit": "gr",
+      "calories": 200,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Ana yemekler",
+      "localName": "Reibekuchen",
+      "nutrients": {
+        "protein": 3.0,
+        "carbohydrate": 25.0,
+        "sugar": 1.0,
+        "fat": 9.8,
+        "salt": 0.8
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "ge_7a9ac6e859c7",
+      "tr": "Kartoffelpüree",
+      "en": "German mashed potatoes",
+      "unit": "gr",
+      "calories": 105,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Yan yemekler",
+      "localName": "Kartoffelpüree",
+      "nutrients": {
+        "protein": 2.0,
+        "carbohydrate": 15.0,
+        "sugar": 1.0,
+        "fat": 4.1,
+        "salt": 0.6
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "ge_6f989037749c",
+      "tr": "Rouladen",
+      "en": "German beef roulade",
+      "unit": "gr",
+      "calories": 170,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Et yemekleri",
+      "localName": "Rouladen",
+      "nutrients": {
+        "protein": 15.0,
+        "carbohydrate": 8.0,
+        "sugar": 2.0,
+        "fat": 8.7,
+        "salt": 1.0
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "ge_1015b9ad7d6e",
+      "tr": "Sauerbraten",
+      "en": "Sauerbraten (marinated pot roast)",
+      "unit": "gr",
+      "calories": 175,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Et yemekleri",
+      "localName": "Sauerbraten",
+      "nutrients": {
+        "protein": 20.0,
+        "carbohydrate": 6.0,
+        "sugar": 2.0,
+        "fat": 7.9,
+        "salt": 1.0
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "ge_10f5a34083f9",
+      "tr": "Schweinebraten",
+      "en": "German roast pork",
+      "unit": "gr",
+      "calories": 220,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Et yemekleri",
+      "localName": "Schweinebraten",
+      "nutrients": {
+        "protein": 23.0,
+        "carbohydrate": 1.0,
+        "sugar": 0.5,
+        "fat": 13.8,
+        "salt": 1.1
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "ge_2211e439b012",
+      "tr": "Bratwurst",
+      "en": "Bratwurst (grilled sausage)",
+      "unit": "gr",
+      "calories": 290,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Et yemekleri",
+      "localName": "Bratwurst",
+      "nutrients": {
+        "protein": 13.0,
+        "carbohydrate": 2.0,
+        "sugar": 0.5,
+        "fat": 25.6,
+        "salt": 1.8
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "ge_5f14c7490afa",
+      "tr": "Currywurst",
+      "en": "Currywurst with sauce",
+      "unit": "gr",
+      "calories": 260,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Et yemekleri",
+      "localName": "Currywurst",
+      "nutrients": {
+        "protein": 12.0,
+        "carbohydrate": 9.0,
+        "sugar": 5.0,
+        "fat": 19.6,
+        "salt": 1.8
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "ge_82830efdb422",
+      "tr": "Frikadelle",
+      "en": "Frikadelle (German meat patty)",
+      "unit": "gr",
+      "calories": 235,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Et yemekleri",
+      "localName": "Frikadelle",
+      "nutrients": {
+        "protein": 17.0,
+        "carbohydrate": 5.0,
+        "sugar": 1.0,
+        "fat": 16.3,
+        "salt": 1.2
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "ge_67059345af5d",
+      "tr": "Schnitzel",
+      "en": "Breaded pork schnitzel",
+      "unit": "gr",
+      "calories": 240,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Et yemekleri",
+      "localName": "Schnitzel",
+      "nutrients": {
+        "protein": 17.0,
+        "carbohydrate": 16.0,
+        "sugar": 1.0,
+        "fat": 12.0,
+        "salt": 1.0
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "ge_bb723e24de81",
+      "tr": "Leberkäse",
+      "en": "Leberkäse (German meatloaf)",
+      "unit": "gr",
+      "calories": 280,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Et yemekleri",
+      "localName": "Leberkäse",
+      "nutrients": {
+        "protein": 14.0,
+        "carbohydrate": 3.0,
+        "sugar": 1.0,
+        "fat": 23.6,
+        "salt": 1.7
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "ge_9b9e9f1b7120",
+      "tr": "Fischbrötchen",
+      "en": "German fish roll",
+      "unit": "gr",
+      "calories": 190,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Balık",
+      "localName": "Fischbrötchen",
+      "nutrients": {
+        "protein": 14.0,
+        "carbohydrate": 22.0,
+        "sugar": 3.0,
+        "fat": 5.1,
+        "salt": 1.3
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "ge_18da139b95ec",
+      "tr": "Brezel",
+      "en": "Brezel (pretzel)",
+      "unit": "gr",
+      "calories": 300,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Ekmek ve fırın",
+      "localName": "Brezel",
+      "nutrients": {
+        "protein": 9.0,
+        "carbohydrate": 58.0,
+        "sugar": 4.0,
+        "fat": 3.6,
+        "salt": 1.7
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "ge_b324062e56af",
+      "tr": "Vollkornbrot",
+      "en": "German wholegrain bread",
+      "unit": "gr",
+      "calories": 220,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Ekmek ve fırın",
+      "localName": "Vollkornbrot",
+      "nutrients": {
+        "protein": 8.0,
+        "carbohydrate": 42.0,
+        "sugar": 4.0,
+        "fat": 2.2,
+        "salt": 1.0
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "ge_036681cc8b0e",
+      "tr": "Brötchen",
+      "en": "German bread roll",
+      "unit": "gr",
+      "calories": 275,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Ekmek ve fırın",
+      "localName": "Brötchen",
+      "nutrients": {
+        "protein": 9.0,
+        "carbohydrate": 53.0,
+        "sugar": 5.0,
+        "fat": 3.0,
+        "salt": 1.2
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "ge_a10a961c87e7",
+      "tr": "Müsli",
+      "en": "Muesli, dry",
+      "unit": "gr",
+      "calories": 370,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Kahvaltı",
+      "localName": "Müsli",
+      "nutrients": {
+        "protein": 10.0,
+        "carbohydrate": 64.0,
+        "sugar": 15.0,
+        "fat": 8.2,
+        "salt": 0.1
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "ge_469f97570d91",
+      "tr": "Quark",
+      "en": "Quark (plain)",
+      "unit": "gr",
+      "calories": 80,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Süt ürünleri",
+      "localName": "Quark",
+      "nutrients": {
+        "protein": 12.0,
+        "carbohydrate": 4.0,
+        "sugar": 4.0,
+        "fat": 1.8,
+        "salt": 0.1
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "ge_30605288abf8",
+      "tr": "Apfelmus",
+      "en": "Apfelmus (apple purée)",
+      "unit": "gr",
+      "calories": 70,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Yan yemekler",
+      "localName": "Apfelmus",
+      "nutrients": {
+        "protein": 0.3,
+        "carbohydrate": 17.0,
+        "sugar": 14.0,
+        "fat": 0.1,
+        "salt": 0.02
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "produce"
+    },
+    {
+      "id": "ge_143a8b6a7a07",
+      "tr": "Apfelstrudel",
+      "en": "German apple strudel",
+      "unit": "gr",
+      "calories": 250,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Tatlılar",
+      "localName": "Apfelstrudel",
+      "nutrients": {
+        "protein": 3.0,
+        "carbohydrate": 38.0,
+        "sugar": 20.0,
+        "fat": 9.6,
+        "salt": 0.5
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "ge_5cf0d09593c3",
+      "tr": "Käsekuchen",
+      "en": "German cheesecake",
+      "unit": "gr",
+      "calories": 290,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Tatlılar",
+      "localName": "Käsekuchen",
+      "nutrients": {
+        "protein": 7.0,
+        "carbohydrate": 29.0,
+        "sugar": 18.0,
+        "fat": 16.2,
+        "salt": 0.4
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://www.germany.travel/en/experience-enjoy/german-cuisine.html",
+      "purpose": "Country cuisine examples; not proof of population frequency or calorie value."
+    }
+  ],
+  "researchNote": {
+    "tr": "Başlangıç listesidir; yemeklerin tek tek tüketim sıklığı henüz doğrulanmamıştır. Kalori bilgileri yaklaşık değerlerdir.",
+    "en": "Starter list; consumption frequency of individual foods has not yet been verified. Calories are estimates."
+  },
+  "coverageSource": "https://www.mri.bund.de/de/institute/ernaehrungsverhalten/forschungsprojekte/nemonit/",
+  "nutritionEstimateNotice": {
+    "tr": "Besin değerleri kaynakla doğrulanmamış yapay zekâ tahminleridir. Yağ değeri mevcut kalori tahmininden hesaplanmıştır; tarif ve porsiyona göre değişir.",
+    "en": "Nutrients are unverified AI estimates. Fat is derived from the existing estimated calories; recipes and portions vary."
+  }
+}

@@ -1,0 +1,1294 @@
+{
+  "version": 7,
+  "id": "italy",
+  "items": [
+    {
+      "id": "italy__water",
+      "tr": "Su",
+      "en": "Water",
+      "unit": "ml",
+      "calories": 0,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "localName": "Acqua",
+      "nutrients": {
+        "protein": 0,
+        "carbohydrate": 0,
+        "sugar": 0,
+        "fat": 0,
+        "salt": 0
+      },
+      "nutrientSource": "ai_estimate",
+      "foodGroup": "water"
+    },
+    {
+      "id": "italy__daily_jam",
+      "tr": "Reçel",
+      "en": "Fruit jam",
+      "localName": "Confettura di frutta",
+      "unit": "gr",
+      "calories": 250,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Bu gıda için kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching for this item has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "nutrients": {
+        "protein": 0.4,
+        "carbohydrate": 62,
+        "sugar": 59,
+        "fat": 0.0,
+        "salt": 0.03
+      },
+      "nutrientSource": "ai_estimate",
+      "foodGroup": "other"
+    },
+    {
+      "id": "italy__daily_milk_coffee",
+      "tr": "Sütlü kahve",
+      "en": "Coffee with milk",
+      "localName": "Caffellatte senza zucchero",
+      "unit": "ml",
+      "calories": 35,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Bu gıda için kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching for this item has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "nutrients": {
+        "protein": 2,
+        "carbohydrate": 3,
+        "sugar": 3,
+        "fat": 1.7,
+        "salt": 0.08
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "other"
+    },
+    {
+      "id": "italy__daily_banana_raw",
+      "tr": "Muz",
+      "en": "Banana",
+      "localName": "Banana",
+      "unit": "gr",
+      "calories": 89,
+      "calorieSource": {
+        "tr": "USDA SR27 09040: çiğ muz, yenebilir kısım, 89 kcal/100 g.",
+        "en": "USDA SR27 09040: raw banana, edible portion, 89 kcal/100 g.",
+        "url": "https://www.ars.usda.gov/ARSUserFiles/80400525/Data/SR27/reports/sr27fg09.pdf"
+      },
+      "calorieMethod": "reference_comparable",
+      "nutrients": {
+        "protein": 1.1,
+        "carbohydrate": 23,
+        "sugar": 12,
+        "fat": 0.0,
+        "salt": 0.01
+      },
+      "nutrientSource": "ai_estimate",
+      "foodGroup": "produce"
+    },
+    {
+      "id": "italy__daily_rice_cooked",
+      "tr": "Pişmiş pirinç",
+      "en": "Cooked rice",
+      "localName": "Riso cotto",
+      "unit": "gr",
+      "calories": 130,
+      "calorieSource": {
+        "tr": "USDA SR28 20345: sade pişmiş uzun taneli beyaz pirinç, 130 kcal/100 g; pirinç ve hazırlanışa göre değişir.",
+        "en": "USDA SR28 20345: plain cooked long-grain white rice, 130 kcal/100 g; varies by rice and preparation.",
+        "url": "https://www.ars.usda.gov/ARSUserFiles/80400535/Data/SR/SR28/reports/sr28fg20.pdf"
+      },
+      "calorieMethod": "reference_comparable",
+      "nutrients": {
+        "protein": 2.7,
+        "carbohydrate": 28,
+        "sugar": 0.1,
+        "fat": 0.8,
+        "salt": 0.01
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "italy__daily_cornetto",
+      "tr": "Sade kruvasan",
+      "en": "Plain croissant",
+      "localName": "Cornetto semplice",
+      "unit": "gr",
+      "calories": 405,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Bu gıda için kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching for this item has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "nutrients": {
+        "protein": 7,
+        "carbohydrate": 45,
+        "sugar": 12,
+        "fat": 21.9,
+        "salt": 0.9
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "italy__daily_rusk",
+      "tr": "Peksimet",
+      "en": "Rusk",
+      "localName": "Fette biscottate",
+      "unit": "gr",
+      "calories": 400,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Bu gıda için kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching for this item has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "nutrients": {
+        "protein": 10,
+        "carbohydrate": 75,
+        "sugar": 7,
+        "fat": 6.7,
+        "salt": 1.2
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "italy__daily_biscuit",
+      "tr": "Sade bisküvi",
+      "en": "Plain biscuits",
+      "localName": "Biscotti secchi",
+      "unit": "gr",
+      "calories": 430,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Bu gıda için kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching for this item has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "nutrients": {
+        "protein": 7,
+        "carbohydrate": 76,
+        "sugar": 22,
+        "fat": 10.9,
+        "salt": 0.8
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "italy__daily_coffee_black",
+      "tr": "Sade kahve",
+      "en": "Black coffee",
+      "localName": "Caffè senza zucchero",
+      "unit": "ml",
+      "calories": 2,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Bu gıda için kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching for this item has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "nutrients": {
+        "protein": 0.1,
+        "carbohydrate": 0.2,
+        "sugar": 0,
+        "fat": 0.1,
+        "salt": 0.01
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "other"
+    },
+    {
+      "id": "italy__daily_plain_yogurt",
+      "tr": "Sade yoğurt",
+      "en": "Plain yogurt",
+      "localName": "Yogurt bianco",
+      "unit": "gr",
+      "calories": 61,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Bu gıda için kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching for this item has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "nutrients": {
+        "protein": 3.5,
+        "carbohydrate": 4.7,
+        "sugar": 4.7,
+        "fat": 3.1,
+        "salt": 0.1
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "italy__daily_milk_whole",
+      "tr": "Tam yağlı süt",
+      "en": "Whole milk",
+      "localName": "Latte intero",
+      "unit": "ml",
+      "calories": 61,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Bu gıda için kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching for this item has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "nutrients": {
+        "protein": 3.2,
+        "carbohydrate": 4.7,
+        "sugar": 4.7,
+        "fat": 3.3,
+        "salt": 0.12
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "italy__pasta",
+      "tr": "Pişmiş makarna",
+      "en": "Cooked pasta",
+      "unit": "gr",
+      "calories": 158,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "localName": "Pasta cotta",
+      "nutrients": {
+        "protein": 5.5,
+        "carbohydrate": 30,
+        "sugar": 0.6,
+        "fat": 1.8,
+        "salt": 0.02
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "italy__tomato",
+      "tr": "Domates",
+      "en": "Tomato",
+      "unit": "gr",
+      "calories": 21,
+      "calorieSource": {
+        "tr": "USDA, Nutritive Value of Foods (2002), kayıt 1206; porsiyon değeri 100 grama çevrilmiş yaklaşık değerdir.",
+        "en": "USDA, Nutritive Value of Foods (2002), entry 1206; approximate value converted from portion to 100 g.",
+        "url": "https://www.ars.usda.gov/ARSUserFiles/oc/np/NutritiveValueofFoods/NutritiveValueofFoods.pdf"
+      },
+      "calorieMethod": "reference_converted",
+      "localName": "Pomodoro",
+      "nutrients": {
+        "protein": 1,
+        "carbohydrate": 3.5,
+        "sugar": 2.5,
+        "fat": 0.3,
+        "salt": 0.02
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "produce"
+    },
+    {
+      "id": "italy__mozzarella",
+      "tr": "Mozzarella",
+      "en": "Mozzarella",
+      "unit": "gr",
+      "calories": 280,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "localName": "Mozzarella",
+      "nutrients": {
+        "protein": 19,
+        "carbohydrate": 3,
+        "sugar": 1,
+        "fat": 21.3,
+        "salt": 1.3
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "italy__oliveoil",
+      "tr": "Zeytinyağı",
+      "en": "Olive oil",
+      "unit": "ml",
+      "calories": 805,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "localName": "Olio d’oliva",
+      "nutrients": {
+        "protein": 0,
+        "carbohydrate": 0,
+        "sugar": 0,
+        "fat": 89.4,
+        "salt": 0
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "fat"
+    },
+    {
+      "id": "italy__beans",
+      "tr": "Kuru fasulye",
+      "en": "Beans",
+      "unit": "gr",
+      "calories": 127,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "localName": "Fagioli cotti",
+      "nutrients": {
+        "protein": 8,
+        "carbohydrate": 23,
+        "sugar": 1,
+        "fat": 0.3,
+        "salt": 0.03
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "italy__fish",
+      "tr": "Pişmiş balık",
+      "en": "Cooked fish",
+      "unit": "gr",
+      "calories": 150,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "localName": "Pesce cotto",
+      "nutrients": {
+        "protein": 25,
+        "carbohydrate": 0,
+        "sugar": 0,
+        "fat": 5.6,
+        "salt": 0.2
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "italy__apple",
+      "tr": "Elma",
+      "en": "Apple",
+      "unit": "gr",
+      "calories": 59,
+      "calorieSource": {
+        "tr": "USDA, Nutritive Value of Foods (2002), kayıt 264; porsiyon değeri 100 grama çevrilmiş yaklaşık değerdir.",
+        "en": "USDA, Nutritive Value of Foods (2002), entry 264; approximate value converted from portion to 100 g.",
+        "url": "https://www.ars.usda.gov/ARSUserFiles/oc/np/NutritiveValueofFoods/NutritiveValueofFoods.pdf"
+      },
+      "calorieMethod": "reference_converted",
+      "portions": [
+        {
+          "tr": "1 orta boy elma (yenebilir kısım)",
+          "en": "1 medium apple (edible portion)",
+          "amount": 150
+        }
+      ],
+      "localName": "Mela",
+      "nutrients": {
+        "protein": 0.3,
+        "carbohydrate": 14,
+        "sugar": 10,
+        "fat": 0.2,
+        "salt": 0.01
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "produce"
+    },
+    {
+      "id": "italy__bread",
+      "tr": "Tam buğday ekmeği",
+      "en": "Wholemeal bread",
+      "unit": "gr",
+      "calories": 246,
+      "calorieSource": {
+        "tr": "USDA, Nutritive Value of Foods (2002), kayıt 419; porsiyon değeri 100 grama çevrilmiş yaklaşık değerdir.",
+        "en": "USDA, Nutritive Value of Foods (2002), entry 419; approximate value converted from portion to 100 g.",
+        "url": "https://www.ars.usda.gov/ARSUserFiles/oc/np/NutritiveValueofFoods/NutritiveValueofFoods.pdf"
+      },
+      "calorieMethod": "reference_converted",
+      "portions": [
+        {
+          "tr": "1 dilim tam buğday ekmeği",
+          "en": "1 slice wholemeal bread",
+          "amount": 35
+        }
+      ],
+      "localName": "Pane integrale",
+      "nutrients": {
+        "protein": 9,
+        "carbohydrate": 43,
+        "sugar": 4,
+        "fat": 4.2,
+        "salt": 0.95
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "italy__orange",
+      "tr": "Portakal",
+      "en": "Orange",
+      "unit": "gr",
+      "calories": 47,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching has not yet been verified.",
+        "url": null
+      },
+      "portions": [
+        {
+          "tr": "1 orta boy portakal (soyulmuş)",
+          "en": "1 medium orange (peeled)",
+          "amount": 130
+        }
+      ],
+      "localName": "Arancia",
+      "nutrients": {
+        "protein": 0.9,
+        "carbohydrate": 12,
+        "sugar": 9,
+        "fat": 0.0,
+        "salt": 0.01
+      },
+      "nutrientSource": "ai_estimate",
+      "foodGroup": "produce"
+    },
+    {
+      "id": "it_5b1b51f6b68c",
+      "tr": "Pasta al pomodoro",
+      "en": "Pasta al pomodoro (tomato pasta)",
+      "unit": "gr",
+      "calories": 150,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Makarna",
+      "localName": "Pasta al pomodoro",
+      "nutrients": {
+        "protein": 5.0,
+        "carbohydrate": 27.0,
+        "sugar": 3.0,
+        "fat": 2.4,
+        "salt": 0.7
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "it_49872aa0ce97",
+      "tr": "Pasta alla carbonara",
+      "en": "Pasta alla carbonara",
+      "unit": "gr",
+      "calories": 210,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Makarna",
+      "localName": "Pasta alla carbonara",
+      "nutrients": {
+        "protein": 9.0,
+        "carbohydrate": 24.0,
+        "sugar": 1.0,
+        "fat": 8.7,
+        "salt": 1.1
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "it_6b2ffd588c22",
+      "tr": "Pasta al ragù",
+      "en": "Pasta with meat ragù",
+      "unit": "gr",
+      "calories": 170,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Makarna",
+      "localName": "Pasta al ragù",
+      "nutrients": {
+        "protein": 9.0,
+        "carbohydrate": 23.0,
+        "sugar": 3.0,
+        "fat": 4.7,
+        "salt": 0.9
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "it_abd09ce7e7f7",
+      "tr": "Pasta al pesto",
+      "en": "Pasta with pesto",
+      "unit": "gr",
+      "calories": 220,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Makarna",
+      "localName": "Pasta al pesto",
+      "nutrients": {
+        "protein": 6.0,
+        "carbohydrate": 22.0,
+        "sugar": 2.0,
+        "fat": 12.0,
+        "salt": 1.0
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "it_71b67b89bd7d",
+      "tr": "Pasta e fagioli",
+      "en": "Pasta e fagioli (pasta and bean soup)",
+      "unit": "gr",
+      "calories": 120,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Çorbalar",
+      "localName": "Pasta e fagioli",
+      "nutrients": {
+        "protein": 6.0,
+        "carbohydrate": 18.0,
+        "sugar": 2.0,
+        "fat": 2.7,
+        "salt": 0.8
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "it_6e5d0ea498ae",
+      "tr": "Pasta cacio e pepe",
+      "en": "Cacio e pepe",
+      "unit": "gr",
+      "calories": 210,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Makarna",
+      "localName": "Pasta cacio e pepe",
+      "nutrients": {
+        "protein": 9.0,
+        "carbohydrate": 24.0,
+        "sugar": 1.0,
+        "fat": 8.7,
+        "salt": 1.1
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "it_61ac2c8fe9f8",
+      "tr": "Pasta all’amatriciana",
+      "en": "Pasta all’amatriciana",
+      "unit": "gr",
+      "calories": 190,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Makarna",
+      "localName": "Pasta all’amatriciana",
+      "nutrients": {
+        "protein": 8.0,
+        "carbohydrate": 24.0,
+        "sugar": 2.0,
+        "fat": 6.9,
+        "salt": 1.0
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "it_e4e9c05bd481",
+      "tr": "Lasagne alla bolognese",
+      "en": "Lasagne alla bolognese",
+      "unit": "gr",
+      "calories": 170,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Makarna",
+      "localName": "Lasagne alla bolognese",
+      "nutrients": {
+        "protein": 9.0,
+        "carbohydrate": 16.0,
+        "sugar": 3.0,
+        "fat": 7.8,
+        "salt": 0.9
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "it_7f636a8d39c3",
+      "tr": "Ravioli ricotta e spinaci",
+      "en": "Ricotta and spinach ravioli",
+      "unit": "gr",
+      "calories": 170,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Makarna",
+      "localName": "Ravioli ricotta e spinaci",
+      "nutrients": {
+        "protein": 8.0,
+        "carbohydrate": 25.0,
+        "sugar": 2.0,
+        "fat": 4.2,
+        "salt": 0.9
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "it_9f31746b8e78",
+      "tr": "Tortellini in brodo",
+      "en": "Tortellini in broth",
+      "unit": "gr",
+      "calories": 80,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Çorbalar",
+      "localName": "Tortellini in brodo",
+      "nutrients": {
+        "protein": 4.0,
+        "carbohydrate": 10.0,
+        "sugar": 1.0,
+        "fat": 2.7,
+        "salt": 0.8
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "it_7be0b733c8c5",
+      "tr": "Risotto alla milanese",
+      "en": "Risotto alla milanese",
+      "unit": "gr",
+      "calories": 155,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Pilav",
+      "localName": "Risotto alla milanese",
+      "nutrients": {
+        "protein": 4.0,
+        "carbohydrate": 24.0,
+        "sugar": 1.0,
+        "fat": 4.8,
+        "salt": 0.7
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "it_06eb28fd0347",
+      "tr": "Risotto ai funghi",
+      "en": "Mushroom risotto",
+      "unit": "gr",
+      "calories": 145,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Pilav",
+      "localName": "Risotto ai funghi",
+      "nutrients": {
+        "protein": 4.0,
+        "carbohydrate": 22.0,
+        "sugar": 1.0,
+        "fat": 4.6,
+        "salt": 0.7
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "it_717dfb59da70",
+      "tr": "Minestrone",
+      "en": "Minestrone (vegetable soup)",
+      "unit": "gr",
+      "calories": 65,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Çorbalar",
+      "localName": "Minestrone",
+      "nutrients": {
+        "protein": 3.0,
+        "carbohydrate": 9.0,
+        "sugar": 2.0,
+        "fat": 1.9,
+        "salt": 0.6
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "it_57183cb0fb78",
+      "tr": "Ribollita",
+      "en": "Ribollita (Tuscan soup)",
+      "unit": "gr",
+      "calories": 85,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Çorbalar",
+      "localName": "Ribollita",
+      "nutrients": {
+        "protein": 4.0,
+        "carbohydrate": 13.0,
+        "sugar": 2.0,
+        "fat": 1.9,
+        "salt": 0.6
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "it_a5e0525104ba",
+      "tr": "Pappa al pomodoro",
+      "en": "Pappa al pomodoro (tomato and bread soup)",
+      "unit": "gr",
+      "calories": 90,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Çorbalar",
+      "localName": "Pappa al pomodoro",
+      "nutrients": {
+        "protein": 3.0,
+        "carbohydrate": 14.0,
+        "sugar": 3.0,
+        "fat": 2.4,
+        "salt": 0.7
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "it_6c7defe4432a",
+      "tr": "Pizza margherita",
+      "en": "Pizza margherita",
+      "unit": "gr",
+      "calories": 240,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Pizza",
+      "localName": "Pizza margherita",
+      "nutrients": {
+        "protein": 10.0,
+        "carbohydrate": 31.0,
+        "sugar": 3.0,
+        "fat": 8.4,
+        "salt": 1.0
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "it_c4e36b824f10",
+      "tr": "Pizza marinara",
+      "en": "Pizza marinara",
+      "unit": "gr",
+      "calories": 220,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Pizza",
+      "localName": "Pizza marinara",
+      "nutrients": {
+        "protein": 7.0,
+        "carbohydrate": 31.0,
+        "sugar": 3.0,
+        "fat": 7.6,
+        "salt": 0.9
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "it_379520ada20e",
+      "tr": "Focaccia",
+      "en": "Focaccia",
+      "unit": "gr",
+      "calories": 290,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Ekmek",
+      "localName": "Focaccia",
+      "nutrients": {
+        "protein": 8.0,
+        "carbohydrate": 48.0,
+        "sugar": 2.0,
+        "fat": 7.3,
+        "salt": 1.3
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "it_b2cc61b3b5bc",
+      "tr": "Bruschetta al pomodoro",
+      "en": "Tomato bruschetta",
+      "unit": "gr",
+      "calories": 180,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Atıştırmalık",
+      "localName": "Bruschetta al pomodoro",
+      "nutrients": {
+        "protein": 5.0,
+        "carbohydrate": 26.0,
+        "sugar": 3.0,
+        "fat": 6.2,
+        "salt": 0.9
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "it_120475d5a0c1",
+      "tr": "Polenta",
+      "en": "Cooked polenta",
+      "unit": "gr",
+      "calories": 85,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Yan yemekler",
+      "localName": "Polenta",
+      "nutrients": {
+        "protein": 2.0,
+        "carbohydrate": 18.0,
+        "sugar": 0.3,
+        "fat": 0.6,
+        "salt": 0.1
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "it_58b088bbcc9c",
+      "tr": "Gnocchi al pomodoro",
+      "en": "Potato gnocchi with tomato sauce",
+      "unit": "gr",
+      "calories": 140,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Ana yemekler",
+      "localName": "Gnocchi al pomodoro",
+      "nutrients": {
+        "protein": 4.0,
+        "carbohydrate": 25.0,
+        "sugar": 3.0,
+        "fat": 2.7,
+        "salt": 0.8
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "it_f82c47b630b5",
+      "tr": "Parmigiana di melanzane",
+      "en": "Aubergine parmigiana",
+      "unit": "gr",
+      "calories": 150,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Sebze yemekleri",
+      "localName": "Parmigiana di melanzane",
+      "nutrients": {
+        "protein": 6.0,
+        "carbohydrate": 10.0,
+        "sugar": 4.0,
+        "fat": 9.6,
+        "salt": 0.8
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "it_c17bf6229889",
+      "tr": "Insalata caprese",
+      "en": "Caprese salad",
+      "unit": "gr",
+      "calories": 165,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Salatalar",
+      "localName": "Insalata caprese",
+      "nutrients": {
+        "protein": 10.0,
+        "carbohydrate": 5.0,
+        "sugar": 3.0,
+        "fat": 11.7,
+        "salt": 0.7
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "it_40bee7951288",
+      "tr": "Insalata mista",
+      "en": "Italian mixed salad, without dressing",
+      "unit": "gr",
+      "calories": 25,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Salatalar",
+      "localName": "Insalata mista",
+      "nutrients": {
+        "protein": 1.0,
+        "carbohydrate": 4.0,
+        "sugar": 2.0,
+        "fat": 0.6,
+        "salt": 0.2
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "produce"
+    },
+    {
+      "id": "it_d7125c8d138c",
+      "tr": "Frittata",
+      "en": "Italian frittata",
+      "unit": "gr",
+      "calories": 155,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Yumurta yemekleri",
+      "localName": "Frittata",
+      "nutrients": {
+        "protein": 11.0,
+        "carbohydrate": 3.0,
+        "sugar": 1.0,
+        "fat": 11.0,
+        "salt": 0.7
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "it_043642c69689",
+      "tr": "Ossobuco",
+      "en": "Ossobuco (braised veal)",
+      "unit": "gr",
+      "calories": 160,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Et yemekleri",
+      "localName": "Ossobuco",
+      "nutrients": {
+        "protein": 20.0,
+        "carbohydrate": 4.0,
+        "sugar": 1.0,
+        "fat": 7.1,
+        "salt": 1.0
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "it_cf02b8e48095",
+      "tr": "Pollo arrosto",
+      "en": "Italian roast chicken",
+      "unit": "gr",
+      "calories": 180,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Et yemekleri",
+      "localName": "Pollo arrosto",
+      "nutrients": {
+        "protein": 27.0,
+        "carbohydrate": 0.0,
+        "sugar": 0.0,
+        "fat": 8.0,
+        "salt": 0.8
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "it_1c09490c5850",
+      "tr": "Pesce al forno",
+      "en": "Oven-baked fish",
+      "unit": "gr",
+      "calories": 140,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Balık",
+      "localName": "Pesce al forno",
+      "nutrients": {
+        "protein": 22.0,
+        "carbohydrate": 1.0,
+        "sugar": 0.4,
+        "fat": 5.3,
+        "salt": 0.7
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "it_d753f2a6f1a8",
+      "tr": "Bresaola",
+      "en": "Bresaola (air-dried beef)",
+      "unit": "gr",
+      "calories": 150,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Et ürünleri",
+      "localName": "Bresaola",
+      "nutrients": {
+        "protein": 33.0,
+        "carbohydrate": 0.0,
+        "sugar": 0.0,
+        "fat": 2.0,
+        "salt": 4.0
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "it_20b91ce8de7a",
+      "tr": "Prosciutto crudo",
+      "en": "Prosciutto crudo",
+      "unit": "gr",
+      "calories": 275,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Et ürünleri",
+      "localName": "Prosciutto crudo",
+      "nutrients": {
+        "protein": 27.0,
+        "carbohydrate": 0.0,
+        "sugar": 0.0,
+        "fat": 18.6,
+        "salt": 4.0
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "it_dc40b05c6499",
+      "tr": "Parmigiano Reggiano",
+      "en": "Parmigiano Reggiano",
+      "unit": "gr",
+      "calories": 400,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Peynir",
+      "localName": "Parmigiano Reggiano",
+      "nutrients": {
+        "protein": 35.0,
+        "carbohydrate": 3.0,
+        "sugar": 0.0,
+        "fat": 27.6,
+        "salt": 1.6
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "it_47052088a3dd",
+      "tr": "Ricotta",
+      "en": "Ricotta",
+      "unit": "gr",
+      "calories": 175,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Peynir",
+      "localName": "Ricotta",
+      "nutrients": {
+        "protein": 11.0,
+        "carbohydrate": 3.0,
+        "sugar": 2.0,
+        "fat": 13.2,
+        "salt": 0.3
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "it_b779941e76cb",
+      "tr": "Tiramisù",
+      "en": "Tiramisù",
+      "unit": "gr",
+      "calories": 280,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Tatlılar",
+      "localName": "Tiramisù",
+      "nutrients": {
+        "protein": 5.0,
+        "carbohydrate": 29.0,
+        "sugar": 20.0,
+        "fat": 16.0,
+        "salt": 0.2
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://www.italia.it/en/italy/things-to-do/pasta-types-italian-formats-and-recipes",
+      "purpose": "Country cuisine examples; not proof of population frequency or calorie value."
+    }
+  ],
+  "researchNote": {
+    "tr": "Başlangıç listesidir; yemeklerin tek tek tüketim sıklığı henüz doğrulanmamıştır. Kalori bilgileri yaklaşık değerlerdir.",
+    "en": "Starter list; consumption frequency of individual foods has not yet been verified. Calories are estimates."
+  },
+  "coverageSource": "https://www.crea.gov.it/web/alimenti-e-nutrizione/-/iv-scai-studio-sui-consumi-alimentari-in-italia",
+  "nutritionEstimateNotice": {
+    "tr": "Besin değerleri kaynakla doğrulanmamış yapay zekâ tahminleridir. Yağ değeri mevcut kalori tahmininden hesaplanmıştır; tarif ve porsiyona göre değişir.",
+    "en": "Nutrients are unverified AI estimates. Fat is derived from the existing estimated calories; recipes and portions vary."
+  }
+}

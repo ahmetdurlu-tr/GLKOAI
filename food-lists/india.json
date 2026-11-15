@@ -1,0 +1,1259 @@
+{
+  "version": 7,
+  "id": "india",
+  "items": [
+    {
+      "id": "india__water",
+      "tr": "Su",
+      "en": "Water",
+      "unit": "ml",
+      "calories": 0,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "localName": "Pani",
+      "nutrients": {
+        "protein": 0,
+        "carbohydrate": 0,
+        "sugar": 0,
+        "fat": 0,
+        "salt": 0
+      },
+      "nutrientSource": "ai_estimate",
+      "foodGroup": "water"
+    },
+    {
+      "id": "india__daily_buttermilk",
+      "tr": "Şekersiz ayran",
+      "en": "Unsweetened buttermilk",
+      "localName": "Chaas, unsweetened",
+      "unit": "ml",
+      "calories": 30,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Bu gıda için kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching for this item has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "nutrients": {
+        "protein": 2,
+        "carbohydrate": 3,
+        "sugar": 3,
+        "fat": 1.1,
+        "salt": 0.5
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "other"
+    },
+    {
+      "id": "india__daily_basmati_cooked",
+      "tr": "Pişmiş basmati pirinci",
+      "en": "Cooked basmati rice",
+      "localName": "Basmati chawal, cooked",
+      "unit": "gr",
+      "calories": 130,
+      "calorieSource": {
+        "tr": "USDA SR28 20345: sade pişmiş uzun taneli beyaz pirinç, 130 kcal/100 g; pirinç ve hazırlanışa göre değişir.",
+        "en": "USDA SR28 20345: plain cooked long-grain white rice, 130 kcal/100 g; varies by rice and preparation.",
+        "url": "https://www.ars.usda.gov/ARSUserFiles/80400535/Data/SR/SR28/reports/sr28fg20.pdf"
+      },
+      "calorieMethod": "reference_comparable",
+      "nutrients": {
+        "protein": 2.7,
+        "carbohydrate": 28,
+        "sugar": 0.1,
+        "fat": 0.8,
+        "salt": 0.01
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "india__daily_roasted_peanuts",
+      "tr": "Kavrulmuş yer fıstığı",
+      "en": "Roasted peanuts",
+      "localName": "Moongphali, roasted",
+      "unit": "gr",
+      "calories": 585,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Bu gıda için kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching for this item has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "nutrients": {
+        "protein": 25,
+        "carbohydrate": 21,
+        "sugar": 5,
+        "fat": 44.6,
+        "salt": 0.05
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "fat"
+    },
+    {
+      "id": "india__daily_mango_raw",
+      "tr": "Mango",
+      "en": "Mango",
+      "localName": "Aam (mango)",
+      "unit": "gr",
+      "calories": 60,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Bu gıda için kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching for this item has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "nutrients": {
+        "protein": 0.8,
+        "carbohydrate": 15,
+        "sugar": 14,
+        "fat": 0.0,
+        "salt": 0.01
+      },
+      "nutrientSource": "ai_estimate",
+      "foodGroup": "produce"
+    },
+    {
+      "id": "india__daily_onion_raw",
+      "tr": "Çiğ soğan",
+      "en": "Raw onion",
+      "localName": "Pyaz (raw onion)",
+      "unit": "gr",
+      "calories": 40,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Bu gıda için kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching for this item has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "nutrients": {
+        "protein": 1,
+        "carbohydrate": 9,
+        "sugar": 4,
+        "fat": 0.0,
+        "salt": 0.01
+      },
+      "nutrientSource": "ai_estimate",
+      "foodGroup": "produce"
+    },
+    {
+      "id": "india__daily_cucumber_raw",
+      "tr": "Salatalık",
+      "en": "Raw cucumber",
+      "localName": "Kheera (cucumber)",
+      "unit": "gr",
+      "calories": 15,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Bu gıda için kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching for this item has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "nutrients": {
+        "protein": 0.7,
+        "carbohydrate": 3,
+        "sugar": 1.5,
+        "fat": 0.0,
+        "salt": 0.01
+      },
+      "nutrientSource": "ai_estimate",
+      "foodGroup": "produce"
+    },
+    {
+      "id": "india__daily_tea_milk_unsweetened",
+      "tr": "Şekersiz sütlü çay",
+      "en": "Unsweetened milk tea",
+      "localName": "Chai, without sugar",
+      "unit": "ml",
+      "calories": 30,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Bu gıda için kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching for this item has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "nutrients": {
+        "protein": 2,
+        "carbohydrate": 3,
+        "sugar": 3,
+        "fat": 1.1,
+        "salt": 0.08
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "other"
+    },
+    {
+      "id": "india__daily_milk_whole",
+      "tr": "Tam yağlı süt",
+      "en": "Whole milk",
+      "localName": "Doodh (whole milk)",
+      "unit": "ml",
+      "calories": 61,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Bu gıda için kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching for this item has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "nutrients": {
+        "protein": 3.2,
+        "carbohydrate": 4.7,
+        "sugar": 4.7,
+        "fat": 3.3,
+        "salt": 0.12
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "india__rice",
+      "tr": "Pişmiş pirinç",
+      "en": "Cooked rice",
+      "unit": "gr",
+      "calories": 130,
+      "calorieSource": {
+        "tr": "USDA SR28 20345: sade pişmiş uzun taneli beyaz pirinç, 130 kcal/100 g; pirinç ve hazırlanışa göre değişir.",
+        "en": "USDA SR28 20345: plain cooked long-grain white rice, 130 kcal/100 g; varies by rice and preparation.",
+        "url": "https://www.ars.usda.gov/ARSUserFiles/80400535/Data/SR/SR28/reports/sr28fg20.pdf"
+      },
+      "calorieMethod": "reference_comparable",
+      "localName": "Chawal (plain cooked rice)",
+      "nutrients": {
+        "protein": 2.7,
+        "carbohydrate": 28,
+        "sugar": 0.1,
+        "fat": 0.8,
+        "salt": 0.01
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "india__lentil",
+      "tr": "Haşlanmış mercimek",
+      "en": "Cooked lentils",
+      "unit": "gr",
+      "calories": 116,
+      "calorieSource": {
+        "tr": "USDA, Nutritive Value of Foods (2002), kayıt 703; porsiyon değeri 100 grama çevrilmiş yaklaşık değerdir.",
+        "en": "USDA, Nutritive Value of Foods (2002), entry 703; approximate value converted from portion to 100 g.",
+        "url": "https://www.ars.usda.gov/ARSUserFiles/oc/np/NutritiveValueofFoods/NutritiveValueofFoods.pdf"
+      },
+      "calorieMethod": "reference_converted",
+      "localName": "Uble dal (plain cooked lentils)",
+      "nutrients": {
+        "protein": 9,
+        "carbohydrate": 20,
+        "sugar": 2,
+        "fat": 0.0,
+        "salt": 0.03
+      },
+      "nutrientSource": "ai_estimate",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "india__chickpea",
+      "tr": "Haşlanmış nohut",
+      "en": "Cooked chickpeas",
+      "unit": "gr",
+      "calories": 164,
+      "calorieSource": {
+        "tr": "USDA, Nutritive Value of Foods (2002), kayıt 695; porsiyon değeri 100 grama çevrilmiş yaklaşık değerdir.",
+        "en": "USDA, Nutritive Value of Foods (2002), entry 695; approximate value converted from portion to 100 g.",
+        "url": "https://www.ars.usda.gov/ARSUserFiles/oc/np/NutritiveValueofFoods/NutritiveValueofFoods.pdf"
+      },
+      "calorieMethod": "reference_converted",
+      "localName": "Uble chane (boiled chickpeas)",
+      "nutrients": {
+        "protein": 9,
+        "carbohydrate": 27,
+        "sugar": 5,
+        "fat": 2.2,
+        "salt": 0.03
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "india__yogurt",
+      "tr": "Sade yoğurt",
+      "en": "Plain yogurt",
+      "unit": "gr",
+      "calories": 61,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "localName": "Dahi (plain yogurt)",
+      "nutrients": {
+        "protein": 3.5,
+        "carbohydrate": 4.7,
+        "sugar": 4.7,
+        "fat": 3.1,
+        "salt": 0.1
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "india__tomato",
+      "tr": "Domates",
+      "en": "Tomato",
+      "unit": "gr",
+      "calories": 21,
+      "calorieSource": {
+        "tr": "USDA, Nutritive Value of Foods (2002), kayıt 1206; porsiyon değeri 100 grama çevrilmiş yaklaşık değerdir.",
+        "en": "USDA, Nutritive Value of Foods (2002), entry 1206; approximate value converted from portion to 100 g.",
+        "url": "https://www.ars.usda.gov/ARSUserFiles/oc/np/NutritiveValueofFoods/NutritiveValueofFoods.pdf"
+      },
+      "calorieMethod": "reference_converted",
+      "localName": "Tamatar",
+      "nutrients": {
+        "protein": 1,
+        "carbohydrate": 3.5,
+        "sugar": 2.5,
+        "fat": 0.3,
+        "salt": 0.02
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "produce"
+    },
+    {
+      "id": "india__potato",
+      "tr": "Haşlanmış patates",
+      "en": "Boiled potato",
+      "unit": "gr",
+      "calories": 87,
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching has not yet been verified.",
+        "url": null
+      },
+      "calorieMethod": "generic_estimate",
+      "localName": "Uble aloo (boiled potato)",
+      "nutrients": {
+        "protein": 2,
+        "carbohydrate": 20,
+        "sugar": 1,
+        "fat": 0.0,
+        "salt": 0.02
+      },
+      "nutrientSource": "ai_estimate",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "india__banana",
+      "tr": "Muz",
+      "en": "Banana",
+      "unit": "gr",
+      "calories": 89,
+      "calorieSource": {
+        "tr": "USDA SR27 09040: çiğ muz, yenebilir kısım, 89 kcal/100 g.",
+        "en": "USDA SR27 09040: raw banana, edible portion, 89 kcal/100 g.",
+        "url": "https://www.ars.usda.gov/ARSUserFiles/80400525/Data/SR27/reports/sr27fg09.pdf"
+      },
+      "calorieMethod": "reference_comparable",
+      "localName": "Kela",
+      "nutrients": {
+        "protein": 1.1,
+        "carbohydrate": 23,
+        "sugar": 12,
+        "fat": 0.0,
+        "salt": 0.01
+      },
+      "nutrientSource": "ai_estimate",
+      "foodGroup": "produce"
+    },
+    {
+      "id": "india__orange",
+      "tr": "Portakal",
+      "en": "Orange",
+      "unit": "gr",
+      "calories": 47,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "Genel yaklaşık başlangıç değeri; ürün, hazırlanış ve porsiyona göre değişir. Kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Generic starting estimate; varies by product, preparation and portion. Source matching has not yet been verified.",
+        "url": null
+      },
+      "portions": [
+        {
+          "tr": "1 orta boy portakal (soyulmuş)",
+          "en": "1 medium orange (peeled)",
+          "amount": 130
+        }
+      ],
+      "localName": "Santra",
+      "nutrients": {
+        "protein": 0.9,
+        "carbohydrate": 12,
+        "sugar": 9,
+        "fat": 0.0,
+        "salt": 0.01
+      },
+      "nutrientSource": "ai_estimate",
+      "foodGroup": "produce"
+    },
+    {
+      "id": "in_30f77d1492e2",
+      "tr": "Dal tadka",
+      "en": "Dal tadka (lentils with tempered spices)",
+      "unit": "gr",
+      "calories": 120,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Bakliyat yemekleri",
+      "localName": "Dal tadka",
+      "nutrients": {
+        "protein": 7.0,
+        "carbohydrate": 16.0,
+        "sugar": 2.0,
+        "fat": 3.1,
+        "salt": 0.7
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "in_eb54ed1f98b9",
+      "tr": "Dal makhani",
+      "en": "Dal makhani (creamy black lentils)",
+      "unit": "gr",
+      "calories": 160,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Bakliyat yemekleri",
+      "localName": "Dal makhani",
+      "nutrients": {
+        "protein": 8.0,
+        "carbohydrate": 20.0,
+        "sugar": 2.0,
+        "fat": 5.3,
+        "salt": 0.8
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "in_de5672df14ef",
+      "tr": "Rajma masala",
+      "en": "Rajma masala (kidney bean curry)",
+      "unit": "gr",
+      "calories": 140,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Bakliyat yemekleri",
+      "localName": "Rajma masala",
+      "nutrients": {
+        "protein": 7.0,
+        "carbohydrate": 20.0,
+        "sugar": 3.0,
+        "fat": 3.6,
+        "salt": 0.8
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "in_608786d2ef7b",
+      "tr": "Chana masala",
+      "en": "Chana masala (chickpea curry)",
+      "unit": "gr",
+      "calories": 150,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Bakliyat yemekleri",
+      "localName": "Chana masala",
+      "nutrients": {
+        "protein": 7.0,
+        "carbohydrate": 20.0,
+        "sugar": 3.0,
+        "fat": 4.7,
+        "salt": 0.8
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "in_8d406e4daf7e",
+      "tr": "Sambar",
+      "en": "Sambar (lentil and vegetable stew)",
+      "unit": "gr",
+      "calories": 70,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Çorbalar",
+      "localName": "Sambar",
+      "nutrients": {
+        "protein": 3.0,
+        "carbohydrate": 10.0,
+        "sugar": 2.0,
+        "fat": 2.0,
+        "salt": 0.7
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "in_74cc0c67ea4f",
+      "tr": "Rasam",
+      "en": "Rasam (spiced tomato broth)",
+      "unit": "gr",
+      "calories": 35,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Çorbalar",
+      "localName": "Rasam",
+      "nutrients": {
+        "protein": 1.0,
+        "carbohydrate": 6.0,
+        "sugar": 2.0,
+        "fat": 0.8,
+        "salt": 0.7
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "other"
+    },
+    {
+      "id": "in_a6ee2ed3a24a",
+      "tr": "Idli",
+      "en": "Idli (steamed rice and lentil cake)",
+      "unit": "gr",
+      "calories": 145,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Kahvaltı",
+      "localName": "Idli",
+      "nutrients": {
+        "protein": 5.0,
+        "carbohydrate": 30.0,
+        "sugar": 1.0,
+        "fat": 0.6,
+        "salt": 0.5
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "in_f193abdbffd6",
+      "tr": "Sade dosa",
+      "en": "Plain dosa",
+      "unit": "gr",
+      "calories": 190,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Kahvaltı",
+      "localName": "Plain dosa",
+      "nutrients": {
+        "protein": 4.0,
+        "carbohydrate": 35.0,
+        "sugar": 1.0,
+        "fat": 3.8,
+        "salt": 0.8
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "in_f96f9ba46a4e",
+      "tr": "Masala dosa",
+      "en": "Masala dosa (potato-filled crêpe)",
+      "unit": "gr",
+      "calories": 170,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Kahvaltı",
+      "localName": "Masala dosa",
+      "nutrients": {
+        "protein": 4.0,
+        "carbohydrate": 30.0,
+        "sugar": 2.0,
+        "fat": 3.8,
+        "salt": 0.8
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "in_186ce7c6f4c3",
+      "tr": "Uttapam",
+      "en": "Uttapam (vegetable rice pancake)",
+      "unit": "gr",
+      "calories": 150,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Kahvaltı",
+      "localName": "Uttapam",
+      "nutrients": {
+        "protein": 4.0,
+        "carbohydrate": 27.0,
+        "sugar": 2.0,
+        "fat": 2.9,
+        "salt": 0.7
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "in_a4d72a6cee97",
+      "tr": "Poha",
+      "en": "Poha (flattened rice)",
+      "unit": "gr",
+      "calories": 160,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Kahvaltı",
+      "localName": "Poha",
+      "nutrients": {
+        "protein": 4.0,
+        "carbohydrate": 28.0,
+        "sugar": 2.0,
+        "fat": 3.6,
+        "salt": 0.7
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "in_c81588086acd",
+      "tr": "Upma",
+      "en": "Upma (semolina breakfast)",
+      "unit": "gr",
+      "calories": 150,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Kahvaltı",
+      "localName": "Upma",
+      "nutrients": {
+        "protein": 4.0,
+        "carbohydrate": 26.0,
+        "sugar": 2.0,
+        "fat": 3.3,
+        "salt": 0.7
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "in_07fdc5283b68",
+      "tr": "Aloo paratha",
+      "en": "Aloo paratha (potato flatbread)",
+      "unit": "gr",
+      "calories": 250,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Ekmek",
+      "localName": "Aloo paratha",
+      "nutrients": {
+        "protein": 6.0,
+        "carbohydrate": 35.0,
+        "sugar": 2.0,
+        "fat": 9.6,
+        "salt": 0.8
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "in_468f7b43827b",
+      "tr": "Chapati",
+      "en": "Chapati (wholewheat flatbread)",
+      "unit": "gr",
+      "calories": 290,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Ekmek",
+      "localName": "Chapati",
+      "nutrients": {
+        "protein": 9.0,
+        "carbohydrate": 55.0,
+        "sugar": 2.0,
+        "fat": 3.8,
+        "salt": 0.6
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "in_88367a446934",
+      "tr": "Roti",
+      "en": "Roti (Indian flatbread)",
+      "unit": "gr",
+      "calories": 295,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Ekmek",
+      "localName": "Roti",
+      "nutrients": {
+        "protein": 9.0,
+        "carbohydrate": 56.0,
+        "sugar": 2.0,
+        "fat": 3.9,
+        "salt": 0.6
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "in_ca616f65dedc",
+      "tr": "Naan",
+      "en": "Naan (Indian flatbread)",
+      "unit": "gr",
+      "calories": 310,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Ekmek",
+      "localName": "Naan",
+      "nutrients": {
+        "protein": 9.0,
+        "carbohydrate": 55.0,
+        "sugar": 3.0,
+        "fat": 6.0,
+        "salt": 1.0
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "in_1f4ff1b4c804",
+      "tr": "Puri",
+      "en": "Puri (fried bread)",
+      "unit": "gr",
+      "calories": 330,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Ekmek",
+      "localName": "Puri",
+      "nutrients": {
+        "protein": 7.0,
+        "carbohydrate": 45.0,
+        "sugar": 1.0,
+        "fat": 13.6,
+        "salt": 0.8
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "in_c232c337aac1",
+      "tr": "Aloo gobi",
+      "en": "Aloo gobi (potato and cauliflower)",
+      "unit": "gr",
+      "calories": 125,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Sebze yemekleri",
+      "localName": "Aloo gobi",
+      "nutrients": {
+        "protein": 3.0,
+        "carbohydrate": 17.0,
+        "sugar": 3.0,
+        "fat": 5.0,
+        "salt": 0.7
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "in_c2509a7ba771",
+      "tr": "Bhindi masala",
+      "en": "Bhindi masala (spiced okra)",
+      "unit": "gr",
+      "calories": 100,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Sebze yemekleri",
+      "localName": "Bhindi masala",
+      "nutrients": {
+        "protein": 3.0,
+        "carbohydrate": 12.0,
+        "sugar": 3.0,
+        "fat": 4.4,
+        "salt": 0.7
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "produce"
+    },
+    {
+      "id": "in_d6828f8d5094",
+      "tr": "Baingan bharta",
+      "en": "Baingan bharta (roasted aubergine)",
+      "unit": "gr",
+      "calories": 100,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Sebze yemekleri",
+      "localName": "Baingan bharta",
+      "nutrients": {
+        "protein": 3.0,
+        "carbohydrate": 10.0,
+        "sugar": 4.0,
+        "fat": 5.3,
+        "salt": 0.7
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "produce"
+    },
+    {
+      "id": "in_38383dfb0c77",
+      "tr": "Palak paneer",
+      "en": "Palak paneer (spinach and cheese)",
+      "unit": "gr",
+      "calories": 150,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Sebze yemekleri",
+      "localName": "Palak paneer",
+      "nutrients": {
+        "protein": 8.0,
+        "carbohydrate": 8.0,
+        "sugar": 3.0,
+        "fat": 9.6,
+        "salt": 0.8
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "in_7fe7430129fa",
+      "tr": "Paneer tikka",
+      "en": "Paneer tikka",
+      "unit": "gr",
+      "calories": 220,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Ana yemekler",
+      "localName": "Paneer tikka",
+      "nutrients": {
+        "protein": 15.0,
+        "carbohydrate": 8.0,
+        "sugar": 3.0,
+        "fat": 14.2,
+        "salt": 1.0
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "in_a455cc908b97",
+      "tr": "Malai kofta",
+      "en": "Malai kofta (dumplings in sauce)",
+      "unit": "gr",
+      "calories": 180,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Ana yemekler",
+      "localName": "Malai kofta",
+      "nutrients": {
+        "protein": 7.0,
+        "carbohydrate": 16.0,
+        "sugar": 4.0,
+        "fat": 9.8,
+        "salt": 0.8
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "in_4bb47ee8c132",
+      "tr": "Sebzeli biryani",
+      "en": "Vegetable biryani",
+      "unit": "gr",
+      "calories": 160,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Pilav",
+      "localName": "Vegetable biryani",
+      "nutrients": {
+        "protein": 5.0,
+        "carbohydrate": 26.0,
+        "sugar": 3.0,
+        "fat": 4.0,
+        "salt": 0.7
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "in_a80cf2ee063a",
+      "tr": "Tavuklu biryani",
+      "en": "Chicken biryani",
+      "unit": "gr",
+      "calories": 180,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Pilav",
+      "localName": "Chicken biryani",
+      "nutrients": {
+        "protein": 10.0,
+        "carbohydrate": 24.0,
+        "sugar": 2.0,
+        "fat": 4.9,
+        "salt": 0.8
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "in_da7e662e7357",
+      "tr": "Lemon rice",
+      "en": "Lemon rice (Indian style)",
+      "unit": "gr",
+      "calories": 160,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Pilav",
+      "localName": "Lemon rice",
+      "nutrients": {
+        "protein": 3.0,
+        "carbohydrate": 27.0,
+        "sugar": 1.0,
+        "fat": 4.4,
+        "salt": 0.6
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "in_aafdf7437f8f",
+      "tr": "Khichdi",
+      "en": "Khichdi (rice and lentils)",
+      "unit": "gr",
+      "calories": 130,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Pilav",
+      "localName": "Khichdi",
+      "nutrients": {
+        "protein": 5.0,
+        "carbohydrate": 22.0,
+        "sugar": 1.0,
+        "fat": 2.4,
+        "salt": 0.6
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "in_db78ee9fec0b",
+      "tr": "Tavuk tikka masala",
+      "en": "Chicken tikka masala",
+      "unit": "gr",
+      "calories": 170,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Et yemekleri",
+      "localName": "Chicken tikka masala",
+      "nutrients": {
+        "protein": 12.0,
+        "carbohydrate": 9.0,
+        "sugar": 4.0,
+        "fat": 9.6,
+        "salt": 1.0
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "in_8113f4725a97",
+      "tr": "Tandır tavuğu (tandoori chicken)",
+      "en": "Tandoori chicken",
+      "unit": "gr",
+      "calories": 170,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Et yemekleri",
+      "localName": "Tandoori chicken",
+      "nutrients": {
+        "protein": 25.0,
+        "carbohydrate": 2.0,
+        "sugar": 1.0,
+        "fat": 6.9,
+        "salt": 1.0
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "in_5449500fb5f0",
+      "tr": "Tereyağlı tavuk (butter chicken)",
+      "en": "Butter chicken",
+      "unit": "gr",
+      "calories": 195,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Et yemekleri",
+      "localName": "Butter chicken",
+      "nutrients": {
+        "protein": 15.0,
+        "carbohydrate": 8.0,
+        "sugar": 4.0,
+        "fat": 11.4,
+        "salt": 1.0
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "protein"
+    },
+    {
+      "id": "in_12213fb12932",
+      "tr": "Salatalıklı raita",
+      "en": "Cucumber raita",
+      "unit": "gr",
+      "calories": 65,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Yan yemekler",
+      "localName": "Cucumber raita",
+      "nutrients": {
+        "protein": 3.0,
+        "carbohydrate": 5.0,
+        "sugar": 3.0,
+        "fat": 3.7,
+        "salt": 0.5
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    },
+    {
+      "id": "in_3339cd98591d",
+      "tr": "Hindistan cevizli chutney",
+      "en": "Coconut chutney",
+      "unit": "gr",
+      "calories": 180,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Yan yemekler",
+      "localName": "Coconut chutney",
+      "nutrients": {
+        "protein": 3.0,
+        "carbohydrate": 8.0,
+        "sugar": 2.0,
+        "fat": 15.1,
+        "salt": 0.9
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "fat"
+    },
+    {
+      "id": "in_e496777a2902",
+      "tr": "Samosa",
+      "en": "Samosa (filled pastry)",
+      "unit": "gr",
+      "calories": 260,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Atıştırmalık",
+      "localName": "Samosa",
+      "nutrients": {
+        "protein": 5.0,
+        "carbohydrate": 28.0,
+        "sugar": 3.0,
+        "fat": 14.2,
+        "salt": 1.0
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "in_e6ad910e1dd9",
+      "tr": "Dhokla",
+      "en": "Dhokla (steamed chickpea cake)",
+      "unit": "gr",
+      "calories": 160,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Atıştırmalık",
+      "localName": "Dhokla",
+      "nutrients": {
+        "protein": 6.0,
+        "carbohydrate": 25.0,
+        "sugar": 4.0,
+        "fat": 4.0,
+        "salt": 0.8
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "carbohydrate"
+    },
+    {
+      "id": "in_a7d9bf8fd27d",
+      "tr": "Kheer",
+      "en": "Kheer (rice pudding)",
+      "unit": "gr",
+      "calories": 150,
+      "calorieMethod": "generic_estimate",
+      "calorieSource": {
+        "tr": "100 g için yaklaşık başlangıç tahmini; tarif, marka ve pişirme yöntemine göre değişir. Sayısal kaynak eşleştirmesi henüz doğrulanmadı.",
+        "en": "Approximate starting estimate per 100 g; varies with recipe, brand and cooking. Numerical source matching has not yet been verified.",
+        "url": null
+      },
+      "cuisineCategory": "Tatlılar",
+      "localName": "Kheer",
+      "nutrients": {
+        "protein": 3.0,
+        "carbohydrate": 25.0,
+        "sugar": 18.0,
+        "fat": 4.2,
+        "salt": 0.2
+      },
+      "nutrientSource": "ai_estimate_energy_derived_fat",
+      "foodGroup": "mixed"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://www.incredibleindia.gov.in/en/uttar-pradesh",
+      "purpose": "Country cuisine examples; not proof of population frequency or calorie value."
+    }
+  ],
+  "researchNote": {
+    "tr": "Başlangıç listesidir; yemeklerin tek tek tüketim sıklığı henüz doğrulanmamıştır. Kalori bilgileri yaklaşık değerlerdir.",
+    "en": "Starter list; consumption frequency of individual foods has not yet been verified. Calories are estimates."
+  },
+  "coverageSource": "https://www.nin.res.in/nutrition2020/what_india_eats.pdf",
+  "nutritionEstimateNotice": {
+    "tr": "Besin değerleri kaynakla doğrulanmamış yapay zekâ tahminleridir. Yağ değeri mevcut kalori tahmininden hesaplanmıştır; tarif ve porsiyona göre değişir.",
+    "en": "Nutrients are unverified AI estimates. Fat is derived from the existing estimated calories; recipes and portions vary."
+  }
+}

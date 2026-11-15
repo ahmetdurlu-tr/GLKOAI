@@ -1,0 +1,18 @@
+# Yerel veriler, yedekler ve geliştirme çıktıları
+*.bak
+*.backup
+*.log
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+__pycache__/
+.DS_Store
+node_modules/
+GLKAI_*Test*.json
+*test*veri*.json
+yedek*/
+
+# Ağ üzerinden aktarım paketi
+GLKAI_Git_Windows.zip
