@@ -55,7 +55,7 @@
     <script src="guide_content.js"></script>
     <script src="guide-en.js"></script>
     <script src="app-utils.js?v=66.216"></script>
-    <script src="app.js?v=66.220"></script>
+    <script src="app.js?v=66.221"></script>
     <script src="food-nutrients.js?v=66.219"></script>
     <script src="language-test.js"></script>
     <script src="food-lists.js"></script>
@@ -924,7 +924,7 @@
                 <div class="flex items-center gap-1.5">
                     <i class="ph-bold ph-code"></i>
                     <span id="footerSignature" class="flex flex-col items-center leading-tight font-medium tracking-wide text-center">
-                        <span class="text-[10px] text-slate-500" data-test-tr="~GEMINI &amp; GPT5 ile KODLANMIŞTIR~" data-test-en="~CODED WITH GEMINI &amp; GPT5~">~GEMINI &amp; GPT5 ile KODLANMIŞTIR~</span>
+                        <span class="text-[10px] text-slate-500" data-test-tr="~GPT5 ile KODLANMIŞTIR~" data-test-en="~CODED WITH GPT5~">~GPT5 ile KODLANMIŞTIR~</span>
                     </span>
                     <i class="ph-fill ph-sparkle text-indigo-500 group-hover:animate-pulse"></i>
                 </div>
@@ -1398,7 +1398,7 @@
         (function lockFooterSignature() {
             const signature = document.getElementById('footerSignature');
             if (!signature) return;
-            const SIGNATURE_HTML = '<span class="text-[10px] text-slate-500">~GEMINI &amp; GPT5 ile KODLANMIŞTIR~</span>';
+            const SIGNATURE_HTML = '<span class="text-[10px] text-slate-500">~GPT5 ile KODLANMIŞTIR~</span>';
             let restoring = false;
             const restore = () => {
                 restoring = true;
