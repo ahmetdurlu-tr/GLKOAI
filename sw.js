@@ -1,15 +1,15 @@
 // Build sürümünü her yayın sonrası güncelleyin; SW değişmezse yeni sürüm alınmaz.
 // Format: YYYYMMDD-Vxx-sss (sss: 001-999)
-const CACHE_VERSION = '20260208-66-221';
+const CACHE_VERSION = '20260208-66-223';
 const CACHE_NAME = `GLKOAI-${CACHE_VERSION}`;
 // HTTP Range header pattern - video kısmi indirme (206 Partial Content) için
 const RANGE_PATTERN = /bytes=(\d+)-(\d+)?/;
 const ASSETS = [
     './',
     './index.html',
-    './app.js?v=66.221',
+    './app.js?v=66.223',
     './food-nutrients.js?v=66.219',
-    './health-report.js',
+    './health-report.js?v=66.222',
     './alternative-report.js',
     './profile-wizard.js',
     './food-lists.js',
@@ -30,10 +30,10 @@ const ASSETS = [
     './food-lists/low_fat.json?v=1',
     './food-lists/high_protein.json?v=1',
     './custom-cuisine.js',
-    './language-test.js',
+    './language-test.js?v=66.223',
     './app-utils.js?v=66.216',
     './language.js',
-    './style.css?v=66.219',
+    './style.css?v=66.222',
     './yemekler.js',
     './guide_content.js',
     './guide-en.js',

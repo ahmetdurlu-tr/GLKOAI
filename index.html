@@ -55,17 +55,17 @@
     <script src="guide_content.js"></script>
     <script src="guide-en.js"></script>
     <script src="app-utils.js?v=66.216"></script>
-    <script src="app.js?v=66.221"></script>
+    <script src="app.js?v=66.223"></script>
     <script src="food-nutrients.js?v=66.219"></script>
-    <script src="language-test.js"></script>
+    <script src="language-test.js?v=66.223"></script>
     <script src="food-lists.js"></script>
     <script src="diet-plan.js"></script>
     <script src="custom-cuisine.js"></script>
-    <script src="health-report.js"></script>
+    <script src="health-report.js?v=66.222"></script>
     <script src="alternative-report.js"></script>
     <script defer src="profile-wizard.js"></script>
 
-    <link rel="stylesheet" href="style.css?v=66.219">
+    <link rel="stylesheet" href="style.css?v=66.222">
     
     <style>
         /* Klinik Profil bölümündeki tüm label'lar için standart font ve hizalama */
@@ -1504,6 +1504,7 @@
  <div id="customCuisineResponse" hidden><p data-test-tr="Yapay zekâ cevabını buraya yapıştırın." data-test-en="Paste the AI response here.">Yapay zekâ cevabını buraya yapıştırın.</p><textarea id="customCuisineReply" rows="7" placeholder="Yanıtı buraya yapıştırın" data-test-placeholder-tr="Yanıtı buraya yapıştırın" data-test-placeholder-en="Paste the response here"></textarea><button type="button" class="food-ai-action" onclick="CustomCuisine.save()" data-test-tr="MUTFAĞI EKLE" data-test-en="ADD CUISINE">MUTFAĞI EKLE</button><button type="button" class="food-ai-action" onclick="CustomCuisine.back()" data-test-tr="GERİ" data-test-en="BACK">GERİ</button></div>
  <p id="customCuisineError" class="food-lists-error" role="alert" hidden></p>
 </dialog>
+<dialog id="comparisonGraphDialog" class="comparison-graph-dialog" aria-labelledby="comparisonGraphTitle"><div class="comparison-graph-header"><h2 id="comparisonGraphTitle" data-test-tr="KARŞILAŞTIRMA GRAFİĞİ" data-test-en="COMPARISON CHART">KARŞILAŞTIRMA GRAFİĞİ</h2><button type="button" id="comparisonGraphClose" aria-label="Kapat / Close"><i class="ph-bold ph-x" aria-hidden="true"></i></button></div><iframe id="comparisonGraphFrame" title="Karşılaştırma grafiği / Comparison chart" sandbox="allow-scripts allow-modals"></iframe></dialog>
 <dialog id="healthReportDialog" class="health-report-dialog" aria-labelledby="healthReportTitle">
  <form id="healthReportForm"><h2 id="healthReportTitle">HTML RAPOR OLUŞTUR</h2><p>Rapor dönemi ve varsa doktora iletmek istediğiniz yeni şikâyetleri seçin.</p>
  <div class="health-report-dates"><label>Başlangıç<input type="date" id="healthReportStart" required></label><label>Bitiş<input type="date" id="healthReportEnd" required></label></div>

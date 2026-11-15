@@ -32,7 +32,8 @@
         closePickerButton.addEventListener('click', closePicker);
         picker.addEventListener('click', function (event) { if (event.target === picker) closePicker(); });
         picker.addEventListener('keydown', function (event) { if (event.key === 'Escape') { event.preventDefault(); closePicker(); } });
-        let lang = 'en';
+        const browserLanguage = String(navigator.language || '').toLowerCase().split(/[-_]/)[0];
+        let lang = browserLanguage === 'tr' ? 'tr' : 'en';
         try { const saved = localStorage.getItem('glkoaiLanguageTest'); if (saved === 'tr' || saved === 'en') lang = saved; } catch (_) {}
         window.GLKOAITestLanguage = {
             get currentLang() { return lang; },
