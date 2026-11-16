@@ -8415,7 +8415,7 @@ window.closeOnboarding = () => OnboardingManager.finish();
 // ==========================================
 
 window.onload = function() {
-    const SW_VERSION = '20260208-66-228';
+    const SW_VERSION = '20260208-66-229';
     try {
         // [UX] GLOBAL TİTREŞİM (Sadece mobil + kullanıcı etkileşimi + izin verilebilirse)
         let vibrateAvailable = false;
