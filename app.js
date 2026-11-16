@@ -8160,8 +8160,10 @@ const OnboardingManager = {
 
     renderSlide(index) {
         const currentSlide = this.slides[index];
-        let onboardingLanguage = 'en';
-        try { onboardingLanguage = window.GLKOAITestLanguage?.currentLang || localStorage.getItem('glkoaiLanguageTest') || 'en'; } catch (_) {}
+        const browserLanguage = String(navigator.language || '').toLowerCase().split(/[-_]/)[0];
+        let onboardingLanguage = browserLanguage === 'tr' ? 'tr' : 'en';
+        try { const saved = localStorage.getItem('glkoaiLanguageTest'); if (saved === 'tr' || saved === 'en') onboardingLanguage = saved; } catch (_) {}
+        if (window.GLKOAITestLanguage?.currentLang === 'tr' || window.GLKOAITestLanguage?.currentLang === 'en') onboardingLanguage = window.GLKOAITestLanguage.currentLang;
         const introEnglish = onboardingLanguage === 'en';
         const englishSlides = [
             { title: 'YOU ARE IN CONTROL', desc: 'Start your health journey. <br> Measure, analyze, manage...' },
@@ -8413,7 +8415,7 @@ window.closeOnboarding = () => OnboardingManager.finish();
 // ==========================================
 
 window.onload = function() {
-    const SW_VERSION = '20260208-66-224';
+    const SW_VERSION = '20260208-66-225';
     try {
         // [UX] GLOBAL TİTREŞİM (Sadece mobil + kullanıcı etkileşimi + izin verilebilirse)
         let vibrateAvailable = false;
